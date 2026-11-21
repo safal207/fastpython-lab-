@@ -47,7 +47,74 @@ static PyObject *sum_squares_ints(PyObject *self, PyObject *seq)
     return PyLong_FromLongLong(result);
 }
 
+/*
+ * Candidate A: use fast signed 64-bit accumulation until it cannot represent
+ * the exact result, then promote once to PyLong. Pure exact integers are the
+ * only inputs admitted; any subclass or non-int falls back to the public
+ * expression, so no user-defined __mul__ is skipped or invoked twice.
+ *
+ * Separate entrypoint for A/B tests. NOT activated by sum_squares().
+ */
+static PyObject *sum_squares_bigints(PyObject *self, PyObject *seq)
+{
+    (void)self;
+    const int is_list = PyList_CheckExact(seq);
+    const int is_tuple = PyTuple_CheckExact(seq);
+    if (!is_list && !is_tuple) {
+        Py_RETURN_NOTIMPLEMENTED;
+    }
+
+    Py_ssize_t size = is_list ? PyList_GET_SIZE(seq) : PyTuple_GET_SIZE(seq);
+    long long fast_total = 0;
+    PyObject *big_total = NULL;
+
+    for (Py_ssize_t i = 0; i < size; ++i) {
+        PyObject *item = is_list ? PyList_GET_ITEM(seq, i) : PyTuple_GET_ITEM(seq, i);
+        if (!PyLong_CheckExact(item)) {
+            Py_XDECREF(big_total);
+            Py_RETURN_NOTIMPLEMENTED;
+        }
+        if (big_total == NULL) {
+            int overflow = 0;
+            long long value = PyLong_AsLongLongAndOverflow(item, &overflow);
+            if (value == -1 && PyErr_Occurred()) {
+                return NULL;
+            }
+            if (overflow == 0 && value <= MAX_SQUARE_ROOT &&
+                    value >= -MAX_SQUARE_ROOT) {
+                long long square = value * value;
+                if (fast_total <= LLONG_MAX - square) {
+                    fast_total += square;
+                    continue;
+                }
+            }
+            big_total = PyLong_FromLongLong(fast_total);
+            if (big_total == NULL) {
+                return NULL;
+            }
+        }
+        PyObject *square = PyNumber_Multiply(item, item);
+        if (square == NULL) {
+            Py_DECREF(big_total);
+            return NULL;
+        }
+        PyObject *updated = PyNumber_Add(big_total, square);
+        Py_DECREF(square);
+        Py_DECREF(big_total);
+        if (updated == NULL) {
+            return NULL;
+        }
+        big_total = updated;
+    }
+    if (big_total != NULL) {
+        return big_total;
+    }
+    return PyLong_FromLongLong(fast_total);
+}
+
 static PyMethodDef AlexPyMethods[] = {
+    {"sum_squares_bigints", (PyCFunction)sum_squares_bigints, METH_O,
+     "Experimental mixed-precision exact-int kernel (not default)."},
     {"sum_squares_ints", (PyCFunction)sum_squares_ints, METH_O,
      "Accelerated, exact 64-bit sum of squares for plain list/tuple[int]."},
     {NULL, NULL, 0, NULL}

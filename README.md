@@ -89,3 +89,21 @@ python -m alexpy.regression_triage --sessions 3 --repeat 9 \
 
 The output preserves raw samples and distinguishes a code-path explanation
 from causal evidence of timing. See [docs/REGRESSION_TRIAGE.md](docs/REGRESSION_TRIAGE.md).
+
+## v0.3 opt-in A/B interventions (not enabled by default)
+
+Two separately testable alternatives isolate the exact integer overflow
+fallback and small-container call overhead. Neither changes `sum_squares`:
+
+```bash
+python -m unittest discover -s tests -v
+python -m alexpy.intervention --sessions 3 --repeat 9 \
+  --target-seconds .004 --json intervention-results.json
+```
+
+The experimental methods are `alexpy.candidates.bigint_native` and
+`alexpy.candidates.small_dispatch`. On CPython 3.13.5 / one Linux host, both
+improved selected overflow/singleton workloads but both caused repeatable
+regressions on guardset cases. No candidate is promoted. See
+[docs/INTERVENTION.md](docs/INTERVENTION.md) for raw-measurement procedure,
+negative controls and the promotion gate.
