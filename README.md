@@ -74,3 +74,18 @@ prewarm/steady observations, independent-expression mirrors, and candidate-only
 statistical verdicts. Read [docs/GRAPH_EXPLORATION.md](docs/GRAPH_EXPLORATION.md).
 Inspired by prior COSMIC/MORPHOS, CaPU, BardoCompute and ContractGraph-QA
 research; their performance results are not imported as Python performance evidence.
+
+## v0.2 regression triage: fresh-process replications
+
+The previous graph found four potential regressions. A separate diagnostic
+traces which **code path** each input takes, compares one-axis controls that
+actually change the workload, and checks repeated paired timings in new
+Python interpreter processes:
+
+```bash
+python -m alexpy.regression_triage --sessions 3 --repeat 9 \
+  --target-seconds .004 --json regression-triage.json
+```
+
+The output preserves raw samples and distinguishes a code-path explanation
+from causal evidence of timing. See [docs/REGRESSION_TRIAGE.md](docs/REGRESSION_TRIAGE.md).

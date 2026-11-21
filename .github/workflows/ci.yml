@@ -31,6 +31,9 @@ jobs:
       - name: Run bounded transition-graph QA
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
         run: python -m alexpy.graph_search --require-native --cases 8 --repeat 9 --json graph-results.json --dot graph-states.dot
+      - name: Diagnose candidate regressions across fresh interpreters
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.regression_triage --sessions 3 --repeat 9 --target-seconds .004 --json regression-triage.json
       - uses: actions/upload-artifact@v4
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
         with:
@@ -39,3 +42,4 @@ jobs:
             benchmarks.json
             graph-results.json
             graph-states.dot
+            regression-triage.json
