@@ -37,6 +37,9 @@ jobs:
       - name: Compare opt-in A/B interventions (never auto-promote)
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
         run: python -m alexpy.intervention --sessions 3 --repeat 9 --target-seconds .004 --json intervention-results.json
+      - name: Explore space-time, derivative, and multiscale axes (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.spacetime --hops 15 --repeats 7 --loops 200 --json spacetime.json
       - uses: actions/upload-artifact@v4
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
         with:
@@ -47,3 +50,4 @@ jobs:
             graph-states.dot
             regression-triage.json
             intervention-results.json
+            spacetime.json

@@ -107,3 +107,13 @@ improved selected overflow/singleton workloads but both caused repeatable
 regressions on guardset cases. No candidate is promoted. See
 [docs/INTERVENTION.md](docs/INTERVENTION.md) for raw-measurement procedure,
 negative controls and the promotion gate.
+
+## Space-time + multiscale investigation (opt-in)
+
+`alexpy.adaptive.adaptive_sum_squares` experiments with a conservative rule-based
+route for exact built-in containers; the public API remains unchanged.
+`alexpy.spacetime` adds adjacent graph transitions through explicit time,
+first/second discrete derivatives of log speedup, and a finite-sample multiscale
+roughness **fractal-axis proxy** (not a fractal dimension).
+Run `python -m alexpy.spacetime --json spacetime.json` after building the extension.
+See [precise definitions and limitations](docs/SPACETIME_FRACTAL.md).
