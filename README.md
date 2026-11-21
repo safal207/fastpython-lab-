@@ -151,3 +151,30 @@ python -m alexpy.memory_lab --sizes-kib 4 32 256 2048 16384 \
 
 See [experimental protocol, limitations and independent evidence](docs/MEMORY_LAB.md).
 This does not change public `alexpy.sum_squares` or promote any candidate.
+
+
+## v0.7 zero-copy typed-buffer traversal (opt-in; guardset only)
+
+`alexpy.memory_candidates` adds **separate**, deliberately narrow candidates
+for exact `array('q')` and contiguous one-dimensional native signed-64
+`memoryview` input: sequential buffer reading, 64-way interleaved traversal,
+and conversion to `list` *inside* the timed callable as a comparison control.
+Each candidate falls back to the original `sum_squares` for unsupported types.
+The public dispatcher is untouched. No inputs are converted before timing.
+
+```bash
+python -m pip install -e .
+python -m unittest discover -s tests -v
+python -m alexpy.layout_bench --epochs 3 --pairs 9 \
+  --sizes 0,1,8,128,4096,32768,262144 --json layout.json
+```
+
+On one CPython 3.13.5 Linux host, three fresh processes independently saw
+roughly **12x acceleration** for sequential native traversal of 4,096 small
+signed integers *already stored as* `array('q')` vs the Python generator on
+that very same input. Large 64-bit values generally gain far less. Pre-copying
+large-value arrays into Python lists can be slower. These figures **do not**
+include the cost of choosing/creating the array representation upstream and
+are **not** a claim about arbitrary Python programs or CPU speed.
+See [protocol, raw evidence and limitations](docs/LAYOUT_TRAVERSAL.md).
+Candidate promotion remains blocked pending cross-OS and multi-host review.

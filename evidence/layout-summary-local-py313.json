@@ -1,0 +1,122 @@
+{
+  "schema": "alexpy.layout.summary.v1",
+  "scope": "CPython 3.13.5 Linux single shared/virtual host, 3 independent Python processes",
+  "raw_files": [
+    {
+      "name": "layout-local-py313.json",
+      "sha256": "f55a8901f826ea2fd358e5630d444ee637d7d8e5d1824b9a1e4eaaa438afb2ad",
+      "epochs": 3
+    },
+    {
+      "name": "layout-process-2-py313.json",
+      "sha256": "c7d274c9daeb7be186caedd896edc8716d3e20592a2eb902cbcb4995c86a5611",
+      "epochs": 2
+    },
+    {
+      "name": "layout-process-3-py313.json",
+      "sha256": "ba7d8a85e60f0b28786d572ddf31eb2ae8f58c71dc7baa738d742d82304e2082",
+      "epochs": 2
+    }
+  ],
+  "selected_states": [
+    {
+      "size": 4096,
+      "profile": "small",
+      "representation": "array",
+      "candidate": "linear",
+      "speedups_per_process": [
+        12.95154521175124,
+        12.023375457999059,
+        12.173571096016698
+      ],
+      "median_speedup": 12.173571096016698
+    },
+    {
+      "size": 32768,
+      "profile": "small",
+      "representation": "array",
+      "candidate": "linear",
+      "speedups_per_process": [
+        12.352199461356403,
+        12.741042826585877,
+        12.889253570694658
+      ],
+      "median_speedup": 12.741042826585877
+    },
+    {
+      "size": 262144,
+      "profile": "small",
+      "representation": "array",
+      "candidate": "linear",
+      "speedups_per_process": [
+        11.837951781180701,
+        11.984820615903047,
+        12.392565523696957
+      ],
+      "median_speedup": 11.984820615903047
+    },
+    {
+      "size": 4096,
+      "profile": "large",
+      "representation": "array",
+      "candidate": "linear",
+      "speedups_per_process": [
+        1.2152953946121596,
+        1.2664158783567643,
+        1.2593208406003642
+      ],
+      "median_speedup": 1.2593208406003642
+    },
+    {
+      "size": 262144,
+      "profile": "large",
+      "representation": "array",
+      "candidate": "linear",
+      "speedups_per_process": [
+        1.222915991028644,
+        1.1463795504658227,
+        1.2120517054379571
+      ],
+      "median_speedup": 1.2120517054379571
+    },
+    {
+      "size": 262144,
+      "profile": "large",
+      "representation": "array",
+      "candidate": "convert_list",
+      "speedups_per_process": [
+        0.8358200656377986,
+        0.8823979247263327,
+        0.8329334089096251
+      ],
+      "median_speedup": 0.8358200656377986
+    },
+    {
+      "size": 1,
+      "profile": "large",
+      "representation": "array",
+      "candidate": "convert_list",
+      "speedups_per_process": [
+        0.6730864097953233,
+        0.6588718416993302,
+        0.6723848609584222
+      ],
+      "median_speedup": 0.6723848609584222
+    },
+    {
+      "size": 262144,
+      "profile": "small",
+      "representation": "array",
+      "candidate": "interleaved64",
+      "speedups_per_process": [
+        8.989903306381152,
+        9.743073033537097,
+        7.8021237844698055
+      ],
+      "median_speedup": 8.989903306381152
+    }
+  ],
+  "promoted": false,
+  "hardware_counters": null,
+  "notes": "Same pre-existing array('q') used for control/candidates; array construction cost excluded. No whole-interpreter speedup claim."
+}

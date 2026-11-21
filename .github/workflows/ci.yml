@@ -46,6 +46,9 @@ jobs:
       - name: Run native memory-hierarchy smoke protocol (advisory)
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
         run: python -m alexpy.memory_lab --sizes-kib 4 64 512 4096 --epochs 2 --repeats 2 --target-accesses 100000 --hardware-counters --json memory-lab.json
+      - name: Inspect typed-buffer layout alternatives (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.layout_bench --sizes 0,8,128,4096 --epochs 2 --pairs 5 --target-seconds .001 --json layout.json
       - uses: actions/upload-artifact@v4
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
         with:
@@ -59,3 +62,4 @@ jobs:
             spacetime.json
             lattice.json
             memory-lab.json
+            layout.json
