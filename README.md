@@ -133,3 +133,21 @@ python -m alexpy.lattice_lab --epochs 2 --repeats 5 --loops 25 --json lattice.js
 ```
 
 See [docs/LATTICE_LAB.md](docs/LATTICE_LAB.md). Public API unchanged.
+
+
+## v0.6 native CPU memory-access probe and cache hypotheses (opt-in)
+
+`alexpy.memory_lab` adds an **independent native C** pointer-chase and sequential
+memory-read experiment, reported cache topology, space/time transitions,
+finite differences and optional hardware miss counters. It tests memory
+working-set hypotheses, **not** interpreter acceleration. Hardware counter
+access failures are recorded explicitly as `UNAVAILABLE`, not made-up counts.
+
+```bash
+python -m alexpy.memory_lab --sizes-kib 4 32 256 2048 16384 \
+  --epochs 2 --repeats 5 --target-accesses 750000 \
+  --hardware-counters --json memory-lab.json
+```
+
+See [experimental protocol, limitations and independent evidence](docs/MEMORY_LAB.md).
+This does not change public `alexpy.sum_squares` or promote any candidate.

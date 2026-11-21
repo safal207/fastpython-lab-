@@ -1,3 +1,6 @@
 from setuptools import Extension, setup
 
-setup(ext_modules=[Extension("alexpy._native", sources=["alexpy/_native.c"])])
+setup(ext_modules=[
+    Extension("alexpy._native", sources=["alexpy/_native.c"]),
+    Extension("alexpy._memprobe", sources=["alexpy/_memprobe.c"]),
+])
