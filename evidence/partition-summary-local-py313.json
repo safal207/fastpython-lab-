@@ -1,0 +1,97 @@
+{
+  "protocol": "ALEXPY-M12-PARTITION-COMPILER/0.1",
+  "timestamp_utc": "2026-11-21T22:44:12.198682+00:00",
+  "python": "3.13.5",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "cases": 16,
+  "processes": 3,
+  "samples_per_route_per_case": 10,
+  "median_of_case_medians": {
+    "compiled_over_partition": 1.033266672857693,
+    "manual_over_partition": 0.15125896699088914,
+    "dense_over_partition": 1.2650468551727716
+  },
+  "case_median_min_max": {
+    "compiled_over_partition": [
+      0.9534514909871734,
+      1.5294912146193793
+    ],
+    "manual_over_partition": [
+      0.11261607866002256,
+      0.4536015115775957
+    ],
+    "dense_over_partition": [
+      0.15674999259437475,
+      13.882204941309485
+    ]
+  },
+  "strong_win_vs_compiled_count": 7,
+  "strong_win_vs_dense_count": 9,
+  "manual_faster_all_cases": true,
+  "example_4096_k16_ticks32_reads1": {
+    "state": {
+      "size": 4096,
+      "width": 256,
+      "changes": 16,
+      "ticks": 32,
+      "reads": 1
+    },
+    "ratios_median": {
+      "compiled_over_partition": 1.5294912146193793,
+      "manual_over_partition": 0.16018052909885627,
+      "dense_over_partition": 1.070486745029481
+    },
+    "ratios_range": {
+      "compiled_over_partition": [
+        1.4617743616253243,
+        1.543754380652232
+      ],
+      "manual_over_partition": [
+        0.15436954037144837,
+        0.17243918392940286
+      ],
+      "dense_over_partition": [
+        1.021354916730558,
+        1.1161950352440915
+      ]
+    },
+    "partition_wins_all_10pct": {
+      "compiled_over_partition": true,
+      "manual_over_partition": false,
+      "dense_over_partition": false
+    }
+  },
+  "example_32768_k1_ticks32_reads8": {
+    "state": {
+      "size": 32768,
+      "width": 256,
+      "changes": 1,
+      "ticks": 32,
+      "reads": 8
+    },
+    "ratios_median": {
+      "compiled_over_partition": 0.9992280339017651,
+      "manual_over_partition": 0.44705991494974223,
+      "dense_over_partition": 13.882204941309485
+    },
+    "ratios_range": {
+      "compiled_over_partition": [
+        0.9970656653450602,
+        1.057652830586903
+      ],
+      "manual_over_partition": [
+        0.44643719565481005,
+        0.45207869575194
+      ],
+      "dense_over_partition": [
+        13.756866957480183,
+        13.952933579311336
+      ]
+    },
+    "partition_wins_all_10pct": {
+      "compiled_over_partition": false,
+      "manual_over_partition": false,
+      "dense_over_partition": true
+    }
+  }
+}

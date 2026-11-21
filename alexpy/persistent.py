@@ -134,6 +134,15 @@ class OwnedQBuffer:
             old = self._data[index]
             if old != value:
                 prepared.append((index, old, value))
+        return self._commit_prepared(prepared)
+
+    def _commit_prepared(self, prepared: list[tuple[int, int, int]]) -> Transition:
+        """Internal commit: requires fully validated exact (index,old,new).
+
+        Caller must hold exclusive ownership of this buffer and have verified
+        each entry with ``_exact_q`` and current stored value. Deliberately
+        private: bypassing validation would void the atomicity contract.
+        """
         # Big-int deltas are computed before any modification. They cannot
         # overflow Python int even if the q array's squared sum exceeds 64 bit.
         delta_sum = sum(new - old for _, old, new in prepared)

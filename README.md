@@ -252,22 +252,49 @@ performance-based dispatch promotion remains blocked.
 
 ## v1.1 compiled DAG frontier — opt-in, strong controls
 
-`alexpy.compiled_graph.CompiledDependencyGraph` freezes registered dependencies
-into integer node IDs and initializes typed range sums without repeated
-Python index checking. It validates every patch before committing, preserves
-big-integer exactness and leaves the public dispatcher unchanged.
+`alexpy.compiled_graph.CompiledDependencyGraph` is an opt-in, frozen version of
+`DependencyGraph`. It compiles name-based dependencies into numeric node IDs
+and initializes typed range sums without repeated Python index checks.
+Registration is frozen by an explicit `compile()` call. Every patch is still
+validated and committed by the owned buffer; cached results are published only
+after the patch succeeds. `verify()` remains an independent dense mirror.
 
-`alexpy.compiled_bench` compares four complete workflows: dense recomputation,
-strong hand-coded incremental, previous DAG and compiled DAG. The timed scope
-includes graph construction and compilation. Three-process Linux CPython 3.13.5
-measurements found compiled 1.83–3.48x faster than the old DAG over 16 cases,
-but the manual incremental approach still wins. No automatic promotion.
+The `alexpy.compiled_bench` protocol compares four equivalent end-to-end
+routes (dense, hand-optimized manual, previous DAG, compiled DAG), **including
+construction and compilation**, with paired reversed order and independent
+processes. No automatic default promotion; all results are workload-specific.
 
 ```bash
-python -m unittest discover -s tests -q
+python -m unittest discover -s tests -v
 python -m alexpy.compiled_bench --sizes 4096,32768 --changes 1,16 \
   --ticks 2,32 --reads 1,8 --sessions 3 --epochs 2 --pairs 5 \
   --json compiled-results.json
 ```
 
-See [full methodology and negative controls](docs/COMPILED_DAG.md).
+See [compiled DAG methodology](docs/COMPILED_DAG.md) and checked-in local
+pilot measurements at `evidence/compiled-results-local-py313.json`.
+
+## v1.2 structure-specialized partition graph (opt-in; not promoted)
+
+`alexpy.partition_graph.PartitionDependencyGraph` detects an **exact,
+nonoverlapping partition template** at `compile()` time. For this proven
+shape, patches bypass the generic heap-based dirty frontier and maintain
+cached windows, variance and global sum using only changed partitions. Other
+DAGs safely delegate to the preceding compiled algorithm.
+
+The end-to-end `alexpy.partition_bench` compares dense, manual incremental,
+previous compiled DAG, and guarded partition DAG with exact checksum gates.
+On one local Linux CPython 3.13.5 host (16 configurations, 3 fresh processes),
+7 configurations had >=10% speedup over the previous graph in every process;
+**the manual incremental control still beat the new graph in all 16 cases**.
+This is **not** generally faster Python and is **not** enabled by default.
+
+```bash
+python -m unittest discover -s tests -v
+python -m alexpy.partition_bench --sizes 4096,32768 --changes 1,16 \
+  --ticks 2,32 --reads 1,8 --sessions 3 --epochs 2 --pairs 5 \
+  --json partition-results.json
+```
+
+[Methodology, constraints, negative results](docs/PARTITION_COMPILER.md)
+([raw local evidence](evidence/partition-results-local-py313.json)).

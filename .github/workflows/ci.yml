@@ -61,6 +61,9 @@ jobs:
       - name: Benchmark frozen compiled-DAG vs legacy, manual and dense controls (advisory)
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
         run: python -m alexpy.compiled_bench --sizes 1024 --changes 1,8 --ticks 4 --reads 1,4 --sessions 2 --epochs 2 --pairs 3 --json compiled-results.json
+      - name: Verify partition-compiled DAG against four routes (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.partition_bench --sizes 1024 --changes 1,8 --ticks 4 --reads 1,4 --sessions 2 --epochs 2 --pairs 3 --json partition-results.json
       - uses: actions/upload-artifact@v4
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
         with:
@@ -80,3 +83,4 @@ jobs:
             persistent-grid.dot
             dependency-results.json
             compiled-results.json
+            partition-results.json
