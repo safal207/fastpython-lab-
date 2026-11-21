@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+*.dll
+*.dylib
+*.egg-info/
+build/
+dist/
+.venv/
+benchmarks.json
+.pytest_cache/
+graph-results.json
+graph-states.dot
+*.svg

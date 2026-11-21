@@ -1,0 +1,41 @@
+name: AlexPy correctness and benchmarks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ['3.13', '3.15']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Build the native backend
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e .
+      - name: Confirm native module was compiled
+        run: python -c "from alexpy import backend_name; assert backend_name() == 'native-c', backend_name()"
+      - name: Run correctness tests
+        run: python -m unittest discover -s tests -v
+      - name: Run scope-controlled benchmark
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.benchmark --require-native --sizes 1000 100000 --json benchmarks.json
+      - name: Run bounded transition-graph QA
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.graph_search --require-native --cases 8 --repeat 9 --json graph-results.json --dot graph-states.dot
+      - uses: actions/upload-artifact@v4
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        with:
+          name: alexpy-benchmark-ubuntu-py315
+          path: |
+            benchmarks.json
+            graph-results.json
+            graph-states.dot
