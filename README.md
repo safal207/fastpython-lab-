@@ -178,3 +178,27 @@ include the cost of choosing/creating the array representation upstream and
 are **not** a claim about arbitrary Python programs or CPU speed.
 See [protocol, raw evidence and limitations](docs/LAYOUT_TRAVERSAL.md).
 Candidate promotion remains blocked pending cross-OS and multi-host review.
+
+## v0.8 end-to-end layout amortization (opt-in)
+
+`alexpy.amortization` and `alexpy.amortization_bench` measure the *entire*
+workflow when converting exact `list[int]` / `tuple[int]` into `array('q')`:
+validation, allocation, transfer, K repeated calculations, and optional
+conversion *back into a fresh list*. The control computes the same output
+using the existing AlexPy list path; a separate negative control repacks
+before every calculation. No public dispatcher is changed.
+
+```bash
+python -m alexpy.amortization_bench --sizes 8,4096 \
+  --repetitions 1,8,32,64 --profiles small,large \
+  --epochs 2 --pairs 7 --candidates pack_once \
+  --target-seconds .0003 --json amortization.json
+```
+
+In three local Python 3.13.5 Linux processes, for 4,096 small ints, pack-once
+was ~0.06× at K=1 but ~1.78× at K=64 when no return-list copy was needed.
+When a new list must be returned, K=64 did **not** consistently improve speed;
+large 64-bit integers also failed to show a consistent full-path gain at K=64.
+These are local bounded observations, **not** a generally faster Python.
+See [docs/AMORTIZATION.md](docs/AMORTIZATION.md) and
+[evidence summary](evidence/amortization-summary-local-py313.json).

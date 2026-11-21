@@ -49,6 +49,9 @@ jobs:
       - name: Inspect typed-buffer layout alternatives (advisory)
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
         run: python -m alexpy.layout_bench --sizes 0,8,128,4096 --epochs 2 --pairs 5 --target-seconds .001 --json layout.json
+      - name: Measure list-to-buffer amortization (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.amortization_bench --sizes 8,4096 --repetitions 1,2,8 --epochs 2 --pairs 5 --target-seconds .001 --json amortization.json
       - uses: actions/upload-artifact@v4
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
         with:
@@ -63,3 +66,4 @@ jobs:
             lattice.json
             memory-lab.json
             layout.json
+            amortization.json
