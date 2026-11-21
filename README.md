@@ -117,3 +117,19 @@ first/second discrete derivatives of log speedup, and a finite-sample multiscale
 roughness **fractal-axis proxy** (not a fractal dimension).
 Run `python -m alexpy.spacetime --json spacetime.json` after building the extension.
 See [precise definitions and limitations](docs/SPACETIME_FRACTAL.md).
+
+## v0.5 lattice-grid causal hypotheses and blind length holdout
+
+A new opt-in `alexpy.lattice_lab` treats the workload configuration as a
+discrete 4D grid plus experimental time, with adjacent-cell contrasts,
+footprint **estimates** and multi-scale differences. Length groups 8 and 1024
+are held out from training and used to compare 1-hop and multi-scale
+regression forecasts against a constant median baseline. This method is
+**inspired by numerical grids**, not an implementation of lattice QCD or
+proof of CPU-cache or fractal behavior.
+
+```bash
+python -m alexpy.lattice_lab --epochs 2 --repeats 5 --loops 25 --json lattice.json
+```
+
+See [docs/LATTICE_LAB.md](docs/LATTICE_LAB.md). Public API unchanged.

@@ -40,6 +40,9 @@ jobs:
       - name: Explore space-time, derivative, and multiscale axes (advisory)
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
         run: python -m alexpy.spacetime --hops 15 --repeats 7 --loops 200 --json spacetime.json
+      - name: Probe lattice grid and blind length holdouts (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.lattice_lab --epochs 2 --repeats 5 --loops 25 --json lattice.json
       - uses: actions/upload-artifact@v4
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
         with:
@@ -51,3 +54,4 @@ jobs:
             regression-triage.json
             intervention-results.json
             spacetime.json
+            lattice.json
