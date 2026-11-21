@@ -202,3 +202,30 @@ large 64-bit integers also failed to show a consistent full-path gain at K=64.
 These are local bounded observations, **not** a generally faster Python.
 See [docs/AMORTIZATION.md](docs/AMORTIZATION.md) and
 [evidence summary](evidence/amortization-summary-local-py313.json).
+
+## v0.9 owned persistent q-buffer with sparse state transitions (opt-in)
+
+`alexpy.persistent.OwnedQBuffer` copies an exact built-in `list[int]` or
+`tuple[int]` of signed 64-bit numbers into a long-lived `array('q')`. It
+maintains exact Python-integer **sum** and **sum of squares** incrementally:
+`apply_patch({index: new_value})` updates just the selected indices, and
+`variance_numerator()` is derived from those two cached aggregates. Each patch
+records a logical tick and version; the optional trace records a sparse dirty
+frontier. `verify()` independently recomputes mirrors when requested.
+
+**Not a replacement for ordinary mutable lists**: external list mutations are
+not watched, mutable backing views are never exposed, only explicit patches
+are supported, and no promise of thread-safe access or tamper-proof storage is
+made. No change to the public `alexpy.sum_squares` dispatcher.
+
+End-to-end comparisons include object construction, all updates, and all
+aggregate reads, against both ordinary list recalculation and native q-buffer
+full recalculation. They show when sparse maintenance is useful and when
+construction or patch overhead dominates, not how much all Python improves.
+
+```sh
+python -m alexpy.persistent_bench --sizes 64,4096,32768 --changes 1,32 \
+  --reads 1,8,64 --ticks 4 --sessions 3 --json persistent.json
+```
+
+See [the v0.9 research protocol](docs/PERSISTENT_BUFFER.md).

@@ -52,6 +52,9 @@ jobs:
       - name: Measure list-to-buffer amortization (advisory)
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
         run: python -m alexpy.amortization_bench --sizes 8,4096 --repetitions 1,2,8 --epochs 2 --pairs 5 --target-seconds .001 --json amortization.json
+      - name: Explore persistent sparse-update workflows (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.persistent_bench --sizes 64,4096 --changes 1,32 --reads 1,16 --ticks 4 --epochs 2 --pairs 5 --sessions 2 --target-ms .2 --json persistent.json --dot persistent-grid.dot
       - uses: actions/upload-artifact@v4
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
         with:
@@ -67,3 +70,5 @@ jobs:
             memory-lab.json
             layout.json
             amortization.json
+            persistent.json
+            persistent-grid.dot

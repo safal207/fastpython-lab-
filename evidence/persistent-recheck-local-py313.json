@@ -1,0 +1,3236 @@
+{
+  "protocol": "ALEXPY-PERSISTENT-M9/0.1",
+  "timestamp_utc": "2026-11-21T21:50:58.276816+00:00",
+  "scope": "single sum/sum_squares/variance aggregate; controlled exact signed-q arrays only",
+  "baseline": "end-to-end build + patches + aggregate reads",
+  "promotion": "BLOCKED_EXPERIMENTAL",
+  "hardware_cache_causality": "NOT_ESTABLISHED",
+  "config": {
+    "sizes": [
+      4096,
+      32768
+    ],
+    "changes": [
+      1,
+      32
+    ],
+    "reads": [
+      1,
+      8,
+      32
+    ],
+    "ticks": 3,
+    "epochs": 2,
+    "pairs": 5,
+    "target_ms": 0.15,
+    "sessions": 3
+  },
+  "sessions": [
+    {
+      "pid": 3066,
+      "interpreter": "3.13.5",
+      "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+      "results": [
+        {
+          "state": {
+            "size": 4096,
+            "changes_per_tick": 1,
+            "reads_per_tick": 1,
+            "ticks": 3
+          },
+          "data_bytes": 32768,
+          "logical_checks": 3,
+          "transition_edges": 3,
+          "loops_per_sample": 1,
+          "checksum": "10900067531",
+          "medians_ns_per_workflow": {
+            "list_full": 104753.0,
+            "array_full": 179909.5,
+            "owned_incremental": 375500.0
+          },
+          "speedup_vs_owned": {
+            "list_full": 0.2789693741677763,
+            "array_full": 0.47911984021304926
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                103538.0,
+                108307.0,
+                137731.0,
+                102827.0,
+                105669.0
+              ],
+              [
+                103837.0,
+                102435.0,
+                107361.0,
+                106760.0,
+                102645.0
+              ]
+            ],
+            "array_full": [
+              [
+                179559.0,
+                216674.0,
+                180697.0,
+                179125.0,
+                180260.0
+              ],
+              [
+                227086.0,
+                177261.0,
+                181693.0,
+                179377.0,
+                178584.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                533213.0,
+                361109.0,
+                549314.0,
+                372815.0,
+                509264.0
+              ],
+              [
+                351888.0,
+                431917.0,
+                378185.0,
+                367334.0,
+                357166.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 4096,
+            "changes_per_tick": 1,
+            "reads_per_tick": 8,
+            "ticks": 3
+          },
+          "data_bytes": 32768,
+          "logical_checks": 24,
+          "transition_edges": 3,
+          "loops_per_sample": 1,
+          "checksum": "87426153176",
+          "medians_ns_per_workflow": {
+            "list_full": 873987.0,
+            "array_full": 1128232.5,
+            "owned_incremental": 380736.0
+          },
+          "speedup_vs_owned": {
+            "list_full": 2.2955197302067574,
+            "array_full": 2.96329346318709
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                871541.0,
+                891634.0,
+                848541.0,
+                882877.0,
+                846494.0
+              ],
+              [
+                876433.0,
+                1010082.0,
+                825289.0,
+                881495.0,
+                843585.0
+              ]
+            ],
+            "array_full": [
+              [
+                1257225.0,
+                1190281.0,
+                1181621.0,
+                1122511.0,
+                1076043.0
+              ],
+              [
+                1384262.0,
+                1130594.0,
+                1047450.0,
+                1125871.0,
+                1106737.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                408631.0,
+                362876.0,
+                386220.0,
+                393439.0,
+                358522.0
+              ],
+              [
+                358151.0,
+                545081.0,
+                412385.0,
+                375252.0,
+                354587.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 4096,
+            "changes_per_tick": 1,
+            "reads_per_tick": 32,
+            "ticks": 3
+          },
+          "data_bytes": 32768,
+          "logical_checks": 96,
+          "transition_edges": 3,
+          "loops_per_sample": 1,
+          "checksum": "351231718752",
+          "medians_ns_per_workflow": {
+            "list_full": 3496271.0,
+            "array_full": 4395278.0,
+            "owned_incremental": 399989.5
+          },
+          "speedup_vs_owned": {
+            "list_full": 8.740906948807407,
+            "array_full": 10.988483447690502
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                3673941.0,
+                4133546.0,
+                3412870.0,
+                3414770.0,
+                3519368.0
+              ],
+              [
+                3381118.0,
+                3648974.0,
+                3463839.0,
+                3473174.0,
+                3601898.0
+              ]
+            ],
+            "array_full": [
+              [
+                4151348.0,
+                4139165.0,
+                4880118.0,
+                4097916.0,
+                3994374.0
+              ],
+              [
+                4451954.0,
+                4338602.0,
+                4586778.0,
+                4807601.0,
+                5082787.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                383436.0,
+                454118.0,
+                385868.0,
+                649587.0,
+                376284.0
+              ],
+              [
+                391820.0,
+                458962.0,
+                398448.0,
+                422526.0,
+                401531.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 4096,
+            "changes_per_tick": 32,
+            "reads_per_tick": 1,
+            "ticks": 3
+          },
+          "data_bytes": 32768,
+          "logical_checks": 3,
+          "transition_edges": 96,
+          "loops_per_sample": 1,
+          "checksum": "11739167151",
+          "medians_ns_per_workflow": {
+            "list_full": 110819.5,
+            "array_full": 202914.5,
+            "owned_incremental": 410276.0
+          },
+          "speedup_vs_owned": {
+            "list_full": 0.27010963351499967,
+            "array_full": 0.49458047753219786
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                113756.0,
+                111812.0,
+                121074.0,
+                110446.0,
+                137325.0
+              ],
+              [
+                111193.0,
+                106886.0,
+                107151.0,
+                108413.0,
+                109801.0
+              ]
+            ],
+            "array_full": [
+              [
+                191697.0,
+                237238.0,
+                226000.0,
+                186247.0,
+                185088.0
+              ],
+              [
+                200900.0,
+                204929.0,
+                265404.0,
+                190004.0,
+                207399.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                436630.0,
+                405486.0,
+                429731.0,
+                412973.0,
+                396600.0
+              ],
+              [
+                407579.0,
+                407485.0,
+                422482.0,
+                813446.0,
+                388060.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 4096,
+            "changes_per_tick": 32,
+            "reads_per_tick": 8,
+            "ticks": 3
+          },
+          "data_bytes": 32768,
+          "logical_checks": 24,
+          "transition_edges": 96,
+          "loops_per_sample": 1,
+          "checksum": "92743149824",
+          "medians_ns_per_workflow": {
+            "list_full": 826102.5,
+            "array_full": 1047389.5,
+            "owned_incremental": 408524.0
+          },
+          "speedup_vs_owned": {
+            "list_full": 2.02216393651291,
+            "array_full": 2.5638383546621495
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                810890.0,
+                817424.0,
+                820331.0,
+                815424.0,
+                940089.0
+              ],
+              [
+                816367.0,
+                881446.0,
+                1050832.0,
+                831874.0,
+                841637.0
+              ]
+            ],
+            "array_full": [
+              [
+                1039866.0,
+                1052740.0,
+                1035621.0,
+                1057660.0,
+                1051886.0
+              ],
+              [
+                1050579.0,
+                1039795.0,
+                1043973.0,
+                1155777.0,
+                1044200.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                409512.0,
+                414654.0,
+                423509.0,
+                402869.0,
+                521871.0
+              ],
+              [
+                450701.0,
+                401809.0,
+                406773.0,
+                407536.0,
+                398367.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 4096,
+            "changes_per_tick": 32,
+            "reads_per_tick": 32,
+            "ticks": 3
+          },
+          "data_bytes": 32768,
+          "logical_checks": 96,
+          "transition_edges": 96,
+          "loops_per_sample": 1,
+          "checksum": "379405165664",
+          "medians_ns_per_workflow": {
+            "list_full": 3360831.0,
+            "array_full": 4338760.5,
+            "owned_incremental": 506432.5
+          },
+          "speedup_vs_owned": {
+            "list_full": 6.636286178315965,
+            "array_full": 8.56730265138987
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                3250961.0,
+                3756968.0,
+                3321899.0,
+                8437178.0,
+                3218672.0
+              ],
+              [
+                3313062.0,
+                3368176.0,
+                3398096.0,
+                3353486.0,
+                3470990.0
+              ]
+            ],
+            "array_full": [
+              [
+                4112286.0,
+                4680218.0,
+                4175281.0,
+                4770924.0,
+                4349375.0
+              ],
+              [
+                4095335.0,
+                3976526.0,
+                4356309.0,
+                4617057.0,
+                4328146.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                526919.0,
+                642210.0,
+                458761.0,
+                1089929.0,
+                589639.0
+              ],
+              [
+                445625.0,
+                436144.0,
+                421243.0,
+                608589.0,
+                485946.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 32768,
+            "changes_per_tick": 1,
+            "reads_per_tick": 1,
+            "ticks": 3
+          },
+          "data_bytes": 262144,
+          "logical_checks": 3,
+          "transition_edges": 3,
+          "loops_per_sample": 1,
+          "checksum": "698310478666",
+          "medians_ns_per_workflow": {
+            "list_full": 847714.0,
+            "array_full": 1494938.0,
+            "owned_incremental": 2964321.5
+          },
+          "speedup_vs_owned": {
+            "list_full": 0.28597235488795664,
+            "array_full": 0.5043103455546235
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                788509.0,
+                1050242.0,
+                849816.0,
+                897747.0,
+                858723.0
+              ],
+              [
+                845612.0,
+                981282.0,
+                813002.0,
+                826977.0,
+                824280.0
+              ]
+            ],
+            "array_full": [
+              [
+                1463001.0,
+                1689767.0,
+                1550665.0,
+                1681209.0,
+                1490157.0
+              ],
+              [
+                1499719.0,
+                1428902.0,
+                1577315.0,
+                1420031.0,
+                1439567.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                3022340.0,
+                3140364.0,
+                3317977.0,
+                2906303.0,
+                3295037.0
+              ],
+              [
+                2741216.0,
+                3294926.0,
+                2850066.0,
+                2765827.0,
+                2722367.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 32768,
+            "changes_per_tick": 1,
+            "reads_per_tick": 8,
+            "ticks": 3
+          },
+          "data_bytes": 262144,
+          "logical_checks": 24,
+          "transition_edges": 3,
+          "loops_per_sample": 1,
+          "checksum": "5584252487688",
+          "medians_ns_per_workflow": {
+            "list_full": 6931145.0,
+            "array_full": 8880996.0,
+            "owned_incremental": 2876503.5
+          },
+          "speedup_vs_owned": {
+            "list_full": 2.409572941593848,
+            "array_full": 3.087427496611772
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                8459034.0,
+                7151350.0,
+                6919785.0,
+                8248015.0,
+                6942505.0
+              ],
+              [
+                7000445.0,
+                6650809.0,
+                6813407.0,
+                6870384.0,
+                6867803.0
+              ]
+            ],
+            "array_full": [
+              [
+                8659312.0,
+                8579352.0,
+                8834586.0,
+                8849547.0,
+                9318036.0
+              ],
+              [
+                8912445.0,
+                9255995.0,
+                8941253.0,
+                8298029.0,
+                9039968.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                2886831.0,
+                3149990.0,
+                2827674.0,
+                2955974.0,
+                2890878.0
+              ],
+              [
+                2868147.0,
+                2884860.0,
+                2779839.0,
+                2758866.0,
+                2750374.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 32768,
+            "changes_per_tick": 1,
+            "reads_per_tick": 32,
+            "ticks": 3
+          },
+          "data_bytes": 262144,
+          "logical_checks": 96,
+          "transition_edges": 3,
+          "loops_per_sample": 1,
+          "checksum": "22348567269120",
+          "medians_ns_per_workflow": {
+            "list_full": 27794092.5,
+            "array_full": 34539674.0,
+            "owned_incremental": 3111267.0
+          },
+          "speedup_vs_owned": {
+            "list_full": 8.933367820890975,
+            "array_full": 11.101481807893697
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                27402784.0,
+                28121136.0,
+                27895856.0,
+                27291349.0,
+                27721108.0
+              ],
+              [
+                29472684.0,
+                27807441.0,
+                26696250.0,
+                28102135.0,
+                27780744.0
+              ]
+            ],
+            "array_full": [
+              [
+                33412862.0,
+                34843104.0,
+                34851406.0,
+                35618296.0,
+                34030670.0
+              ],
+              [
+                34119216.0,
+                33561208.0,
+                35466428.0,
+                34896344.0,
+                34236244.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                2948599.0,
+                3120757.0,
+                4114127.0,
+                3129069.0,
+                3159214.0
+              ],
+              [
+                3067464.0,
+                2861195.0,
+                3101777.0,
+                3403596.0,
+                3089694.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 32768,
+            "changes_per_tick": 32,
+            "reads_per_tick": 1,
+            "ticks": 3
+          },
+          "data_bytes": 262144,
+          "logical_checks": 3,
+          "transition_edges": 96,
+          "loops_per_sample": 1,
+          "checksum": "703379594091",
+          "medians_ns_per_workflow": {
+            "list_full": 838345.0,
+            "array_full": 1499354.5,
+            "owned_incremental": 2947087.0
+          },
+          "speedup_vs_owned": {
+            "list_full": 0.2844656435320708,
+            "array_full": 0.5087581398173858
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                929731.0,
+                841472.0,
+                825247.0,
+                823149.0,
+                835218.0
+              ],
+              [
+                992893.0,
+                803731.0,
+                832566.0,
+                1446593.0,
+                1370764.0
+              ]
+            ],
+            "array_full": [
+              [
+                1494696.0,
+                1450842.0,
+                1447136.0,
+                1504013.0,
+                1411239.0
+              ],
+              [
+                1561168.0,
+                1587546.0,
+                1458457.0,
+                1525648.0,
+                1722818.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                2828851.0,
+                2866399.0,
+                3368178.0,
+                3300511.0,
+                2831708.0
+              ],
+              [
+                2955444.0,
+                2973610.0,
+                2859919.0,
+                2938730.0,
+                3605621.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 32768,
+            "changes_per_tick": 32,
+            "reads_per_tick": 8,
+            "ticks": 3
+          },
+          "data_bytes": 262144,
+          "logical_checks": 24,
+          "transition_edges": 96,
+          "loops_per_sample": 1,
+          "checksum": "5650340659352",
+          "medians_ns_per_workflow": {
+            "list_full": 6823166.0,
+            "array_full": 8456948.0,
+            "owned_incremental": 3125705.0
+          },
+          "speedup_vs_owned": {
+            "list_full": 2.1829206531006604,
+            "array_full": 2.7056129737131305
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                6818114.0,
+                6887148.0,
+                6467844.0,
+                6580064.0,
+                6584197.0
+              ],
+              [
+                6896117.0,
+                6913059.0,
+                6921911.0,
+                6828218.0,
+                6805433.0
+              ]
+            ],
+            "array_full": [
+              [
+                8194461.0,
+                8206002.0,
+                8436702.0,
+                8341025.0,
+                8595400.0
+              ],
+              [
+                9014517.0,
+                8746312.0,
+                8477194.0,
+                8363542.0,
+                11061898.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                2863782.0,
+                2933646.0,
+                3118320.0,
+                3216499.0,
+                3685778.0
+              ],
+              [
+                2897433.0,
+                3344831.0,
+                3133090.0,
+                2951448.0,
+                6548866.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 32768,
+            "changes_per_tick": 32,
+            "reads_per_tick": 32,
+            "ticks": 3
+          },
+          "data_bytes": 262144,
+          "logical_checks": 96,
+          "transition_edges": 96,
+          "loops_per_sample": 1,
+          "checksum": "22605492170368",
+          "medians_ns_per_workflow": {
+            "list_full": 27480951.0,
+            "array_full": 33425085.5,
+            "owned_incremental": 3134858.0
+          },
+          "speedup_vs_owned": {
+            "list_full": 8.76625065632957,
+            "array_full": 10.662392204048796
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                29347109.0,
+                26964818.0,
+                27370277.0,
+                27752735.0,
+                28267272.0
+              ],
+              [
+                25415511.0,
+                27591625.0,
+                28061369.0,
+                26804489.0,
+                27042285.0
+              ]
+            ],
+            "array_full": [
+              [
+                43254452.0,
+                34716653.0,
+                31956231.0,
+                32215213.0,
+                31894234.0
+              ],
+              [
+                33561714.0,
+                33340262.0,
+                31974832.0,
+                33509909.0,
+                34397204.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                3556047.0,
+                2922071.0,
+                3345234.0,
+                3137782.0,
+                3108205.0
+              ],
+              [
+                3666892.0,
+                3885808.0,
+                3122549.0,
+                3131934.0,
+                2969717.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        }
+      ]
+    },
+    {
+      "pid": 3077,
+      "interpreter": "3.13.5",
+      "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+      "results": [
+        {
+          "state": {
+            "size": 4096,
+            "changes_per_tick": 1,
+            "reads_per_tick": 1,
+            "ticks": 3
+          },
+          "data_bytes": 32768,
+          "logical_checks": 3,
+          "transition_edges": 3,
+          "loops_per_sample": 1,
+          "checksum": "10900067531",
+          "medians_ns_per_workflow": {
+            "list_full": 102507.5,
+            "array_full": 210799.0,
+            "owned_incremental": 438327.0
+          },
+          "speedup_vs_owned": {
+            "list_full": 0.23386079342591262,
+            "array_full": 0.4809172147734454
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                102516.0,
+                102499.0,
+                103025.0,
+                102199.0,
+                100807.0
+              ],
+              [
+                215286.0,
+                131130.0,
+                100320.0,
+                110455.0,
+                102447.0
+              ]
+            ],
+            "array_full": [
+              [
+                265686.0,
+                233255.0,
+                232258.0,
+                179673.0,
+                175346.0
+              ],
+              [
+                292592.0,
+                276208.0,
+                189340.0,
+                181317.0,
+                180332.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                504790.0,
+                358878.0,
+                356722.0,
+                620981.0,
+                428989.0
+              ],
+              [
+                390731.0,
+                529118.0,
+                447665.0,
+                583635.0,
+                368549.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 4096,
+            "changes_per_tick": 1,
+            "reads_per_tick": 8,
+            "ticks": 3
+          },
+          "data_bytes": 32768,
+          "logical_checks": 24,
+          "transition_edges": 3,
+          "loops_per_sample": 1,
+          "checksum": "87426153176",
+          "medians_ns_per_workflow": {
+            "list_full": 852362.0,
+            "array_full": 1067835.0,
+            "owned_incremental": 364313.0
+          },
+          "speedup_vs_owned": {
+            "list_full": 2.339642011127794,
+            "array_full": 2.931092220151353
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                822473.0,
+                1137023.0,
+                903232.0,
+                807744.0,
+                856717.0
+              ],
+              [
+                866447.0,
+                847015.0,
+                848007.0,
+                821656.0,
+                929982.0
+              ]
+            ],
+            "array_full": [
+              [
+                1063037.0,
+                1258927.0,
+                1288352.0,
+                1057575.0,
+                1120517.0
+              ],
+              [
+                1045974.0,
+                1045597.0,
+                1072633.0,
+                1050284.0,
+                1096564.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                426229.0,
+                352533.0,
+                474083.0,
+                382559.0,
+                367453.0
+              ],
+              [
+                353666.0,
+                357212.0,
+                393203.0,
+                361173.0,
+                360893.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 4096,
+            "changes_per_tick": 1,
+            "reads_per_tick": 32,
+            "ticks": 3
+          },
+          "data_bytes": 32768,
+          "logical_checks": 96,
+          "transition_edges": 3,
+          "loops_per_sample": 1,
+          "checksum": "351231718752",
+          "medians_ns_per_workflow": {
+            "list_full": 3435630.0,
+            "array_full": 4273634.0,
+            "owned_incremental": 417508.0
+          },
+          "speedup_vs_owned": {
+            "list_full": 8.22889621276718,
+            "array_full": 10.236052961859414
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                3326556.0,
+                3305884.0,
+                3383938.0,
+                3489995.0,
+                3397920.0
+              ],
+              [
+                3674599.0,
+                3433847.0,
+                6025996.0,
+                3598946.0,
+                3437413.0
+              ]
+            ],
+            "array_full": [
+              [
+                4144670.0,
+                4035187.0,
+                4299898.0,
+                4247370.0,
+                4034637.0
+              ],
+              [
+                4612486.0,
+                4308632.0,
+                4389345.0,
+                4871969.0,
+                4073746.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                392451.0,
+                384581.0,
+                382464.0,
+                406653.0,
+                457098.0
+              ],
+              [
+                752493.0,
+                404977.0,
+                471885.0,
+                492380.0,
+                428363.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 4096,
+            "changes_per_tick": 32,
+            "reads_per_tick": 1,
+            "ticks": 3
+          },
+          "data_bytes": 32768,
+          "logical_checks": 3,
+          "transition_edges": 96,
+          "loops_per_sample": 1,
+          "checksum": "11739167151",
+          "medians_ns_per_workflow": {
+            "list_full": 111741.0,
+            "array_full": 196723.0,
+            "owned_incremental": 417172.0
+          },
+          "speedup_vs_owned": {
+            "list_full": 0.2678535472179341,
+            "array_full": 0.4715632880442599
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                134154.0,
+                107978.0,
+                110223.0,
+                126883.0,
+                125179.0
+              ],
+              [
+                110451.0,
+                113031.0,
+                109530.0,
+                107947.0,
+                114008.0
+              ]
+            ],
+            "array_full": [
+              [
+                187651.0,
+                183734.0,
+                203793.0,
+                187387.0,
+                181511.0
+              ],
+              [
+                252972.0,
+                425025.0,
+                189653.0,
+                332585.0,
+                204243.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                563387.0,
+                399711.0,
+                499927.0,
+                450851.0,
+                391626.0
+              ],
+              [
+                393456.0,
+                404445.0,
+                429899.0,
+                446844.0,
+                392710.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 4096,
+            "changes_per_tick": 32,
+            "reads_per_tick": 8,
+            "ticks": 3
+          },
+          "data_bytes": 32768,
+          "logical_checks": 24,
+          "transition_edges": 96,
+          "loops_per_sample": 1,
+          "checksum": "92743149824",
+          "medians_ns_per_workflow": {
+            "list_full": 1415852.0,
+            "array_full": 1460269.5,
+            "owned_incremental": 483977.5
+          },
+          "speedup_vs_owned": {
+            "list_full": 2.925450046748041,
+            "array_full": 3.0172260074073693
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                932628.0,
+                809796.0,
+                1000222.0,
+                809219.0,
+                1598458.0
+              ],
+              [
+                2249345.0,
+                5981680.0,
+                3092445.0,
+                3659085.0,
+                1233246.0
+              ]
+            ],
+            "array_full": [
+              [
+                1119809.0,
+                1019897.0,
+                1041596.0,
+                1467070.0,
+                1453469.0
+              ],
+              [
+                1623850.0,
+                1138222.0,
+                58493040.0,
+                23251875.0,
+                1593126.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                498666.0,
+                461199.0,
+                406609.0,
+                405509.0,
+                511392.0
+              ],
+              [
+                484438.0,
+                425719.0,
+                647695.0,
+                534958.0,
+                483517.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 4096,
+            "changes_per_tick": 32,
+            "reads_per_tick": 32,
+            "ticks": 3
+          },
+          "data_bytes": 32768,
+          "logical_checks": 96,
+          "transition_edges": 96,
+          "loops_per_sample": 1,
+          "checksum": "379405165664",
+          "medians_ns_per_workflow": {
+            "list_full": 3527137.0,
+            "array_full": 4709518.5,
+            "owned_incremental": 464122.0
+          },
+          "speedup_vs_owned": {
+            "list_full": 7.599590193957623,
+            "array_full": 10.147156351131814
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                3921754.0,
+                3592611.0,
+                3221879.0,
+                3461663.0,
+                4323772.0
+              ],
+              [
+                3457214.0,
+                3277308.0,
+                3693956.0,
+                3410845.0,
+                4066597.0
+              ]
+            ],
+            "array_full": [
+              [
+                4709655.0,
+                4874766.0,
+                4718275.0,
+                4435931.0,
+                4542697.0
+              ],
+              [
+                5419862.0,
+                4008614.0,
+                4709382.0,
+                4725766.0,
+                4212556.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                830330.0,
+                554155.0,
+                555448.0,
+                433871.0,
+                448897.0
+              ],
+              [
+                458556.0,
+                463345.0,
+                474298.0,
+                464899.0,
+                430300.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 32768,
+            "changes_per_tick": 1,
+            "reads_per_tick": 1,
+            "ticks": 3
+          },
+          "data_bytes": 262144,
+          "logical_checks": 3,
+          "transition_edges": 3,
+          "loops_per_sample": 1,
+          "checksum": "698310478666",
+          "medians_ns_per_workflow": {
+            "list_full": 896951.5,
+            "array_full": 1557287.5,
+            "owned_incremental": 3041281.5
+          },
+          "speedup_vs_owned": {
+            "list_full": 0.29492551084140023,
+            "array_full": 0.5120497724396772
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                876086.0,
+                819543.0,
+                865374.0,
+                900439.0,
+                869665.0
+              ],
+              [
+                893464.0,
+                1051256.0,
+                953858.0,
+                916727.0,
+                996839.0
+              ]
+            ],
+            "array_full": [
+              [
+                1587975.0,
+                1448285.0,
+                1829199.0,
+                1460561.0,
+                1576709.0
+              ],
+              [
+                1468494.0,
+                1537866.0,
+                1893239.0,
+                1770585.0,
+                1444521.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                2906497.0,
+                2865597.0,
+                2829704.0,
+                2777650.0,
+                3068119.0
+              ],
+              [
+                3014444.0,
+                3474463.0,
+                3332340.0,
+                3485779.0,
+                3839671.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 32768,
+            "changes_per_tick": 1,
+            "reads_per_tick": 8,
+            "ticks": 3
+          },
+          "data_bytes": 262144,
+          "logical_checks": 24,
+          "transition_edges": 3,
+          "loops_per_sample": 1,
+          "checksum": "5584252487688",
+          "medians_ns_per_workflow": {
+            "list_full": 7143570.0,
+            "array_full": 8877915.0,
+            "owned_incremental": 3228554.0
+          },
+          "speedup_vs_owned": {
+            "list_full": 2.21262212123446,
+            "array_full": 2.749811525531244
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                7637994.0,
+                7255669.0,
+                7763670.0,
+                6480990.0,
+                6670695.0
+              ],
+              [
+                7324857.0,
+                7031471.0,
+                7645464.0,
+                6998442.0,
+                6601211.0
+              ]
+            ],
+            "array_full": [
+              [
+                10529955.0,
+                9317136.0,
+                8821923.0,
+                8569465.0,
+                9602622.0
+              ],
+              [
+                8693488.0,
+                8646202.0,
+                8933907.0,
+                9412285.0,
+                8624773.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                3119666.0,
+                3169749.0,
+                4202425.0,
+                3619461.0,
+                3287359.0
+              ],
+              [
+                2756903.0,
+                2976147.0,
+                3332857.0,
+                3754971.0,
+                2930139.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 32768,
+            "changes_per_tick": 1,
+            "reads_per_tick": 32,
+            "ticks": 3
+          },
+          "data_bytes": 262144,
+          "logical_checks": 96,
+          "transition_edges": 3,
+          "loops_per_sample": 1,
+          "checksum": "22348567269120",
+          "medians_ns_per_workflow": {
+            "list_full": 27462214.5,
+            "array_full": 34502112.5,
+            "owned_incremental": 3379359.5
+          },
+          "speedup_vs_owned": {
+            "list_full": 8.12645547181352,
+            "array_full": 10.20966029213524
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                26882146.0,
+                27641000.0,
+                26983434.0,
+                27283429.0,
+                28476503.0
+              ],
+              [
+                26908080.0,
+                27919697.0,
+                29035879.0,
+                27247363.0,
+                28977504.0
+              ]
+            ],
+            "array_full": [
+              [
+                36648076.0,
+                33939412.0,
+                34652368.0,
+                35819858.0,
+                34351857.0
+              ],
+              [
+                34145380.0,
+                38669033.0,
+                34003446.0,
+                33385959.0,
+                35144020.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                3391023.0,
+                3200937.0,
+                3435120.0,
+                3305836.0,
+                3582051.0
+              ],
+              [
+                3376822.0,
+                3706886.0,
+                3381897.0,
+                3355110.0,
+                3044808.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 32768,
+            "changes_per_tick": 32,
+            "reads_per_tick": 1,
+            "ticks": 3
+          },
+          "data_bytes": 262144,
+          "logical_checks": 3,
+          "transition_edges": 96,
+          "loops_per_sample": 1,
+          "checksum": "703379594091",
+          "medians_ns_per_workflow": {
+            "list_full": 884005.0,
+            "array_full": 1470996.5,
+            "owned_incremental": 2884367.5
+          },
+          "speedup_vs_owned": {
+            "list_full": 0.3064814036352857,
+            "array_full": 0.5099892784119915
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                1105615.0,
+                910868.0,
+                849400.0,
+                833083.0,
+                826767.0
+              ],
+              [
+                993803.0,
+                857142.0,
+                1034474.0,
+                856616.0,
+                1391947.0
+              ]
+            ],
+            "array_full": [
+              [
+                1448993.0,
+                1658843.0,
+                1533932.0,
+                1464467.0,
+                1454385.0
+              ],
+              [
+                1476313.0,
+                1696858.0,
+                1413849.0,
+                1563202.0,
+                1465680.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                2837675.0,
+                2877883.0,
+                2964685.0,
+                2814430.0,
+                2821186.0
+              ],
+              [
+                3134177.0,
+                3175117.0,
+                3121299.0,
+                2890852.0,
+                2766185.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 32768,
+            "changes_per_tick": 32,
+            "reads_per_tick": 8,
+            "ticks": 3
+          },
+          "data_bytes": 262144,
+          "logical_checks": 24,
+          "transition_edges": 96,
+          "loops_per_sample": 1,
+          "checksum": "5650340659352",
+          "medians_ns_per_workflow": {
+            "list_full": 6687302.0,
+            "array_full": 8421637.0,
+            "owned_incremental": 2981695.0
+          },
+          "speedup_vs_owned": {
+            "list_full": 2.2427853955552126,
+            "array_full": 2.82444616233384
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                6329375.0,
+                6985550.0,
+                6346382.0,
+                6740498.0,
+                6373131.0
+              ],
+              [
+                6777272.0,
+                8588490.0,
+                6751708.0,
+                6594346.0,
+                6634106.0
+              ]
+            ],
+            "array_full": [
+              [
+                8600333.0,
+                8459827.0,
+                9160873.0,
+                8084904.0,
+                8113781.0
+              ],
+              [
+                8475804.0,
+                7974413.0,
+                8457628.0,
+                8362549.0,
+                8385646.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                3020756.0,
+                3323818.0,
+                2919553.0,
+                2978117.0,
+                2868400.0
+              ],
+              [
+                2985273.0,
+                3131335.0,
+                3156757.0,
+                2913206.0,
+                2962359.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 32768,
+            "changes_per_tick": 32,
+            "reads_per_tick": 32,
+            "ticks": 3
+          },
+          "data_bytes": 262144,
+          "logical_checks": 96,
+          "transition_edges": 96,
+          "loops_per_sample": 1,
+          "checksum": "22605492170368",
+          "medians_ns_per_workflow": {
+            "list_full": 27204540.0,
+            "array_full": 32267092.0,
+            "owned_incremental": 3327557.5
+          },
+          "speedup_vs_owned": {
+            "list_full": 8.175528146395667,
+            "array_full": 9.696929955380185
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                28281327.0,
+                27146559.0,
+                27262521.0,
+                25904365.0,
+                29029808.0
+              ],
+              [
+                28013998.0,
+                26166089.0,
+                26988996.0,
+                32150215.0,
+                27008548.0
+              ]
+            ],
+            "array_full": [
+              [
+                30718469.0,
+                32811506.0,
+                32432114.0,
+                31803565.0,
+                31848848.0
+              ],
+              [
+                32983069.0,
+                33101855.0,
+                31482225.0,
+                32102070.0,
+                32607598.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                3216806.0,
+                3473850.0,
+                3093465.0,
+                3259798.0,
+                3293642.0
+              ],
+              [
+                3419487.0,
+                3517326.0,
+                2902294.0,
+                3636576.0,
+                3361473.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        }
+      ]
+    },
+    {
+      "pid": 3088,
+      "interpreter": "3.13.5",
+      "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+      "results": [
+        {
+          "state": {
+            "size": 4096,
+            "changes_per_tick": 1,
+            "reads_per_tick": 1,
+            "ticks": 3
+          },
+          "data_bytes": 32768,
+          "logical_checks": 3,
+          "transition_edges": 3,
+          "loops_per_sample": 1,
+          "checksum": "10900067531",
+          "medians_ns_per_workflow": {
+            "list_full": 102921.0,
+            "array_full": 195372.5,
+            "owned_incremental": 367462.5
+          },
+          "speedup_vs_owned": {
+            "list_full": 0.28008572303296253,
+            "array_full": 0.5316801034119127
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                137181.0,
+                101354.0,
+                102634.0,
+                124461.0,
+                100055.0
+              ],
+              [
+                103208.0,
+                99096.0,
+                104158.0,
+                101161.0,
+                104224.0
+              ]
+            ],
+            "array_full": [
+              [
+                184594.0,
+                190623.0,
+                204898.0,
+                177471.0,
+                178852.0
+              ],
+              [
+                208797.0,
+                242117.0,
+                178430.0,
+                228757.0,
+                200122.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                423385.0,
+                351340.0,
+                378392.0,
+                344565.0,
+                381066.0
+              ],
+              [
+                370049.0,
+                370034.0,
+                364891.0,
+                353034.0,
+                346938.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 4096,
+            "changes_per_tick": 1,
+            "reads_per_tick": 8,
+            "ticks": 3
+          },
+          "data_bytes": 32768,
+          "logical_checks": 24,
+          "transition_edges": 3,
+          "loops_per_sample": 1,
+          "checksum": "87426153176",
+          "medians_ns_per_workflow": {
+            "list_full": 860953.5,
+            "array_full": 1074868.5,
+            "owned_incremental": 366606.0
+          },
+          "speedup_vs_owned": {
+            "list_full": 2.348443560661855,
+            "array_full": 2.9319446490237477
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                857357.0,
+                807578.0,
+                867801.0,
+                1107563.0,
+                853690.0
+              ],
+              [
+                1011884.0,
+                857932.0,
+                820347.0,
+                863975.0,
+                874188.0
+              ]
+            ],
+            "array_full": [
+              [
+                1104136.0,
+                1070397.0,
+                1068877.0,
+                1071625.0,
+                1066177.0
+              ],
+              [
+                1149371.0,
+                1163786.0,
+                1078112.0,
+                1066648.0,
+                1139247.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                353295.0,
+                351775.0,
+                356840.0,
+                387667.0,
+                372956.0
+              ],
+              [
+                399356.0,
+                360256.0,
+                382270.0,
+                488192.0,
+                353952.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 4096,
+            "changes_per_tick": 1,
+            "reads_per_tick": 32,
+            "ticks": 3
+          },
+          "data_bytes": 32768,
+          "logical_checks": 96,
+          "transition_edges": 3,
+          "loops_per_sample": 1,
+          "checksum": "351231718752",
+          "medians_ns_per_workflow": {
+            "list_full": 3457592.5,
+            "array_full": 4230008.0,
+            "owned_incremental": 380880.5
+          },
+          "speedup_vs_owned": {
+            "list_full": 9.077893197472697,
+            "array_full": 11.105866538192425
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                4011717.0,
+                3507286.0,
+                3318750.0,
+                3407275.0,
+                3485166.0
+              ],
+              [
+                3430019.0,
+                3388411.0,
+                3918510.0,
+                3385595.0,
+                3787726.0
+              ]
+            ],
+            "array_full": [
+              [
+                4110416.0,
+                4617365.0,
+                4296504.0,
+                4053231.0,
+                4453333.0
+              ],
+              [
+                4069120.0,
+                4163512.0,
+                4418664.0,
+                4428807.0,
+                4135131.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                380039.0,
+                403556.0,
+                386131.0,
+                375493.0,
+                380934.0
+              ],
+              [
+                373389.0,
+                380827.0,
+                554435.0,
+                417705.0,
+                377682.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 4096,
+            "changes_per_tick": 32,
+            "reads_per_tick": 1,
+            "ticks": 3
+          },
+          "data_bytes": 32768,
+          "logical_checks": 3,
+          "transition_edges": 96,
+          "loops_per_sample": 1,
+          "checksum": "11739167151",
+          "medians_ns_per_workflow": {
+            "list_full": 109944.0,
+            "array_full": 202719.0,
+            "owned_incremental": 430949.5
+          },
+          "speedup_vs_owned": {
+            "list_full": 0.25512037953402894,
+            "array_full": 0.4704008242265045
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                111359.0,
+                278806.0,
+                108210.0,
+                108384.0,
+                110084.0
+              ],
+              [
+                109804.0,
+                110975.0,
+                163723.0,
+                109350.0,
+                107418.0
+              ]
+            ],
+            "array_full": [
+              [
+                215883.0,
+                185653.0,
+                184993.0,
+                236977.0,
+                236464.0
+              ],
+              [
+                186952.0,
+                189555.0,
+                596410.0,
+                247002.0,
+                185330.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                402395.0,
+                498270.0,
+                448869.0,
+                397985.0,
+                476657.0
+              ],
+              [
+                438883.0,
+                646359.0,
+                423016.0,
+                399122.0,
+                409273.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 4096,
+            "changes_per_tick": 32,
+            "reads_per_tick": 8,
+            "ticks": 3
+          },
+          "data_bytes": 32768,
+          "logical_checks": 24,
+          "transition_edges": 96,
+          "loops_per_sample": 1,
+          "checksum": "92743149824",
+          "medians_ns_per_workflow": {
+            "list_full": 833359.5,
+            "array_full": 1053553.5,
+            "owned_incremental": 422599.0
+          },
+          "speedup_vs_owned": {
+            "list_full": 1.9719864457795688,
+            "array_full": 2.49303358502978
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                831227.0,
+                875753.0,
+                835492.0,
+                914515.0,
+                829280.0
+              ],
+              [
+                814414.0,
+                871511.0,
+                776873.0,
+                887248.0,
+                801093.0
+              ]
+            ],
+            "array_full": [
+              [
+                1361875.0,
+                1195935.0,
+                1034621.0,
+                1085751.0,
+                1046667.0
+              ],
+              [
+                1130995.0,
+                1035058.0,
+                1049183.0,
+                1044845.0,
+                1057924.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                447702.0,
+                410291.0,
+                434907.0,
+                437496.0,
+                406573.0
+              ],
+              [
+                444545.0,
+                407849.0,
+                406661.0,
+                547733.0,
+                402049.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 4096,
+            "changes_per_tick": 32,
+            "reads_per_tick": 32,
+            "ticks": 3
+          },
+          "data_bytes": 32768,
+          "logical_checks": 96,
+          "transition_edges": 96,
+          "loops_per_sample": 1,
+          "checksum": "379405165664",
+          "medians_ns_per_workflow": {
+            "list_full": 3361772.0,
+            "array_full": 4239294.0,
+            "owned_incremental": 478183.5
+          },
+          "speedup_vs_owned": {
+            "list_full": 7.030296946674237,
+            "array_full": 8.865412545602263
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                3335255.0,
+                3328988.0,
+                3679804.0,
+                3511112.0,
+                4143941.0
+              ],
+              [
+                3269087.0,
+                3719677.0,
+                3319961.0,
+                3271152.0,
+                3388289.0
+              ]
+            ],
+            "array_full": [
+              [
+                3970829.0,
+                4196680.0,
+                4200891.0,
+                4467887.0,
+                4277697.0
+              ],
+              [
+                5889513.0,
+                4138812.0,
+                4623073.0,
+                4064593.0,
+                4504531.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                471047.0,
+                424013.0,
+                553800.0,
+                510185.0,
+                452043.0
+              ],
+              [
+                438796.0,
+                485320.0,
+                568275.0,
+                531392.0,
+                438156.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 32768,
+            "changes_per_tick": 1,
+            "reads_per_tick": 1,
+            "ticks": 3
+          },
+          "data_bytes": 262144,
+          "logical_checks": 3,
+          "transition_edges": 3,
+          "loops_per_sample": 1,
+          "checksum": "698310478666",
+          "medians_ns_per_workflow": {
+            "list_full": 849674.0,
+            "array_full": 1552784.5,
+            "owned_incremental": 2827955.0
+          },
+          "speedup_vs_owned": {
+            "list_full": 0.3004552759856504,
+            "array_full": 0.5490838786331466
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                867932.0,
+                860580.0,
+                825711.0,
+                869143.0,
+                849550.0
+              ],
+              [
+                849798.0,
+                830389.0,
+                1468134.0,
+                840043.0,
+                827434.0
+              ]
+            ],
+            "array_full": [
+              [
+                1683805.0,
+                1444284.0,
+                1466301.0,
+                2214115.0,
+                1532464.0
+              ],
+              [
+                1438997.0,
+                1573105.0,
+                1677240.0,
+                1524878.0,
+                1577992.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                3006954.0,
+                2771223.0,
+                2750698.0,
+                2775947.0,
+                3348852.0
+              ],
+              [
+                2836950.0,
+                2818960.0,
+                2763610.0,
+                3170096.0,
+                3585472.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 32768,
+            "changes_per_tick": 1,
+            "reads_per_tick": 8,
+            "ticks": 3
+          },
+          "data_bytes": 262144,
+          "logical_checks": 24,
+          "transition_edges": 3,
+          "loops_per_sample": 1,
+          "checksum": "5584252487688",
+          "medians_ns_per_workflow": {
+            "list_full": 7013414.5,
+            "array_full": 8939962.5,
+            "owned_incremental": 2873656.0
+          },
+          "speedup_vs_owned": {
+            "list_full": 2.4405894442480243,
+            "array_full": 3.111006501822069
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                7061824.0,
+                6738200.0,
+                6979712.0,
+                6771236.0,
+                8160002.0
+              ],
+              [
+                8387153.0,
+                6577275.0,
+                6947339.0,
+                7212206.0,
+                7047117.0
+              ]
+            ],
+            "array_full": [
+              [
+                8650386.0,
+                8852875.0,
+                9031168.0,
+                8981781.0,
+                8965343.0
+              ],
+              [
+                8383573.0,
+                10434842.0,
+                8914582.0,
+                9258675.0,
+                8741718.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                2767773.0,
+                3000108.0,
+                2903358.0,
+                2895626.0,
+                2850548.0
+              ],
+              [
+                2979295.0,
+                2851686.0,
+                2790047.0,
+                3137286.0,
+                2767715.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 32768,
+            "changes_per_tick": 1,
+            "reads_per_tick": 32,
+            "ticks": 3
+          },
+          "data_bytes": 262144,
+          "logical_checks": 96,
+          "transition_edges": 3,
+          "loops_per_sample": 1,
+          "checksum": "22348567269120",
+          "medians_ns_per_workflow": {
+            "list_full": 28652638.0,
+            "array_full": 34417083.5,
+            "owned_incremental": 3328503.0
+          },
+          "speedup_vs_owned": {
+            "list_full": 8.608265637735643,
+            "array_full": 10.340108901809613
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                27939586.0,
+                27761298.0,
+                28101838.0,
+                29264718.0,
+                29565599.0
+              ],
+              [
+                28816786.0,
+                28848217.0,
+                27479497.0,
+                28701769.0,
+                28603507.0
+              ]
+            ],
+            "array_full": [
+              [
+                35104163.0,
+                35929675.0,
+                33649542.0,
+                33583465.0,
+                37074374.0
+              ],
+              [
+                34456867.0,
+                33052417.0,
+                37396407.0,
+                33964077.0,
+                34377300.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                3347807.0,
+                2957567.0,
+                2866724.0,
+                2986953.0,
+                3642641.0
+              ],
+              [
+                3323119.0,
+                3631875.0,
+                3333887.0,
+                3825867.0,
+                3081474.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 32768,
+            "changes_per_tick": 32,
+            "reads_per_tick": 1,
+            "ticks": 3
+          },
+          "data_bytes": 262144,
+          "logical_checks": 3,
+          "transition_edges": 96,
+          "loops_per_sample": 1,
+          "checksum": "703379594091",
+          "medians_ns_per_workflow": {
+            "list_full": 883324.0,
+            "array_full": 1420662.5,
+            "owned_incremental": 2979504.0
+          },
+          "speedup_vs_owned": {
+            "list_full": 0.29646679447317403,
+            "array_full": 0.4768117445051257
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                882529.0,
+                883820.0,
+                883547.0,
+                837397.0,
+                915946.0
+              ],
+              [
+                875417.0,
+                831708.0,
+                978176.0,
+                883101.0,
+                904511.0
+              ]
+            ],
+            "array_full": [
+              [
+                1426668.0,
+                1639070.0,
+                1513506.0,
+                1392785.0,
+                1414657.0
+              ],
+              [
+                1394443.0,
+                1409097.0,
+                1412149.0,
+                1556690.0,
+                1447419.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                3012917.0,
+                2966454.0,
+                3216613.0,
+                2860694.0,
+                3129595.0
+              ],
+              [
+                2786276.0,
+                3071513.0,
+                2992554.0,
+                2801102.0,
+                2828849.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 32768,
+            "changes_per_tick": 32,
+            "reads_per_tick": 8,
+            "ticks": 3
+          },
+          "data_bytes": 262144,
+          "logical_checks": 24,
+          "transition_edges": 96,
+          "loops_per_sample": 1,
+          "checksum": "5650340659352",
+          "medians_ns_per_workflow": {
+            "list_full": 6719632.5,
+            "array_full": 8533836.0,
+            "owned_incremental": 3022498.5
+          },
+          "speedup_vs_owned": {
+            "list_full": 2.223204577272743,
+            "array_full": 2.8234376294975827
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                6801501.0,
+                6438039.0,
+                6511632.0,
+                6737992.0,
+                7384891.0
+              ],
+              [
+                7228439.0,
+                6701273.0,
+                6462368.0,
+                7098053.0,
+                6553234.0
+              ]
+            ],
+            "array_full": [
+              [
+                7914741.0,
+                8476079.0,
+                8717567.0,
+                8612793.0,
+                8678221.0
+              ],
+              [
+                8069132.0,
+                8591593.0,
+                8158304.0,
+                7867877.0,
+                8748691.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                2961680.0,
+                2830010.0,
+                3219711.0,
+                3083317.0,
+                3209128.0
+              ],
+              [
+                3387596.0,
+                2873322.0,
+                2913091.0,
+                2936685.0,
+                7179157.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        },
+        {
+          "state": {
+            "size": 32768,
+            "changes_per_tick": 32,
+            "reads_per_tick": 32,
+            "ticks": 3
+          },
+          "data_bytes": 262144,
+          "logical_checks": 96,
+          "transition_edges": 96,
+          "loops_per_sample": 1,
+          "checksum": "22605492170368",
+          "medians_ns_per_workflow": {
+            "list_full": 27043891.5,
+            "array_full": 31934906.0,
+            "owned_incremental": 3371417.0
+          },
+          "speedup_vs_owned": {
+            "list_full": 8.021520773016212,
+            "array_full": 9.472250392045837
+          },
+          "samples_ns_per_workflow": {
+            "list_full": [
+              [
+                26717300.0,
+                27728174.0,
+                29483714.0,
+                26951494.0,
+                25787330.0
+              ],
+              [
+                28947946.0,
+                26314481.0,
+                26474626.0,
+                27136289.0,
+                27243243.0
+              ]
+            ],
+            "array_full": [
+              [
+                32032054.0,
+                31837758.0,
+                32099137.0,
+                31583709.0,
+                32503755.0
+              ],
+              [
+                31597892.0,
+                32542249.0,
+                33708222.0,
+                31476593.0,
+                31547801.0
+              ]
+            ],
+            "owned_incremental": [
+              [
+                3419383.0,
+                2922117.0,
+                2933106.0,
+                3421155.0,
+                3386460.0
+              ],
+              [
+                3377840.0,
+                3395075.0,
+                3364994.0,
+                3296906.0,
+                3207894.0
+              ]
+            ]
+          },
+          "correctness_mirrors": "PASS"
+        }
+      ]
+    }
+  ],
+  "summary": [
+    {
+      "state": {
+        "size": 4096,
+        "changes_per_tick": 1,
+        "reads_per_tick": 1,
+        "ticks": 3
+      },
+      "data_bytes": 32768,
+      "list_full_ratio_median": 0.2789693741677763,
+      "list_full_ratio_range": [
+        0.23386079342591262,
+        0.28008572303296253
+      ],
+      "list_full_all_sessions_gain_10pct": false,
+      "array_full_ratio_median": 0.4809172147734454,
+      "array_full_ratio_range": [
+        0.47911984021304926,
+        0.5316801034119127
+      ],
+      "array_full_all_sessions_gain_10pct": false
+    },
+    {
+      "state": {
+        "size": 4096,
+        "changes_per_tick": 1,
+        "reads_per_tick": 8,
+        "ticks": 3
+      },
+      "data_bytes": 32768,
+      "list_full_ratio_median": 2.339642011127794,
+      "list_full_ratio_range": [
+        2.2955197302067574,
+        2.348443560661855
+      ],
+      "list_full_all_sessions_gain_10pct": true,
+      "array_full_ratio_median": 2.9319446490237477,
+      "array_full_ratio_range": [
+        2.931092220151353,
+        2.96329346318709
+      ],
+      "array_full_all_sessions_gain_10pct": true
+    },
+    {
+      "state": {
+        "size": 4096,
+        "changes_per_tick": 1,
+        "reads_per_tick": 32,
+        "ticks": 3
+      },
+      "data_bytes": 32768,
+      "list_full_ratio_median": 8.740906948807407,
+      "list_full_ratio_range": [
+        8.22889621276718,
+        9.077893197472697
+      ],
+      "list_full_all_sessions_gain_10pct": true,
+      "array_full_ratio_median": 10.988483447690502,
+      "array_full_ratio_range": [
+        10.236052961859414,
+        11.105866538192425
+      ],
+      "array_full_all_sessions_gain_10pct": true
+    },
+    {
+      "state": {
+        "size": 4096,
+        "changes_per_tick": 32,
+        "reads_per_tick": 1,
+        "ticks": 3
+      },
+      "data_bytes": 32768,
+      "list_full_ratio_median": 0.2678535472179341,
+      "list_full_ratio_range": [
+        0.25512037953402894,
+        0.27010963351499967
+      ],
+      "list_full_all_sessions_gain_10pct": false,
+      "array_full_ratio_median": 0.4715632880442599,
+      "array_full_ratio_range": [
+        0.4704008242265045,
+        0.49458047753219786
+      ],
+      "array_full_all_sessions_gain_10pct": false
+    },
+    {
+      "state": {
+        "size": 4096,
+        "changes_per_tick": 32,
+        "reads_per_tick": 8,
+        "ticks": 3
+      },
+      "data_bytes": 32768,
+      "list_full_ratio_median": 2.02216393651291,
+      "list_full_ratio_range": [
+        1.9719864457795688,
+        2.925450046748041
+      ],
+      "list_full_all_sessions_gain_10pct": true,
+      "array_full_ratio_median": 2.5638383546621495,
+      "array_full_ratio_range": [
+        2.49303358502978,
+        3.0172260074073693
+      ],
+      "array_full_all_sessions_gain_10pct": true
+    },
+    {
+      "state": {
+        "size": 4096,
+        "changes_per_tick": 32,
+        "reads_per_tick": 32,
+        "ticks": 3
+      },
+      "data_bytes": 32768,
+      "list_full_ratio_median": 7.030296946674237,
+      "list_full_ratio_range": [
+        6.636286178315965,
+        7.599590193957623
+      ],
+      "list_full_all_sessions_gain_10pct": true,
+      "array_full_ratio_median": 8.865412545602263,
+      "array_full_ratio_range": [
+        8.56730265138987,
+        10.147156351131814
+      ],
+      "array_full_all_sessions_gain_10pct": true
+    },
+    {
+      "state": {
+        "size": 32768,
+        "changes_per_tick": 1,
+        "reads_per_tick": 1,
+        "ticks": 3
+      },
+      "data_bytes": 262144,
+      "list_full_ratio_median": 0.29492551084140023,
+      "list_full_ratio_range": [
+        0.28597235488795664,
+        0.3004552759856504
+      ],
+      "list_full_all_sessions_gain_10pct": false,
+      "array_full_ratio_median": 0.5120497724396772,
+      "array_full_ratio_range": [
+        0.5043103455546235,
+        0.5490838786331466
+      ],
+      "array_full_all_sessions_gain_10pct": false
+    },
+    {
+      "state": {
+        "size": 32768,
+        "changes_per_tick": 1,
+        "reads_per_tick": 8,
+        "ticks": 3
+      },
+      "data_bytes": 262144,
+      "list_full_ratio_median": 2.409572941593848,
+      "list_full_ratio_range": [
+        2.21262212123446,
+        2.4405894442480243
+      ],
+      "list_full_all_sessions_gain_10pct": true,
+      "array_full_ratio_median": 3.087427496611772,
+      "array_full_ratio_range": [
+        2.749811525531244,
+        3.111006501822069
+      ],
+      "array_full_all_sessions_gain_10pct": true
+    },
+    {
+      "state": {
+        "size": 32768,
+        "changes_per_tick": 1,
+        "reads_per_tick": 32,
+        "ticks": 3
+      },
+      "data_bytes": 262144,
+      "list_full_ratio_median": 8.608265637735643,
+      "list_full_ratio_range": [
+        8.12645547181352,
+        8.933367820890975
+      ],
+      "list_full_all_sessions_gain_10pct": true,
+      "array_full_ratio_median": 10.340108901809613,
+      "array_full_ratio_range": [
+        10.20966029213524,
+        11.101481807893697
+      ],
+      "array_full_all_sessions_gain_10pct": true
+    },
+    {
+      "state": {
+        "size": 32768,
+        "changes_per_tick": 32,
+        "reads_per_tick": 1,
+        "ticks": 3
+      },
+      "data_bytes": 262144,
+      "list_full_ratio_median": 0.29646679447317403,
+      "list_full_ratio_range": [
+        0.2844656435320708,
+        0.3064814036352857
+      ],
+      "list_full_all_sessions_gain_10pct": false,
+      "array_full_ratio_median": 0.5087581398173858,
+      "array_full_ratio_range": [
+        0.4768117445051257,
+        0.5099892784119915
+      ],
+      "array_full_all_sessions_gain_10pct": false
+    },
+    {
+      "state": {
+        "size": 32768,
+        "changes_per_tick": 32,
+        "reads_per_tick": 8,
+        "ticks": 3
+      },
+      "data_bytes": 262144,
+      "list_full_ratio_median": 2.223204577272743,
+      "list_full_ratio_range": [
+        2.1829206531006604,
+        2.2427853955552126
+      ],
+      "list_full_all_sessions_gain_10pct": true,
+      "array_full_ratio_median": 2.8234376294975827,
+      "array_full_ratio_range": [
+        2.7056129737131305,
+        2.82444616233384
+      ],
+      "array_full_all_sessions_gain_10pct": true
+    },
+    {
+      "state": {
+        "size": 32768,
+        "changes_per_tick": 32,
+        "reads_per_tick": 32,
+        "ticks": 3
+      },
+      "data_bytes": 262144,
+      "list_full_ratio_median": 8.175528146395667,
+      "list_full_ratio_range": [
+        8.021520773016212,
+        8.76625065632957
+      ],
+      "list_full_all_sessions_gain_10pct": true,
+      "array_full_ratio_median": 9.696929955380185,
+      "array_full_ratio_range": [
+        9.472250392045837,
+        10.662392204048796
+      ],
+      "array_full_all_sessions_gain_10pct": true
+    }
+  ],
+  "graph_edges": [
+    {
+      "from": {
+        "size": 32768,
+        "changes_per_tick": 1,
+        "reads_per_tick": 1,
+        "ticks": 3
+      },
+      "to": {
+        "size": 32768,
+        "changes_per_tick": 32,
+        "reads_per_tick": 1,
+        "ticks": 3
+      },
+      "axis": "changes_per_tick"
+    },
+    {
+      "from": {
+        "size": 32768,
+        "changes_per_tick": 1,
+        "reads_per_tick": 32,
+        "ticks": 3
+      },
+      "to": {
+        "size": 32768,
+        "changes_per_tick": 32,
+        "reads_per_tick": 32,
+        "ticks": 3
+      },
+      "axis": "changes_per_tick"
+    },
+    {
+      "from": {
+        "size": 32768,
+        "changes_per_tick": 1,
+        "reads_per_tick": 8,
+        "ticks": 3
+      },
+      "to": {
+        "size": 32768,
+        "changes_per_tick": 32,
+        "reads_per_tick": 8,
+        "ticks": 3
+      },
+      "axis": "changes_per_tick"
+    },
+    {
+      "from": {
+        "size": 4096,
+        "changes_per_tick": 1,
+        "reads_per_tick": 1,
+        "ticks": 3
+      },
+      "to": {
+        "size": 4096,
+        "changes_per_tick": 32,
+        "reads_per_tick": 1,
+        "ticks": 3
+      },
+      "axis": "changes_per_tick"
+    },
+    {
+      "from": {
+        "size": 4096,
+        "changes_per_tick": 1,
+        "reads_per_tick": 32,
+        "ticks": 3
+      },
+      "to": {
+        "size": 4096,
+        "changes_per_tick": 32,
+        "reads_per_tick": 32,
+        "ticks": 3
+      },
+      "axis": "changes_per_tick"
+    },
+    {
+      "from": {
+        "size": 4096,
+        "changes_per_tick": 1,
+        "reads_per_tick": 8,
+        "ticks": 3
+      },
+      "to": {
+        "size": 4096,
+        "changes_per_tick": 32,
+        "reads_per_tick": 8,
+        "ticks": 3
+      },
+      "axis": "changes_per_tick"
+    },
+    {
+      "from": {
+        "size": 32768,
+        "changes_per_tick": 1,
+        "reads_per_tick": 1,
+        "ticks": 3
+      },
+      "to": {
+        "size": 32768,
+        "changes_per_tick": 1,
+        "reads_per_tick": 8,
+        "ticks": 3
+      },
+      "axis": "reads_per_tick"
+    },
+    {
+      "from": {
+        "size": 32768,
+        "changes_per_tick": 1,
+        "reads_per_tick": 8,
+        "ticks": 3
+      },
+      "to": {
+        "size": 32768,
+        "changes_per_tick": 1,
+        "reads_per_tick": 32,
+        "ticks": 3
+      },
+      "axis": "reads_per_tick"
+    },
+    {
+      "from": {
+        "size": 32768,
+        "changes_per_tick": 32,
+        "reads_per_tick": 1,
+        "ticks": 3
+      },
+      "to": {
+        "size": 32768,
+        "changes_per_tick": 32,
+        "reads_per_tick": 8,
+        "ticks": 3
+      },
+      "axis": "reads_per_tick"
+    },
+    {
+      "from": {
+        "size": 32768,
+        "changes_per_tick": 32,
+        "reads_per_tick": 8,
+        "ticks": 3
+      },
+      "to": {
+        "size": 32768,
+        "changes_per_tick": 32,
+        "reads_per_tick": 32,
+        "ticks": 3
+      },
+      "axis": "reads_per_tick"
+    },
+    {
+      "from": {
+        "size": 4096,
+        "changes_per_tick": 1,
+        "reads_per_tick": 1,
+        "ticks": 3
+      },
+      "to": {
+        "size": 4096,
+        "changes_per_tick": 1,
+        "reads_per_tick": 8,
+        "ticks": 3
+      },
+      "axis": "reads_per_tick"
+    },
+    {
+      "from": {
+        "size": 4096,
+        "changes_per_tick": 1,
+        "reads_per_tick": 8,
+        "ticks": 3
+      },
+      "to": {
+        "size": 4096,
+        "changes_per_tick": 1,
+        "reads_per_tick": 32,
+        "ticks": 3
+      },
+      "axis": "reads_per_tick"
+    },
+    {
+      "from": {
+        "size": 4096,
+        "changes_per_tick": 32,
+        "reads_per_tick": 1,
+        "ticks": 3
+      },
+      "to": {
+        "size": 4096,
+        "changes_per_tick": 32,
+        "reads_per_tick": 8,
+        "ticks": 3
+      },
+      "axis": "reads_per_tick"
+    },
+    {
+      "from": {
+        "size": 4096,
+        "changes_per_tick": 32,
+        "reads_per_tick": 8,
+        "ticks": 3
+      },
+      "to": {
+        "size": 4096,
+        "changes_per_tick": 32,
+        "reads_per_tick": 32,
+        "ticks": 3
+      },
+      "axis": "reads_per_tick"
+    },
+    {
+      "from": {
+        "size": 4096,
+        "changes_per_tick": 1,
+        "reads_per_tick": 1,
+        "ticks": 3
+      },
+      "to": {
+        "size": 32768,
+        "changes_per_tick": 1,
+        "reads_per_tick": 1,
+        "ticks": 3
+      },
+      "axis": "size"
+    },
+    {
+      "from": {
+        "size": 4096,
+        "changes_per_tick": 1,
+        "reads_per_tick": 32,
+        "ticks": 3
+      },
+      "to": {
+        "size": 32768,
+        "changes_per_tick": 1,
+        "reads_per_tick": 32,
+        "ticks": 3
+      },
+      "axis": "size"
+    },
+    {
+      "from": {
+        "size": 4096,
+        "changes_per_tick": 1,
+        "reads_per_tick": 8,
+        "ticks": 3
+      },
+      "to": {
+        "size": 32768,
+        "changes_per_tick": 1,
+        "reads_per_tick": 8,
+        "ticks": 3
+      },
+      "axis": "size"
+    },
+    {
+      "from": {
+        "size": 4096,
+        "changes_per_tick": 32,
+        "reads_per_tick": 1,
+        "ticks": 3
+      },
+      "to": {
+        "size": 32768,
+        "changes_per_tick": 32,
+        "reads_per_tick": 1,
+        "ticks": 3
+      },
+      "axis": "size"
+    },
+    {
+      "from": {
+        "size": 4096,
+        "changes_per_tick": 32,
+        "reads_per_tick": 32,
+        "ticks": 3
+      },
+      "to": {
+        "size": 32768,
+        "changes_per_tick": 32,
+        "reads_per_tick": 32,
+        "ticks": 3
+      },
+      "axis": "size"
+    },
+    {
+      "from": {
+        "size": 4096,
+        "changes_per_tick": 32,
+        "reads_per_tick": 8,
+        "ticks": 3
+      },
+      "to": {
+        "size": 32768,
+        "changes_per_tick": 32,
+        "reads_per_tick": 8,
+        "ticks": 3
+      },
+      "axis": "size"
+    }
+  ],
+  "sha256": "0e0766d94d6aa0e1825cbc1dfdf85bb2726032a820614a6780eae03c4c2e09ac"
+}
