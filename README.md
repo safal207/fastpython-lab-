@@ -298,3 +298,22 @@ python -m alexpy.partition_bench --sizes 4096,32768 --changes 1,16 \
 
 [Methodology, constraints, negative results](docs/PARTITION_COMPILER.md)
 ([raw local evidence](evidence/partition-results-local-py313.json)).
+
+## v1.3: Ant-Memory Graph — sparse matrix for verified execution alternatives
+
+The opt-in `alexpy.ant_memory` combines a graph of **eligible complete plans**
+with a sparse state-by-route matrix of bounded pheromone scores, lazy aging,
+space/time transition counts, failure quarantine, and compiled decision cache.
+A blind-holdout bench `alexpy.ant_bench` compares this policy against the
+strong fixed manual incremental algorithm, fixed partition and the retrospective
+oracle; all routes must match a dense checksum before measuring.
+
+The **result is negative so far**: the ant policy selected the strong manual
+algorithm on all eight held-out cases and did not deliver a confirmed gain.
+Compiling decision lookups reduced selection overhead; the public API and
+automatic runtime dispatch remain unchanged. See
+[docs/ANT_MEMORY_GRAPH.md](docs/ANT_MEMORY_GRAPH.md) and the raw JSON evidence.
+
+```bash
+python -m alexpy.ant_bench --sessions 3 --pairs 4 --json ant-memory.json
+```
