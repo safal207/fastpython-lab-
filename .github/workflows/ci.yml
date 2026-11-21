@@ -58,6 +58,9 @@ jobs:
       - name: Verify dependency-DAG sparse updates against strong controls (advisory)
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
         run: python -m alexpy.dependency_bench --sizes 1024 --changes 1,8 --ticks 4 --reads 1,4 --sessions 2 --epochs 2 --pairs 3 --target-ms .2 --json dependency-results.json
+      - name: Benchmark frozen compiled-DAG vs legacy, manual and dense controls (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.compiled_bench --sizes 1024 --changes 1,8 --ticks 4 --reads 1,4 --sessions 2 --epochs 2 --pairs 3 --json compiled-results.json
       - uses: actions/upload-artifact@v4
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
         with:
@@ -76,3 +79,4 @@ jobs:
             persistent.json
             persistent-grid.dot
             dependency-results.json
+            compiled-results.json

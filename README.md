@@ -249,3 +249,25 @@ python -m alexpy.dependency_bench --sizes 4096,32768 --changes 1,16 \
 in the 16-cell local benchmark, even where the DAG beat full recomputation. See
 [docs/DEPENDENCY_DAG.md](docs/DEPENDENCY_DAG.md) and raw evidence. All
 performance-based dispatch promotion remains blocked.
+
+## v1.1 compiled DAG frontier — opt-in, strong controls
+
+`alexpy.compiled_graph.CompiledDependencyGraph` freezes registered dependencies
+into integer node IDs and initializes typed range sums without repeated
+Python index checking. It validates every patch before committing, preserves
+big-integer exactness and leaves the public dispatcher unchanged.
+
+`alexpy.compiled_bench` compares four complete workflows: dense recomputation,
+strong hand-coded incremental, previous DAG and compiled DAG. The timed scope
+includes graph construction and compilation. Three-process Linux CPython 3.13.5
+measurements found compiled 1.83–3.48x faster than the old DAG over 16 cases,
+but the manual incremental approach still wins. No automatic promotion.
+
+```bash
+python -m unittest discover -s tests -q
+python -m alexpy.compiled_bench --sizes 4096,32768 --changes 1,16 \
+  --ticks 2,32 --reads 1,8 --sessions 3 --epochs 2 --pairs 5 \
+  --json compiled-results.json
+```
+
+See [full methodology and negative controls](docs/COMPILED_DAG.md).
