@@ -341,3 +341,25 @@ showed any confirmed >10% improvement** over the manual control on eight
 blind length holdouts. Training+compilation and occasional runtime
 regressions are part of the measured cost. See
 [WAVE_MEMORY.md](docs/WAVE_MEMORY.md) for the results and limitations.
+
+
+## v1.5 — heterogeneous wave-memory research (opt-in)
+
+`alexpy.hetero_wave.HeterogeneousWaveMemory` extends the earlier light/sound
+planning experiments from a constant-cost state lattice to **bounded directed
+nonnegative edge costs**. Its default axis weights and working-set penalty
+are explicitly *heuristics*, NOT hardware cache-miss measurements. Adjacent
+edges may be updated only with separately timed and verified transition
+ratios; incorrect transitions are quarantined. Dijkstra is checked against an
+independent Bellman–Ford implementation in the tests. Distance geometry can
+be reused across plans, and learned policies remain offline / opt-in.
+
+```bash
+python -m alexpy.hetero_bench --train-sizes 128,1024 \
+  --holdout-sizes 256,512 --changes 1,4 --reads 1,8 \
+  --width 64 --ticks 2 --pairs 3 --sessions 3 --json hetero-report.json
+```
+
+See [docs/HETEROGENEOUS_WAVE.md](docs/HETEROGENEOUS_WAVE.md).
+Observed 8-state holdout (Linux, Python 3.13.5) still did **not** beat the
+strong fixed manual control. The stable public API has not been changed.

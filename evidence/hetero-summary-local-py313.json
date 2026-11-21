@@ -1,0 +1,89 @@
+{
+  "schema": "ALEXPY-HETEROGENEOUS-WAVE-SUMMARY/1",
+  "full_raw_in_research_archive": true,
+  "sessions_per_phase": 3,
+  "holdout_scenarios": 8,
+  "phases": [
+    {
+      "phase": "hetero-local",
+      "source_sha256": "4cc2a3e22a546698a600a14bd648b348eebb927530ff8521eb162fa9db67dfc3",
+      "freeze_ms_median": 460.499522,
+      "policies": {
+        "ant": {
+          "median_manual_over": 0.8808897532422858,
+          "holdout_gain_10pct_count": 0,
+          "holdout_regression_10pct_count": 3
+        },
+        "uniform": {
+          "median_manual_over": 0.8766500178010133,
+          "holdout_gain_10pct_count": 0,
+          "holdout_regression_10pct_count": 3
+        },
+        "hetero_light": {
+          "median_manual_over": 0.9247931658041609,
+          "holdout_gain_10pct_count": 0,
+          "holdout_regression_10pct_count": 2
+        },
+        "hetero_sound": {
+          "median_manual_over": 0.91528338309861,
+          "holdout_gain_10pct_count": 0,
+          "holdout_regression_10pct_count": 2
+        }
+      }
+    },
+    {
+      "phase": "hetero-local-optimized",
+      "source_sha256": "83e1880525d42c719f410d899f21341c2c3fbc7203bd6e7835d34887c2e899b3",
+      "freeze_ms_median": 413.289174,
+      "policies": {
+        "ant": {
+          "median_manual_over": 0.8986306387614746,
+          "holdout_gain_10pct_count": 0,
+          "holdout_regression_10pct_count": 2
+        },
+        "uniform": {
+          "median_manual_over": 0.9221065714599004,
+          "holdout_gain_10pct_count": 0,
+          "holdout_regression_10pct_count": 2
+        },
+        "hetero_light": {
+          "median_manual_over": 0.9235681940700808,
+          "holdout_gain_10pct_count": 0,
+          "holdout_regression_10pct_count": 2
+        },
+        "hetero_sound": {
+          "median_manual_over": 0.917583080332123,
+          "holdout_gain_10pct_count": 0,
+          "holdout_regression_10pct_count": 2
+        }
+      }
+    },
+    {
+      "phase": "hetero-local-final",
+      "source_sha256": "f88dad5c4ced4fbe958746e9be3516ba636ef528a663a30c08e1d4e78e2e7d62",
+      "freeze_ms_median": 151.229964,
+      "policies": {
+        "ant": {
+          "median_manual_over": 0.9270773057514561,
+          "holdout_gain_10pct_count": 0,
+          "holdout_regression_10pct_count": 0
+        },
+        "uniform": {
+          "median_manual_over": 0.9312630196137797,
+          "holdout_gain_10pct_count": 0,
+          "holdout_regression_10pct_count": 0
+        },
+        "hetero_light": {
+          "median_manual_over": 0.9383437741743816,
+          "holdout_gain_10pct_count": 0,
+          "holdout_regression_10pct_count": 0
+        },
+        "hetero_sound": {
+          "median_manual_over": 0.9281173981289739,
+          "holdout_gain_10pct_count": 0,
+          "holdout_regression_10pct_count": 1
+        }
+      }
+    }
+  ]
+}
