@@ -317,3 +317,27 @@ automatic runtime dispatch remain unchanged. See
 ```bash
 python -m alexpy.ant_bench --sessions 3 --pairs 4 --json ant-memory.json
 ```
+
+## Experimental wavefront memory — light / sound propagation analogy
+
+`alexpy.wave_memory` adds an **opt-in offline** multi-source selector on top of
+previously verified alternative execution plans. A light-style front minimizes
+arrival cost on a uniform five-dimensional workload grid. A sound-style field
+pools distance-decayed evidence from multiple training cells. A Dijkstra
+reference checks the compiled min-plus uniform-grid shortcut. The wavefront
+**never** changes obligatory dependency-DAG edges, executes unverified routes,
+or replaces the public `sum_squares` API. Unknown workloads default to the
+strong manual plan. Neither algorithm simulates physical light or sound.
+
+```bash
+python -m unittest discover -s tests -q
+python -m alexpy.wave_bench --train-sizes 128,1024 --holdout-sizes 256,512 \
+  --changes 1,4 --reads 1,8 --width 64 --ticks 2 \
+  --pairs 4 --sessions 3 --json wave-memory.json
+```
+
+On local CPython 3.13.5 Linux, 168 tests passed, but **neither wave variant
+showed any confirmed >10% improvement** over the manual control on eight
+blind length holdouts. Training+compilation and occasional runtime
+regressions are part of the measured cost. See
+[WAVE_MEMORY.md](docs/WAVE_MEMORY.md) for the results and limitations.
