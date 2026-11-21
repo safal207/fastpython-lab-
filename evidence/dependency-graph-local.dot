@@ -1,0 +1,17 @@
+digraph AlexPyDependencies {
+  rankdir=LR;
+  label="Declared dependencies, last patch frontier";
+  n0 [label="left_sum\nwindow_sum", style=filled, fillcolor="#e5e7eb"];
+  n1 [label="left_sq\nwindow_squares", style=filled, fillcolor="#e5e7eb"];
+  n2 [label="left_var\nvariance", style=filled, fillcolor="#e5e7eb"];
+  n3 [label="right_sum\nwindow_sum", style=filled, fillcolor="#cbead0"];
+  n4 [label="right_sq\nwindow_squares", style=filled, fillcolor="#cbead0"];
+  n5 [label="right_var\nvariance", style=filled, fillcolor="#cbead0"];
+  n6 [label="total\nadd", style=filled, fillcolor="#cbead0"];
+  n0 -> n2;
+  n1 -> n2;
+  n3 -> n5;
+  n4 -> n5;
+  n0 -> n6;
+  n3 -> n6;
+}

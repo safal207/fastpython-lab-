@@ -229,3 +229,23 @@ python -m alexpy.persistent_bench --sizes 64,4096,32768 --changes 1,32 \
 ```
 
 See [the v0.9 research protocol](docs/PERSISTENT_BUFFER.md).
+
+## Mission 10: opt-in dependency DAG, sparse patches and strong controls
+
+`alexpy.dependency_graph.DependencyGraph` supports declared sum, square-sum,
+variance-numerator and additive dependency nodes over an owned signed-q buffer.
+Per-index patches propagate only through graph nodes whose numeric values change;
+unrelated intervals remain cached. A full independent `verify()` checks results.
+The implementation does **not** trace arbitrary Python functions or replace the
+normal `sum_squares` dispatcher.
+
+```bash
+python -m unittest discover -s tests -v
+python -m alexpy.dependency_bench --sizes 4096,32768 --changes 1,16 \
+  --ticks 2,32 --reads 1,8 --sessions 3 --json dependency-results.json
+```
+
+**Important:** The strong hand-coded incremental comparator **beat** the DAG
+in the 16-cell local benchmark, even where the DAG beat full recomputation. See
+[docs/DEPENDENCY_DAG.md](docs/DEPENDENCY_DAG.md) and raw evidence. All
+performance-based dispatch promotion remains blocked.

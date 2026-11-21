@@ -55,6 +55,9 @@ jobs:
       - name: Explore persistent sparse-update workflows (advisory)
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
         run: python -m alexpy.persistent_bench --sizes 64,4096 --changes 1,32 --reads 1,16 --ticks 4 --epochs 2 --pairs 5 --sessions 2 --target-ms .2 --json persistent.json --dot persistent-grid.dot
+      - name: Verify dependency-DAG sparse updates against strong controls (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.dependency_bench --sizes 1024 --changes 1,8 --ticks 4 --reads 1,4 --sessions 2 --epochs 2 --pairs 3 --target-ms .2 --json dependency-results.json
       - uses: actions/upload-artifact@v4
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
         with:
@@ -72,3 +75,4 @@ jobs:
             amortization.json
             persistent.json
             persistent-grid.dot
+            dependency-results.json
