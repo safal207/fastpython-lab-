@@ -507,3 +507,14 @@ a claim of general Python speedup or production applicability. No auto-promotion
 
 See [`docs/QA_NATIVE_BATCH.md`](docs/QA_NATIVE_BATCH.md) for the contract,
 methodology, limitations and reproduction commands.
+
+### v2.3 — Native QA platform and memory audit (opt-in)
+
+`python -m alexpy.qa_field_audit` records Python-traced and process-RSS memory
+per route in isolated workers and verifies the result against a full scan.
+The study also replays 24 sanitized public GitHub Actions job metadata events
+from four CI runs, not private or individual test logs. A platform-specific
+GitHub Actions artifact is uploaded for Python 3.13 on Linux/macOS/Windows.
+On local Linux, the native kernel is **faster but uses more memory** than the
+strong Python batch baseline in the measured 4096-test scenario. Speed findings
+remain restricted to synthetic workloads. See `docs/QA_FIELD_AUDIT.md`.
