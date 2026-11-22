@@ -1,0 +1,124 @@
+{
+  "schema": "alexpy-bardo-bridge-summary/1",
+  "reference_repo": "safal207/BardoCompute",
+  "reference_sha": "f50490e8194f0e5c7aeeba251f2575eb8155ed54",
+  "main_path_unchanged": true,
+  "default_route_promotion": false,
+  "host": {
+    "system": "Linux",
+    "python": "3.13.5",
+    "machine": "x86_64",
+    "processor": "AMD EPYC 9V74 80-Core Processor"
+  },
+  "tree_vs_set_median_ratios": {
+    "small-hot": 0.23308925793518945,
+    "medium-sparse": 0.0793061126089091,
+    "large-sparse": 0.051176161220241684,
+    "query-heavy": 0.16203453512390537
+  },
+  "peak_traced_bytes_medians": {
+    "medium-sparse": {
+      "native_set": 206983,
+      "native_tree": 1611019
+    },
+    "large-sparse": {
+      "native_set": 632935,
+      "native_tree": 4870767
+    }
+  },
+  "sims": [
+    {
+      "policy": "fixed8",
+      "pattern": "stable",
+      "ticks": 1024,
+      "probes": 128,
+      "net_cost": -2816.0
+    },
+    {
+      "policy": "fixed64",
+      "pattern": "stable",
+      "ticks": 1024,
+      "probes": 16,
+      "net_cost": -3040.0
+    },
+    {
+      "policy": "every",
+      "pattern": "stable",
+      "ticks": 1024,
+      "probes": 1024,
+      "net_cost": -1024.0
+    },
+    {
+      "policy": "adaptive",
+      "pattern": "stable",
+      "ticks": 1024,
+      "probes": 15,
+      "net_cost": -3042.0
+    },
+    {
+      "policy": "fixed8",
+      "pattern": "single",
+      "ticks": 1024,
+      "probes": 128,
+      "net_cost": -1280.0
+    },
+    {
+      "policy": "fixed64",
+      "pattern": "single",
+      "ticks": 1024,
+      "probes": 16,
+      "net_cost": -1504.0
+    },
+    {
+      "policy": "every",
+      "pattern": "single",
+      "ticks": 1024,
+      "probes": 1024,
+      "net_cost": 512.0
+    },
+    {
+      "policy": "adaptive",
+      "pattern": "single",
+      "ticks": 1024,
+      "probes": 64,
+      "net_cost": -946.0
+    },
+    {
+      "policy": "fixed8",
+      "pattern": "reversal",
+      "ticks": 1024,
+      "probes": 128,
+      "net_cost": -2048.0
+    },
+    {
+      "policy": "fixed64",
+      "pattern": "reversal",
+      "ticks": 1024,
+      "probes": 16,
+      "net_cost": -2272.0
+    },
+    {
+      "policy": "every",
+      "pattern": "reversal",
+      "ticks": 1024,
+      "probes": 1024,
+      "net_cost": -256.0
+    },
+    {
+      "policy": "adaptive",
+      "pattern": "reversal",
+      "ticks": 1024,
+      "probes": 64,
+      "net_cost": -1708.0
+    }
+  ],
+  "test_count": 308,
+  "falsification": {
+    "tree_faster_than_set_any_case": false,
+    "trust_beats_fixed64_under_any_shift": false
+  },
+  "evidence_sha256": {
+    "bardo-bridge-full-local-py313.json": "a1c7899a6f55e7ee5e98b78b4f1cd8961cd47d15948dd81ac3af07fe49ad028b",
+    "bardo-bridge-memory-local-py313.json": "56c5842daa5d1adf71c201e036e77d45fad823b5f4dfd8813eacebb72910c89c"
+  }
+}

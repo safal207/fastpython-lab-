@@ -1,0 +1,173 @@
+{
+  "schema": "alexpy-bardo-memory/1",
+  "measurements": [
+    {
+      "case": "medium-sparse",
+      "route": "native_set",
+      "current_bytes": 24667,
+      "peak_traced_bytes": 206983,
+      "digest": 3906588467567405761,
+      "host": {
+        "system": "Linux",
+        "python": "3.13.5",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor"
+      },
+      "session": 0
+    },
+    {
+      "case": "medium-sparse",
+      "route": "native_set",
+      "current_bytes": 23429,
+      "peak_traced_bytes": 205985,
+      "digest": 3906588467567405761,
+      "host": {
+        "system": "Linux",
+        "python": "3.13.5",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor"
+      },
+      "session": 1
+    },
+    {
+      "case": "medium-sparse",
+      "route": "native_set",
+      "current_bytes": 30188,
+      "peak_traced_bytes": 212744,
+      "digest": 3906588467567405761,
+      "host": {
+        "system": "Linux",
+        "python": "3.13.5",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor"
+      },
+      "session": 2
+    },
+    {
+      "case": "medium-sparse",
+      "route": "native_tree",
+      "current_bytes": 250547,
+      "peak_traced_bytes": 1608345,
+      "digest": 3906588467567405761,
+      "host": {
+        "system": "Linux",
+        "python": "3.13.5",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor"
+      },
+      "session": 0
+    },
+    {
+      "case": "medium-sparse",
+      "route": "native_tree",
+      "current_bytes": 253114,
+      "peak_traced_bytes": 1611019,
+      "digest": 3906588467567405761,
+      "host": {
+        "system": "Linux",
+        "python": "3.13.5",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor"
+      },
+      "session": 1
+    },
+    {
+      "case": "medium-sparse",
+      "route": "native_tree",
+      "current_bytes": 254080,
+      "peak_traced_bytes": 1612125,
+      "digest": 3906588467567405761,
+      "host": {
+        "system": "Linux",
+        "python": "3.13.5",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor"
+      },
+      "session": 2
+    },
+    {
+      "case": "large-sparse",
+      "route": "native_set",
+      "current_bytes": 40370,
+      "peak_traced_bytes": 635408,
+      "digest": 7721457804990185875,
+      "host": {
+        "system": "Linux",
+        "python": "3.13.5",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor"
+      },
+      "session": 0
+    },
+    {
+      "case": "large-sparse",
+      "route": "native_set",
+      "current_bytes": 27924,
+      "peak_traced_bytes": 621892,
+      "digest": 7721457804990185875,
+      "host": {
+        "system": "Linux",
+        "python": "3.13.5",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor"
+      },
+      "session": 1
+    },
+    {
+      "case": "large-sparse",
+      "route": "native_set",
+      "current_bytes": 36863,
+      "peak_traced_bytes": 632935,
+      "digest": 7721457804990185875,
+      "host": {
+        "system": "Linux",
+        "python": "3.13.5",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor"
+      },
+      "session": 2
+    },
+    {
+      "case": "large-sparse",
+      "route": "native_tree",
+      "current_bytes": 285463,
+      "peak_traced_bytes": 4870767,
+      "digest": 7721457804990185875,
+      "host": {
+        "system": "Linux",
+        "python": "3.13.5",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor"
+      },
+      "session": 0
+    },
+    {
+      "case": "large-sparse",
+      "route": "native_tree",
+      "current_bytes": 289838,
+      "peak_traced_bytes": 4875094,
+      "digest": 7721457804990185875,
+      "host": {
+        "system": "Linux",
+        "python": "3.13.5",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor"
+      },
+      "session": 1
+    },
+    {
+      "case": "large-sparse",
+      "route": "native_tree",
+      "current_bytes": 283873,
+      "peak_traced_bytes": 4869087,
+      "digest": 7721457804990185875,
+      "host": {
+        "system": "Linux",
+        "python": "3.13.5",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor"
+      },
+      "session": 2
+    }
+  ]
+}

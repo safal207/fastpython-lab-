@@ -519,12 +519,17 @@ On local Linux, the native kernel is **faster but uses more memory** than the
 strong Python batch baseline in the measured 4096-test scenario. Speed findings
 remain restricted to synthetic workloads. See `docs/QA_FIELD_AUDIT.md`.
 
+### AlexPy 2.4 — compact native QA scratch buffers (mission 23)
 
-### AlexPy 2.4 — compact native QA kernel (mission 23)
+The opt-in C `NativeBatchQA` now holds no full-length pending/seen scratch
+arrays between batches. Each batch stages only its unique IDs using a compact
+hash table, or a direct index map for dense batches, before an atomic commit.
+Local 293 tests passed. Synthetic Linux CPython 3.13.5: the tracked peak
+allocations fell ~45–48% in two sparse-batch cases and ~6% in a dense case;
+median end-to-end speed was **1.770x strong Python batch** but **0.971x the
+previous C kernel**. Tiny differences across separately run binaries can be
+noisy. No default promotion; see [`docs/QA_COMPACT_NATIVE.md`](docs/QA_COMPACT_NATIVE.md).
 
-The opt-in native batch engine now allocates staging for the batch, not for
-all tests. Sparse batches use a compact hash; dense ones use direct indexing.
-Local 293 tests PASS. On synthetic CPython 3.13.5 Linux loads, 45-48% less
-traced memory for sparse batches and 6% less for a dense batch; median 1.770x
-vs strong batch Python and 0.971x vs the previous C kernel (separate sequential
-binary benchmarks). No automatic promotion. See docs/QA_COMPACT_NATIVE.md.
+### AlexPy × Bardo — experimental transition-memory tree and calibration trust
+
+Explores ordered QA summaries with exact failure witnesses and a separate stale-calibration probe gate. Both are opt-in research. In the frozen local equal-native comparison the Python summary tree **lost** to the Python failure set in all four cases (median tree/set throughput 0.051–0.233×), and used much more tracked memory. The trust heuristic also **lost** to a fixed 64-step probe on the synthetic shift/reversal cases. Neither is enabled by default. See [`docs/BARDO_BRIDGE.md`](docs/BARDO_BRIDGE.md) for independent baselines, evidence and non-claims.
