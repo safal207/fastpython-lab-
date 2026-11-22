@@ -1,0 +1,43 @@
+{
+  "schema": "ALEXPY-QA-BATCH-MEMORY/1",
+  "method": "one diagnostic run with tracemalloc; Python allocations only, not full native RSS",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "memory": {
+    "small-frequent/batch1": {
+      "strong_batch": 216368,
+      "alexpy_batch": 10824
+    },
+    "small-frequent/batch64": {
+      "strong_batch": 13748,
+      "alexpy_batch": 26252
+    },
+    "small-frequent/batch256": {
+      "strong_batch": 26236,
+      "alexpy_batch": 48588
+    },
+    "large-sparse/batch1": {
+      "strong_batch": 419720,
+      "alexpy_batch": 661352
+    },
+    "large-sparse/batch64": {
+      "strong_batch": 418660,
+      "alexpy_batch": 661352
+    },
+    "large-sparse/batch256": {
+      "strong_batch": 446764,
+      "alexpy_batch": 661352
+    },
+    "medium-hot-retries/batch1": {
+      "strong_batch": 102400,
+      "alexpy_batch": 164432
+    },
+    "medium-hot-retries/batch64": {
+      "strong_batch": 108724,
+      "alexpy_batch": 164552
+    },
+    "medium-hot-retries/batch256": {
+      "strong_batch": 113724,
+      "alexpy_batch": 164552
+    }
+  }
+}

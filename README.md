@@ -468,3 +468,22 @@ scenarios: AlexPy was 0.35–0.64x as fast as *strong* Python counters. This is
 important negative evidence. The C/native backend is not auto-promoted,
 and neither this result nor old synthetic speedups demonstrate application-wide
 acceleration. See [full protocol](docs/QA_PERFORMANCE_LAB.md).
+
+### AlexPy 2.1 — experimental QA Batch Engine (mission 20)
+
+`alexpy.qa_batch.AlexPyBatchQAGraph` consumes an exact list or tuple of
+`QAEvent` values as one atomic batch. All events are validated before any
+change; repeated test IDs retain the last valid state. Intermediate updates
+are not visible until the batch closes. The corresponding
+`StrongPythonBatchQA` provides a *strong batch Python baseline*.
+
+Local CPython 3.13.5 benchmark (16 configurations, 3 independent processes,
+3 paired route rotations per configuration): the batch graph is about **2.006×**
+faster than the previous per-event AlexPy graph by median of configuration
+ratios, but only **0.632×** as fast as optimized batch Python; **no default
+promotion**. All intermediate measurements and caveats are in
+[`docs/QA_BATCH_ENGINE.md`](docs/QA_BATCH_ENGINE.md).
+
+```bash
+python -m alexpy.qa_batch_bench --smoke --sessions 2 --pairs 2 --batch-sizes 1,8,64 --json qa-batch.json
+```

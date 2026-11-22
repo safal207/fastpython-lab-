@@ -128,6 +128,9 @@ jobs:
       - name: Benchmark QA dashboard against strong Python (advisory; no promotion)
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
         run: python -m alexpy.qa_bench --smoke --sessions 2 --pairs 2 --json qa-lab.json
+      - name: Benchmark atomic QA batch against strong Python batch (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.qa_batch_bench --smoke --sessions 2 --pairs 2 --batch-sizes 1,8,64 --json qa-batch.json
       - name: Upload QA application evidence
         uses: actions/upload-artifact@v4
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
@@ -135,4 +138,5 @@ jobs:
           name: alexpy-qa-performance-ubuntu-py315
           path: |
             qa-lab.json
+            qa-batch.json
             qa-actions-sample.json
