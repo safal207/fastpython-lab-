@@ -157,6 +157,26 @@ jobs:
       - name: Verify opt-in Bardo transition tree against equal-native witness-set (advisory)
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
         run: python -m alexpy.bardo_bridge_bench --smoke --pairs 2 --json bardo-bridge.json
+      - name: Verify compact native witness backend is compiled
+        run: python -c "from alexpy.native_transition_tree import CTreeNativeQA; assert CTreeNativeQA([0], 1).native"
+      - name: Check same-native C witness tree on this runner (advisory; no promotion)
+        if: matrix.python-version == '3.13'
+        run: python -m alexpy.native_tree_bench --smoke --pairs 1 --json native-tree-smoke.json
+      - name: Upload runner-local C witness evidence
+        uses: actions/upload-artifact@v4
+        if: matrix.python-version == '3.13'
+        with:
+          name: alexpy-bardo-native-witness-${{ matrix.os }}-py313-${{ github.run_id }}
+          path: native-tree-smoke.json
+      - name: Verify calibration drift study without deploying policy (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.13'
+        run: python -m alexpy.drift_sentinel_bench --smoke --json drift-sentinel-smoke.json
+      - name: Upload drift research diagnostic (not CPU benchmark)
+        uses: actions/upload-artifact@v4
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.13'
+        with:
+          name: alexpy-bardo-drift-smoke-ubuntu-py313-${{ github.run_id }}
+          path: drift-sentinel-smoke.json
       - name: Upload QA application evidence
         uses: actions/upload-artifact@v4
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'

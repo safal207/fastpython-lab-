@@ -533,3 +533,11 @@ noisy. No default promotion; see [`docs/QA_COMPACT_NATIVE.md`](docs/QA_COMPACT_N
 ### AlexPy × Bardo — experimental transition-memory tree and calibration trust
 
 Explores ordered QA summaries with exact failure witnesses and a separate stale-calibration probe gate. Both are opt-in research. In the frozen local equal-native comparison the Python summary tree **lost** to the Python failure set in all four cases (median tree/set throughput 0.051–0.233×), and used much more tracked memory. The trust heuristic also **lost** to a fixed 64-step probe on the synthetic shift/reversal cases. Neither is enabled by default. See [`docs/BARDO_BRIDGE.md`](docs/BARDO_BRIDGE.md) for independent baselines, evidence and non-claims.
+
+## AlexPy × Bardo 2.6 — compact native failure witnesses and drift-sentinel falsification
+
+The independent `alexpy.native_transition_tree.CTreeNativeQA` route adds a compact exact C failure-witness index on top of the **unchanged** native QA accumulator. On four previously explored synthetic QA workloads, its median end-to-end speed ratio versus the equal-native strong Python set ranged from 1.17× to 1.95× in three independent local processes. The new index also reduced traced allocation peaks on two measured profiles. Neither component is enabled by default; cross-host full-benchmark validation is still missing.
+
+`alexpy.drift_sentinel.DriftSentinel` and `alexpy.drift_sentinel_bench` independently tested a Bardo-inspired probe-frequency idea. It **lost** to a training-selected fixed interval on 120 seeded heldout synthetic sequences (797.71 versus 454.15 mean conditional regret units). This is not measured CPU time and **must not** be promoted as an acceleration claim.
+
+See [the v2.6 research protocol and limits](docs/BARDO_NATIVE_WITNESS.md) for controls, commands, hardware scope, and negative results.

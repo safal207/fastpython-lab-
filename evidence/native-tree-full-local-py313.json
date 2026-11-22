@@ -1,0 +1,434 @@
+{
+  "schema": "alexpy-bardo-native-witness/1",
+  "sessions": [
+    {
+      "schema": "alexpy-bardo-native-witness/1",
+      "host": {
+        "system": "Linux",
+        "python": "3.13.5",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor"
+      },
+      "rows": [
+        {
+          "case": "small-hot",
+          "batch": 8,
+          "tests": 256,
+          "events": 1800,
+          "pairs": 3,
+          "samples_ns": {
+            "c_tree": [
+              1599900,
+              1577145,
+              1703657
+            ],
+            "set": [
+              2450456,
+              2409074,
+              2354632
+            ],
+            "python_tree": [
+              11657643,
+              10456717,
+              11818226
+            ]
+          },
+          "median_ns": {
+            "c_tree": 1599900,
+            "set": 2409074,
+            "python_tree": 11657643
+          },
+          "digest": 11963395168255294413,
+          "c_tree_vs_set": 1.505765360335021,
+          "python_tree_vs_c_tree": 7.286482280142509
+        },
+        {
+          "case": "medium-sparse",
+          "batch": 64,
+          "tests": 4096,
+          "events": 3200,
+          "pairs": 3,
+          "samples_ns": {
+            "c_tree": [
+              2218446,
+              2202001,
+              2635727
+            ],
+            "set": [
+              2881899,
+              2966006,
+              2943232
+            ],
+            "python_tree": [
+              39313785,
+              37913026,
+              38591832
+            ]
+          },
+          "median_ns": {
+            "c_tree": 2218446,
+            "set": 2943232,
+            "python_tree": 38591832
+          },
+          "digest": 3906588467567405761,
+          "c_tree_vs_set": 1.3267088763936556,
+          "python_tree_vs_c_tree": 17.395885227767547
+        },
+        {
+          "case": "large-sparse",
+          "batch": 64,
+          "tests": 16384,
+          "events": 4500,
+          "pairs": 3,
+          "samples_ns": {
+            "c_tree": [
+              4208817,
+              3976975,
+              4371873
+            ],
+            "set": [
+              4860352,
+              4645747,
+              4839730
+            ],
+            "python_tree": [
+              87902287,
+              138649037,
+              87730719
+            ]
+          },
+          "median_ns": {
+            "c_tree": 4208817,
+            "set": 4839730,
+            "python_tree": 87902287
+          },
+          "digest": 7721457804990185875,
+          "c_tree_vs_set": 1.149902692371752,
+          "python_tree_vs_c_tree": 20.885271799652966
+        },
+        {
+          "case": "query-heavy",
+          "batch": 64,
+          "tests": 4096,
+          "events": 3200,
+          "pairs": 3,
+          "samples_ns": {
+            "c_tree": [
+              3058115,
+              3092578,
+              2987328
+            ],
+            "set": [
+              6227699,
+              5954977,
+              5815758
+            ],
+            "python_tree": [
+              46862683,
+              38260602,
+              38051424
+            ]
+          },
+          "median_ns": {
+            "c_tree": 3058115,
+            "set": 5954977,
+            "python_tree": 38260602
+          },
+          "digest": 10981101472282410320,
+          "c_tree_vs_set": 1.947270459089995,
+          "python_tree_vs_c_tree": 12.511171751225836
+        }
+      ],
+      "comparison": "SAME native QA accumulator; Python set vs Python tree vs C tree",
+      "notes": "No tree promotion; synthetic QA stream; all processing and reports timed"
+    },
+    {
+      "schema": "alexpy-bardo-native-witness/1",
+      "host": {
+        "system": "Linux",
+        "python": "3.13.5",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor"
+      },
+      "rows": [
+        {
+          "case": "small-hot",
+          "batch": 8,
+          "tests": 256,
+          "events": 1800,
+          "pairs": 3,
+          "samples_ns": {
+            "c_tree": [
+              1701314,
+              1550977,
+              1582474
+            ],
+            "set": [
+              3091917,
+              2275611,
+              2264655
+            ],
+            "python_tree": [
+              10535225,
+              10216744,
+              10020416
+            ]
+          },
+          "median_ns": {
+            "c_tree": 1582474,
+            "set": 2275611,
+            "python_tree": 10216744
+          },
+          "digest": 11963395168255294413,
+          "c_tree_vs_set": 1.4380084601705936,
+          "python_tree_vs_c_tree": 6.456184430202328
+        },
+        {
+          "case": "medium-sparse",
+          "batch": 64,
+          "tests": 4096,
+          "events": 3200,
+          "pairs": 3,
+          "samples_ns": {
+            "c_tree": [
+              2281501,
+              2297234,
+              2229892
+            ],
+            "set": [
+              3012115,
+              2880025,
+              3051023
+            ],
+            "python_tree": [
+              38696336,
+              37947385,
+              37962428
+            ]
+          },
+          "median_ns": {
+            "c_tree": 2281501,
+            "set": 3012115,
+            "python_tree": 37962428
+          },
+          "digest": 3906588467567405761,
+          "c_tree_vs_set": 1.3202339161806196,
+          "python_tree_vs_c_tree": 16.639233557206417
+        },
+        {
+          "case": "large-sparse",
+          "batch": 64,
+          "tests": 16384,
+          "events": 4500,
+          "pairs": 3,
+          "samples_ns": {
+            "c_tree": [
+              3982352,
+              3924485,
+              3932186
+            ],
+            "set": [
+              4706898,
+              4762942,
+              4639886
+            ],
+            "python_tree": [
+              93252027,
+              137158766,
+              85344731
+            ]
+          },
+          "median_ns": {
+            "c_tree": 3932186,
+            "set": 4706898,
+            "python_tree": 93252027
+          },
+          "digest": 7721457804990185875,
+          "c_tree_vs_set": 1.1970181471578405,
+          "python_tree_vs_c_tree": 23.715060020049915
+        },
+        {
+          "case": "query-heavy",
+          "batch": 64,
+          "tests": 4096,
+          "events": 3200,
+          "pairs": 3,
+          "samples_ns": {
+            "c_tree": [
+              3000277,
+              3005134,
+              2987518
+            ],
+            "set": [
+              5836466,
+              5803286,
+              5744687
+            ],
+            "python_tree": [
+              38521092,
+              38150633,
+              38463906
+            ]
+          },
+          "median_ns": {
+            "c_tree": 3000277,
+            "set": 5803286,
+            "python_tree": 38463906
+          },
+          "digest": 10981101472282410320,
+          "c_tree_vs_set": 1.9342500709101194,
+          "python_tree_vs_c_tree": 12.820118275745873
+        }
+      ],
+      "comparison": "SAME native QA accumulator; Python set vs Python tree vs C tree",
+      "notes": "No tree promotion; synthetic QA stream; all processing and reports timed"
+    },
+    {
+      "schema": "alexpy-bardo-native-witness/1",
+      "host": {
+        "system": "Linux",
+        "python": "3.13.5",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor"
+      },
+      "rows": [
+        {
+          "case": "small-hot",
+          "batch": 8,
+          "tests": 256,
+          "events": 1800,
+          "pairs": 3,
+          "samples_ns": {
+            "c_tree": [
+              1597817,
+              1619960,
+              1562934
+            ],
+            "set": [
+              2378477,
+              2326849,
+              2429274
+            ],
+            "python_tree": [
+              10320887,
+              10699180,
+              10244215
+            ]
+          },
+          "median_ns": {
+            "c_tree": 1597817,
+            "set": 2378477,
+            "python_tree": 10320887
+          },
+          "digest": 11963395168255294413,
+          "c_tree_vs_set": 1.4885791051165433,
+          "python_tree_vs_c_tree": 6.459367374361395
+        },
+        {
+          "case": "medium-sparse",
+          "batch": 64,
+          "tests": 4096,
+          "events": 3200,
+          "pairs": 3,
+          "samples_ns": {
+            "c_tree": [
+              2398929,
+              2265887,
+              2266418
+            ],
+            "set": [
+              3035752,
+              2911354,
+              3056884
+            ],
+            "python_tree": [
+              38203874,
+              40675353,
+              37507141
+            ]
+          },
+          "median_ns": {
+            "c_tree": 2266418,
+            "set": 3035752,
+            "python_tree": 38203874
+          },
+          "digest": 3906588467567405761,
+          "c_tree_vs_set": 1.3394492984083255,
+          "python_tree_vs_c_tree": 16.8564995512743
+        },
+        {
+          "case": "large-sparse",
+          "batch": 64,
+          "tests": 16384,
+          "events": 4500,
+          "pairs": 3,
+          "samples_ns": {
+            "c_tree": [
+              4027812,
+              4352914,
+              4116807
+            ],
+            "set": [
+              5017439,
+              4774222,
+              4821272
+            ],
+            "python_tree": [
+              87487949,
+              137871256,
+              86755322
+            ]
+          },
+          "median_ns": {
+            "c_tree": 4116807,
+            "set": 4821272,
+            "python_tree": 87487949
+          },
+          "digest": 7721457804990185875,
+          "c_tree_vs_set": 1.1711192679180733,
+          "python_tree_vs_c_tree": 21.25140891958258
+        },
+        {
+          "case": "query-heavy",
+          "batch": 64,
+          "tests": 4096,
+          "events": 3200,
+          "pairs": 3,
+          "samples_ns": {
+            "c_tree": [
+              3022732,
+              3121121,
+              3013708
+            ],
+            "set": [
+              6516717,
+              5871761,
+              5953424
+            ],
+            "python_tree": [
+              41540141,
+              38372040,
+              38791874
+            ]
+          },
+          "median_ns": {
+            "c_tree": 3022732,
+            "set": 5953424,
+            "python_tree": 38791874
+          },
+          "digest": 10981101472282410320,
+          "c_tree_vs_set": 1.9695507243116492,
+          "python_tree_vs_c_tree": 12.83338185456071
+        }
+      ],
+      "comparison": "SAME native QA accumulator; Python set vs Python tree vs C tree",
+      "notes": "No tree promotion; synthetic QA stream; all processing and reports timed"
+    }
+  ],
+  "host": {
+    "system": "Linux",
+    "python": "3.13.5",
+    "machine": "x86_64",
+    "processor": "AMD EPYC 9V74 80-Core Processor"
+  }
+}
