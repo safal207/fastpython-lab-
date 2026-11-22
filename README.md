@@ -447,3 +447,24 @@ the prior Intel Xeon results. No general-Python or cross-device speedup is
 claimed. See [docs/STREAM_LONG_HORIZON.md](docs/STREAM_LONG_HORIZON.md).
 
 A follow-up three-process experiment on newly calibrated AMD EPYC 9V74 observed paid payback at 8192 tested cycles. This is a specific sustained range-query workload, not general Python acceleration.
+
+## AlexPy QA Performance Lab (experimental, mission 19)
+
+`alexpy.qa_lab` implements an explicit `test -> suite -> global` dependency
+model for CI reruns, retries and QA dashboards. It mirrors a strong
+incremental Python baseline and an independent full-scan reference.
+`alexpy.qa_actions` imports a checked-in, sanitized six-job sample from a
+real public GitHub Actions run. The **performance** experiments use a separate,
+fully disclosed **synthetic** QA event generator, not production logs.
+
+```bash
+python -m unittest discover -s tests -q
+python -m alexpy.qa_actions --input evidence/qa-actions-jobs-sample.json
+python -m alexpy.qa_bench --sessions 3 --pairs 5 --json qa-lab.json
+```
+
+The initial local experiment failed the performance gate on all four
+scenarios: AlexPy was 0.35–0.64x as fast as *strong* Python counters. This is
+important negative evidence. The C/native backend is not auto-promoted,
+and neither this result nor old synthetic speedups demonstrate application-wide
+acceleration. See [full protocol](docs/QA_PERFORMANCE_LAB.md).

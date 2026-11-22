@@ -1,0 +1,190 @@
+{
+  "schema": "ALEXPY-QA-LAB/1",
+  "source": "deterministic synthetic QA events",
+  "speedup_definition": "strong_python_total_ns / alexpy_graph_total_ns",
+  "timed_scope": "initialization, all event updates, report snapshots and digest",
+  "correctness": "independent O(N) scan and full-stream digest preflight",
+  "caveat": "no production data; cross-process medians, not hardware-wide guarantees",
+  "sessions": 2,
+  "pairs": 2,
+  "summary": [
+    {
+      "case": "smoke-small",
+      "process_median_speedups": [
+        0.2339292571479665,
+        0.24081204485422258
+      ],
+      "median_process_speedup": 0.23737065100109456,
+      "all_processes_over_1_1": false,
+      "all_processes_under_0_9": true
+    },
+    {
+      "case": "smoke-medium",
+      "process_median_speedups": [
+        0.28439032716724955,
+        0.27319870329974627
+      ],
+      "median_process_speedup": 0.2787945152334979,
+      "all_processes_over_1_1": false,
+      "all_processes_under_0_9": true
+    }
+  ],
+  "workers": [
+    {
+      "process": {
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "processor": "",
+        "executable": "/opt/pyvenv/bin/python"
+      },
+      "cases": [
+        {
+          "case": {
+            "name": "smoke-small",
+            "tests": 256,
+            "suites": 8,
+            "events": 160,
+            "report_every": 16,
+            "reads_per_report": 1
+          },
+          "witness_digest": 1819908287353958996,
+          "pairs": [
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 135686,
+              "alexpy_graph_ns": 554909,
+              "speedup": 0.24451937164472012
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 134173,
+              "alexpy_graph_ns": 600759,
+              "speedup": 0.22333914265121288
+            }
+          ],
+          "python_peak_tracemalloc_bytes": 8892,
+          "alexpy_peak_tracemalloc_bytes": 10696,
+          "median_speedup": 0.2339292571479665
+        },
+        {
+          "case": {
+            "name": "smoke-medium",
+            "tests": 1024,
+            "suites": 16,
+            "events": 320,
+            "report_every": 64,
+            "reads_per_report": 2
+          },
+          "witness_digest": 1813328161166482836,
+          "pairs": [
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 325792,
+              "alexpy_graph_ns": 1141025,
+              "speedup": 0.2855257334414233
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 308617,
+              "alexpy_graph_ns": 1089538,
+              "speedup": 0.2832549208930758
+            }
+          ],
+          "python_peak_tracemalloc_bytes": 28872,
+          "alexpy_peak_tracemalloc_bytes": 41928,
+          "median_speedup": 0.28439032716724955
+        }
+      ]
+    },
+    {
+      "process": {
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "processor": "",
+        "executable": "/opt/pyvenv/bin/python"
+      },
+      "cases": [
+        {
+          "case": {
+            "name": "smoke-small",
+            "tests": 256,
+            "suites": 8,
+            "events": 160,
+            "report_every": 16,
+            "reads_per_report": 1
+          },
+          "witness_digest": 1819908287353958996,
+          "pairs": [
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 136767,
+              "alexpy_graph_ns": 512455,
+              "speedup": 0.2668858729059137
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 134503,
+              "alexpy_graph_ns": 626358,
+              "speedup": 0.21473821680253147
+            }
+          ],
+          "python_peak_tracemalloc_bytes": 8892,
+          "alexpy_peak_tracemalloc_bytes": 10696,
+          "median_speedup": 0.24081204485422258
+        },
+        {
+          "case": {
+            "name": "smoke-medium",
+            "tests": 1024,
+            "suites": 16,
+            "events": 320,
+            "report_every": 64,
+            "reads_per_report": 2
+          },
+          "witness_digest": 1813328161166482836,
+          "pairs": [
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 312462,
+              "alexpy_graph_ns": 1167856,
+              "speedup": 0.26755182145743994
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 334736,
+              "alexpy_graph_ns": 1200435,
+              "speedup": 0.27884558514205265
+            }
+          ],
+          "python_peak_tracemalloc_bytes": 28872,
+          "alexpy_peak_tracemalloc_bytes": 41928,
+          "median_speedup": 0.27319870329974627
+        }
+      ]
+    }
+  ]
+}

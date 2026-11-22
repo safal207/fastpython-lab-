@@ -1,0 +1,820 @@
+{
+  "schema": "ALEXPY-QA-LAB/1",
+  "source": "deterministic synthetic QA events",
+  "speedup_definition": "strong_python_total_ns / alexpy_graph_total_ns",
+  "timed_scope": "initialization, all event updates, report snapshots and digest",
+  "correctness": "independent O(N) scan and full-stream digest preflight",
+  "caveat": "no production data; cross-process medians, not hardware-wide guarantees",
+  "sessions": 3,
+  "pairs": 5,
+  "summary": [
+    {
+      "case": "small-frequent-reports",
+      "process_median_speedups": [
+        0.6415845308619761,
+        0.642292606314433,
+        0.6152232369293095
+      ],
+      "median_process_speedup": 0.6415845308619761,
+      "all_processes_over_1_1": false,
+      "all_processes_under_0_9": true
+    },
+    {
+      "case": "medium-mixed-retries",
+      "process_median_speedups": [
+        0.3552083224528027,
+        0.36455892611302343,
+        0.3622858089951048
+      ],
+      "median_process_speedup": 0.3622858089951048,
+      "all_processes_over_1_1": false,
+      "all_processes_under_0_9": true
+    },
+    {
+      "case": "large-infrequent-reports",
+      "process_median_speedups": [
+        0.3552004944326448,
+        0.34855617554759505,
+        0.35102570114278014
+      ],
+      "median_process_speedup": 0.35102570114278014,
+      "all_processes_over_1_1": false,
+      "all_processes_under_0_9": true
+    },
+    {
+      "case": "medium-every-event-report",
+      "process_median_speedups": [
+        0.5643443008204775,
+        0.5705361600608516,
+        0.5773311475611411
+      ],
+      "median_process_speedup": 0.5705361600608516,
+      "all_processes_over_1_1": false,
+      "all_processes_under_0_9": true
+    }
+  ],
+  "workers": [
+    {
+      "process": {
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "processor": "",
+        "executable": "/opt/pyvenv/bin/python"
+      },
+      "cases": [
+        {
+          "case": {
+            "name": "small-frequent-reports",
+            "tests": 256,
+            "suites": 8,
+            "events": 1200,
+            "report_every": 1,
+            "reads_per_report": 3
+          },
+          "witness_digest": 6360052440341226250,
+          "pairs": [
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 5116704,
+              "alexpy_graph_ns": 7975105,
+              "speedup": 0.6415845308619761
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 4955571,
+              "alexpy_graph_ns": 8020724,
+              "speedup": 0.6178458453376529
+            },
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 4865785,
+              "alexpy_graph_ns": 7442530,
+              "speedup": 0.6537810395121014
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 4930072,
+              "alexpy_graph_ns": 7716093,
+              "speedup": 0.6389337194354707
+            },
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 5279050,
+              "alexpy_graph_ns": 7458584,
+              "speedup": 0.7077817987971979
+            }
+          ],
+          "python_peak_tracemalloc_bytes": 8024,
+          "alexpy_peak_tracemalloc_bytes": 10696,
+          "median_speedup": 0.6415845308619761
+        },
+        {
+          "case": {
+            "name": "medium-mixed-retries",
+            "tests": 4096,
+            "suites": 32,
+            "events": 6000,
+            "report_every": 16,
+            "reads_per_report": 4
+          },
+          "witness_digest": 884429314665851672,
+          "pairs": [
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 7996307,
+              "alexpy_graph_ns": 21805141,
+              "speedup": 0.36671659220181146
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 7764146,
+              "alexpy_graph_ns": 22586451,
+              "speedup": 0.3437523672931175
+            },
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 7624095,
+              "alexpy_graph_ns": 21305295,
+              "speedup": 0.3578497739646412
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 7685467,
+              "alexpy_graph_ns": 21636506,
+              "speedup": 0.3552083224528027
+            },
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 7648021,
+              "alexpy_graph_ns": 22408433,
+              "speedup": 0.34130101823719666
+            }
+          ],
+          "python_peak_tracemalloc_bytes": 103200,
+          "alexpy_peak_tracemalloc_bytes": 164424,
+          "median_speedup": 0.3552083224528027
+        },
+        {
+          "case": {
+            "name": "large-infrequent-reports",
+            "tests": 16384,
+            "suites": 128,
+            "events": 12000,
+            "report_every": 128,
+            "reads_per_report": 8
+          },
+          "witness_digest": 1735796434820419760,
+          "pairs": [
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 15854446,
+              "alexpy_graph_ns": 43357790,
+              "speedup": 0.3656654548121572
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 15266556,
+              "alexpy_graph_ns": 43951717,
+              "speedup": 0.3473483413628642
+            },
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 15346177,
+              "alexpy_graph_ns": 43204267,
+              "speedup": 0.3552004944326448
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 15593771,
+              "alexpy_graph_ns": 43475938,
+              "speedup": 0.3586758956183993
+            },
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 14845610,
+              "alexpy_graph_ns": 43436718,
+              "speedup": 0.3417755917931
+            }
+          ],
+          "python_peak_tracemalloc_bytes": 412224,
+          "alexpy_peak_tracemalloc_bytes": 661224,
+          "median_speedup": 0.3552004944326448
+        },
+        {
+          "case": {
+            "name": "medium-every-event-report",
+            "tests": 4096,
+            "suites": 32,
+            "events": 4000,
+            "report_every": 1,
+            "reads_per_report": 1
+          },
+          "witness_digest": 3497512586165104842,
+          "pairs": [
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 13652396,
+              "alexpy_graph_ns": 23313530,
+              "speedup": 0.5855996925390535
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 13231159,
+              "alexpy_graph_ns": 23012916,
+              "speedup": 0.5749449135433337
+            },
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 13170618,
+              "alexpy_graph_ns": 23440592,
+              "speedup": 0.5618722428170756
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 12801009,
+              "alexpy_graph_ns": 23612682,
+              "speedup": 0.5421243126892574
+            },
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 12727499,
+              "alexpy_graph_ns": 22552720,
+              "speedup": 0.5643443008204775
+            }
+          ],
+          "python_peak_tracemalloc_bytes": 102720,
+          "alexpy_peak_tracemalloc_bytes": 164424,
+          "median_speedup": 0.5643443008204775
+        }
+      ]
+    },
+    {
+      "process": {
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "processor": "",
+        "executable": "/opt/pyvenv/bin/python"
+      },
+      "cases": [
+        {
+          "case": {
+            "name": "small-frequent-reports",
+            "tests": 256,
+            "suites": 8,
+            "events": 1200,
+            "report_every": 1,
+            "reads_per_report": 3
+          },
+          "witness_digest": 6360052440341226250,
+          "pairs": [
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 4822679,
+              "alexpy_graph_ns": 7964179,
+              "speedup": 0.6055462841807047
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 4785604,
+              "alexpy_graph_ns": 7486025,
+              "speedup": 0.6392717096189232
+            },
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 4861228,
+              "alexpy_graph_ns": 7482200,
+              "speedup": 0.6497057015316351
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 4886466,
+              "alexpy_graph_ns": 7470592,
+              "speedup": 0.6540935443938044
+            },
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 4784823,
+              "alexpy_graph_ns": 7449600,
+              "speedup": 0.642292606314433
+            }
+          ],
+          "python_peak_tracemalloc_bytes": 8024,
+          "alexpy_peak_tracemalloc_bytes": 10696,
+          "median_speedup": 0.642292606314433
+        },
+        {
+          "case": {
+            "name": "medium-mixed-retries",
+            "tests": 4096,
+            "suites": 32,
+            "events": 6000,
+            "report_every": 16,
+            "reads_per_report": 4
+          },
+          "witness_digest": 884429314665851672,
+          "pairs": [
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 7994264,
+              "alexpy_graph_ns": 21697187,
+              "speedup": 0.3684470249530504
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 8236910,
+              "alexpy_graph_ns": 21804038,
+              "speedup": 0.3777699341745781
+            },
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 7734161,
+              "alexpy_graph_ns": 21215119,
+              "speedup": 0.36455892611302343
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 7786580,
+              "alexpy_graph_ns": 21658428,
+              "speedup": 0.3595173204629625
+            },
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 7725658,
+              "alexpy_graph_ns": 21757568,
+              "speedup": 0.3550791154599632
+            }
+          ],
+          "python_peak_tracemalloc_bytes": 103200,
+          "alexpy_peak_tracemalloc_bytes": 164424,
+          "median_speedup": 0.36455892611302343
+        },
+        {
+          "case": {
+            "name": "large-infrequent-reports",
+            "tests": 16384,
+            "suites": 128,
+            "events": 12000,
+            "report_every": 128,
+            "reads_per_report": 8
+          },
+          "witness_digest": 1735796434820419760,
+          "pairs": [
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 14974626,
+              "alexpy_graph_ns": 43878515,
+              "speedup": 0.34127467622821783
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 15174606,
+              "alexpy_graph_ns": 43414162,
+              "speedup": 0.34953124282348236
+            },
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 14950226,
+              "alexpy_graph_ns": 43814566,
+              "speedup": 0.34121588697238264
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 15208988,
+              "alexpy_graph_ns": 43634252,
+              "speedup": 0.34855617554759505
+            },
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 15229589,
+              "alexpy_graph_ns": 43384095,
+              "speedup": 0.35104083650932444
+            }
+          ],
+          "python_peak_tracemalloc_bytes": 412224,
+          "alexpy_peak_tracemalloc_bytes": 661224,
+          "median_speedup": 0.34855617554759505
+        },
+        {
+          "case": {
+            "name": "medium-every-event-report",
+            "tests": 4096,
+            "suites": 32,
+            "events": 4000,
+            "report_every": 1,
+            "reads_per_report": 1
+          },
+          "witness_digest": 3497512586165104842,
+          "pairs": [
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 12867108,
+              "alexpy_graph_ns": 22553299,
+              "speedup": 0.5705199935495024
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 12849652,
+              "alexpy_graph_ns": 22771539,
+              "speedup": 0.56428561986961
+            },
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 12778174,
+              "alexpy_graph_ns": 22396782,
+              "speedup": 0.5705361600608516
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 13089264,
+              "alexpy_graph_ns": 22409322,
+              "speedup": 0.5840990637735493
+            },
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 13112269,
+              "alexpy_graph_ns": 22414689,
+              "speedup": 0.5849855422932703
+            }
+          ],
+          "python_peak_tracemalloc_bytes": 102720,
+          "alexpy_peak_tracemalloc_bytes": 164424,
+          "median_speedup": 0.5705361600608516
+        }
+      ]
+    },
+    {
+      "process": {
+        "python": "3.13.5",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "processor": "",
+        "executable": "/opt/pyvenv/bin/python"
+      },
+      "cases": [
+        {
+          "case": {
+            "name": "small-frequent-reports",
+            "tests": 256,
+            "suites": 8,
+            "events": 1200,
+            "report_every": 1,
+            "reads_per_report": 3
+          },
+          "witness_digest": 6360052440341226250,
+          "pairs": [
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 5238688,
+              "alexpy_graph_ns": 8515101,
+              "speedup": 0.6152232369293095
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 5122973,
+              "alexpy_graph_ns": 8134705,
+              "speedup": 0.6297675207644284
+            },
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 4916081,
+              "alexpy_graph_ns": 8264492,
+              "speedup": 0.5948437000120516
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 5087269,
+              "alexpy_graph_ns": 8494439,
+              "speedup": 0.5988940529209758
+            },
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 5579804,
+              "alexpy_graph_ns": 8090078,
+              "speedup": 0.6897095429735041
+            }
+          ],
+          "python_peak_tracemalloc_bytes": 8024,
+          "alexpy_peak_tracemalloc_bytes": 10696,
+          "median_speedup": 0.6152232369293095
+        },
+        {
+          "case": {
+            "name": "medium-mixed-retries",
+            "tests": 4096,
+            "suites": 32,
+            "events": 6000,
+            "report_every": 16,
+            "reads_per_report": 4
+          },
+          "witness_digest": 884429314665851672,
+          "pairs": [
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 7821022,
+              "alexpy_graph_ns": 37807138,
+              "speedup": 0.20686628011884953
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 8150540,
+              "alexpy_graph_ns": 22562224,
+              "speedup": 0.36124718910688947
+            },
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 7720420,
+              "alexpy_graph_ns": 21310302,
+              "speedup": 0.3622858089951048
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 7995366,
+              "alexpy_graph_ns": 21735344,
+              "speedup": 0.36785090679954274
+            },
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 8067265,
+              "alexpy_graph_ns": 21684988,
+              "speedup": 0.3720207269655856
+            }
+          ],
+          "python_peak_tracemalloc_bytes": 103200,
+          "alexpy_peak_tracemalloc_bytes": 164424,
+          "median_speedup": 0.3622858089951048
+        },
+        {
+          "case": {
+            "name": "large-infrequent-reports",
+            "tests": 16384,
+            "suites": 128,
+            "events": 12000,
+            "report_every": 128,
+            "reads_per_report": 8
+          },
+          "witness_digest": 1735796434820419760,
+          "pairs": [
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 15504867,
+              "alexpy_graph_ns": 44170176,
+              "speedup": 0.35102570114278014
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 15212655,
+              "alexpy_graph_ns": 43910042,
+              "speedup": 0.3464504770913223
+            },
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 15107856,
+              "alexpy_graph_ns": 44771174,
+              "speedup": 0.33744605401681
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 15645078,
+              "alexpy_graph_ns": 43541185,
+              "speedup": 0.3593167710065769
+            },
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 15815526,
+              "alexpy_graph_ns": 44222716,
+              "speedup": 0.35763352933817993
+            }
+          ],
+          "python_peak_tracemalloc_bytes": 412224,
+          "alexpy_peak_tracemalloc_bytes": 661224,
+          "median_speedup": 0.35102570114278014
+        },
+        {
+          "case": {
+            "name": "medium-every-event-report",
+            "tests": 4096,
+            "suites": 32,
+            "events": 4000,
+            "report_every": 1,
+            "reads_per_report": 1
+          },
+          "witness_digest": 3497512586165104842,
+          "pairs": [
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 13459064,
+              "alexpy_graph_ns": 22563325,
+              "speedup": 0.596501801042178
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 13339594,
+              "alexpy_graph_ns": 22658259,
+              "speedup": 0.5887298754948471
+            },
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 13237719,
+              "alexpy_graph_ns": 23088500,
+              "speedup": 0.5733468609914026
+            },
+            {
+              "order": [
+                "alexpy_graph",
+                "strong_python"
+              ],
+              "strong_python_ns": 13146702,
+              "alexpy_graph_ns": 22771510,
+              "speedup": 0.5773311475611411
+            },
+            {
+              "order": [
+                "strong_python",
+                "alexpy_graph"
+              ],
+              "strong_python_ns": 13193192,
+              "alexpy_graph_ns": 22904511,
+              "speedup": 0.5760084552776525
+            }
+          ],
+          "python_peak_tracemalloc_bytes": 102720,
+          "alexpy_peak_tracemalloc_bytes": 164424,
+          "median_speedup": 0.5773311475611411
+        }
+      ]
+    }
+  ]
+}

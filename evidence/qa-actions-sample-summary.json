@@ -1,0 +1,35 @@
+{
+  "jobs": 6,
+  "events": 6,
+  "suites": {
+    "macos-latest": [
+      0,
+      2,
+      0,
+      0,
+      37000
+    ],
+    "ubuntu-latest": [
+      0,
+      2,
+      0,
+      0,
+      48000
+    ],
+    "windows-latest": [
+      0,
+      2,
+      0,
+      0,
+      80000
+    ]
+  },
+  "total": [
+    0,
+    6,
+    0,
+    0,
+    165000
+  ],
+  "duration_scope": "GitHub job wall clock (ms); latest completed run per name"
+}

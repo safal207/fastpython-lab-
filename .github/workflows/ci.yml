@@ -122,3 +122,17 @@ jobs:
             hetero-wave.json
             range-competition.json
             stable-memory.json
+      - name: Validate GitHub Actions sample adapter (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.qa_actions --input evidence/qa-actions-jobs-sample.json --output qa-actions-sample.json
+      - name: Benchmark QA dashboard against strong Python (advisory; no promotion)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.qa_bench --smoke --sessions 2 --pairs 2 --json qa-lab.json
+      - name: Upload QA application evidence
+        uses: actions/upload-artifact@v4
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        with:
+          name: alexpy-qa-performance-ubuntu-py315
+          path: |
+            qa-lab.json
+            qa-actions-sample.json
