@@ -1,0 +1,5532 @@
+{
+  "schema": "ALEXPY-STREAM-ECONOMICS/1",
+  "created_utc": "2026-11-22T15:31:32.077110+00:00",
+  "environment": "cpython/3.13/Linux/x86_64/device=amd-epyc-newcalibration-v19",
+  "host": {
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "AMD EPYC 9V74 80-Core Processor",
+    "python": "3.13.5",
+    "implementation": "cpython",
+    "logical_cpus": 5,
+    "ci": true,
+    "github_runner_os": null,
+    "github_runner_arch": null
+  },
+  "config": {
+    "train_sizes": [
+      128,
+      512,
+      2048
+    ],
+    "holdout_sizes": [
+      384,
+      1536
+    ],
+    "changes": [
+      1,
+      8
+    ],
+    "queries": [
+      1,
+      8,
+      32
+    ],
+    "spans": [
+      "short",
+      "wide"
+    ],
+    "ticks": 2,
+    "pairs": 3,
+    "sessions": 3,
+    "cycles": [
+      1,
+      8
+    ],
+    "reps": 2
+  },
+  "route_choices": {
+    "384:1:1:2:short": "direct",
+    "384:1:1:2:wide": "direct",
+    "384:1:8:2:short": "direct",
+    "384:1:8:2:wide": "blocks",
+    "384:1:32:2:short": "direct",
+    "384:1:32:2:wide": "prefix",
+    "384:8:1:2:short": "direct",
+    "384:8:1:2:wide": "direct",
+    "384:8:8:2:short": "direct",
+    "384:8:8:2:wide": "prefix",
+    "384:8:32:2:short": "direct",
+    "384:8:32:2:wide": "prefix",
+    "1536:1:1:2:short": "direct",
+    "1536:1:1:2:wide": "direct",
+    "1536:1:8:2:short": "direct",
+    "1536:1:8:2:wide": "blocks",
+    "1536:1:32:2:short": "direct",
+    "1536:1:32:2:wide": "prefix",
+    "1536:8:1:2:short": "direct",
+    "1536:8:1:2:wide": "direct",
+    "1536:8:8:2:short": "direct",
+    "1536:8:8:2:wide": "blocks",
+    "1536:8:32:2:short": "direct",
+    "1536:8:32:2:wide": "prefix"
+  },
+  "frozen_sha256": "74bb0d2347296f0706c50feb756e9ff2eda3f0040784d792fa325987dbfac9b1",
+  "calibration_wall_ns": 2550255370,
+  "compilation_ns": 364240,
+  "training_workers": [
+    {
+      "worker": "train",
+      "pid": 1595,
+      "host": {
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor",
+        "python": "3.13.5",
+        "implementation": "cpython",
+        "logical_cpus": 5,
+        "ci": true,
+        "github_runner_os": null,
+        "github_runner_arch": null
+      },
+      "environment": "cpython/3.13/Linux/x86_64/device=amd-epyc-newcalibration-v19",
+      "rows": [
+        {
+          "workload": {
+            "size": 128,
+            "changes": 1,
+            "queries": 1,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "1002588",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              10186,
+              8202,
+              8162
+            ],
+            "blocks": [
+              22153,
+              19629,
+              17716
+            ],
+            "fenwick": [
+              45970,
+              43014,
+              57847
+            ],
+            "prefix": [
+              30135,
+              26340,
+              28844
+            ]
+          },
+          "median_ns": {
+            "direct": 8202,
+            "blocks": 19629,
+            "fenwick": 45970,
+            "prefix": 28844
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 1,
+            "queries": 1,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "1862382",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              12910,
+              12458,
+              12289
+            ],
+            "blocks": [
+              20501,
+              22033,
+              19319
+            ],
+            "fenwick": [
+              37797,
+              42484,
+              39920
+            ],
+            "prefix": [
+              26640,
+              25768,
+              26470
+            ]
+          },
+          "median_ns": {
+            "direct": 12458,
+            "blocks": 20501,
+            "fenwick": 39920,
+            "prefix": 26470
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 1,
+            "queries": 8,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "2175356",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              21963,
+              21062,
+              20291
+            ],
+            "blocks": [
+              34382,
+              48513,
+              31548
+            ],
+            "fenwick": [
+              52229,
+              50016,
+              49876
+            ],
+            "prefix": [
+              31627,
+              30466,
+              29444
+            ]
+          },
+          "median_ns": {
+            "direct": 21062,
+            "blocks": 34382,
+            "fenwick": 50016,
+            "prefix": 30466
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 1,
+            "queries": 8,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "19258058",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              64207,
+              63706,
+              63005
+            ],
+            "blocks": [
+              48593,
+              48213,
+              48343
+            ],
+            "fenwick": [
+              48113,
+              46811,
+              47712
+            ],
+            "prefix": [
+              30036,
+              29024,
+              28994
+            ]
+          },
+          "median_ns": {
+            "direct": 63706,
+            "blocks": 48343,
+            "fenwick": 47712,
+            "prefix": 29024
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 1,
+            "queries": 32,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "10410522",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              63696,
+              62605,
+              76706
+            ],
+            "blocks": [
+              81834,
+              80291,
+              95905
+            ],
+            "fenwick": [
+              90407,
+              87362,
+              90096
+            ],
+            "prefix": [
+              42554,
+              40652,
+              57967
+            ]
+          },
+          "median_ns": {
+            "direct": 63696,
+            "blocks": 81834,
+            "fenwick": 90096,
+            "prefix": 42554
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 1,
+            "queries": 32,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "70869372",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              259782,
+              235375,
+              232771
+            ],
+            "blocks": [
+              163677,
+              156647,
+              144728
+            ],
+            "fenwick": [
+              93351,
+              91147,
+              88754
+            ],
+            "prefix": [
+              42234,
+              41192,
+              53221
+            ]
+          },
+          "median_ns": {
+            "direct": 235375,
+            "blocks": 156647,
+            "fenwick": 91147,
+            "prefix": 42234
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 8,
+            "queries": 1,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "2070500",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              9524,
+              9915,
+              9454
+            ],
+            "blocks": [
+              21603,
+              21553,
+              20251
+            ],
+            "fenwick": [
+              52159,
+              48914,
+              49885
+            ],
+            "prefix": [
+              28163,
+              27111,
+              28022
+            ]
+          },
+          "median_ns": {
+            "direct": 9524,
+            "blocks": 21553,
+            "fenwick": 49885,
+            "prefix": 28022
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 8,
+            "queries": 1,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "15286546",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              14092,
+              14262,
+              14061
+            ],
+            "blocks": [
+              24116,
+              24387,
+              23636
+            ],
+            "fenwick": [
+              49885,
+              48904,
+              48313
+            ],
+            "prefix": [
+              27902,
+              27151,
+              27592
+            ]
+          },
+          "median_ns": {
+            "direct": 14092,
+            "blocks": 24116,
+            "fenwick": 48904,
+            "prefix": 27592
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 8,
+            "queries": 8,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "12651610",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              22674,
+              22454,
+              21893
+            ],
+            "blocks": [
+              37787,
+              36465,
+              35574
+            ],
+            "fenwick": [
+              61333,
+              60021,
+              58999
+            ],
+            "prefix": [
+              31588,
+              31457,
+              45028
+            ]
+          },
+          "median_ns": {
+            "direct": 22454,
+            "blocks": 36465,
+            "fenwick": 60021,
+            "prefix": 31588
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 8,
+            "queries": 8,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "138145914",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              66461,
+              66400,
+              66170
+            ],
+            "blocks": [
+              55434,
+              53942,
+              53751
+            ],
+            "fenwick": [
+              58318,
+              58568,
+              58348
+            ],
+            "prefix": [
+              31017,
+              48032,
+              31558
+            ]
+          },
+          "median_ns": {
+            "direct": 66400,
+            "blocks": 53942,
+            "fenwick": 58348,
+            "prefix": 31558
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 8,
+            "queries": 32,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "83483636",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              65369,
+              64497,
+              65299
+            ],
+            "blocks": [
+              86501,
+              85399,
+              85169
+            ],
+            "fenwick": [
+              100432,
+              101893,
+              119431
+            ],
+            "prefix": [
+              42705,
+              42474,
+              45529
+            ]
+          },
+          "median_ns": {
+            "direct": 65299,
+            "blocks": 85399,
+            "fenwick": 101893,
+            "prefix": 42705
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 8,
+            "queries": 32,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "530107184",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              252551,
+              238059,
+              238480
+            ],
+            "blocks": [
+              148274,
+              147302,
+              145960
+            ],
+            "fenwick": [
+              100682,
+              98399,
+              113201
+            ],
+            "prefix": [
+              43425,
+              42845,
+              44146
+            ]
+          },
+          "median_ns": {
+            "direct": 238480,
+            "blocks": 147302,
+            "fenwick": 100682,
+            "prefix": 43425
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 1,
+            "queries": 1,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "1002588",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              22304,
+              21903,
+              21212
+            ],
+            "blocks": [
+              50606,
+              49755,
+              47021
+            ],
+            "fenwick": [
+              143326,
+              139370,
+              133782
+            ],
+            "prefix": [
+              95004,
+              92710,
+              93892
+            ]
+          },
+          "median_ns": {
+            "direct": 21903,
+            "blocks": 49755,
+            "fenwick": 139370,
+            "prefix": 93892
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 1,
+            "queries": 1,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "4478130",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              39980,
+              39560,
+              39380
+            ],
+            "blocks": [
+              54322,
+              57056,
+              53841
+            ],
+            "fenwick": [
+              143737,
+              163156,
+              136947
+            ],
+            "prefix": [
+              94633,
+              92430,
+              95865
+            ]
+          },
+          "median_ns": {
+            "direct": 39560,
+            "blocks": 54322,
+            "fenwick": 143737,
+            "prefix": 94633
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 1,
+            "queries": 8,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "2269458",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              35864,
+              35944,
+              35724
+            ],
+            "blocks": [
+              83906,
+              88042,
+              80912
+            ],
+            "fenwick": [
+              160722,
+              159310,
+              153401
+            ],
+            "prefix": [
+              99089,
+              96797,
+              101413
+            ]
+          },
+          "median_ns": {
+            "direct": 35864,
+            "blocks": 83906,
+            "fenwick": 159310,
+            "prefix": 99089
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 1,
+            "queries": 8,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "31515164",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              181184,
+              179942,
+              178530
+            ],
+            "blocks": [
+              103817,
+              101363,
+              101243
+            ],
+            "fenwick": [
+              174984,
+              152951,
+              153000
+            ],
+            "prefix": [
+              100041,
+              96676,
+              112640
+            ]
+          },
+          "median_ns": {
+            "direct": 179942,
+            "blocks": 101363,
+            "fenwick": 153000,
+            "prefix": 100041
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 1,
+            "queries": 32,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "6361094",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              80511,
+              95033,
+              80802
+            ],
+            "blocks": [
+              137638,
+              151138,
+              178750
+            ],
+            "fenwick": [
+              219541,
+              467045,
+              223939
+            ],
+            "prefix": [
+              112009,
+              112530,
+              115935
+            ]
+          },
+          "median_ns": {
+            "direct": 80802,
+            "blocks": 151138,
+            "fenwick": 223939,
+            "prefix": 112530
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 1,
+            "queries": 32,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "166523946",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              1063516,
+              839718,
+              837013
+            ],
+            "blocks": [
+              340074,
+              297579,
+              287394
+            ],
+            "fenwick": [
+              225861,
+              271159,
+              242786
+            ],
+            "prefix": [
+              113792,
+              111809,
+              114593
+            ]
+          },
+          "median_ns": {
+            "direct": 839718,
+            "blocks": 297579,
+            "fenwick": 242786,
+            "prefix": 113792
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 8,
+            "queries": 1,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "1002588",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              24837,
+              23816,
+              23846
+            ],
+            "blocks": [
+              54312,
+              54191,
+              51508
+            ],
+            "fenwick": [
+              174153,
+              159350,
+              151669
+            ],
+            "prefix": [
+              97037,
+              96575,
+              95354
+            ]
+          },
+          "median_ns": {
+            "direct": 23846,
+            "blocks": 54191,
+            "fenwick": 159350,
+            "prefix": 96575
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 8,
+            "queries": 1,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "15720174",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              42354,
+              41943,
+              44167
+            ],
+            "blocks": [
+              59379,
+              60421,
+              58008
+            ],
+            "fenwick": [
+              156125,
+              167693,
+              152120
+            ],
+            "prefix": [
+              96535,
+              96005,
+              96806
+            ]
+          },
+          "median_ns": {
+            "direct": 42354,
+            "blocks": 59379,
+            "fenwick": 156125,
+            "prefix": 96535
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 8,
+            "queries": 8,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "7415484",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              37547,
+              37156,
+              37697
+            ],
+            "blocks": [
+              76576,
+              78268,
+              76486
+            ],
+            "fenwick": [
+              173041,
+              194584,
+              182155
+            ],
+            "prefix": [
+              100611,
+              99661,
+              103627
+            ]
+          },
+          "median_ns": {
+            "direct": 37547,
+            "blocks": 76576,
+            "fenwick": 182155,
+            "prefix": 100611
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 8,
+            "queries": 8,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "132849452",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              198610,
+              186722,
+              182115
+            ],
+            "blocks": [
+              193112,
+              113762,
+              106581
+            ],
+            "fenwick": [
+              185160,
+              269086,
+              179531
+            ],
+            "prefix": [
+              104758,
+              102645,
+              103516
+            ]
+          },
+          "median_ns": {
+            "direct": 186722,
+            "blocks": 113762,
+            "fenwick": 185160,
+            "prefix": 103516
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 8,
+            "queries": 32,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "24712884",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              84608,
+              87051,
+              82254
+            ],
+            "blocks": [
+              148645,
+              153191,
+              146802
+            ],
+            "fenwick": [
+              552524,
+              272301,
+              235365
+            ],
+            "prefix": [
+              141033,
+              112440,
+              114223
+            ]
+          },
+          "median_ns": {
+            "direct": 84608,
+            "blocks": 148645,
+            "fenwick": 272301,
+            "prefix": 114223
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 8,
+            "queries": 32,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "697404004",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              880058,
+              837845,
+              877054
+            ],
+            "blocks": [
+              292612,
+              292252,
+              327594
+            ],
+            "fenwick": [
+              232371,
+              232120,
+              225050
+            ],
+            "prefix": [
+              148083,
+              137908,
+              113872
+            ]
+          },
+          "median_ns": {
+            "direct": 877054,
+            "blocks": 292612,
+            "fenwick": 232120,
+            "prefix": 137908
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 1,
+            "queries": 1,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "1002588",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              73491,
+              72259,
+              72970
+            ],
+            "blocks": [
+              162455,
+              165370,
+              160762
+            ],
+            "fenwick": [
+              573055,
+              569370,
+              551713
+            ],
+            "prefix": [
+              360474,
+              379974,
+              360074
+            ]
+          },
+          "median_ns": {
+            "direct": 72970,
+            "blocks": 162455,
+            "fenwick": 569370,
+            "prefix": 360474
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 1,
+            "queries": 1,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "14700452",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              161344,
+              138880,
+              139581
+            ],
+            "blocks": [
+              176487,
+              227985,
+              170878
+            ],
+            "fenwick": [
+              566245,
+              605013,
+              529680
+            ],
+            "prefix": [
+              357420,
+              384471,
+              387876
+            ]
+          },
+          "median_ns": {
+            "direct": 139581,
+            "blocks": 176487,
+            "fenwick": 566245,
+            "prefix": 384471
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 1,
+            "queries": 8,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "2269458",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              87382,
+              86300,
+              88444
+            ],
+            "blocks": [
+              187342,
+              187303,
+              183898
+            ],
+            "fenwick": [
+              539755,
+              580397,
+              602780
+            ],
+            "prefix": [
+              396919,
+              356929,
+              357429
+            ]
+          },
+          "median_ns": {
+            "direct": 87382,
+            "blocks": 187303,
+            "fenwick": 580397,
+            "prefix": 357429
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 1,
+            "queries": 8,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "113564586",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              700177,
+              646797,
+              629620
+            ],
+            "blocks": [
+              284209,
+              282777,
+              305932
+            ],
+            "fenwick": [
+              597112,
+              569209,
+              567366
+            ],
+            "prefix": [
+              370920,
+              363579,
+              379973
+            ]
+          },
+          "median_ns": {
+            "direct": 646797,
+            "blocks": 284209,
+            "fenwick": 569209,
+            "prefix": 370920
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 1,
+            "queries": 32,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "6321104",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              132670,
+              131919,
+              132590
+            ],
+            "blocks": [
+              256707,
+              280533,
+              257298
+            ],
+            "fenwick": [
+              653396,
+              619826,
+              624302
+            ],
+            "prefix": [
+              378932,
+              396088,
+              391050
+            ]
+          },
+          "median_ns": {
+            "direct": 132590,
+            "blocks": 257298,
+            "fenwick": 624302,
+            "prefix": 391050
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 1,
+            "queries": 32,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "487019926",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              3092338,
+              2500805,
+              2610541
+            ],
+            "blocks": [
+              608018,
+              580336,
+              592695
+            ],
+            "fenwick": [
+              682781,
+              653657,
+              639786
+            ],
+            "prefix": [
+              379533,
+              398732,
+              391261
+            ]
+          },
+          "median_ns": {
+            "direct": 2610541,
+            "blocks": 592695,
+            "fenwick": 653657,
+            "prefix": 391261
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 8,
+            "queries": 1,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "1002588",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              77147,
+              75835,
+              77367
+            ],
+            "blocks": [
+              184358,
+              170037,
+              166752
+            ],
+            "fenwick": [
+              581488,
+              584633,
+              556029
+            ],
+            "prefix": [
+              380264,
+              365041,
+              378982
+            ]
+          },
+          "median_ns": {
+            "direct": 77147,
+            "blocks": 170037,
+            "fenwick": 581488,
+            "prefix": 378982
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 8,
+            "queries": 1,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "36210686",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              144178,
+              142385,
+              144558
+            ],
+            "blocks": [
+              178809,
+              180393,
+              201925
+            ],
+            "fenwick": [
+              579605,
+              566225,
+              582550
+            ],
+            "prefix": [
+              362688,
+              373744,
+              382077
+            ]
+          },
+          "median_ns": {
+            "direct": 144178,
+            "blocks": 180393,
+            "fenwick": 579605,
+            "prefix": 373744
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 8,
+            "queries": 8,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "4318378",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              90988,
+              90376,
+              90737
+            ],
+            "blocks": [
+              203327,
+              193101,
+              191248
+            ],
+            "fenwick": [
+              580547,
+              595829,
+              565253
+            ],
+            "prefix": [
+              384390,
+              371590,
+              389809
+            ]
+          },
+          "median_ns": {
+            "direct": 90737,
+            "blocks": 193101,
+            "fenwick": 580547,
+            "prefix": 384390
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 8,
+            "queries": 8,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "270491870",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              646726,
+              655820,
+              652425
+            ],
+            "blocks": [
+              271429,
+              297379,
+              271259
+            ],
+            "fenwick": [
+              594137,
+              604392,
+              597942
+            ],
+            "prefix": [
+              375197,
+              379593,
+              368816
+            ]
+          },
+          "median_ns": {
+            "direct": 652425,
+            "blocks": 271429,
+            "fenwick": 597942,
+            "prefix": 375197
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 8,
+            "queries": 32,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "15557128",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              149495,
+              134954,
+              148985
+            ],
+            "blocks": [
+              280133,
+              264950,
+              261875
+            ],
+            "fenwick": [
+              645875,
+              663642,
+              650762
+            ],
+            "prefix": [
+              399863,
+              379033,
+              382177
+            ]
+          },
+          "median_ns": {
+            "direct": 148985,
+            "blocks": 264950,
+            "fenwick": 650762,
+            "prefix": 382177
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 8,
+            "queries": 32,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "955496408",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              2655860,
+              2595488,
+              2613846
+            ],
+            "blocks": [
+              620436,
+              614367,
+              642089
+            ],
+            "fenwick": [
+              669050,
+              849493,
+              717524
+            ],
+            "prefix": [
+              399874,
+              402037,
+              383489
+            ]
+          },
+          "median_ns": {
+            "direct": 2613846,
+            "blocks": 620436,
+            "fenwick": 717524,
+            "prefix": 399874
+          }
+        }
+      ],
+      "subprocess_wall_ns": 971070752
+    },
+    {
+      "worker": "train",
+      "pid": 1606,
+      "host": {
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor",
+        "python": "3.13.5",
+        "implementation": "cpython",
+        "logical_cpus": 5,
+        "ci": true,
+        "github_runner_os": null,
+        "github_runner_arch": null
+      },
+      "environment": "cpython/3.13/Linux/x86_64/device=amd-epyc-newcalibration-v19",
+      "rows": [
+        {
+          "workload": {
+            "size": 128,
+            "changes": 1,
+            "queries": 1,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "1002588",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              10526,
+              8182,
+              7882
+            ],
+            "blocks": [
+              21662,
+              19299,
+              17537
+            ],
+            "fenwick": [
+              44137,
+              44537,
+              42114
+            ],
+            "prefix": [
+              29755,
+              28343,
+              29014
+            ]
+          },
+          "median_ns": {
+            "direct": 8182,
+            "blocks": 19299,
+            "fenwick": 44137,
+            "prefix": 29014
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 1,
+            "queries": 1,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "1862382",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              13179,
+              12439,
+              12569
+            ],
+            "blocks": [
+              20992,
+              21613,
+              19469
+            ],
+            "fenwick": [
+              41022,
+              37877,
+              41843
+            ],
+            "prefix": [
+              27071,
+              26060,
+              26560
+            ]
+          },
+          "median_ns": {
+            "direct": 12569,
+            "blocks": 20992,
+            "fenwick": 41022,
+            "prefix": 26560
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 1,
+            "queries": 8,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "2175356",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              22114,
+              20491,
+              33421
+            ],
+            "blocks": [
+              33991,
+              34932,
+              41483
+            ],
+            "fenwick": [
+              55113,
+              51097,
+              64838
+            ],
+            "prefix": [
+              30186,
+              29094,
+              38568
+            ]
+          },
+          "median_ns": {
+            "direct": 22114,
+            "blocks": 34932,
+            "fenwick": 55113,
+            "prefix": 30186
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 1,
+            "queries": 8,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "19258058",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              63616,
+              62885,
+              64428
+            ],
+            "blocks": [
+              49735,
+              48212,
+              87652
+            ],
+            "fenwick": [
+              50737,
+              51357,
+              49896
+            ],
+            "prefix": [
+              30206,
+              29475,
+              31898
+            ]
+          },
+          "median_ns": {
+            "direct": 63616,
+            "blocks": 49735,
+            "fenwick": 50737,
+            "prefix": 30206
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 1,
+            "queries": 32,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "10410522",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              65088,
+              62244,
+              66560
+            ],
+            "blocks": [
+              80782,
+              125339,
+              94963
+            ],
+            "fenwick": [
+              92470,
+              90227,
+              91108
+            ],
+            "prefix": [
+              41873,
+              40771,
+              41863
+            ]
+          },
+          "median_ns": {
+            "direct": 65088,
+            "blocks": 94963,
+            "fenwick": 91108,
+            "prefix": 41863
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 1,
+            "queries": 32,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "70869372",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              250748,
+              275706,
+              229646
+            ],
+            "blocks": [
+              158109,
+              185600,
+              146240
+            ],
+            "fenwick": [
+              89906,
+              88874,
+              89215
+            ],
+            "prefix": [
+              43305,
+              42464,
+              41854
+            ]
+          },
+          "median_ns": {
+            "direct": 250748,
+            "blocks": 158109,
+            "fenwick": 89215,
+            "prefix": 42464
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 8,
+            "queries": 1,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "2070500",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              9685,
+              9424,
+              9525
+            ],
+            "blocks": [
+              20952,
+              20281,
+              19589
+            ],
+            "fenwick": [
+              47472,
+              46170,
+              45809
+            ],
+            "prefix": [
+              28933,
+              27221,
+              43045
+            ]
+          },
+          "median_ns": {
+            "direct": 9525,
+            "blocks": 20281,
+            "fenwick": 46170,
+            "prefix": 28933
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 8,
+            "queries": 1,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "15286546",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              13710,
+              13460,
+              13581
+            ],
+            "blocks": [
+              22904,
+              22503,
+              22704
+            ],
+            "fenwick": [
+              45448,
+              45989,
+              45970
+            ],
+            "prefix": [
+              29184,
+              27011,
+              28603
+            ]
+          },
+          "median_ns": {
+            "direct": 13581,
+            "blocks": 22704,
+            "fenwick": 45970,
+            "prefix": 28603
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 8,
+            "queries": 8,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "12651610",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              23395,
+              23205,
+              22174
+            ],
+            "blocks": [
+              36966,
+              56765,
+              38688
+            ],
+            "fenwick": [
+              60200,
+              58999,
+              62884
+            ],
+            "prefix": [
+              33651,
+              31357,
+              32819
+            ]
+          },
+          "median_ns": {
+            "direct": 23205,
+            "blocks": 38688,
+            "fenwick": 60200,
+            "prefix": 32819
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 8,
+            "queries": 8,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "138145914",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              65589,
+              63936,
+              80552
+            ],
+            "blocks": [
+              53691,
+              53080,
+              52419
+            ],
+            "fenwick": [
+              58979,
+              59991,
+              59430
+            ],
+            "prefix": [
+              31277,
+              31418,
+              31107
+            ]
+          },
+          "median_ns": {
+            "direct": 65589,
+            "blocks": 53080,
+            "fenwick": 59430,
+            "prefix": 31277
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 8,
+            "queries": 32,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "83483636",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              67722,
+              66461,
+              66741
+            ],
+            "blocks": [
+              88464,
+              88263,
+              90848
+            ],
+            "fenwick": [
+              141063,
+              129706,
+              169726
+            ],
+            "prefix": [
+              45389,
+              44357,
+              46991
+            ]
+          },
+          "median_ns": {
+            "direct": 66741,
+            "blocks": 88464,
+            "fenwick": 141063,
+            "prefix": 45389
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 8,
+            "queries": 32,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "530107184",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              286422,
+              234444,
+              235346
+            ],
+            "blocks": [
+              154132,
+              148785,
+              145950
+            ],
+            "fenwick": [
+              101583,
+              106701,
+              101383
+            ],
+            "prefix": [
+              43947,
+              65139,
+              45228
+            ]
+          },
+          "median_ns": {
+            "direct": 235346,
+            "blocks": 148785,
+            "fenwick": 101583,
+            "prefix": 45228
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 1,
+            "queries": 1,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "1002588",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              21262,
+              24808,
+              21413
+            ],
+            "blocks": [
+              48523,
+              49214,
+              48072
+            ],
+            "fenwick": [
+              146221,
+              137708,
+              150367
+            ],
+            "prefix": [
+              97347,
+              110186,
+              93691
+            ]
+          },
+          "median_ns": {
+            "direct": 21413,
+            "blocks": 48523,
+            "fenwick": 146221,
+            "prefix": 97347
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 1,
+            "queries": 1,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "4478130",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              38428,
+              39580,
+              38238
+            ],
+            "blocks": [
+              53030,
+              53060,
+              51648
+            ],
+            "fenwick": [
+              139831,
+              142715,
+              134524
+            ],
+            "prefix": [
+              114643,
+              95474,
+              92960
+            ]
+          },
+          "median_ns": {
+            "direct": 38428,
+            "blocks": 53030,
+            "fenwick": 139831,
+            "prefix": 95474
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 1,
+            "queries": 8,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "2269458",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              35103,
+              34142,
+              35854
+            ],
+            "blocks": [
+              70276,
+              72019,
+              69075
+            ],
+            "fenwick": [
+              154894,
+              154994,
+              177879
+            ],
+            "prefix": [
+              96856,
+              94473,
+              95975
+            ]
+          },
+          "median_ns": {
+            "direct": 35103,
+            "blocks": 70276,
+            "fenwick": 154994,
+            "prefix": 95975
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 1,
+            "queries": 8,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "31515164",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              191078,
+              179351,
+              180422
+            ],
+            "blocks": [
+              101503,
+              114964,
+              99481
+            ],
+            "fenwick": [
+              157488,
+              152951,
+              150127
+            ],
+            "prefix": [
+              98139,
+              97417,
+              97568
+            ]
+          },
+          "median_ns": {
+            "direct": 180422,
+            "blocks": 101503,
+            "fenwick": 152951,
+            "prefix": 97568
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 1,
+            "queries": 32,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "6361094",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              80352,
+              78008,
+              78909
+            ],
+            "blocks": [
+              140782,
+              139992,
+              141684
+            ],
+            "fenwick": [
+              218189,
+              207203,
+              205049
+            ],
+            "prefix": [
+              110427,
+              120402,
+              127853
+            ]
+          },
+          "median_ns": {
+            "direct": 78909,
+            "blocks": 140782,
+            "fenwick": 207203,
+            "prefix": 120402
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 1,
+            "queries": 32,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "166523946",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              857124,
+              976554,
+              884175
+            ],
+            "blocks": [
+              293844,
+              291019,
+              312823
+            ],
+            "fenwick": [
+              211359,
+              222146,
+              212300
+            ],
+            "prefix": [
+              133411,
+              115304,
+              122124
+            ]
+          },
+          "median_ns": {
+            "direct": 884175,
+            "blocks": 293844,
+            "fenwick": 212300,
+            "prefix": 122124
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 8,
+            "queries": 1,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "1002588",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              23756,
+              24827,
+              40241
+            ],
+            "blocks": [
+              52790,
+              53151,
+              51518
+            ],
+            "fenwick": [
+              159020,
+              153922,
+              156225
+            ],
+            "prefix": [
+              114673,
+              95925,
+              96265
+            ]
+          },
+          "median_ns": {
+            "direct": 24827,
+            "blocks": 52790,
+            "fenwick": 156225,
+            "prefix": 96265
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 8,
+            "queries": 1,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "15720174",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              41874,
+              40842,
+              42784
+            ],
+            "blocks": [
+              57967,
+              73351,
+              58788
+            ],
+            "fenwick": [
+              156636,
+              153272,
+              197028
+            ],
+            "prefix": [
+              94944,
+              94893,
+              97026
+            ]
+          },
+          "median_ns": {
+            "direct": 41874,
+            "blocks": 58788,
+            "fenwick": 156636,
+            "prefix": 94944
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 8,
+            "queries": 8,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "7415484",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              38428,
+              39189,
+              40952
+            ],
+            "blocks": [
+              76476,
+              80271,
+              78489
+            ],
+            "fenwick": [
+              267273,
+              172149,
+              192170
+            ],
+            "prefix": [
+              106270,
+              100461,
+              133221
+            ]
+          },
+          "median_ns": {
+            "direct": 39189,
+            "blocks": 78489,
+            "fenwick": 192170,
+            "prefix": 106270
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 8,
+            "queries": 8,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "132849452",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              201725,
+              184569,
+              186321
+            ],
+            "blocks": [
+              110556,
+              129906,
+              104308
+            ],
+            "fenwick": [
+              176606,
+              168855,
+              171679
+            ],
+            "prefix": [
+              100421,
+              98529,
+              100872
+            ]
+          },
+          "median_ns": {
+            "direct": 186321,
+            "blocks": 110556,
+            "fenwick": 171679,
+            "prefix": 100421
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 8,
+            "queries": 32,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "24712884",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              84287,
+              94673,
+              253182
+            ],
+            "blocks": [
+              147673,
+              147252,
+              160573
+            ],
+            "fenwick": [
+              238700,
+              228175,
+              253582
+            ],
+            "prefix": [
+              116126,
+              114152,
+              115464
+            ]
+          },
+          "median_ns": {
+            "direct": 94673,
+            "blocks": 147673,
+            "fenwick": 238700,
+            "prefix": 115464
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 8,
+            "queries": 32,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "697404004",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              887469,
+              870114,
+              854731
+            ],
+            "blocks": [
+              305491,
+              308866,
+              288285
+            ],
+            "fenwick": [
+              236948,
+              226612,
+              222396
+            ],
+            "prefix": [
+              112120,
+              113361,
+              112570
+            ]
+          },
+          "median_ns": {
+            "direct": 870114,
+            "blocks": 305491,
+            "fenwick": 226612,
+            "prefix": 112570
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 1,
+            "queries": 1,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "1002588",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              74712,
+              74623,
+              80962
+            ],
+            "blocks": [
+              163617,
+              169115,
+              168435
+            ],
+            "fenwick": [
+              554778,
+              656732,
+              579244
+            ],
+            "prefix": [
+              355016,
+              344961,
+              1055643
+            ]
+          },
+          "median_ns": {
+            "direct": 74712,
+            "blocks": 168435,
+            "fenwick": 579244,
+            "prefix": 355016
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 1,
+            "queries": 1,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "14700452",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              142535,
+              142165,
+              180542
+            ],
+            "blocks": [
+              176706,
+              176146,
+              176366
+            ],
+            "fenwick": [
+              553415,
+              532434,
+              689080
+            ],
+            "prefix": [
+              369768,
+              362738,
+              351631
+            ]
+          },
+          "median_ns": {
+            "direct": 142535,
+            "blocks": 176366,
+            "fenwick": 553415,
+            "prefix": 362738
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 1,
+            "queries": 8,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "2269458",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              88274,
+              87743,
+              88905
+            ],
+            "blocks": [
+              184248,
+              186751,
+              281365
+            ],
+            "fenwick": [
+              558222,
+              569199,
+              546285
+            ],
+            "prefix": [
+              366813,
+              349257,
+              368446
+            ]
+          },
+          "median_ns": {
+            "direct": 88274,
+            "blocks": 186751,
+            "fenwick": 558222,
+            "prefix": 366813
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 1,
+            "queries": 8,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "113564586",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              694379,
+              1353533,
+              643501
+            ],
+            "blocks": [
+              283187,
+              345772,
+              282126
+            ],
+            "fenwick": [
+              970305,
+              616881,
+              575238
+            ],
+            "prefix": [
+              1172040,
+              419663,
+              357069
+            ]
+          },
+          "median_ns": {
+            "direct": 694379,
+            "blocks": 283187,
+            "fenwick": 616881,
+            "prefix": 419663
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 1,
+            "queries": 32,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "6321104",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              134343,
+              135364,
+              134484
+            ],
+            "blocks": [
+              258040,
+              278420,
+              256727
+            ],
+            "fenwick": [
+              667258,
+              650812,
+              645985
+            ],
+            "prefix": [
+              371411,
+              378170,
+              389308
+            ]
+          },
+          "median_ns": {
+            "direct": 134484,
+            "blocks": 258040,
+            "fenwick": 650812,
+            "prefix": 378170
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 1,
+            "queries": 32,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "487019926",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              2538743,
+              2704874,
+              2679726
+            ],
+            "blocks": [
+              601158,
+              653547,
+              612765
+            ],
+            "fenwick": [
+              660237,
+              667889,
+              678194
+            ],
+            "prefix": [
+              370720,
+              381276,
+              370169
+            ]
+          },
+          "median_ns": {
+            "direct": 2679726,
+            "blocks": 612765,
+            "fenwick": 667889,
+            "prefix": 370720
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 8,
+            "queries": 1,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "1002588",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              77747,
+              76295,
+              80001
+            ],
+            "blocks": [
+              182075,
+              174834,
+              227384
+            ],
+            "fenwick": [
+              573866,
+              743733,
+              1353674
+            ],
+            "prefix": [
+              378391,
+              351761,
+              401917
+            ]
+          },
+          "median_ns": {
+            "direct": 77747,
+            "blocks": 182075,
+            "fenwick": 743733,
+            "prefix": 378391
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 8,
+            "queries": 1,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "36210686",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              147983,
+              148955,
+              143607
+            ],
+            "blocks": [
+              178850,
+              196797,
+              177638
+            ],
+            "fenwick": [
+              581798,
+              569400,
+              560596
+            ],
+            "prefix": [
+              404270,
+              391802,
+              373204
+            ]
+          },
+          "median_ns": {
+            "direct": 147983,
+            "blocks": 178850,
+            "fenwick": 569400,
+            "prefix": 391802
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 8,
+            "queries": 8,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "4318378",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              92670,
+              98388,
+              109695
+            ],
+            "blocks": [
+              190147,
+              192691,
+              191899
+            ],
+            "fenwick": [
+              581348,
+              605033,
+              604392
+            ],
+            "prefix": [
+              381787,
+              354795,
+              367324
+            ]
+          },
+          "median_ns": {
+            "direct": 98388,
+            "blocks": 191899,
+            "fenwick": 604392,
+            "prefix": 367324
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 8,
+            "queries": 8,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "270491870",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              633707,
+              637552,
+              666446
+            ],
+            "blocks": [
+              287444,
+              287995,
+              269507
+            ],
+            "fenwick": [
+              609259,
+              581118,
+              577982
+            ],
+            "prefix": [
+              382167,
+              385121,
+              364230
+            ]
+          },
+          "median_ns": {
+            "direct": 637552,
+            "blocks": 287444,
+            "fenwick": 581118,
+            "prefix": 382167
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 8,
+            "queries": 32,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "15557128",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              135194,
+              135524,
+              173812
+            ],
+            "blocks": [
+              281986,
+              265310,
+              377350
+            ],
+            "fenwick": [
+              662440,
+              658724,
+              735921
+            ],
+            "prefix": [
+              391041,
+              396578,
+              388206
+            ]
+          },
+          "median_ns": {
+            "direct": 135524,
+            "blocks": 281986,
+            "fenwick": 662440,
+            "prefix": 391041
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 8,
+            "queries": 32,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "955496408",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              2533715,
+              2531272,
+              2518302
+            ],
+            "blocks": [
+              595879,
+              595178,
+              592805
+            ],
+            "fenwick": [
+              687297,
+              676581,
+              672505
+            ],
+            "prefix": [
+              373774,
+              373684,
+              373875
+            ]
+          },
+          "median_ns": {
+            "direct": 2531272,
+            "blocks": 595178,
+            "fenwick": 676581,
+            "prefix": 373774
+          }
+        }
+      ],
+      "subprocess_wall_ns": 774159268
+    },
+    {
+      "worker": "train",
+      "pid": 1617,
+      "host": {
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor",
+        "python": "3.13.5",
+        "implementation": "cpython",
+        "logical_cpus": 5,
+        "ci": true,
+        "github_runner_os": null,
+        "github_runner_arch": null
+      },
+      "environment": "cpython/3.13/Linux/x86_64/device=amd-epyc-newcalibration-v19",
+      "rows": [
+        {
+          "workload": {
+            "size": 128,
+            "changes": 1,
+            "queries": 1,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "1002588",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              10356,
+              8513,
+              7862
+            ],
+            "blocks": [
+              22103,
+              19239,
+              18017
+            ],
+            "fenwick": [
+              45348,
+              39680,
+              43425
+            ],
+            "prefix": [
+              30436,
+              26210,
+              28504
+            ]
+          },
+          "median_ns": {
+            "direct": 8513,
+            "blocks": 19239,
+            "fenwick": 43425,
+            "prefix": 28504
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 1,
+            "queries": 1,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "1862382",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              13050,
+              12079,
+              11688
+            ],
+            "blocks": [
+              21263,
+              20440,
+              19139
+            ],
+            "fenwick": [
+              39249,
+              36905,
+              36144
+            ],
+            "prefix": [
+              25990,
+              25649,
+              25709
+            ]
+          },
+          "median_ns": {
+            "direct": 12079,
+            "blocks": 20440,
+            "fenwick": 36905,
+            "prefix": 25709
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 1,
+            "queries": 8,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "2175356",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              21963,
+              20441,
+              19820
+            ],
+            "blocks": [
+              33891,
+              32449,
+              30856
+            ],
+            "fenwick": [
+              57557,
+              49385,
+              48944
+            ],
+            "prefix": [
+              31067,
+              28994,
+              29445
+            ]
+          },
+          "median_ns": {
+            "direct": 20441,
+            "blocks": 32449,
+            "fenwick": 49385,
+            "prefix": 29445
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 1,
+            "queries": 8,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "19258058",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              64467,
+              63936,
+              64707
+            ],
+            "blocks": [
+              48493,
+              51578,
+              48753
+            ],
+            "fenwick": [
+              47502,
+              49154,
+              52930
+            ],
+            "prefix": [
+              29505,
+              42914,
+              29925
+            ]
+          },
+          "median_ns": {
+            "direct": 64467,
+            "blocks": 48753,
+            "fenwick": 49154,
+            "prefix": 29925
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 1,
+            "queries": 32,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "10410522",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              62915,
+              76415,
+              64777
+            ],
+            "blocks": [
+              80281,
+              82905,
+              91758
+            ],
+            "fenwick": [
+              93572,
+              88764,
+              88574
+            ],
+            "prefix": [
+              41583,
+              40721,
+              40070
+            ]
+          },
+          "median_ns": {
+            "direct": 64777,
+            "blocks": 82905,
+            "fenwick": 88764,
+            "prefix": 40721
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 1,
+            "queries": 32,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "70869372",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              233933,
+              236808,
+              234955
+            ],
+            "blocks": [
+              158089,
+              148955,
+              146651
+            ],
+            "fenwick": [
+              90166,
+              105960,
+              87442
+            ],
+            "prefix": [
+              41012,
+              40711,
+              40682
+            ]
+          },
+          "median_ns": {
+            "direct": 234955,
+            "blocks": 148955,
+            "fenwick": 90166,
+            "prefix": 40711
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 8,
+            "queries": 1,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "2070500",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              9634,
+              9665,
+              9133
+            ],
+            "blocks": [
+              21212,
+              22063,
+              19911
+            ],
+            "fenwick": [
+              50636,
+              48963,
+              47031
+            ],
+            "prefix": [
+              28794,
+              44677,
+              28012
+            ]
+          },
+          "median_ns": {
+            "direct": 9634,
+            "blocks": 21212,
+            "fenwick": 48963,
+            "prefix": 28794
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 8,
+            "queries": 1,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "15286546",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              14312,
+              13951,
+              14212
+            ],
+            "blocks": [
+              23005,
+              22975,
+              22875
+            ],
+            "fenwick": [
+              47772,
+              48644,
+              46791
+            ],
+            "prefix": [
+              27692,
+              27451,
+              44988
+            ]
+          },
+          "median_ns": {
+            "direct": 14212,
+            "blocks": 22975,
+            "fenwick": 47772,
+            "prefix": 27692
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 8,
+            "queries": 8,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "12651610",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              22975,
+              23285,
+              22574
+            ],
+            "blocks": [
+              37987,
+              38297,
+              35924
+            ],
+            "fenwick": [
+              87412,
+              62103,
+              60812
+            ],
+            "prefix": [
+              33531,
+              30946,
+              31597
+            ]
+          },
+          "median_ns": {
+            "direct": 22975,
+            "blocks": 37987,
+            "fenwick": 62103,
+            "prefix": 31597
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 8,
+            "queries": 8,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "138145914",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              67632,
+              66180,
+              66520
+            ],
+            "blocks": [
+              53941,
+              53791,
+              52910
+            ],
+            "fenwick": [
+              59851,
+              73992,
+              58649
+            ],
+            "prefix": [
+              30787,
+              31137,
+              33371
+            ]
+          },
+          "median_ns": {
+            "direct": 66520,
+            "blocks": 53791,
+            "fenwick": 59851,
+            "prefix": 31137
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 8,
+            "queries": 32,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "83483636",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              65008,
+              78879,
+              64647
+            ],
+            "blocks": [
+              86801,
+              88293,
+              84788
+            ],
+            "fenwick": [
+              100732,
+              101914,
+              100963
+            ],
+            "prefix": [
+              43396,
+              44447,
+              42724
+            ]
+          },
+          "median_ns": {
+            "direct": 65008,
+            "blocks": 86801,
+            "fenwick": 100963,
+            "prefix": 43396
+          }
+        },
+        {
+          "workload": {
+            "size": 128,
+            "changes": 8,
+            "queries": 32,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "530107184",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              239211,
+              239361,
+              242676
+            ],
+            "blocks": [
+              145700,
+              153562,
+              144318
+            ],
+            "fenwick": [
+              117027,
+              109735,
+              97828
+            ],
+            "prefix": [
+              42564,
+              44988,
+              44117
+            ]
+          },
+          "median_ns": {
+            "direct": 239361,
+            "blocks": 145700,
+            "fenwick": 109735,
+            "prefix": 44117
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 1,
+            "queries": 1,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "1002588",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              21182,
+              20631,
+              21703
+            ],
+            "blocks": [
+              49375,
+              48683,
+              47432
+            ],
+            "fenwick": [
+              141374,
+              140212,
+              154093
+            ],
+            "prefix": [
+              92980,
+              91138,
+              93351
+            ]
+          },
+          "median_ns": {
+            "direct": 21182,
+            "blocks": 48683,
+            "fenwick": 141374,
+            "prefix": 92980
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 1,
+            "queries": 1,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "4478130",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              38799,
+              42855,
+              42785
+            ],
+            "blocks": [
+              54573,
+              56906,
+              53521
+            ],
+            "fenwick": [
+              238109,
+              142946,
+              135896
+            ],
+            "prefix": [
+              136826,
+              90998,
+              115214
+            ]
+          },
+          "median_ns": {
+            "direct": 42785,
+            "blocks": 54573,
+            "fenwick": 142946,
+            "prefix": 115214
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 1,
+            "queries": 8,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "2269458",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              36045,
+              35103,
+              35173
+            ],
+            "blocks": [
+              72670,
+              84748,
+              69836
+            ],
+            "fenwick": [
+              156447,
+              152530,
+              151169
+            ],
+            "prefix": [
+              96205,
+              95764,
+              95454
+            ]
+          },
+          "median_ns": {
+            "direct": 35173,
+            "blocks": 72670,
+            "fenwick": 152530,
+            "prefix": 95764
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 1,
+            "queries": 8,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "31515164",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              181113,
+              241985,
+              198059
+            ],
+            "blocks": [
+              103636,
+              106070,
+              103025
+            ],
+            "fenwick": [
+              154793,
+              192751,
+              150246
+            ],
+            "prefix": [
+              99580,
+              101023,
+              96235
+            ]
+          },
+          "median_ns": {
+            "direct": 198059,
+            "blocks": 103636,
+            "fenwick": 154793,
+            "prefix": 99580
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 1,
+            "queries": 32,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "6361094",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              80802,
+              79260,
+              83967
+            ],
+            "blocks": [
+              143137,
+              142345,
+              140502
+            ],
+            "fenwick": [
+              251970,
+              214063,
+              219692
+            ],
+            "prefix": [
+              112309,
+              107572,
+              109055
+            ]
+          },
+          "median_ns": {
+            "direct": 80802,
+            "blocks": 142345,
+            "fenwick": 219692,
+            "prefix": 109055
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 1,
+            "queries": 32,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "166523946",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              830464,
+              849312,
+              884085
+            ],
+            "blocks": [
+              308896,
+              350649,
+              288215
+            ],
+            "fenwick": [
+              222927,
+              266612,
+              219201
+            ],
+            "prefix": [
+              110607,
+              109436,
+              111388
+            ]
+          },
+          "median_ns": {
+            "direct": 849312,
+            "blocks": 308896,
+            "fenwick": 222927,
+            "prefix": 110607
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 8,
+            "queries": 1,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "1002588",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              25609,
+              23305,
+              22985
+            ],
+            "blocks": [
+              52860,
+              52710,
+              51368
+            ],
+            "fenwick": [
+              162205,
+              152040,
+              175715
+            ],
+            "prefix": [
+              96786,
+              93191,
+              97908
+            ]
+          },
+          "median_ns": {
+            "direct": 23305,
+            "blocks": 52710,
+            "fenwick": 162205,
+            "prefix": 96786
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 8,
+            "queries": 1,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "15720174",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              131148,
+              41793,
+              40621
+            ],
+            "blocks": [
+              63265,
+              59701,
+              57857
+            ],
+            "fenwick": [
+              219581,
+              159631,
+              177367
+            ],
+            "prefix": [
+              99680,
+              94473,
+              94633
+            ]
+          },
+          "median_ns": {
+            "direct": 41793,
+            "blocks": 59701,
+            "fenwick": 177367,
+            "prefix": 94633
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 8,
+            "queries": 8,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "7415484",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              37617,
+              35684,
+              36505
+            ],
+            "blocks": [
+              76706,
+              77297,
+              73952
+            ],
+            "fenwick": [
+              175795,
+              171719,
+              170498
+            ],
+            "prefix": [
+              99430,
+              115084,
+              101243
+            ]
+          },
+          "median_ns": {
+            "direct": 36505,
+            "blocks": 76706,
+            "fenwick": 171719,
+            "prefix": 101243
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 8,
+            "queries": 8,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "132849452",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              180262,
+              212962,
+              198680
+            ],
+            "blocks": [
+              108063,
+              108864,
+              107683
+            ],
+            "fenwick": [
+              234564,
+              179501,
+              192521
+            ],
+            "prefix": [
+              105600,
+              101143,
+              101534
+            ]
+          },
+          "median_ns": {
+            "direct": 198680,
+            "blocks": 108063,
+            "fenwick": 192521,
+            "prefix": 101534
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 8,
+            "queries": 32,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "24712884",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              83526,
+              83556,
+              135074
+            ],
+            "blocks": [
+              165831,
+              156176,
+              152099
+            ],
+            "fenwick": [
+              295857,
+              366133,
+              236597
+            ],
+            "prefix": [
+              120803,
+              112570,
+              119881
+            ]
+          },
+          "median_ns": {
+            "direct": 83556,
+            "blocks": 156176,
+            "fenwick": 295857,
+            "prefix": 119881
+          }
+        },
+        {
+          "workload": {
+            "size": 512,
+            "changes": 8,
+            "queries": 32,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "697404004",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              845726,
+              843213,
+              826338
+            ],
+            "blocks": [
+              294805,
+              315666,
+              317189
+            ],
+            "fenwick": [
+              315076,
+              234014,
+              225400
+            ],
+            "prefix": [
+              122304,
+              114483,
+              127923
+            ]
+          },
+          "median_ns": {
+            "direct": 843213,
+            "blocks": 315666,
+            "fenwick": 234014,
+            "prefix": 122304
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 1,
+            "queries": 1,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "1002588",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              73130,
+              73260,
+              71978
+            ],
+            "blocks": [
+              178729,
+              161173,
+              159420
+            ],
+            "fenwick": [
+              643271,
+              553345,
+              526215
+            ],
+            "prefix": [
+              396999,
+              349027,
+              367204
+            ]
+          },
+          "median_ns": {
+            "direct": 73130,
+            "blocks": 161173,
+            "fenwick": 553345,
+            "prefix": 367204
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 1,
+            "queries": 1,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "14700452",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              140292,
+              139952,
+              155896
+            ],
+            "blocks": [
+              172119,
+              171369,
+              176837
+            ],
+            "fenwick": [
+              543410,
+              542980,
+              540576
+            ],
+            "prefix": [
+              352842,
+              345562,
+              348796
+            ]
+          },
+          "median_ns": {
+            "direct": 140292,
+            "blocks": 172119,
+            "fenwick": 542980,
+            "prefix": 348796
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 1,
+            "queries": 8,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "2269458",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              85549,
+              116515,
+              91177
+            ],
+            "blocks": [
+              182235,
+              203447,
+              183056
+            ],
+            "fenwick": [
+              578193,
+              589620,
+              564242
+            ],
+            "prefix": [
+              468688,
+              357479,
+              379704
+            ]
+          },
+          "median_ns": {
+            "direct": 91177,
+            "blocks": 183056,
+            "fenwick": 578193,
+            "prefix": 379704
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 1,
+            "queries": 8,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "113564586",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              629130,
+              687588,
+              624653
+            ],
+            "blocks": [
+              294385,
+              340294,
+              411672
+            ],
+            "fenwick": [
+              565885,
+              592684,
+              554317
+            ],
+            "prefix": [
+              377920,
+              458462,
+              370139
+            ]
+          },
+          "median_ns": {
+            "direct": 629130,
+            "blocks": 340294,
+            "fenwick": 565885,
+            "prefix": 377920
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 1,
+            "queries": 32,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "6321104",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              134944,
+              133061,
+              132180
+            ],
+            "blocks": [
+              257890,
+              261695,
+              255275
+            ],
+            "fenwick": [
+              716502,
+              709231,
+              638494
+            ],
+            "prefix": [
+              373143,
+              399353,
+              383259
+            ]
+          },
+          "median_ns": {
+            "direct": 133061,
+            "blocks": 257890,
+            "fenwick": 709231,
+            "prefix": 383259
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 1,
+            "queries": 32,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "487019926",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              2643190,
+              2496719,
+              2587586
+            ],
+            "blocks": [
+              602710,
+              627788,
+              674778
+            ],
+            "fenwick": [
+              650362,
+              660798,
+              777273
+            ],
+            "prefix": [
+              393584,
+              456760,
+              394335
+            ]
+          },
+          "median_ns": {
+            "direct": 2587586,
+            "blocks": 627788,
+            "fenwick": 660798,
+            "prefix": 394335
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 8,
+            "queries": 1,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "1002588",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              77347,
+              109826,
+              75694
+            ],
+            "blocks": [
+              194895,
+              202576,
+              163507
+            ],
+            "fenwick": [
+              570091,
+              551443,
+              600516
+            ],
+            "prefix": [
+              354906,
+              356528,
+              407235
+            ]
+          },
+          "median_ns": {
+            "direct": 77347,
+            "blocks": 194895,
+            "fenwick": 570091,
+            "prefix": 356528
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 8,
+            "queries": 1,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "36210686",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              143777,
+              145109,
+              144057
+            ],
+            "blocks": [
+              173572,
+              177958,
+              193693
+            ],
+            "fenwick": [
+              576691,
+              596079,
+              589991
+            ],
+            "prefix": [
+              355026,
+              370910,
+              359192
+            ]
+          },
+          "median_ns": {
+            "direct": 144057,
+            "blocks": 177958,
+            "fenwick": 589991,
+            "prefix": 359192
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 8,
+            "queries": 8,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "4318378",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              92690,
+              92579,
+              93962
+            ],
+            "blocks": [
+              210608,
+              189767,
+              189075
+            ],
+            "fenwick": [
+              585794,
+              601138,
+              578333
+            ],
+            "prefix": [
+              374395,
+              370499,
+              370259
+            ]
+          },
+          "median_ns": {
+            "direct": 92690,
+            "blocks": 189767,
+            "fenwick": 585794,
+            "prefix": 370499
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 8,
+            "queries": 8,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "270491870",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              647888,
+              652976,
+              656511
+            ],
+            "blocks": [
+              271049,
+              271410,
+              271810
+            ],
+            "fenwick": [
+              588970,
+              578934,
+              586836
+            ],
+            "prefix": [
+              379072,
+              361936,
+              362117
+            ]
+          },
+          "median_ns": {
+            "direct": 652976,
+            "blocks": 271410,
+            "fenwick": 586836,
+            "prefix": 362117
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 8,
+            "queries": 32,
+            "ticks": 2,
+            "span": "short"
+          },
+          "checksum": "15557128",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              136716,
+              148384,
+              135495
+            ],
+            "blocks": [
+              265220,
+              268825,
+              261976
+            ],
+            "fenwick": [
+              662630,
+              702941,
+              665915
+            ],
+            "prefix": [
+              380114,
+              470200,
+              375146
+            ]
+          },
+          "median_ns": {
+            "direct": 136716,
+            "blocks": 265220,
+            "fenwick": 665915,
+            "prefix": 380114
+          }
+        },
+        {
+          "workload": {
+            "size": 2048,
+            "changes": 8,
+            "queries": 32,
+            "ticks": 2,
+            "span": "wide"
+          },
+          "checksum": "955496408",
+          "gate": "PASS",
+          "raw_ns": {
+            "direct": [
+              2551492,
+              2561938,
+              2516419
+            ],
+            "blocks": [
+              601237,
+              628298,
+              600256
+            ],
+            "fenwick": [
+              668839,
+              711304,
+              684794
+            ],
+            "prefix": [
+              391881,
+              441086,
+              377380
+            ]
+          },
+          "median_ns": {
+            "direct": 2551492,
+            "blocks": 601237,
+            "fenwick": 684794,
+            "prefix": 391881
+          }
+        }
+      ],
+      "subprocess_wall_ns": 802607029
+    }
+  ],
+  "evaluation_workers": [
+    {
+      "worker": "eval",
+      "pid": 1628,
+      "host": {
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor",
+        "python": "3.13.5",
+        "implementation": "cpython",
+        "logical_cpus": 5,
+        "ci": true,
+        "github_runner_os": null,
+        "github_runner_arch": null
+      },
+      "environment": "cpython/3.13/Linux/x86_64/device=amd-epyc-newcalibration-v19",
+      "records": [
+        {
+          "size": 384,
+          "cycles": 1,
+          "segments_per_cycle": 12,
+          "gate": "PASS",
+          "raw_ns": {
+            "simple": [
+              690252,
+              711545
+            ],
+            "stable": [
+              756181,
+              603741
+            ],
+            "direct": [
+              1959067,
+              1777334
+            ]
+          },
+          "details": {
+            "simple": [
+              {
+                "setup_ns": 36124,
+                "switch_ns": 19279,
+                "switches": 1,
+                "constructed": 2,
+                "segments": 12,
+                "trace_sha256": "eaba0e18713e8ac8880f6833e1495c4ebddb76192ddd0987248293b24076383a"
+              },
+              {
+                "setup_ns": 33761,
+                "switch_ns": 17456,
+                "switches": 1,
+                "constructed": 2,
+                "segments": 12,
+                "trace_sha256": "eaba0e18713e8ac8880f6833e1495c4ebddb76192ddd0987248293b24076383a"
+              }
+            ],
+            "stable": [
+              {
+                "setup_ns": 114774,
+                "switch_ns": 99020,
+                "switches": 4,
+                "constructed": 5,
+                "segments": 12,
+                "trace_sha256": "8ee6390358a7a968fd67855fd9a52903c80d82f7a59ea95a48b94ace989f88d6"
+              },
+              {
+                "setup_ns": 112741,
+                "switch_ns": 96617,
+                "switches": 4,
+                "constructed": 5,
+                "segments": 12,
+                "trace_sha256": "8ee6390358a7a968fd67855fd9a52903c80d82f7a59ea95a48b94ace989f88d6"
+              }
+            ],
+            "direct": [
+              {
+                "setup_ns": 18337,
+                "switch_ns": 0,
+                "switches": 0,
+                "constructed": 1,
+                "segments": 12,
+                "trace_sha256": "01cd444f0358e8c387f7e1153d8fb4b361e9ec52ca2416997b73e8f755024d82"
+              },
+              {
+                "setup_ns": 15143,
+                "switch_ns": 0,
+                "switches": 0,
+                "constructed": 1,
+                "segments": 12,
+                "trace_sha256": "01cd444f0358e8c387f7e1153d8fb4b361e9ec52ca2416997b73e8f755024d82"
+              }
+            ]
+          },
+          "median_ns": {
+            "simple": 700898.5,
+            "stable": 679961.0,
+            "direct": 1868200.5
+          },
+          "checksum_sha256": "c6cfedc5b5b5f43d32f2c362f6e1c55296e711e3cfc7498b273d8ca9a3f0e1d1"
+        },
+        {
+          "size": 384,
+          "cycles": 8,
+          "segments_per_cycle": 12,
+          "gate": "PASS",
+          "raw_ns": {
+            "simple": [
+              5168622,
+              5155102
+            ],
+            "stable": [
+              4628528,
+              4609748
+            ],
+            "direct": [
+              14447330,
+              13459078
+            ]
+          },
+          "details": {
+            "simple": [
+              {
+                "setup_ns": 286111,
+                "switch_ns": 268194,
+                "switches": 15,
+                "constructed": 16,
+                "segments": 96,
+                "trace_sha256": "6358c8a462627f52391ccc6b1b113ba9f46fc40bd979a97ab8790de861fc0af7"
+              },
+              {
+                "setup_ns": 296757,
+                "switch_ns": 279321,
+                "switches": 15,
+                "constructed": 16,
+                "segments": 96,
+                "trace_sha256": "6358c8a462627f52391ccc6b1b113ba9f46fc40bd979a97ab8790de861fc0af7"
+              }
+            ],
+            "stable": [
+              {
+                "setup_ns": 838307,
+                "switch_ns": 823094,
+                "switches": 39,
+                "constructed": 40,
+                "segments": 96,
+                "trace_sha256": "b0af0c64175d8ec45c0ca04dc88ef49fc0dccb9310d669c2aada5bf1cb2952ec"
+              },
+              {
+                "setup_ns": 853491,
+                "switch_ns": 837707,
+                "switches": 39,
+                "constructed": 40,
+                "segments": 96,
+                "trace_sha256": "b0af0c64175d8ec45c0ca04dc88ef49fc0dccb9310d669c2aada5bf1cb2952ec"
+              }
+            ],
+            "direct": [
+              {
+                "setup_ns": 33481,
+                "switch_ns": 0,
+                "switches": 0,
+                "constructed": 1,
+                "segments": 96,
+                "trace_sha256": "488d8875aa88fd6a232f09f4dd6a4fc18e25c12fc51dfff1c4001d0e48af6b56"
+              },
+              {
+                "setup_ns": 17366,
+                "switch_ns": 0,
+                "switches": 0,
+                "constructed": 1,
+                "segments": 96,
+                "trace_sha256": "488d8875aa88fd6a232f09f4dd6a4fc18e25c12fc51dfff1c4001d0e48af6b56"
+              }
+            ]
+          },
+          "median_ns": {
+            "simple": 5161862.0,
+            "stable": 4619138.0,
+            "direct": 13953204.0
+          },
+          "checksum_sha256": "89c4a7589d07ed30b971e44dbea39190e2246ecd2552c2d411f6f5748c2b7398"
+        },
+        {
+          "size": 1536,
+          "cycles": 1,
+          "segments_per_cycle": 12,
+          "gate": "PASS",
+          "raw_ns": {
+            "simple": [
+              1803663,
+              1873138
+            ],
+            "stable": [
+              1269977,
+              1319502
+            ],
+            "direct": [
+              5328503,
+              5139219
+            ]
+          },
+          "details": {
+            "simple": [
+              {
+                "setup_ns": 110427,
+                "switch_ns": 55955,
+                "switches": 1,
+                "constructed": 2,
+                "segments": 12,
+                "trace_sha256": "eaba0e18713e8ac8880f6833e1495c4ebddb76192ddd0987248293b24076383a"
+              },
+              {
+                "setup_ns": 136045,
+                "switch_ns": 57196,
+                "switches": 1,
+                "constructed": 2,
+                "segments": 12,
+                "trace_sha256": "eaba0e18713e8ac8880f6833e1495c4ebddb76192ddd0987248293b24076383a"
+              }
+            ],
+            "stable": [
+              {
+                "setup_ns": 285571,
+                "switch_ns": 231890,
+                "switches": 3,
+                "constructed": 4,
+                "segments": 12,
+                "trace_sha256": "de31922ccdf103f2ad7276e34097c53eee3282bc5c3d2dfdf6a6fe91f40037c3"
+              },
+              {
+                "setup_ns": 303388,
+                "switch_ns": 234824,
+                "switches": 3,
+                "constructed": 4,
+                "segments": 12,
+                "trace_sha256": "de31922ccdf103f2ad7276e34097c53eee3282bc5c3d2dfdf6a6fe91f40037c3"
+              }
+            ],
+            "direct": [
+              {
+                "setup_ns": 52369,
+                "switch_ns": 0,
+                "switches": 0,
+                "constructed": 1,
+                "segments": 12,
+                "trace_sha256": "01cd444f0358e8c387f7e1153d8fb4b361e9ec52ca2416997b73e8f755024d82"
+              },
+              {
+                "setup_ns": 53821,
+                "switch_ns": 0,
+                "switches": 0,
+                "constructed": 1,
+                "segments": 12,
+                "trace_sha256": "01cd444f0358e8c387f7e1153d8fb4b361e9ec52ca2416997b73e8f755024d82"
+              }
+            ]
+          },
+          "median_ns": {
+            "simple": 1838400.5,
+            "stable": 1294739.5,
+            "direct": 5233861.0
+          },
+          "checksum_sha256": "3bc64852ea6604b75225fa2bdc68b1c84788f128d6e4cb085c4ee172a886b27c"
+        },
+        {
+          "size": 1536,
+          "cycles": 8,
+          "segments_per_cycle": 12,
+          "gate": "PASS",
+          "raw_ns": {
+            "simple": [
+              14177503,
+              14089731
+            ],
+            "stable": [
+              10004592,
+              10072606
+            ],
+            "direct": [
+              42127226,
+              39506820
+            ]
+          },
+          "details": {
+            "simple": [
+              {
+                "setup_ns": 998038,
+                "switch_ns": 942444,
+                "switches": 15,
+                "constructed": 16,
+                "segments": 96,
+                "trace_sha256": "6358c8a462627f52391ccc6b1b113ba9f46fc40bd979a97ab8790de861fc0af7"
+              },
+              {
+                "setup_ns": 1009547,
+                "switch_ns": 951209,
+                "switches": 15,
+                "constructed": 16,
+                "segments": 96,
+                "trace_sha256": "6358c8a462627f52391ccc6b1b113ba9f46fc40bd979a97ab8790de861fc0af7"
+              }
+            ],
+            "stable": [
+              {
+                "setup_ns": 2402117,
+                "switch_ns": 2348977,
+                "switches": 31,
+                "constructed": 32,
+                "segments": 96,
+                "trace_sha256": "01db7389afc59440d64cfb5c5071960553069bf5fe31251c0c3e8210622a8332"
+              },
+              {
+                "setup_ns": 2458632,
+                "switch_ns": 2402928,
+                "switches": 31,
+                "constructed": 32,
+                "segments": 96,
+                "trace_sha256": "01db7389afc59440d64cfb5c5071960553069bf5fe31251c0c3e8210622a8332"
+              }
+            ],
+            "direct": [
+              {
+                "setup_ns": 52500,
+                "switch_ns": 0,
+                "switches": 0,
+                "constructed": 1,
+                "segments": 96,
+                "trace_sha256": "488d8875aa88fd6a232f09f4dd6a4fc18e25c12fc51dfff1c4001d0e48af6b56"
+              },
+              {
+                "setup_ns": 54613,
+                "switch_ns": 0,
+                "switches": 0,
+                "constructed": 1,
+                "segments": 96,
+                "trace_sha256": "488d8875aa88fd6a232f09f4dd6a4fc18e25c12fc51dfff1c4001d0e48af6b56"
+              }
+            ]
+          },
+          "median_ns": {
+            "simple": 14133617.0,
+            "stable": 10038599.0,
+            "direct": 40817023.0
+          },
+          "checksum_sha256": "63efc38882fe853a16ee8523657a3af55308d04c511c54c0111f635bec7f6033"
+        }
+      ],
+      "subprocess_wall_ns": 907644396
+    },
+    {
+      "worker": "eval",
+      "pid": 1639,
+      "host": {
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor",
+        "python": "3.13.5",
+        "implementation": "cpython",
+        "logical_cpus": 5,
+        "ci": true,
+        "github_runner_os": null,
+        "github_runner_arch": null
+      },
+      "environment": "cpython/3.13/Linux/x86_64/device=amd-epyc-newcalibration-v19",
+      "records": [
+        {
+          "size": 384,
+          "cycles": 1,
+          "segments_per_cycle": 12,
+          "gate": "PASS",
+          "raw_ns": {
+            "simple": [
+              809562,
+              759417
+            ],
+            "stable": [
+              770684,
+              599314
+            ],
+            "direct": [
+              1739306,
+              1795340
+            ]
+          },
+          "details": {
+            "simple": [
+              {
+                "setup_ns": 35784,
+                "switch_ns": 18968,
+                "switches": 1,
+                "constructed": 2,
+                "segments": 12,
+                "trace_sha256": "eaba0e18713e8ac8880f6833e1495c4ebddb76192ddd0987248293b24076383a"
+              },
+              {
+                "setup_ns": 34282,
+                "switch_ns": 18378,
+                "switches": 1,
+                "constructed": 2,
+                "segments": 12,
+                "trace_sha256": "eaba0e18713e8ac8880f6833e1495c4ebddb76192ddd0987248293b24076383a"
+              }
+            ],
+            "stable": [
+              {
+                "setup_ns": 116336,
+                "switch_ns": 99711,
+                "switches": 4,
+                "constructed": 5,
+                "segments": 12,
+                "trace_sha256": "8ee6390358a7a968fd67855fd9a52903c80d82f7a59ea95a48b94ace989f88d6"
+              },
+              {
+                "setup_ns": 111818,
+                "switch_ns": 95724,
+                "switches": 4,
+                "constructed": 5,
+                "segments": 12,
+                "trace_sha256": "8ee6390358a7a968fd67855fd9a52903c80d82f7a59ea95a48b94ace989f88d6"
+              }
+            ],
+            "direct": [
+              {
+                "setup_ns": 14832,
+                "switch_ns": 0,
+                "switches": 0,
+                "constructed": 1,
+                "segments": 12,
+                "trace_sha256": "01cd444f0358e8c387f7e1153d8fb4b361e9ec52ca2416997b73e8f755024d82"
+              },
+              {
+                "setup_ns": 15173,
+                "switch_ns": 0,
+                "switches": 0,
+                "constructed": 1,
+                "segments": 12,
+                "trace_sha256": "01cd444f0358e8c387f7e1153d8fb4b361e9ec52ca2416997b73e8f755024d82"
+              }
+            ]
+          },
+          "median_ns": {
+            "simple": 784489.5,
+            "stable": 684999.0,
+            "direct": 1767323.0
+          },
+          "checksum_sha256": "c6cfedc5b5b5f43d32f2c362f6e1c55296e711e3cfc7498b273d8ca9a3f0e1d1"
+        },
+        {
+          "size": 384,
+          "cycles": 8,
+          "segments_per_cycle": 12,
+          "gate": "PASS",
+          "raw_ns": {
+            "simple": [
+              5182743,
+              5130505
+            ],
+            "stable": [
+              4633995,
+              4661497
+            ],
+            "direct": [
+              14214890,
+              13853703
+            ]
+          },
+          "details": {
+            "simple": [
+              {
+                "setup_ns": 300803,
+                "switch_ns": 281654,
+                "switches": 15,
+                "constructed": 16,
+                "segments": 96,
+                "trace_sha256": "6358c8a462627f52391ccc6b1b113ba9f46fc40bd979a97ab8790de861fc0af7"
+              },
+              {
+                "setup_ns": 313564,
+                "switch_ns": 296588,
+                "switches": 15,
+                "constructed": 16,
+                "segments": 96,
+                "trace_sha256": "6358c8a462627f52391ccc6b1b113ba9f46fc40bd979a97ab8790de861fc0af7"
+              }
+            ],
+            "stable": [
+              {
+                "setup_ns": 886865,
+                "switch_ns": 871933,
+                "switches": 39,
+                "constructed": 40,
+                "segments": 96,
+                "trace_sha256": "b0af0c64175d8ec45c0ca04dc88ef49fc0dccb9310d669c2aada5bf1cb2952ec"
+              },
+              {
+                "setup_ns": 858745,
+                "switch_ns": 842090,
+                "switches": 39,
+                "constructed": 40,
+                "segments": 96,
+                "trace_sha256": "b0af0c64175d8ec45c0ca04dc88ef49fc0dccb9310d669c2aada5bf1cb2952ec"
+              }
+            ],
+            "direct": [
+              {
+                "setup_ns": 17206,
+                "switch_ns": 0,
+                "switches": 0,
+                "constructed": 1,
+                "segments": 96,
+                "trace_sha256": "488d8875aa88fd6a232f09f4dd6a4fc18e25c12fc51dfff1c4001d0e48af6b56"
+              },
+              {
+                "setup_ns": 14772,
+                "switch_ns": 0,
+                "switches": 0,
+                "constructed": 1,
+                "segments": 96,
+                "trace_sha256": "488d8875aa88fd6a232f09f4dd6a4fc18e25c12fc51dfff1c4001d0e48af6b56"
+              }
+            ]
+          },
+          "median_ns": {
+            "simple": 5156624.0,
+            "stable": 4647746.0,
+            "direct": 14034296.5
+          },
+          "checksum_sha256": "89c4a7589d07ed30b971e44dbea39190e2246ecd2552c2d411f6f5748c2b7398"
+        },
+        {
+          "size": 1536,
+          "cycles": 1,
+          "segments_per_cycle": 12,
+          "gate": "PASS",
+          "raw_ns": {
+            "simple": [
+              1874429,
+              1803352
+            ],
+            "stable": [
+              1427335,
+              1386092
+            ],
+            "direct": [
+              5141803,
+              5153730
+            ]
+          },
+          "details": {
+            "simple": [
+              {
+                "setup_ns": 112750,
+                "switch_ns": 56175,
+                "switches": 1,
+                "constructed": 2,
+                "segments": 12,
+                "trace_sha256": "eaba0e18713e8ac8880f6833e1495c4ebddb76192ddd0987248293b24076383a"
+              },
+              {
+                "setup_ns": 110747,
+                "switch_ns": 56054,
+                "switches": 1,
+                "constructed": 2,
+                "segments": 12,
+                "trace_sha256": "eaba0e18713e8ac8880f6833e1495c4ebddb76192ddd0987248293b24076383a"
+              }
+            ],
+            "stable": [
+              {
+                "setup_ns": 330488,
+                "switch_ns": 276537,
+                "switches": 3,
+                "constructed": 4,
+                "segments": 12,
+                "trace_sha256": "de31922ccdf103f2ad7276e34097c53eee3282bc5c3d2dfdf6a6fe91f40037c3"
+              },
+              {
+                "setup_ns": 341046,
+                "switch_ns": 286113,
+                "switches": 3,
+                "constructed": 4,
+                "segments": 12,
+                "trace_sha256": "de31922ccdf103f2ad7276e34097c53eee3282bc5c3d2dfdf6a6fe91f40037c3"
+              }
+            ],
+            "direct": [
+              {
+                "setup_ns": 53030,
+                "switch_ns": 0,
+                "switches": 0,
+                "constructed": 1,
+                "segments": 12,
+                "trace_sha256": "01cd444f0358e8c387f7e1153d8fb4b361e9ec52ca2416997b73e8f755024d82"
+              },
+              {
+                "setup_ns": 52929,
+                "switch_ns": 0,
+                "switches": 0,
+                "constructed": 1,
+                "segments": 12,
+                "trace_sha256": "01cd444f0358e8c387f7e1153d8fb4b361e9ec52ca2416997b73e8f755024d82"
+              }
+            ]
+          },
+          "median_ns": {
+            "simple": 1838890.5,
+            "stable": 1406713.5,
+            "direct": 5147766.5
+          },
+          "checksum_sha256": "3bc64852ea6604b75225fa2bdc68b1c84788f128d6e4cb085c4ee172a886b27c"
+        },
+        {
+          "size": 1536,
+          "cycles": 8,
+          "segments_per_cycle": 12,
+          "gate": "PASS",
+          "raw_ns": {
+            "simple": [
+              14974285,
+              14617116
+            ],
+            "stable": [
+              10358018,
+              15313748
+            ],
+            "direct": [
+              41161498,
+              40511217
+            ]
+          },
+          "details": {
+            "simple": [
+              {
+                "setup_ns": 1097366,
+                "switch_ns": 1036695,
+                "switches": 15,
+                "constructed": 16,
+                "segments": 96,
+                "trace_sha256": "6358c8a462627f52391ccc6b1b113ba9f46fc40bd979a97ab8790de861fc0af7"
+              },
+              {
+                "setup_ns": 1167943,
+                "switch_ns": 1021972,
+                "switches": 15,
+                "constructed": 16,
+                "segments": 96,
+                "trace_sha256": "6358c8a462627f52391ccc6b1b113ba9f46fc40bd979a97ab8790de861fc0af7"
+              }
+            ],
+            "stable": [
+              {
+                "setup_ns": 2398500,
+                "switch_ns": 2345721,
+                "switches": 31,
+                "constructed": 32,
+                "segments": 96,
+                "trace_sha256": "01db7389afc59440d64cfb5c5071960553069bf5fe31251c0c3e8210622a8332"
+              },
+              {
+                "setup_ns": 4897042,
+                "switch_ns": 4804723,
+                "switches": 31,
+                "constructed": 32,
+                "segments": 96,
+                "trace_sha256": "01db7389afc59440d64cfb5c5071960553069bf5fe31251c0c3e8210622a8332"
+              }
+            ],
+            "direct": [
+              {
+                "setup_ns": 73551,
+                "switch_ns": 0,
+                "switches": 0,
+                "constructed": 1,
+                "segments": 96,
+                "trace_sha256": "488d8875aa88fd6a232f09f4dd6a4fc18e25c12fc51dfff1c4001d0e48af6b56"
+              },
+              {
+                "setup_ns": 53290,
+                "switch_ns": 0,
+                "switches": 0,
+                "constructed": 1,
+                "segments": 96,
+                "trace_sha256": "488d8875aa88fd6a232f09f4dd6a4fc18e25c12fc51dfff1c4001d0e48af6b56"
+              }
+            ]
+          },
+          "median_ns": {
+            "simple": 14795700.5,
+            "stable": 12835883.0,
+            "direct": 40836357.5
+          },
+          "checksum_sha256": "63efc38882fe853a16ee8523657a3af55308d04c511c54c0111f635bec7f6033"
+        }
+      ],
+      "subprocess_wall_ns": 1025947060
+    },
+    {
+      "worker": "eval",
+      "pid": 1650,
+      "host": {
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor",
+        "python": "3.13.5",
+        "implementation": "cpython",
+        "logical_cpus": 5,
+        "ci": true,
+        "github_runner_os": null,
+        "github_runner_arch": null
+      },
+      "environment": "cpython/3.13/Linux/x86_64/device=amd-epyc-newcalibration-v19",
+      "records": [
+        {
+          "size": 384,
+          "cycles": 1,
+          "segments_per_cycle": 12,
+          "gate": "PASS",
+          "raw_ns": {
+            "simple": [
+              750443,
+              653776
+            ],
+            "stable": [
+              676271,
+              594908
+            ],
+            "direct": [
+              1738624,
+              1757414
+            ]
+          },
+          "details": {
+            "simple": [
+              {
+                "setup_ns": 38358,
+                "switch_ns": 20541,
+                "switches": 1,
+                "constructed": 2,
+                "segments": 12,
+                "trace_sha256": "eaba0e18713e8ac8880f6833e1495c4ebddb76192ddd0987248293b24076383a"
+              },
+              {
+                "setup_ns": 33231,
+                "switch_ns": 17136,
+                "switches": 1,
+                "constructed": 2,
+                "segments": 12,
+                "trace_sha256": "eaba0e18713e8ac8880f6833e1495c4ebddb76192ddd0987248293b24076383a"
+              }
+            ],
+            "stable": [
+              {
+                "setup_ns": 116576,
+                "switch_ns": 99951,
+                "switches": 4,
+                "constructed": 5,
+                "segments": 12,
+                "trace_sha256": "8ee6390358a7a968fd67855fd9a52903c80d82f7a59ea95a48b94ace989f88d6"
+              },
+              {
+                "setup_ns": 109754,
+                "switch_ns": 93780,
+                "switches": 4,
+                "constructed": 5,
+                "segments": 12,
+                "trace_sha256": "8ee6390358a7a968fd67855fd9a52903c80d82f7a59ea95a48b94ace989f88d6"
+              }
+            ],
+            "direct": [
+              {
+                "setup_ns": 15554,
+                "switch_ns": 0,
+                "switches": 0,
+                "constructed": 1,
+                "segments": 12,
+                "trace_sha256": "01cd444f0358e8c387f7e1153d8fb4b361e9ec52ca2416997b73e8f755024d82"
+              },
+              {
+                "setup_ns": 15464,
+                "switch_ns": 0,
+                "switches": 0,
+                "constructed": 1,
+                "segments": 12,
+                "trace_sha256": "01cd444f0358e8c387f7e1153d8fb4b361e9ec52ca2416997b73e8f755024d82"
+              }
+            ]
+          },
+          "median_ns": {
+            "simple": 702109.5,
+            "stable": 635589.5,
+            "direct": 1748019.0
+          },
+          "checksum_sha256": "c6cfedc5b5b5f43d32f2c362f6e1c55296e711e3cfc7498b273d8ca9a3f0e1d1"
+        },
+        {
+          "size": 384,
+          "cycles": 8,
+          "segments_per_cycle": 12,
+          "gate": "PASS",
+          "raw_ns": {
+            "simple": [
+              5109814,
+              5092537
+            ],
+            "stable": [
+              4671372,
+              5032167
+            ],
+            "direct": [
+              13492428,
+              13392829
+            ]
+          },
+          "details": {
+            "simple": [
+              {
+                "setup_ns": 304048,
+                "switch_ns": 285960,
+                "switches": 15,
+                "constructed": 16,
+                "segments": 96,
+                "trace_sha256": "6358c8a462627f52391ccc6b1b113ba9f46fc40bd979a97ab8790de861fc0af7"
+              },
+              {
+                "setup_ns": 280313,
+                "switch_ns": 263859,
+                "switches": 15,
+                "constructed": 16,
+                "segments": 96,
+                "trace_sha256": "6358c8a462627f52391ccc6b1b113ba9f46fc40bd979a97ab8790de861fc0af7"
+              }
+            ],
+            "stable": [
+              {
+                "setup_ns": 872895,
+                "switch_ns": 857992,
+                "switches": 39,
+                "constructed": 40,
+                "segments": 96,
+                "trace_sha256": "b0af0c64175d8ec45c0ca04dc88ef49fc0dccb9310d669c2aada5bf1cb2952ec"
+              },
+              {
+                "setup_ns": 839495,
+                "switch_ns": 820978,
+                "switches": 39,
+                "constructed": 40,
+                "segments": 96,
+                "trace_sha256": "b0af0c64175d8ec45c0ca04dc88ef49fc0dccb9310d669c2aada5bf1cb2952ec"
+              }
+            ],
+            "direct": [
+              {
+                "setup_ns": 16374,
+                "switch_ns": 0,
+                "switches": 0,
+                "constructed": 1,
+                "segments": 96,
+                "trace_sha256": "488d8875aa88fd6a232f09f4dd6a4fc18e25c12fc51dfff1c4001d0e48af6b56"
+              },
+              {
+                "setup_ns": 16565,
+                "switch_ns": 0,
+                "switches": 0,
+                "constructed": 1,
+                "segments": 96,
+                "trace_sha256": "488d8875aa88fd6a232f09f4dd6a4fc18e25c12fc51dfff1c4001d0e48af6b56"
+              }
+            ]
+          },
+          "median_ns": {
+            "simple": 5101175.5,
+            "stable": 4851769.5,
+            "direct": 13442628.5
+          },
+          "checksum_sha256": "89c4a7589d07ed30b971e44dbea39190e2246ecd2552c2d411f6f5748c2b7398"
+        },
+        {
+          "size": 1536,
+          "cycles": 1,
+          "segments_per_cycle": 12,
+          "gate": "PASS",
+          "raw_ns": {
+            "simple": [
+              1886648,
+              3252190
+            ],
+            "stable": [
+              1445011,
+              1866257
+            ],
+            "direct": [
+              4980839,
+              14289561
+            ]
+          },
+          "details": {
+            "simple": [
+              {
+                "setup_ns": 114653,
+                "switch_ns": 58438,
+                "switches": 1,
+                "constructed": 2,
+                "segments": 12,
+                "trace_sha256": "eaba0e18713e8ac8880f6833e1495c4ebddb76192ddd0987248293b24076383a"
+              },
+              {
+                "setup_ns": 116415,
+                "switch_ns": 60952,
+                "switches": 1,
+                "constructed": 2,
+                "segments": 12,
+                "trace_sha256": "eaba0e18713e8ac8880f6833e1495c4ebddb76192ddd0987248293b24076383a"
+              }
+            ],
+            "stable": [
+              {
+                "setup_ns": 360105,
+                "switch_ns": 306254,
+                "switches": 3,
+                "constructed": 4,
+                "segments": 12,
+                "trace_sha256": "de31922ccdf103f2ad7276e34097c53eee3282bc5c3d2dfdf6a6fe91f40037c3"
+              },
+              {
+                "setup_ns": 593466,
+                "switch_ns": 533165,
+                "switches": 3,
+                "constructed": 4,
+                "segments": 12,
+                "trace_sha256": "de31922ccdf103f2ad7276e34097c53eee3282bc5c3d2dfdf6a6fe91f40037c3"
+              }
+            ],
+            "direct": [
+              {
+                "setup_ns": 53881,
+                "switch_ns": 0,
+                "switches": 0,
+                "constructed": 1,
+                "segments": 12,
+                "trace_sha256": "01cd444f0358e8c387f7e1153d8fb4b361e9ec52ca2416997b73e8f755024d82"
+              },
+              {
+                "setup_ns": 129275,
+                "switch_ns": 0,
+                "switches": 0,
+                "constructed": 1,
+                "segments": 12,
+                "trace_sha256": "01cd444f0358e8c387f7e1153d8fb4b361e9ec52ca2416997b73e8f755024d82"
+              }
+            ]
+          },
+          "median_ns": {
+            "simple": 2569419.0,
+            "stable": 1655634.0,
+            "direct": 9635200.0
+          },
+          "checksum_sha256": "3bc64852ea6604b75225fa2bdc68b1c84788f128d6e4cb085c4ee172a886b27c"
+        },
+        {
+          "size": 1536,
+          "cycles": 8,
+          "segments_per_cycle": 12,
+          "gate": "PASS",
+          "raw_ns": {
+            "simple": [
+              15715474,
+              15229091
+            ],
+            "stable": [
+              13595314,
+              10588265
+            ],
+            "direct": [
+              43129820,
+              42431065
+            ]
+          },
+          "details": {
+            "simple": [
+              {
+                "setup_ns": 1014522,
+                "switch_ns": 950615,
+                "switches": 15,
+                "constructed": 16,
+                "segments": 96,
+                "trace_sha256": "6358c8a462627f52391ccc6b1b113ba9f46fc40bd979a97ab8790de861fc0af7"
+              },
+              {
+                "setup_ns": 1168942,
+                "switch_ns": 1107039,
+                "switches": 15,
+                "constructed": 16,
+                "segments": 96,
+                "trace_sha256": "6358c8a462627f52391ccc6b1b113ba9f46fc40bd979a97ab8790de861fc0af7"
+              }
+            ],
+            "stable": [
+              {
+                "setup_ns": 3112079,
+                "switch_ns": 3058519,
+                "switches": 31,
+                "constructed": 32,
+                "segments": 96,
+                "trace_sha256": "01db7389afc59440d64cfb5c5071960553069bf5fe31251c0c3e8210622a8332"
+              },
+              {
+                "setup_ns": 2475507,
+                "switch_ns": 2414976,
+                "switches": 31,
+                "constructed": 32,
+                "segments": 96,
+                "trace_sha256": "01db7389afc59440d64cfb5c5071960553069bf5fe31251c0c3e8210622a8332"
+              }
+            ],
+            "direct": [
+              {
+                "setup_ns": 94953,
+                "switch_ns": 0,
+                "switches": 0,
+                "constructed": 1,
+                "segments": 96,
+                "trace_sha256": "488d8875aa88fd6a232f09f4dd6a4fc18e25c12fc51dfff1c4001d0e48af6b56"
+              },
+              {
+                "setup_ns": 59520,
+                "switch_ns": 0,
+                "switches": 0,
+                "constructed": 1,
+                "segments": 96,
+                "trace_sha256": "488d8875aa88fd6a232f09f4dd6a4fc18e25c12fc51dfff1c4001d0e48af6b56"
+              }
+            ]
+          },
+          "median_ns": {
+            "simple": 15472282.5,
+            "stable": 12091789.5,
+            "direct": 42780442.5
+          },
+          "checksum_sha256": "63efc38882fe853a16ee8523657a3af55308d04c511c54c0111f635bec7f6033"
+        }
+      ],
+      "subprocess_wall_ns": 1027915622
+    }
+  ],
+  "cases": [
+    {
+      "size": 384,
+      "cycles": 1,
+      "median_simple_ns": 702109.5,
+      "median_stable_ns": 679961.0,
+      "median_online_speedup": 1.0325731916977592,
+      "gains_ns_by_process": [
+        20937.5,
+        99490.5,
+        66520.0
+      ],
+      "all_processes_online_gain": true,
+      "stable_switches": [
+        4.0,
+        4.0,
+        4.0
+      ],
+      "simple_switches": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "median_stable_switch_ns": 97717.5,
+      "reason_by_workload": [
+        "fallback_risk_or_gain",
+        "measured_gain"
+      ]
+    },
+    {
+      "size": 384,
+      "cycles": 8,
+      "median_simple_ns": 5156624.0,
+      "median_stable_ns": 4647746.0,
+      "median_online_speedup": 1.1094892018625804,
+      "gains_ns_by_process": [
+        542724.0,
+        508878.0,
+        249406.0
+      ],
+      "all_processes_online_gain": true,
+      "stable_switches": [
+        39.0,
+        39.0,
+        39.0
+      ],
+      "simple_switches": [
+        15.0,
+        15.0,
+        15.0
+      ],
+      "median_stable_switch_ns": 839485.0,
+      "reason_by_workload": [
+        "fallback_risk_or_gain",
+        "measured_gain"
+      ]
+    },
+    {
+      "size": 1536,
+      "cycles": 1,
+      "median_simple_ns": 1838890.5,
+      "median_stable_ns": 1406713.5,
+      "median_online_speedup": 1.3072246054367147,
+      "gains_ns_by_process": [
+        543661.0,
+        432177.0,
+        913785.0
+      ],
+      "all_processes_online_gain": true,
+      "stable_switches": [
+        3.0,
+        3.0,
+        3.0
+      ],
+      "simple_switches": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "median_stable_switch_ns": 281325.0,
+      "reason_by_workload": [
+        "fallback_risk_or_gain",
+        "measured_gain"
+      ]
+    },
+    {
+      "size": 1536,
+      "cycles": 8,
+      "median_simple_ns": 14795700.5,
+      "median_stable_ns": 12091789.5,
+      "median_online_speedup": 1.223615454106276,
+      "gains_ns_by_process": [
+        4095018.0,
+        1959817.5,
+        3380493.0
+      ],
+      "all_processes_online_gain": true,
+      "stable_switches": [
+        31.0,
+        31.0,
+        31.0
+      ],
+      "simple_switches": [
+        15.0,
+        15.0,
+        15.0
+      ],
+      "median_stable_switch_ns": 2736747.5,
+      "reason_by_workload": [
+        "fallback_risk_or_gain",
+        "measured_gain"
+      ]
+    }
+  ],
+  "pooled": [
+    {
+      "cycles": 1,
+      "online_savings_ns": 454325.5,
+      "calibration_ns": 2550255370,
+      "net_savings_ns": -2549801044.5,
+      "observed_paid_break_even": false,
+      "all_processes_online_gain": true
+    },
+    {
+      "cycles": 8,
+      "online_savings_ns": 3212789.0,
+      "calibration_ns": 2550255370,
+      "net_savings_ns": -2547042581.0,
+      "observed_paid_break_even": false,
+      "all_processes_online_gain": true
+    }
+  ],
+  "observed_break_even_cycles": null,
+  "exploratory_linear_projection_cycles": 6351,
+  "notes": [
+    "Offline calibration is paid once in each net comparison; evaluation process setup excluded from both policies.",
+    "Break-even requires observed net savings and positive online savings in every independent process.",
+    "No claim is made for another physical device without that host's own calibration and held-out timings.",
+    "Training and holdout sizes and coarse state cells do not overlap.",
+    "Every timed stream compares its checksum to an independent Direct witness."
+  ]
+}

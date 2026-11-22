@@ -1,0 +1,745 @@
+{
+  "schema": "ALEXPY-STREAM-LONG-HORIZON/1",
+  "created_utc": "2026-11-22T15:38:45.904032+00:00",
+  "host": {
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "AMD EPYC 9V74 80-Core Processor",
+    "python": "3.13.5",
+    "implementation": "cpython",
+    "logical_cpus": 5,
+    "ci": true,
+    "github_runner_os": null,
+    "github_runner_arch": null
+  },
+  "baseline_sha256": "3c7d3dbf114271c56f19302b1bd3d30d0715758d883a622d9a3dd43a65c89bc2",
+  "frozen_sha256": "74bb0d2347296f0706c50feb756e9ff2eda3f0040784d792fa325987dbfac9b1",
+  "calibration_wall_ns_from_prior_session": 2550255370,
+  "config": {
+    "sizes": [
+      384,
+      1536
+    ],
+    "cycles": [
+      128,
+      8192
+    ],
+    "repeats": 2,
+    "sessions": 3
+  },
+  "workers": [
+    {
+      "session": 0,
+      "pid": 1754,
+      "host": {
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor",
+        "python": "3.13.5",
+        "implementation": "cpython",
+        "logical_cpus": 5,
+        "ci": true,
+        "github_runner_os": null,
+        "github_runner_arch": null
+      },
+      "rows": [
+        {
+          "size": 384,
+          "cycles": 128,
+          "raw_ns": {
+            "simple": [
+              87261224,
+              83012901
+            ],
+            "stable": [
+              73988930,
+              73603267
+            ]
+          },
+          "details": {
+            "simple": [
+              {
+                "switches": 255,
+                "switch_ns": 4423072,
+                "constructed": 256,
+                "segments": 1536
+              },
+              {
+                "switches": 255,
+                "switch_ns": 4359001,
+                "constructed": 256,
+                "segments": 1536
+              }
+            ],
+            "stable": [
+              {
+                "switches": 639,
+                "switch_ns": 13402988,
+                "constructed": 640,
+                "segments": 1536
+              },
+              {
+                "switches": 639,
+                "switch_ns": 13465910,
+                "constructed": 640,
+                "segments": 1536
+              }
+            ]
+          },
+          "median_ns": {
+            "simple": 85137062.5,
+            "stable": 73796098.5
+          },
+          "correctness": "PASS",
+          "checksum_sha256": "78cffa6272737e6b0f7cbc5a1356902e87d283c9898581bea43f8edf6a32f1b3"
+        },
+        {
+          "size": 384,
+          "cycles": 8192,
+          "raw_ns": {
+            "simple": [
+              5369460921,
+              5317699562
+            ],
+            "stable": [
+              4826592547,
+              4719554773
+            ]
+          },
+          "details": {
+            "simple": [
+              {
+                "switches": 16383,
+                "switch_ns": 290398731,
+                "constructed": 16384,
+                "segments": 98304
+              },
+              {
+                "switches": 16383,
+                "switch_ns": 285792995,
+                "constructed": 16384,
+                "segments": 98304
+              }
+            ],
+            "stable": [
+              {
+                "switches": 40959,
+                "switch_ns": 870480491,
+                "constructed": 40960,
+                "segments": 98304
+              },
+              {
+                "switches": 40959,
+                "switch_ns": 851752015,
+                "constructed": 40960,
+                "segments": 98304
+              }
+            ]
+          },
+          "median_ns": {
+            "simple": 5343580241.5,
+            "stable": 4773073660.0
+          },
+          "correctness": "PASS",
+          "checksum_sha256": "2437bf83eb45fb45ac3c2db325dacddc205b4d073f713b4baf436253781fe9ba"
+        },
+        {
+          "size": 1536,
+          "cycles": 128,
+          "raw_ns": {
+            "simple": [
+              228987785,
+              229160384
+            ],
+            "stable": [
+              161523216,
+              165789356
+            ]
+          },
+          "details": {
+            "simple": [
+              {
+                "switches": 255,
+                "switch_ns": 17019917,
+                "constructed": 256,
+                "segments": 1536
+              },
+              {
+                "switches": 255,
+                "switch_ns": 16521035,
+                "constructed": 256,
+                "segments": 1536
+              }
+            ],
+            "stable": [
+              {
+                "switches": 511,
+                "switch_ns": 38161416,
+                "constructed": 512,
+                "segments": 1536
+              },
+              {
+                "switches": 511,
+                "switch_ns": 39649753,
+                "constructed": 512,
+                "segments": 1536
+              }
+            ]
+          },
+          "median_ns": {
+            "simple": 229074084.5,
+            "stable": 163656286.0
+          },
+          "correctness": "PASS",
+          "checksum_sha256": "7422900228f0dff77dd1c51055fdf57e83322075d13cb83f373be2a7a9d4c1e7"
+        },
+        {
+          "size": 1536,
+          "cycles": 8192,
+          "raw_ns": {
+            "simple": [
+              15058568738,
+              15403137782
+            ],
+            "stable": [
+              10774618269,
+              10961004710
+            ]
+          },
+          "details": {
+            "simple": [
+              {
+                "switches": 16383,
+                "switch_ns": 1091216376,
+                "constructed": 16384,
+                "segments": 98304
+              },
+              {
+                "switches": 16383,
+                "switch_ns": 1108681238,
+                "constructed": 16384,
+                "segments": 98304
+              }
+            ],
+            "stable": [
+              {
+                "switches": 32767,
+                "switch_ns": 2597672803,
+                "constructed": 32768,
+                "segments": 98304
+              },
+              {
+                "switches": 32767,
+                "switch_ns": 2615311238,
+                "constructed": 32768,
+                "segments": 98304
+              }
+            ]
+          },
+          "median_ns": {
+            "simple": 15230853260.0,
+            "stable": 10867811489.5
+          },
+          "correctness": "PASS",
+          "checksum_sha256": "3d731c98922eb01ec25af34e3f3de4456c7313b7a57bfbf08dd87101d516109d"
+        }
+      ]
+    },
+    {
+      "session": 1,
+      "pid": 2111,
+      "host": {
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor",
+        "python": "3.13.5",
+        "implementation": "cpython",
+        "logical_cpus": 5,
+        "ci": true,
+        "github_runner_os": null,
+        "github_runner_arch": null
+      },
+      "rows": [
+        {
+          "size": 384,
+          "cycles": 128,
+          "raw_ns": {
+            "simple": [
+              84974979,
+              83634620
+            ],
+            "stable": [
+              77713821,
+              76985506
+            ]
+          },
+          "details": {
+            "simple": [
+              {
+                "switches": 255,
+                "switch_ns": 5094095,
+                "constructed": 256,
+                "segments": 1536
+              },
+              {
+                "switches": 255,
+                "switch_ns": 4478814,
+                "constructed": 256,
+                "segments": 1536
+              }
+            ],
+            "stable": [
+              {
+                "switches": 639,
+                "switch_ns": 14402180,
+                "constructed": 640,
+                "segments": 1536
+              },
+              {
+                "switches": 639,
+                "switch_ns": 14550310,
+                "constructed": 640,
+                "segments": 1536
+              }
+            ]
+          },
+          "median_ns": {
+            "simple": 84304799.5,
+            "stable": 77349663.5
+          },
+          "correctness": "PASS",
+          "checksum_sha256": "78cffa6272737e6b0f7cbc5a1356902e87d283c9898581bea43f8edf6a32f1b3"
+        },
+        {
+          "size": 384,
+          "cycles": 8192,
+          "raw_ns": {
+            "simple": [
+              5720421841,
+              5584655879
+            ],
+            "stable": [
+              4879318724,
+              4860241563
+            ]
+          },
+          "details": {
+            "simple": [
+              {
+                "switches": 16383,
+                "switch_ns": 295171214,
+                "constructed": 16384,
+                "segments": 98304
+              },
+              {
+                "switches": 16383,
+                "switch_ns": 287692374,
+                "constructed": 16384,
+                "segments": 98304
+              }
+            ],
+            "stable": [
+              {
+                "switches": 40959,
+                "switch_ns": 867939852,
+                "constructed": 40960,
+                "segments": 98304
+              },
+              {
+                "switches": 40959,
+                "switch_ns": 867020651,
+                "constructed": 40960,
+                "segments": 98304
+              }
+            ]
+          },
+          "median_ns": {
+            "simple": 5652538860.0,
+            "stable": 4869780143.5
+          },
+          "correctness": "PASS",
+          "checksum_sha256": "2437bf83eb45fb45ac3c2db325dacddc205b4d073f713b4baf436253781fe9ba"
+        },
+        {
+          "size": 1536,
+          "cycles": 128,
+          "raw_ns": {
+            "simple": [
+              228768369,
+              231803175
+            ],
+            "stable": [
+              178392528,
+              164931529
+            ]
+          },
+          "details": {
+            "simple": [
+              {
+                "switches": 255,
+                "switch_ns": 16348400,
+                "constructed": 256,
+                "segments": 1536
+              },
+              {
+                "switches": 255,
+                "switch_ns": 17313509,
+                "constructed": 256,
+                "segments": 1536
+              }
+            ],
+            "stable": [
+              {
+                "switches": 511,
+                "switch_ns": 39251884,
+                "constructed": 512,
+                "segments": 1536
+              },
+              {
+                "switches": 511,
+                "switch_ns": 39824257,
+                "constructed": 512,
+                "segments": 1536
+              }
+            ]
+          },
+          "median_ns": {
+            "simple": 230285772.0,
+            "stable": 171662028.5
+          },
+          "correctness": "PASS",
+          "checksum_sha256": "7422900228f0dff77dd1c51055fdf57e83322075d13cb83f373be2a7a9d4c1e7"
+        },
+        {
+          "size": 1536,
+          "cycles": 8192,
+          "raw_ns": {
+            "simple": [
+              15546382052,
+              14902800175
+            ],
+            "stable": [
+              11381676010,
+              10741502003
+            ]
+          },
+          "details": {
+            "simple": [
+              {
+                "switches": 16383,
+                "switch_ns": 1119693899,
+                "constructed": 16384,
+                "segments": 98304
+              },
+              {
+                "switches": 16383,
+                "switch_ns": 1072275734,
+                "constructed": 16384,
+                "segments": 98304
+              }
+            ],
+            "stable": [
+              {
+                "switches": 32767,
+                "switch_ns": 2712085625,
+                "constructed": 32768,
+                "segments": 98304
+              },
+              {
+                "switches": 32767,
+                "switch_ns": 2583473054,
+                "constructed": 32768,
+                "segments": 98304
+              }
+            ]
+          },
+          "median_ns": {
+            "simple": 15224591113.5,
+            "stable": 11061589006.5
+          },
+          "correctness": "PASS",
+          "checksum_sha256": "3d731c98922eb01ec25af34e3f3de4456c7313b7a57bfbf08dd87101d516109d"
+        }
+      ]
+    },
+    {
+      "session": 2,
+      "pid": 2271,
+      "host": {
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor",
+        "python": "3.13.5",
+        "implementation": "cpython",
+        "logical_cpus": 5,
+        "ci": true,
+        "github_runner_os": null,
+        "github_runner_arch": null
+      },
+      "rows": [
+        {
+          "size": 384,
+          "cycles": 128,
+          "raw_ns": {
+            "simple": [
+              85338868,
+              84867726
+            ],
+            "stable": [
+              102629383,
+              72666219
+            ]
+          },
+          "details": {
+            "simple": [
+              {
+                "switches": 255,
+                "switch_ns": 4919534,
+                "constructed": 256,
+                "segments": 1536
+              },
+              {
+                "switches": 255,
+                "switch_ns": 4499298,
+                "constructed": 256,
+                "segments": 1536
+              }
+            ],
+            "stable": [
+              {
+                "switches": 639,
+                "switch_ns": 19332673,
+                "constructed": 640,
+                "segments": 1536
+              },
+              {
+                "switches": 639,
+                "switch_ns": 13198993,
+                "constructed": 640,
+                "segments": 1536
+              }
+            ]
+          },
+          "median_ns": {
+            "simple": 85103297.0,
+            "stable": 87647801.0
+          },
+          "correctness": "PASS",
+          "checksum_sha256": "78cffa6272737e6b0f7cbc5a1356902e87d283c9898581bea43f8edf6a32f1b3"
+        },
+        {
+          "size": 384,
+          "cycles": 8192,
+          "raw_ns": {
+            "simple": [
+              5630654296,
+              5609939408
+            ],
+            "stable": [
+              4921427867,
+              5027021083
+            ]
+          },
+          "details": {
+            "simple": [
+              {
+                "switches": 16383,
+                "switch_ns": 298852340,
+                "constructed": 16384,
+                "segments": 98304
+              },
+              {
+                "switches": 16383,
+                "switch_ns": 302850757,
+                "constructed": 16384,
+                "segments": 98304
+              }
+            ],
+            "stable": [
+              {
+                "switches": 40959,
+                "switch_ns": 887927483,
+                "constructed": 40960,
+                "segments": 98304
+              },
+              {
+                "switches": 40959,
+                "switch_ns": 905037092,
+                "constructed": 40960,
+                "segments": 98304
+              }
+            ]
+          },
+          "median_ns": {
+            "simple": 5620296852.0,
+            "stable": 4974224475.0
+          },
+          "correctness": "PASS",
+          "checksum_sha256": "2437bf83eb45fb45ac3c2db325dacddc205b4d073f713b4baf436253781fe9ba"
+        },
+        {
+          "size": 1536,
+          "cycles": 128,
+          "raw_ns": {
+            "simple": [
+              227754454,
+              236275523
+            ],
+            "stable": [
+              164257213,
+              164652590
+            ]
+          },
+          "details": {
+            "simple": [
+              {
+                "switches": 255,
+                "switch_ns": 16164111,
+                "constructed": 256,
+                "segments": 1536
+              },
+              {
+                "switches": 255,
+                "switch_ns": 17216359,
+                "constructed": 256,
+                "segments": 1536
+              }
+            ],
+            "stable": [
+              {
+                "switches": 511,
+                "switch_ns": 39376087,
+                "constructed": 512,
+                "segments": 1536
+              },
+              {
+                "switches": 511,
+                "switch_ns": 39127395,
+                "constructed": 512,
+                "segments": 1536
+              }
+            ]
+          },
+          "median_ns": {
+            "simple": 232014988.5,
+            "stable": 164454901.5
+          },
+          "correctness": "PASS",
+          "checksum_sha256": "7422900228f0dff77dd1c51055fdf57e83322075d13cb83f373be2a7a9d4c1e7"
+        },
+        {
+          "size": 1536,
+          "cycles": 8192,
+          "raw_ns": {
+            "simple": [
+              15254506196,
+              15235627612
+            ],
+            "stable": [
+              10878464275,
+              10575928208
+            ]
+          },
+          "details": {
+            "simple": [
+              {
+                "switches": 16383,
+                "switch_ns": 1086059797,
+                "constructed": 16384,
+                "segments": 98304
+              },
+              {
+                "switches": 16383,
+                "switch_ns": 1084472885,
+                "constructed": 16384,
+                "segments": 98304
+              }
+            ],
+            "stable": [
+              {
+                "switches": 32767,
+                "switch_ns": 2605946208,
+                "constructed": 32768,
+                "segments": 98304
+              },
+              {
+                "switches": 32767,
+                "switch_ns": 2524478435,
+                "constructed": 32768,
+                "segments": 98304
+              }
+            ]
+          },
+          "median_ns": {
+            "simple": 15245066904.0,
+            "stable": 10727196241.5
+          },
+          "correctness": "PASS",
+          "checksum_sha256": "3d731c98922eb01ec25af34e3f3de4456c7313b7a57bfbf08dd87101d516109d"
+        }
+      ]
+    }
+  ],
+  "horizons": [
+    {
+      "cycles": 128,
+      "online_savings_ns_by_process": [
+        76758762.5,
+        65578879.5,
+        65015583.0
+      ],
+      "by_size_ns_by_process": [
+        [
+          11340964.0,
+          65417798.5
+        ],
+        [
+          6955136.0,
+          58623743.5
+        ],
+        [
+          -2544504.0,
+          67560087.0
+        ]
+      ],
+      "median_online_savings_ns": 65578879.5,
+      "median_paid_net_ns": -2484676490.5,
+      "all_processes_paid": false,
+      "observed_paid_break_even": false
+    },
+    {
+      "cycles": 8192,
+      "online_savings_ns_by_process": [
+        4933548352.0,
+        4945760823.5,
+        5163943039.5
+      ],
+      "by_size_ns_by_process": [
+        [
+          570506581.5,
+          4363041770.5
+        ],
+        [
+          782758716.5,
+          4163002107.0
+        ],
+        [
+          646072377.0,
+          4517870662.5
+        ]
+      ],
+      "median_online_savings_ns": 4945760823.5,
+      "median_paid_net_ns": 2395505453.5,
+      "all_processes_paid": true,
+      "observed_paid_break_even": true
+    }
+  ],
+  "first_observed_paid_cycles": 8192,
+  "limitations": [
+    "Follow-up horizons were chosen after seeing the 128-cycle projection.",
+    "The original calibration was measured on this host earlier, not rerun now.",
+    "Held-out SIZES were seen in v1.8; long HORIZONS are new, not a fresh holdout.",
+    "No claim of transfer to other CPUs, tasks or real-world applications.",
+    "Correctness rechecked for each horizon with an independent direct witness."
+  ]
+}

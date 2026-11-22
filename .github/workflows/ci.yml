@@ -34,6 +34,15 @@ jobs:
         with:
           name: alexpy-stream-${{ matrix.os }}-py313-${{ github.run_id }}
           path: stream-economics.json
+      - name: Verify frozen per-runner stream routing without retraining (advisory)
+        if: matrix.python-version == '3.13'
+        run: python -m alexpy.stream_horizon --baseline stream-economics.json --sizes 384 --changes 1 --queries 1,16 --spans both --ticks 2 --cycles 1,4 --repeats 2 --sessions 3 --output stream-horizon.json
+      - name: Upload independent long-horizon smoke evidence
+        uses: actions/upload-artifact@v4
+        if: matrix.python-version == '3.13'
+        with:
+          name: alexpy-stream-horizon-${{ matrix.os }}-py313-${{ github.run_id }}
+          path: stream-horizon.json
       - name: Run scope-controlled benchmark
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
         run: python -m alexpy.benchmark --require-native --sizes 1000 100000 --json benchmarks.json

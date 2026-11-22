@@ -435,3 +435,15 @@ a hardware/OS-tagged JSON artifact; timings cannot be pooled across hosts,
 and one CI OS alone does not establish any particular CPU speedup.
 
 Full protocol, limitations and local results: [docs/STREAM_ECONOMICS.md](docs/STREAM_ECONOMICS.md).
+
+## AlexPy 1.9: long-horizon paid payback and CPU-profile isolation
+
+`alexpy.stream_horizon` rechecks a frozen route table on actual long-lived
+streams. It refuses to import timings from a different CPU/Python/OS profile,
+mirrors the whole stream checksum against a direct reference and requires
+**three independent processes** to cover the measured calibration cost before
+reporting payback. A new AMD EPYC calibration is intentionally separate from
+the prior Intel Xeon results. No general-Python or cross-device speedup is
+claimed. See [docs/STREAM_LONG_HORIZON.md](docs/STREAM_LONG_HORIZON.md).
+
+A follow-up three-process experiment on newly calibrated AMD EPYC 9V74 observed paid payback at 8192 tested cycles. This is a specific sustained range-query workload, not general Python acceleration.
