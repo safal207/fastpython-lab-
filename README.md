@@ -518,3 +518,13 @@ GitHub Actions artifact is uploaded for Python 3.13 on Linux/macOS/Windows.
 On local Linux, the native kernel is **faster but uses more memory** than the
 strong Python batch baseline in the measured 4096-test scenario. Speed findings
 remain restricted to synthetic workloads. See `docs/QA_FIELD_AUDIT.md`.
+
+
+### AlexPy 2.4 — compact native QA kernel (mission 23)
+
+The opt-in native batch engine now allocates staging for the batch, not for
+all tests. Sparse batches use a compact hash; dense ones use direct indexing.
+Local 293 tests PASS. On synthetic CPython 3.13.5 Linux loads, 45-48% less
+traced memory for sparse batches and 6% less for a dense batch; median 1.770x
+vs strong batch Python and 0.971x vs the previous C kernel (separate sequential
+binary benchmarks). No automatic promotion. See docs/QA_COMPACT_NATIVE.md.

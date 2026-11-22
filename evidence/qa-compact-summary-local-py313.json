@@ -1,0 +1,42 @@
+{
+  "schema": "ALEXPY-COMPACT-NATIVE/1",
+  "source": "Local synthetic QA streams, Linux CPython 3.13.5",
+  "tests_passed_local": 293,
+  "configs": 16,
+  "processes_per_build": 3,
+  "pairs_per_config": 3,
+  "median_compact_vs_strong_python": 1.7696520959,
+  "median_compact_vs_old_native_C": 0.9711898538,
+  "configs_over_10pct_vs_python_in_all_three_processes": 16,
+  "memory_tracemalloc_median_KiB": [
+    {
+      "tests": 4096,
+      "batch": 64,
+      "previous_C": 217.6,
+      "compact_C": 119.5,
+      "strong_python": 114.8,
+      "saving_percent": 45.1
+    },
+    {
+      "tests": 16384,
+      "batch": 64,
+      "previous_C": 834.2,
+      "compact_C": 436.2,
+      "strong_python": 423.1,
+      "saving_percent": 47.7
+    },
+    {
+      "tests": 4096,
+      "batch": 4096,
+      "previous_C": 374.5,
+      "compact_C": 350.4,
+      "strong_python": 410.6,
+      "saving_percent": 6.5
+    }
+  ],
+  "limitations": [
+    "The two binaries were measured sequentially; small changes could be drift",
+    "tracemalloc does not include all physical memory",
+    "Synthetic workloads; no default promotion"
+  ]
+}

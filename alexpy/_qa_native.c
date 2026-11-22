@@ -11,13 +11,13 @@
 typedef struct {
     PyObject_HEAD
     Py_ssize_t n, ns, tick, version;
-    Py_ssize_t *suites, *counts, *seen, *indices;
-    unsigned char *status, *pending_status;
-    int64_t *duration, *pending_duration;
+    Py_ssize_t *suites, *counts;
+    unsigned char *status;
+    int64_t *duration;
     Py_ssize_t global[4];
     PyObject **sums;
     PyObject *total_sum;
-    Py_ssize_t epoch;
+    /* Scratch lives only for an individual batch, not for all tests. */
 } QAState;
 
 static PyObject *event_type = NULL;
@@ -29,8 +29,7 @@ static void state_dealloc(QAState *s) {
     if (s->sums) {for (Py_ssize_t k=0;k<s->ns;k++) Py_XDECREF(s->sums[k]);}
     Py_XDECREF(s->total_sum);
     PyMem_Free(s->sums); PyMem_Free(s->suites); PyMem_Free(s->counts);
-    PyMem_Free(s->status); PyMem_Free(s->duration); PyMem_Free(s->seen);
-    PyMem_Free(s->indices); PyMem_Free(s->pending_status); PyMem_Free(s->pending_duration);
+    PyMem_Free(s->status); PyMem_Free(s->duration);
     Py_TYPE(s)->tp_free((PyObject *)s);
 }
 
@@ -49,12 +48,8 @@ static int state_init(QAState *s, PyObject *args, PyObject *kw) {
     s->counts=PyMem_Calloc((size_t)s->ns*4,sizeof(Py_ssize_t));
     s->status=PyMem_Calloc((size_t)s->n,sizeof(unsigned char));
     s->duration=PyMem_Calloc((size_t)s->n,sizeof(int64_t));
-    s->seen=PyMem_Calloc((size_t)s->n,sizeof(Py_ssize_t));
-    s->indices=PyMem_Calloc((size_t)s->n,sizeof(Py_ssize_t));
-    s->pending_status=PyMem_Calloc((size_t)s->n,sizeof(unsigned char));
-    s->pending_duration=PyMem_Calloc((size_t)s->n,sizeof(int64_t));
     s->sums=PyMem_Calloc((size_t)s->ns,sizeof(PyObject*));
-    if(!s->suites||!s->counts||!s->status||!s->duration||!s->seen||!s->indices||!s->pending_status||!s->pending_duration||!s->sums){PyErr_NoMemory();return -1;}
+    if(!s->suites||!s->counts||!s->status||!s->duration||!s->sums){PyErr_NoMemory();return -1;}
     for(Py_ssize_t i=0;i<s->n;i++) {
         PyObject *o=PySequence_Fast_GET_ITEM(suites,i);
         if(!same_exact_long(o)){PyErr_SetString(PyExc_ValueError,"invalid suite ID");return -1;}
@@ -79,90 +74,183 @@ static PyObject *add_durations(PyObject *base,int64_t old,int64_t new){
     Py_DECREF(delta);
     return out;
 }
-static int index_cmp(const void *a,const void *b){
-    Py_ssize_t x=*(const Py_ssize_t*)a,y=*(const Py_ssize_t*)b;
+
+/* A per-batch open-addressing table replaces four full-length scratch arrays.
+ * A native state owns O(tests + suites) live data, while pending updates and
+ * hash slots require only O(distinct test IDs in this batch) temporary storage.
+ * We choose the last validated event for every test ID. No Python-visible
+ * state or counters are touched until result construction succeeds. */
+typedef struct {
+    Py_ssize_t idx;
+    int64_t duration;
+    unsigned char status;
+} QAPending;
+/* Each hash slot stores only a 1-based position in the pending array.
+ * For near-full batches a direct index map is smaller. */
+static int pending_cmp(const void *a, const void *b) {
+    Py_ssize_t x=((const QAPending*)a)->idx;
+    Py_ssize_t y=((const QAPending*)b)->idx;
     return (x>y)-(x<y);
 }
+static size_t qa_hash(Py_ssize_t idx) {
+#if SIZE_MAX > UINT32_MAX
+    return ((size_t)idx * UINT64_C(11400714819323198485));
+#else
+    return ((size_t)idx * UINT32_C(2654435761));
+#endif
+}
 
-static PyObject *state_apply_batch(QAState *s,PyObject *batch){
+static PyObject *state_apply_batch(QAState *s, PyObject *batch) {
     PyObject *result=NULL,*changed_tuple=NULL,*suites_tuple=NULL,*seq=NULL,*new_total=NULL;
     PyObject **new_sums=NULL;
     unsigned char *affected=NULL;
-    Py_ssize_t *changed=NULL,unique=0,n_changed=0,n_affected=0;
-    if(Py_TYPE(batch)!=&PyList_Type && Py_TYPE(batch)!=&PyTuple_Type){fail_type("events must be an exact list/tuple of QAEvent");return NULL;}
+    Py_ssize_t unique=0,n_changed=0,n_affected=0;
+    QAPending *pending=NULL;
+    Py_ssize_t *slots=NULL,*dense_index=NULL;
+    size_t capacity=0;
+    if(Py_TYPE(batch)!=&PyList_Type && Py_TYPE(batch)!=&PyTuple_Type){
+        fail_type("events must be an exact list/tuple of QAEvent");return NULL;
+    }
     seq=PySequence_Fast(batch,"expected list/tuple");if(!seq)return NULL;
     Py_ssize_t ne=PySequence_Fast_GET_SIZE(seq);
+    Py_ssize_t max_unique=(ne<s->n)?ne:s->n;
+    if (max_unique > PY_SSIZE_T_MAX/2) {
+        PyErr_NoMemory();goto done;
+    }
+    /* Power-of-two hash capacity; at most 50% occupancy for bounded probes.
+       Guard multiplication and platform size_t overflow. */
+    if(max_unique){
+        pending=PyMem_Calloc((size_t)max_unique,sizeof(QAPending));
+        if(max_unique>s->n/2){
+            dense_index=PyMem_Calloc((size_t)s->n,sizeof(Py_ssize_t));
+            if(!dense_index||!pending){PyErr_NoMemory();goto done;}
+        } else {
+            capacity=8;
+            while(capacity<(size_t)max_unique*2){
+                if(capacity>SIZE_MAX/2){PyErr_NoMemory();goto done;}
+                capacity*=2;
+            }
+            slots=PyMem_Calloc(capacity,sizeof(Py_ssize_t));
+            if(!slots||!pending){PyErr_NoMemory();goto done;}
+        }
+    }
     affected=PyMem_Calloc((size_t)s->ns,sizeof(unsigned char));
     new_sums=PyMem_Calloc((size_t)s->ns,sizeof(PyObject*));
-    changed=PyMem_Calloc((size_t)(ne?s->n<ne?s->n:ne:1),sizeof(Py_ssize_t));
-    if(!affected||!new_sums||!changed){PyErr_NoMemory();goto done;}
-    if(s->epoch==PY_SSIZE_T_MAX){memset(s->seen,0,sizeof(Py_ssize_t)*(size_t)s->n);s->epoch=0;}
-    s->epoch++;
+    if(!affected||!new_sums){PyErr_NoMemory();goto done;}
+
     for(Py_ssize_t i=0;i<ne;i++) {
         PyObject *e=PySequence_Fast_GET_ITEM(seq,i);
-        if(Py_TYPE(e)!=(PyTypeObject*)event_type){fail_type("event must be an exact QAEvent");goto done;}
+        if(Py_TYPE(e)!=(PyTypeObject*)event_type){
+            fail_type("event must be an exact QAEvent");goto done;
+        }
         PyObject *i_obj=PyObject_GetAttrString(e,"test_id");
         PyObject *st_obj=PyObject_GetAttrString(e,"status");
         PyObject *dur_obj=PyObject_GetAttrString(e,"duration_ms");
-        if(!i_obj||!st_obj||!dur_obj){Py_XDECREF(i_obj);Py_XDECREF(st_obj);Py_XDECREF(dur_obj);goto done;}
-        if(!same_exact_long(i_obj)){PyErr_SetString(PyExc_IndexError,"invalid test ID");goto event_error;}
+        if(!i_obj||!st_obj||!dur_obj){
+            Py_XDECREF(i_obj);Py_XDECREF(st_obj);Py_XDECREF(dur_obj);goto done;
+        }
+        if(!same_exact_long(i_obj)){
+            PyErr_SetString(PyExc_IndexError,"invalid test ID");goto event_error;
+        }
         Py_ssize_t idx=PyLong_AsSsize_t(i_obj);
-        if((idx==-1&&PyErr_Occurred())||idx<0||idx>=s->n){if(!PyErr_Occurred())PyErr_SetString(PyExc_IndexError,"invalid test ID");goto event_error;}
-        if(!same_exact_long(st_obj)){PyErr_SetString(PyExc_ValueError,"status must be PASS, FAIL or SKIP");goto event_error;}
+        if((idx==-1&&PyErr_Occurred())||idx<0||idx>=s->n){
+            if(!PyErr_Occurred())PyErr_SetString(PyExc_IndexError,"invalid test ID");goto event_error;
+        }
+        if(!same_exact_long(st_obj)){
+            PyErr_SetString(PyExc_ValueError,"status must be PASS, FAIL or SKIP");goto event_error;
+        }
         long st=PyLong_AsLong(st_obj);
-        if((st==-1 && PyErr_Occurred()) || st<1||st>3){if(!PyErr_Occurred())PyErr_SetString(PyExc_ValueError,"status must be PASS, FAIL or SKIP");goto event_error;}
-        if(!same_exact_long(dur_obj)){PyErr_SetString(PyExc_ValueError,"duration must be an exact nonnegative signed-q integer");goto event_error;}
+        if((st==-1 && PyErr_Occurred()) || st<1||st>3){
+            if(!PyErr_Occurred())PyErr_SetString(PyExc_ValueError,"status must be PASS, FAIL or SKIP");goto event_error;
+        }
+        if(!same_exact_long(dur_obj)){
+            PyErr_SetString(PyExc_ValueError,"duration must be an exact nonnegative signed-q integer");goto event_error;
+        }
         long long duration=PyLong_AsLongLong(dur_obj);
-        if((duration==-1&&PyErr_Occurred())||duration<0){if(!PyErr_Occurred())PyErr_SetString(PyExc_ValueError,"invalid duration");goto event_error;}
-        if(st==3&&duration!=0){PyErr_SetString(PyExc_ValueError,"skipped tests must have zero duration");goto event_error;}
-        if(s->seen[idx]!=s->epoch){s->indices[unique++]=idx;s->seen[idx]=s->epoch;}
-        s->pending_status[idx]=(unsigned char)st;
-        s->pending_duration[idx]=(int64_t)duration;
+        if((duration==-1&&PyErr_Occurred())||duration<0){
+            if(!PyErr_Occurred())PyErr_SetString(PyExc_ValueError,"invalid duration");goto event_error;
+        }
+        if(st==3&&duration!=0){
+            PyErr_SetString(PyExc_ValueError,"skipped tests must have zero duration");goto event_error;
+        }
+        Py_ssize_t pos;
+        if(dense_index){
+            if(dense_index[idx]){
+                pos=dense_index[idx]-1;
+            } else {
+                pos=unique++;
+                dense_index[idx]=pos+1;
+                pending[pos].idx=idx;
+            }
+        } else {
+            size_t h=qa_hash(idx)&(capacity-1);
+            while(slots[h] && pending[slots[h]-1].idx!=idx)
+                h=(h+1)&(capacity-1);
+            if(slots[h]){
+                pos=slots[h]-1;
+            } else {
+                pos=unique++;
+                slots[h]=pos+1;
+                pending[pos].idx=idx;
+            }
+        }
+        pending[pos].status=(unsigned char)st;
+        pending[pos].duration=(int64_t)duration;
         Py_DECREF(i_obj);Py_DECREF(st_obj);Py_DECREF(dur_obj);
         continue;
         event_error: Py_DECREF(i_obj);Py_DECREF(st_obj);Py_DECREF(dur_obj);goto done;
     }
+    /* Lookup is over: sort pending entries in place, using no second
+       per-unique changed-index array. */
+    if(unique>1)qsort(pending,(size_t)unique,sizeof(QAPending),pending_cmp);
     new_total=Py_NewRef(s->total_sum);
     for(Py_ssize_t k=0;k<unique;k++){
-        Py_ssize_t idx=s->indices[k];
-        if(s->status[idx]==s->pending_status[idx]&&s->duration[idx]==s->pending_duration[idx])continue;
-        changed[n_changed++]=idx;
+        Py_ssize_t idx=pending[k].idx;
+        if(s->status[idx]==pending[k].status&&s->duration[idx]==pending[k].duration)continue;
+        n_changed++;
         Py_ssize_t suite=s->suites[idx];
         if(!affected[suite]){affected[suite]=1;n_affected++;}
-        if(s->duration[idx]!=s->pending_duration[idx]){
+        if(s->duration[idx]!=pending[k].duration){
             PyObject *base=new_sums[suite]?new_sums[suite]:s->sums[suite];
-            PyObject *n_sum=add_durations(base,s->duration[idx],s->pending_duration[idx]);
+            PyObject *n_sum=add_durations(base,s->duration[idx],pending[k].duration);
             if(!n_sum)goto done;
             Py_XDECREF(new_sums[suite]);new_sums[suite]=n_sum;
-            PyObject *n_total=add_durations(new_total,s->duration[idx],s->pending_duration[idx]);
+            PyObject *n_total=add_durations(new_total,s->duration[idx],pending[k].duration);
             if(!n_total)goto done;
             Py_SETREF(new_total,n_total);
         }
     }
-    qsort(changed,(size_t)n_changed,sizeof(Py_ssize_t),index_cmp);
     changed_tuple=PyTuple_New(n_changed);suites_tuple=PyTuple_New(n_affected);
     if(!changed_tuple||!suites_tuple)goto done;
-    for(Py_ssize_t j=0;j<n_changed;j++){
-        PyObject *n=PyLong_FromSsize_t(changed[j]);if(!n)goto done;
-        PyTuple_SET_ITEM(changed_tuple,j,n);
+    Py_ssize_t ci=0;
+    for(Py_ssize_t k=0;k<unique;k++){
+        Py_ssize_t idx=pending[k].idx;
+        if(s->status[idx]==pending[k].status&&s->duration[idx]==pending[k].duration)continue;
+        PyObject *n=PyLong_FromSsize_t(idx);if(!n)goto done;
+        PyTuple_SET_ITEM(changed_tuple,ci++,n);
     }
     Py_ssize_t si=0;
     for(Py_ssize_t j=0;j<s->ns;j++)if(affected[j]){
         PyObject *n=PyLong_FromSsize_t(j);if(!n)goto done;
         PyTuple_SET_ITEM(suites_tuple,si++,n);
     }
+    if (s->tick==PY_SSIZE_T_MAX || (n_changed && s->version==PY_SSIZE_T_MAX)) {
+        PyErr_SetString(PyExc_OverflowError,"QA tick/version overflow");goto done;
+    }
     PyObject *transition_args=Py_BuildValue("nnnnOO",s->tick+1,s->version+(n_changed!=0),ne,unique,changed_tuple,suites_tuple);
     if(!transition_args)goto done;
     result=PyObject_CallObject(transition_type,transition_args);
     Py_DECREF(transition_args);
     if(!result)goto done;
-    /* Commit: all possible Python allocation failures have been handled. */
-    for(Py_ssize_t i=0;i<n_changed;i++){
-        Py_ssize_t idx=changed[i],suite=s->suites[idx];
-        unsigned char old=s->status[idx],next=s->pending_status[idx];
+    /* No allocations or fallible Python operations after this point. */
+    for(Py_ssize_t k=0;k<unique;k++){
+        Py_ssize_t idx=pending[k].idx;
+        unsigned char old=s->status[idx],next=pending[k].status;
+        if(old==next && s->duration[idx]==pending[k].duration)continue;
+        Py_ssize_t suite=s->suites[idx];
         s->counts[suite*4+old]--;s->counts[suite*4+next]++;
         s->global[old]--;s->global[next]++;
-        s->status[idx]=next;s->duration[idx]=s->pending_duration[idx];
+        s->status[idx]=next;s->duration[idx]=pending[k].duration;
     }
     for(Py_ssize_t k=0;k<s->ns;k++)if(new_sums[k]){
         Py_SETREF(s->sums[k],new_sums[k]);new_sums[k]=NULL;
@@ -172,7 +260,8 @@ static PyObject *state_apply_batch(QAState *s,PyObject *batch){
     done:
     Py_XDECREF(seq);Py_XDECREF(changed_tuple);Py_XDECREF(suites_tuple);Py_XDECREF(new_total);
     if(new_sums){for(Py_ssize_t k=0;k<s->ns;k++)Py_XDECREF(new_sums[k]);}
-    PyMem_Free(new_sums);PyMem_Free(changed);PyMem_Free(affected);
+    PyMem_Free(new_sums);PyMem_Free(affected);
+    PyMem_Free(pending);PyMem_Free(slots);PyMem_Free(dense_index);
     return result;
 }
 
