@@ -380,3 +380,28 @@ python -m alexpy.range_bench --train-sizes 128,512,2048 --holdout-sizes 384,1536
 ```
 
 See [range transition methods and limitations](docs/RANGE_TRANSITION_MEMORY.md).
+
+## AlexPy 1.7: noise-aware route memory, measured switching and profile isolation
+
+`alexpy.stable_memory.StableRouteMemory` is an **opt-in offline** router for the
+four verified range-sum+square backends. It normalizes timings against the
+same-process `simple_rule` baseline, counts independent **processes** (not
+iterations) as evidence, penalizes the worst observed ratio and size
+extrapolation, and defaults to `simple_rule` if a material gain has not been
+replicated. The exact device/runtime profile is required for training and
+execution. An independent switch model only recommends rebuilding a live
+layout if projected savings over a stated future horizon exceed setup cost.
+
+```bash
+python -m unittest discover -s tests -q
+python -m alexpy.stable_bench --train-sizes 128,512,2048 \
+  --holdout-sizes 384,1536 --changes 1,8 --queries 1,8,32 \
+  --ticks 4 --pairs 5 --sessions 3 --device-tag my-local-machine \
+  --json stable-memory.json
+```
+
+**Local research finding:** the stable selector beat the simple rule on four
+specific wide-range held-out cases, but did **not** show meaningful overall
+median acceleration across all 24 holdouts. Model calibration is not free,
+and it is not validated across real hardware devices. Details and negative
+results: [docs/STABLE_ROUTE_MEMORY.md](docs/STABLE_ROUTE_MEMORY.md).

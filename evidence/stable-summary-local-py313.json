@@ -1,0 +1,72 @@
+{
+  "protocol": "ALEXPY-STABLE-ROUTER/1",
+  "environment": "cpython/3.13/Linux/x86_64/device=cpu-local-py313",
+  "source_file": "evidence/stable-memory-full-local-py313.json",
+  "sessions": 3,
+  "train_cases": 36,
+  "heldout_cases": 24,
+  "route_alternatives": 4,
+  "transitions": 48,
+  "train_medians_vs_simple": {
+    "fixed_train": 0.567847657437717,
+    "simple_rule": 1.0,
+    "ant": 0.9953080805326063,
+    "wave": 0.8835850227437146,
+    "stable": 1.0043545267030802
+  },
+  "repeated_regressions_gt_10pct": {
+    "fixed_train": 18,
+    "simple_rule": 0,
+    "ant": 6,
+    "wave": 11,
+    "stable": 0
+  },
+  "changed_cases": [
+    {
+      "size": 384,
+      "changes": 1,
+      "queries": 8,
+      "ticks": 4,
+      "span": "wide",
+      "reference": "direct",
+      "selected": "blocks",
+      "ratio": 2.0805606286846285
+    },
+    {
+      "size": 384,
+      "changes": 8,
+      "queries": 8,
+      "ticks": 4,
+      "span": "wide",
+      "reference": "direct",
+      "selected": "prefix",
+      "ratio": 2.1831902106819694
+    },
+    {
+      "size": 1536,
+      "changes": 1,
+      "queries": 8,
+      "ticks": 4,
+      "span": "wide",
+      "reference": "direct",
+      "selected": "blocks",
+      "ratio": 2.938511318178038
+    },
+    {
+      "size": 1536,
+      "changes": 8,
+      "queries": 8,
+      "ticks": 4,
+      "span": "wide",
+      "reference": "direct",
+      "selected": "blocks",
+      "ratio": 2.965315612260885
+    }
+  ],
+  "train_algorithm_ns_sum": 1104406086,
+  "train_transition_probe_ns_sum": 192274928,
+  "total_calibration_ns_sum": 1296681014,
+  "compilation_ns": 8645636,
+  "frozen_policy_sha256": "f175eb4d6e1d1f58fe433219b6369e13a68388e8303d03cfae7155db62cd2d57",
+  "holdout_verified": true
+}
