@@ -487,3 +487,23 @@ promotion**. All intermediate measurements and caveats are in
 ```bash
 python -m alexpy.qa_batch_bench --smoke --sessions 2 --pairs 2 --batch-sizes 1,8,64 --json qa-batch.json
 ```
+
+## AlexPy 2.2 — Native QA Batch Kernel (mission 21)
+
+Experimental opt-in `NativeBatchQA` now validates and aggregates QA-event
+batches inside a C extension with a private typed store. Exact event
+validation happens before committing any update; last retry wins at batch
+boundaries. Counters remain mathematically exact even when aggregated
+durations exceed signed int64. An explicit strong-Python fallback exists when
+the extension is unavailable, but it never counts as a native speedup.
+
+Local AMD EPYC 9V74, CPython 3.13.5: **282/282 tests PASS** and 16 paired
+benchmark configurations across three independent processes. Median relative
+performance: **1.802× vs optimized Python batch**, **2.833× vs the previous
+AlexPy batch** (full-scenario timing, including engine creation, validation,
+batch slicing and report snapshots). All 16 configurations improved >10% over
+optimized Python in all three processes. These are synthetic QA events, not
+a claim of general Python speedup or production applicability. No auto-promotion.
+
+See [`docs/QA_NATIVE_BATCH.md`](docs/QA_NATIVE_BATCH.md) for the contract,
+methodology, limitations and reproduction commands.

@@ -131,6 +131,11 @@ jobs:
       - name: Benchmark atomic QA batch against strong Python batch (advisory)
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
         run: python -m alexpy.qa_batch_bench --smoke --sessions 2 --pairs 2 --batch-sizes 1,8,64 --json qa-batch.json
+      - name: Verify native QA extension is built
+        run: python -c "from alexpy.qa_native import NativeBatchQA; assert NativeBatchQA([0],1).native"
+      - name: Benchmark native atomic QA batches against strong Python (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.qa_native_bench --smoke --sessions 2 --pairs 2 --batch-sizes 1,8,64 --json qa-native.json
       - name: Upload QA application evidence
         uses: actions/upload-artifact@v4
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
@@ -139,4 +144,5 @@ jobs:
           path: |
             qa-lab.json
             qa-batch.json
+            qa-native.json
             qa-actions-sample.json
