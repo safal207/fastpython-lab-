@@ -405,3 +405,33 @@ specific wide-range held-out cases, but did **not** show meaningful overall
 median acceleration across all 24 holdouts. Model calibration is not free,
 and it is not validated across real hardware devices. Details and negative
 results: [docs/STABLE_ROUTE_MEMORY.md](docs/STABLE_ROUTE_MEMORY.md).
+
+## AlexPy 1.8: real stream economics and cross-runner probes (advisory)
+
+`alexpy.stream_economics` executes a **continuous mutable input** over a
+changing workload schedule; an algorithm change rebuilds its actual state
+from the previous live backend, and that full cost is in the online timer.
+`alexpy.stream_bench` trains conservative route memory in three distinct
+processes on one host, freezes its holdout decisions, checks complete-stream
+checksums against a direct witness, and measures the paid break-even horizon.
+
+```bash
+python -m alexpy.stream_bench --train-sizes 128,512,2048 \
+  --holdout-sizes 384,1536 --changes 1,8 --queries 1,8,32 \
+  --spans both --ticks 2 --pairs 3 --sessions 3 \
+  --cycles 1,8,32,128 --reps 3 --device-tag local-benchmark-device \
+  --json stream-economics.json
+```
+
+Offline training + frozen table compilation are charged once; online time
+includes actual layout switches, initial construction, route choice, updates
+and queries. Only sizes (and coarse cells) absent from training are evaluated.
+The report does not claim a verified payback beyond the largest **measured**
+horizon. Linear payback projections are explicitly labeled speculative.
+
+CI also measures a bounded smoke workload **separately** on Ubuntu, Windows
+and macOS runners (Python 3.13). Each runner trains its own memory and uploads
+a hardware/OS-tagged JSON artifact; timings cannot be pooled across hosts,
+and one CI OS alone does not establish any particular CPU speedup.
+
+Full protocol, limitations and local results: [docs/STREAM_ECONOMICS.md](docs/STREAM_ECONOMICS.md).
