@@ -1,0 +1,94 @@
+{
+  "protocol": "ALEXPY-M16-REAL-TRANSITION-COMPETITION/1",
+  "source_sha256": "5c874c8d9847b6adcf23ea41870970f0c44831d0c16c8e7964086c7ba1f93446",
+  "config": {
+    "train": [
+      128,
+      512,
+      2048
+    ],
+    "holdout": [
+      384,
+      1536
+    ],
+    "changes": [
+      1,
+      8
+    ],
+    "queries": [
+      1,
+      8,
+      32
+    ],
+    "spans": [
+      "short",
+      "wide"
+    ],
+    "ticks": 4,
+    "pairs": 7,
+    "sessions": 3
+  },
+  "processes": 3,
+  "training_states_per_process": 36,
+  "holdout_states_per_process": 24,
+  "measured_layout_switches_per_process": 48,
+  "fixed_train_routes": [
+    "blocks",
+    "blocks",
+    "blocks"
+  ],
+  "oracle_winner_counts": {
+    "direct": 43,
+    "prefix": 17,
+    "fenwick": 1,
+    "blocks": 11
+  },
+  "training_ms_median": 492.922891,
+  "compile_ms_median": 5.84171,
+  "policy_results": {
+    "fixed_direct": {
+      "median_of_scenario_median_ratios": 1.3738459381692887,
+      "all_processes_gain_gt10pct": 12,
+      "all_processes_loss_gt10pct": 8,
+      "selected_routes": {
+        "direct": 72
+      }
+    },
+    "fixed_train": {
+      "median_of_scenario_median_ratios": 1.0,
+      "all_processes_gain_gt10pct": 0,
+      "all_processes_loss_gt10pct": 0,
+      "selected_routes": {
+        "blocks": 72
+      }
+    },
+    "simple_rule": {
+      "median_of_scenario_median_ratios": 1.8146591100218399,
+      "all_processes_gain_gt10pct": 17,
+      "all_processes_loss_gt10pct": 5,
+      "selected_routes": {
+        "direct": 60,
+        "prefix": 12
+      }
+    },
+    "ant": {
+      "median_of_scenario_median_ratios": 1.1872355514323827,
+      "all_processes_gain_gt10pct": 11,
+      "all_processes_loss_gt10pct": 4,
+      "selected_routes": {
+        "direct": 24,
+        "prefix": 39,
+        "blocks": 9
+      }
+    },
+    "wave": {
+      "median_of_scenario_median_ratios": 0.7984548942844485,
+      "all_processes_gain_gt10pct": 7,
+      "all_processes_loss_gt10pct": 10,
+      "selected_routes": {
+        "blocks": 14,
+        "prefix": 58
+      }
+    }
+  }
+}

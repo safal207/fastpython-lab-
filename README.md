@@ -363,3 +363,20 @@ python -m alexpy.hetero_bench --train-sizes 128,1024 \
 See [docs/HETEROGENEOUS_WAVE.md](docs/HETEROGENEOUS_WAVE.md).
 Observed 8-state holdout (Linux, Python 3.13.5) still did **not** beat the
 strong fixed manual control. The stable public API has not been changed.
+
+
+## AlexPy 1.6: verified competing range-query plans and measured transitions
+
+An **opt-in, separate** range-query research workload has four complete
+alternatives (`direct`, `blocks`, `fenwick`, `prefix`). The `range_memory`
+module stores sparse correctness-gated timing evidence and records actual
+directed layout-switch setup and tick costs in training data. Policies are
+frozen before held-out workload execution. The public `sum_squares` remains
+unchanged, and **neither ant nor wave learning beats a strong simple feature
+rule** on the current holdout. This negative result is preserved.
+
+```bash
+python -m alexpy.range_bench --train-sizes 128,512,2048 --holdout-sizes 384,1536 --changes 1,8 --queries 1,8,32 --spans short,wide --ticks 4 --pairs 7 --sessions 3 --json range-competition.json
+```
+
+See [range transition methods and limitations](docs/RANGE_TRANSITION_MEMORY.md).
