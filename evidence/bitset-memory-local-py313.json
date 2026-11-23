@@ -1,0 +1,705 @@
+{
+  "schema": "alexpy-bardo-bitset-memory/1",
+  "host": {
+    "system": "Linux",
+    "python": "3.13.5",
+    "machine": "x86_64",
+    "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+  },
+  "rows": [
+    {
+      "case": "dense-wide",
+      "route": "bitset",
+      "sessions": [
+        {
+          "case": "dense-wide",
+          "route": "bitset",
+          "digest": 14163596356520100975,
+          "traced_peak_bytes": 891720,
+          "traced_current_bytes": 122583,
+          "baseline": {
+            "rss_kib": 98436,
+            "rss_hwm_kib": 98436
+          },
+          "after": {
+            "rss_kib": 99556,
+            "rss_hwm_kib": 99556
+          },
+          "rss_delta_kib": 1120,
+          "hwm_delta_kib": 1120,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        },
+        {
+          "case": "dense-wide",
+          "route": "bitset",
+          "digest": 14163596356520100975,
+          "traced_peak_bytes": 888858,
+          "traced_current_bytes": 119721,
+          "baseline": {
+            "rss_kib": 98428,
+            "rss_hwm_kib": 98428
+          },
+          "after": {
+            "rss_kib": 99548,
+            "rss_hwm_kib": 99548
+          },
+          "rss_delta_kib": 1120,
+          "hwm_delta_kib": 1120,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        },
+        {
+          "case": "dense-wide",
+          "route": "bitset",
+          "digest": 14163596356520100975,
+          "traced_peak_bytes": 891299,
+          "traced_current_bytes": 122162,
+          "baseline": {
+            "rss_kib": 98444,
+            "rss_hwm_kib": 98444
+          },
+          "after": {
+            "rss_kib": 99572,
+            "rss_hwm_kib": 99572
+          },
+          "rss_delta_kib": 1128,
+          "hwm_delta_kib": 1128,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        }
+      ],
+      "median_peak_traced_bytes": 891299,
+      "median_rss_delta_kib": 1120
+    },
+    {
+      "case": "dense-wide",
+      "route": "c_tree",
+      "sessions": [
+        {
+          "case": "dense-wide",
+          "route": "c_tree",
+          "digest": 14163596356520100975,
+          "traced_peak_bytes": 1035372,
+          "traced_current_bytes": 120823,
+          "baseline": {
+            "rss_kib": 98420,
+            "rss_hwm_kib": 98420
+          },
+          "after": {
+            "rss_kib": 99636,
+            "rss_hwm_kib": 99636
+          },
+          "rss_delta_kib": 1216,
+          "hwm_delta_kib": 1216,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        },
+        {
+          "case": "dense-wide",
+          "route": "c_tree",
+          "digest": 14163596356520100975,
+          "traced_peak_bytes": 1035094,
+          "traced_current_bytes": 120597,
+          "baseline": {
+            "rss_kib": 98444,
+            "rss_hwm_kib": 98444
+          },
+          "after": {
+            "rss_kib": 99648,
+            "rss_hwm_kib": 99648
+          },
+          "rss_delta_kib": 1204,
+          "hwm_delta_kib": 1204,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        },
+        {
+          "case": "dense-wide",
+          "route": "c_tree",
+          "digest": 14163596356520100975,
+          "traced_peak_bytes": 1035530,
+          "traced_current_bytes": 121033,
+          "baseline": {
+            "rss_kib": 98428,
+            "rss_hwm_kib": 98428
+          },
+          "after": {
+            "rss_kib": 99668,
+            "rss_hwm_kib": 99668
+          },
+          "rss_delta_kib": 1240,
+          "hwm_delta_kib": 1240,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        }
+      ],
+      "median_peak_traced_bytes": 1035372,
+      "median_rss_delta_kib": 1216
+    },
+    {
+      "case": "dense-wide",
+      "route": "set",
+      "sessions": [
+        {
+          "case": "dense-wide",
+          "route": "set",
+          "digest": 14163596356520100975,
+          "traced_peak_bytes": 1527861,
+          "traced_current_bytes": 120597,
+          "baseline": {
+            "rss_kib": 98448,
+            "rss_hwm_kib": 98448
+          },
+          "after": {
+            "rss_kib": 100208,
+            "rss_hwm_kib": 100208
+          },
+          "rss_delta_kib": 1760,
+          "hwm_delta_kib": 1760,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        },
+        {
+          "case": "dense-wide",
+          "route": "set",
+          "digest": 14163596356520100975,
+          "traced_peak_bytes": 1531703,
+          "traced_current_bytes": 124439,
+          "baseline": {
+            "rss_kib": 98464,
+            "rss_hwm_kib": 98464
+          },
+          "after": {
+            "rss_kib": 100224,
+            "rss_hwm_kib": 100224
+          },
+          "rss_delta_kib": 1760,
+          "hwm_delta_kib": 1760,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        },
+        {
+          "case": "dense-wide",
+          "route": "set",
+          "digest": 14163596356520100975,
+          "traced_peak_bytes": 1528276,
+          "traced_current_bytes": 121012,
+          "baseline": {
+            "rss_kib": 98456,
+            "rss_hwm_kib": 98456
+          },
+          "after": {
+            "rss_kib": 100212,
+            "rss_hwm_kib": 100212
+          },
+          "rss_delta_kib": 1756,
+          "hwm_delta_kib": 1756,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        }
+      ],
+      "median_peak_traced_bytes": 1528276,
+      "median_rss_delta_kib": 1760
+    },
+    {
+      "case": "frequent-diagnostics",
+      "route": "bitset",
+      "sessions": [
+        {
+          "case": "frequent-diagnostics",
+          "route": "bitset",
+          "digest": 8456346997461860160,
+          "traced_peak_bytes": 128608,
+          "traced_current_bytes": 9919,
+          "baseline": {
+            "rss_kib": 97464,
+            "rss_hwm_kib": 97464
+          },
+          "after": {
+            "rss_kib": 97580,
+            "rss_hwm_kib": 97580
+          },
+          "rss_delta_kib": 116,
+          "hwm_delta_kib": 116,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        },
+        {
+          "case": "frequent-diagnostics",
+          "route": "bitset",
+          "digest": 8456346997461860160,
+          "traced_peak_bytes": 124950,
+          "traced_current_bytes": 6261,
+          "baseline": {
+            "rss_kib": 97480,
+            "rss_hwm_kib": 97480
+          },
+          "after": {
+            "rss_kib": 97556,
+            "rss_hwm_kib": 97556
+          },
+          "rss_delta_kib": 76,
+          "hwm_delta_kib": 76,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        },
+        {
+          "case": "frequent-diagnostics",
+          "route": "bitset",
+          "digest": 8456346997461860160,
+          "traced_peak_bytes": 127964,
+          "traced_current_bytes": 9227,
+          "baseline": {
+            "rss_kib": 97444,
+            "rss_hwm_kib": 97444
+          },
+          "after": {
+            "rss_kib": 97516,
+            "rss_hwm_kib": 97516
+          },
+          "rss_delta_kib": 72,
+          "hwm_delta_kib": 72,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        }
+      ],
+      "median_peak_traced_bytes": 127964,
+      "median_rss_delta_kib": 76
+    },
+    {
+      "case": "frequent-diagnostics",
+      "route": "c_tree",
+      "sessions": [
+        {
+          "case": "frequent-diagnostics",
+          "route": "c_tree",
+          "digest": 8456346997461860160,
+          "traced_peak_bytes": 162272,
+          "traced_current_bytes": 7255,
+          "baseline": {
+            "rss_kib": 97460,
+            "rss_hwm_kib": 97460
+          },
+          "after": {
+            "rss_kib": 97544,
+            "rss_hwm_kib": 97544
+          },
+          "rss_delta_kib": 84,
+          "hwm_delta_kib": 84,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        },
+        {
+          "case": "frequent-diagnostics",
+          "route": "c_tree",
+          "digest": 8456346997461860160,
+          "traced_peak_bytes": 173254,
+          "traced_current_bytes": 18237,
+          "baseline": {
+            "rss_kib": 97468,
+            "rss_hwm_kib": 97468
+          },
+          "after": {
+            "rss_kib": 97588,
+            "rss_hwm_kib": 97588
+          },
+          "rss_delta_kib": 120,
+          "hwm_delta_kib": 120,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        },
+        {
+          "case": "frequent-diagnostics",
+          "route": "c_tree",
+          "digest": 8456346997461860160,
+          "traced_peak_bytes": 161793,
+          "traced_current_bytes": 6776,
+          "baseline": {
+            "rss_kib": 97492,
+            "rss_hwm_kib": 97492
+          },
+          "after": {
+            "rss_kib": 97604,
+            "rss_hwm_kib": 97604
+          },
+          "rss_delta_kib": 112,
+          "hwm_delta_kib": 112,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        }
+      ],
+      "median_peak_traced_bytes": 162272,
+      "median_rss_delta_kib": 112
+    },
+    {
+      "case": "frequent-diagnostics",
+      "route": "set",
+      "sessions": [
+        {
+          "case": "frequent-diagnostics",
+          "route": "set",
+          "digest": 8456346997461860160,
+          "traced_peak_bytes": 319632,
+          "traced_current_bytes": 12296,
+          "baseline": {
+            "rss_kib": 97480,
+            "rss_hwm_kib": 97480
+          },
+          "after": {
+            "rss_kib": 97776,
+            "rss_hwm_kib": 97776
+          },
+          "rss_delta_kib": 296,
+          "hwm_delta_kib": 296,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        },
+        {
+          "case": "frequent-diagnostics",
+          "route": "set",
+          "digest": 8456346997461860160,
+          "traced_peak_bytes": 315268,
+          "traced_current_bytes": 7932,
+          "baseline": {
+            "rss_kib": 97460,
+            "rss_hwm_kib": 97460
+          },
+          "after": {
+            "rss_kib": 97748,
+            "rss_hwm_kib": 97748
+          },
+          "rss_delta_kib": 288,
+          "hwm_delta_kib": 288,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        },
+        {
+          "case": "frequent-diagnostics",
+          "route": "set",
+          "digest": 8456346997461860160,
+          "traced_peak_bytes": 320944,
+          "traced_current_bytes": 13608,
+          "baseline": {
+            "rss_kib": 97468,
+            "rss_hwm_kib": 97468
+          },
+          "after": {
+            "rss_kib": 97768,
+            "rss_hwm_kib": 97768
+          },
+          "rss_delta_kib": 300,
+          "hwm_delta_kib": 300,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        }
+      ],
+      "median_peak_traced_bytes": 319632,
+      "median_rss_delta_kib": 296
+    },
+    {
+      "case": "zero-failures",
+      "route": "bitset",
+      "sessions": [
+        {
+          "case": "zero-failures",
+          "route": "bitset",
+          "digest": 12191885008800301928,
+          "traced_peak_bytes": 125898,
+          "traced_current_bytes": 7209,
+          "baseline": {
+            "rss_kib": 97464,
+            "rss_hwm_kib": 97464
+          },
+          "after": {
+            "rss_kib": 97580,
+            "rss_hwm_kib": 97580
+          },
+          "rss_delta_kib": 116,
+          "hwm_delta_kib": 116,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        },
+        {
+          "case": "zero-failures",
+          "route": "bitset",
+          "digest": 12191885008800301928,
+          "traced_peak_bytes": 129488,
+          "traced_current_bytes": 10799,
+          "baseline": {
+            "rss_kib": 97444,
+            "rss_hwm_kib": 97444
+          },
+          "after": {
+            "rss_kib": 97520,
+            "rss_hwm_kib": 97520
+          },
+          "rss_delta_kib": 76,
+          "hwm_delta_kib": 76,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        },
+        {
+          "case": "zero-failures",
+          "route": "bitset",
+          "digest": 12191885008800301928,
+          "traced_peak_bytes": 138646,
+          "traced_current_bytes": 19957,
+          "baseline": {
+            "rss_kib": 97452,
+            "rss_hwm_kib": 97452
+          },
+          "after": {
+            "rss_kib": 97548,
+            "rss_hwm_kib": 97548
+          },
+          "rss_delta_kib": 96,
+          "hwm_delta_kib": 96,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        }
+      ],
+      "median_peak_traced_bytes": 129488,
+      "median_rss_delta_kib": 96
+    },
+    {
+      "case": "zero-failures",
+      "route": "c_tree",
+      "sessions": [
+        {
+          "case": "zero-failures",
+          "route": "c_tree",
+          "digest": 12191885008800301928,
+          "traced_peak_bytes": 159283,
+          "traced_current_bytes": 4266,
+          "baseline": {
+            "rss_kib": 97464,
+            "rss_hwm_kib": 97464
+          },
+          "after": {
+            "rss_kib": 97576,
+            "rss_hwm_kib": 97576
+          },
+          "rss_delta_kib": 112,
+          "hwm_delta_kib": 112,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        },
+        {
+          "case": "zero-failures",
+          "route": "c_tree",
+          "digest": 12191885008800301928,
+          "traced_peak_bytes": 159158,
+          "traced_current_bytes": 4141,
+          "baseline": {
+            "rss_kib": 97460,
+            "rss_hwm_kib": 97460
+          },
+          "after": {
+            "rss_kib": 97576,
+            "rss_hwm_kib": 97576
+          },
+          "rss_delta_kib": 116,
+          "hwm_delta_kib": 116,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        },
+        {
+          "case": "zero-failures",
+          "route": "c_tree",
+          "digest": 12191885008800301928,
+          "traced_peak_bytes": 164814,
+          "traced_current_bytes": 9797,
+          "baseline": {
+            "rss_kib": 97464,
+            "rss_hwm_kib": 97464
+          },
+          "after": {
+            "rss_kib": 97612,
+            "rss_hwm_kib": 97612
+          },
+          "rss_delta_kib": 148,
+          "hwm_delta_kib": 148,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        }
+      ],
+      "median_peak_traced_bytes": 159283,
+      "median_rss_delta_kib": 116
+    },
+    {
+      "case": "zero-failures",
+      "route": "set",
+      "sessions": [
+        {
+          "case": "zero-failures",
+          "route": "set",
+          "digest": 12191885008800301928,
+          "traced_peak_bytes": 157340,
+          "traced_current_bytes": 6748,
+          "baseline": {
+            "rss_kib": 97472,
+            "rss_hwm_kib": 97472
+          },
+          "after": {
+            "rss_kib": 97580,
+            "rss_hwm_kib": 97580
+          },
+          "rss_delta_kib": 108,
+          "hwm_delta_kib": 108,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        },
+        {
+          "case": "zero-failures",
+          "route": "set",
+          "digest": 12191885008800301928,
+          "traced_peak_bytes": 160378,
+          "traced_current_bytes": 9786,
+          "baseline": {
+            "rss_kib": 97452,
+            "rss_hwm_kib": 97452
+          },
+          "after": {
+            "rss_kib": 97568,
+            "rss_hwm_kib": 97568
+          },
+          "rss_delta_kib": 116,
+          "hwm_delta_kib": 116,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        },
+        {
+          "case": "zero-failures",
+          "route": "set",
+          "digest": 12191885008800301928,
+          "traced_peak_bytes": 161845,
+          "traced_current_bytes": 11253,
+          "baseline": {
+            "rss_kib": 97460,
+            "rss_hwm_kib": 97460
+          },
+          "after": {
+            "rss_kib": 97520,
+            "rss_hwm_kib": 97520
+          },
+          "rss_delta_kib": 60,
+          "hwm_delta_kib": 60,
+          "host": {
+            "system": "Linux",
+            "python": "3.13.5",
+            "machine": "x86_64",
+            "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+          }
+        }
+      ],
+      "median_peak_traced_bytes": 160378,
+      "median_rss_delta_kib": 108
+    }
+  ],
+  "rss_note": "procfs snapshots, not continuous RSS profile; VmHWM high-water may predate workload"
+}

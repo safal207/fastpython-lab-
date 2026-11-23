@@ -6,4 +6,5 @@ setup(ext_modules=[
     Extension("alexpy._buffer_native", sources=["alexpy/_buffer_native.c"]),
     Extension("alexpy._qa_native", sources=["alexpy/_qa_native.c"]),
     Extension("alexpy._qa_witness", sources=["alexpy/_qa_witness.c"]),
+    Extension("alexpy._qa_bitset", sources=["alexpy/_qa_bitset.c"]),
 ])

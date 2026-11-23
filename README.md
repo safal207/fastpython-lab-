@@ -541,3 +541,18 @@ The independent `alexpy.native_transition_tree.CTreeNativeQA` route adds a compa
 `alexpy.drift_sentinel.DriftSentinel` and `alexpy.drift_sentinel_bench` independently tested a Bardo-inspired probe-frequency idea. It **lost** to a training-selected fixed interval on 120 seeded heldout synthetic sequences (797.71 versus 454.15 mean conditional regret units). This is not measured CPU time and **must not** be promoted as an acceleration claim.
 
 See [the v2.6 research protocol and limits](docs/BARDO_NATIVE_WITNESS.md) for controls, commands, hardware scope, and negative results.
+
+## AlexPy × Bardo 2.7 — failure-density witness stress (research)
+
+The opt-in C witness index is now tested against the same C QA engine plus a
+strong Python failure set on seven new shapes: 0–100% failures, wide dense
+batches, reversible status flips, hot retries and frequent diagnostics.
+Three independent local processes each confirmed a speed advantage on all
+seven synthetic workloads (median ratios 1.21–4.36×). Memory was lower for
+dense failures but slightly higher for zero-failure workloads. There is no
+automatic route promotion or change to the calibration/drift policy.
+See `docs/BARDO_WITNESS_STRESS.md` and `alexpy/native_witness_stress.py`.
+
+## AlexPy × Bardo 2.8 — compact native failure bitset and JUnit replay
+
+An experimental exact two-level 64-bit C failure bitmap (`alexpy.native_bitset`) was compared against the existing C segment tree and a strong Python set, all over the **same unchanged** `NativeBatchQA`. On an Intel Xeon Platinum 8573C with three independent interpreters, bitset/C-tree ratios were **0.808–1.103×** across seven already inspected synthetic workloads, so there is no stable C-tree speed win. The bitset did lower tracked peak allocations on three measured cases (e.g. 870 KiB vs 1011 KiB for 16,384 tests). An actual pytest-generated JUnit XML containing 22 passing cases from 4 suites was replayed with identical correctness results for all routes. **No default promotion.** See [`docs/BARDO_BITMAP_WITNESS.md`](docs/BARDO_BITMAP_WITNESS.md).

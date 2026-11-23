@@ -1,0 +1,203 @@
+{
+  "schema": "alexpy-2.8-summary/1",
+  "host": {
+    "system": "Linux",
+    "python": "3.13.5",
+    "machine": "x86_64",
+    "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+  },
+  "source": "local run on Intel, v2.7 family reused (not held-out)",
+  "sessions": 3,
+  "pairs_per_session": 3,
+  "rows": [
+    {
+      "case": "dense-mostly-fail",
+      "bitset_vs_tree_median": 1.0804455824126966,
+      "bitset_vs_set_median": 1.3231214513577632,
+      "bitset_vs_tree_by_process": [
+        1.0813200847719917,
+        0.9630184826861671,
+        1.0804455824126966
+      ],
+      "bitset_vs_set_by_process": [
+        1.3018493502226187,
+        2.100360508745606,
+        1.3231214513577632
+      ],
+      "bitset_faster_than_tree_all_processes": false
+    },
+    {
+      "case": "dense-wide",
+      "bitset_vs_tree_median": 0.9532039627451485,
+      "bitset_vs_set_median": 1.2285698665375526,
+      "bitset_vs_tree_by_process": [
+        1.1025747780654982,
+        0.9265708831107657,
+        0.9532039627451485
+      ],
+      "bitset_vs_set_by_process": [
+        1.2938186248109558,
+        1.10312281945465,
+        1.2285698665375526
+      ],
+      "bitset_faster_than_tree_all_processes": false
+    },
+    {
+      "case": "reversible-flips",
+      "bitset_vs_tree_median": 0.8083244336711477,
+      "bitset_vs_set_median": 1.093046051399156,
+      "bitset_vs_tree_by_process": [
+        0.8083244336711477,
+        0.6945510478920677,
+        0.945605964668696
+      ],
+      "bitset_vs_set_by_process": [
+        0.987060561566671,
+        1.154344958099841,
+        1.093046051399156
+      ],
+      "bitset_faster_than_tree_all_processes": false
+    },
+    {
+      "case": "hot-retries",
+      "bitset_vs_tree_median": 1.1026828772766513,
+      "bitset_vs_set_median": 1.2612942028298788,
+      "bitset_vs_tree_by_process": [
+        0.6623859718160096,
+        1.315380452537888,
+        1.1026828772766513
+      ],
+      "bitset_vs_set_by_process": [
+        0.9582076320900909,
+        1.2612942028298788,
+        1.4469357827574862
+      ],
+      "bitset_faster_than_tree_all_processes": false
+    },
+    {
+      "case": "frequent-diagnostics",
+      "bitset_vs_tree_median": 0.939657425860637,
+      "bitset_vs_set_median": 4.5156120720897315,
+      "bitset_vs_tree_by_process": [
+        1.0433801362217308,
+        0.939657425860637,
+        0.884353279863363
+      ],
+      "bitset_vs_set_by_process": [
+        5.4021517784859725,
+        4.5156120720897315,
+        4.479594008688409
+      ],
+      "bitset_faster_than_tree_all_processes": false
+    },
+    {
+      "case": "zero-failures",
+      "bitset_vs_tree_median": 0.9579416564752136,
+      "bitset_vs_set_median": 1.1704039959594208,
+      "bitset_vs_tree_by_process": [
+        0.9467480556635959,
+        0.9579416564752136,
+        1.1285331829477638
+      ],
+      "bitset_vs_set_by_process": [
+        1.1536751362955053,
+        1.1780347558685085,
+        1.1704039959594208
+      ],
+      "bitset_faster_than_tree_all_processes": false
+    },
+    {
+      "case": "all-failures",
+      "bitset_vs_tree_median": 0.9435460913003985,
+      "bitset_vs_set_median": 1.149124534004782,
+      "bitset_vs_tree_by_process": [
+        0.9990048900531313,
+        0.9435460913003985,
+        0.9349832133129161
+      ],
+      "bitset_vs_set_by_process": [
+        1.393555994692747,
+        1.1278860008901062,
+        1.149124534004782
+      ],
+      "bitset_faster_than_tree_all_processes": false
+    }
+  ],
+  "memory": [
+    {
+      "case": "dense-wide",
+      "median_peak_traced_bytes": {
+        "bitset": 891299,
+        "c_tree": 1035372,
+        "set": 1528276
+      },
+      "median_rss_delta_kib": {
+        "bitset": 1120,
+        "c_tree": 1216,
+        "set": 1760
+      }
+    },
+    {
+      "case": "frequent-diagnostics",
+      "median_peak_traced_bytes": {
+        "bitset": 127964,
+        "c_tree": 162272,
+        "set": 319632
+      },
+      "median_rss_delta_kib": {
+        "bitset": 76,
+        "c_tree": 112,
+        "set": 296
+      }
+    },
+    {
+      "case": "zero-failures",
+      "median_peak_traced_bytes": {
+        "bitset": 129488,
+        "c_tree": 159283,
+        "set": 160378
+      },
+      "median_rss_delta_kib": {
+        "bitset": 96,
+        "c_tree": 116,
+        "set": 108
+      }
+    }
+  ],
+  "junit": {
+    "schema": "alexpy-bardo-junit-replay/1",
+    "testcases": 22,
+    "unique_tests": 22,
+    "suite_count": 4,
+    "source_sha256": "01a41912768acf9f5257e23dd7c636bd57d827a9765eb96ecc38220f2c8b2057",
+    "retried_tests": 0,
+    "batches": 4,
+    "final_counts": [
+      0,
+      22,
+      0,
+      0,
+      578
+    ],
+    "failure_witness_ids": [],
+    "digest": 10297796204080402847,
+    "all_routes_match": true,
+    "note": "Report reflects actual pytest execution; not a timed production benchmark"
+  },
+  "file_sha256": {
+    "bitset-full-local-py313.json": "c74fe55a2f8346969a052dfdef3a4d1c57efbd3b221107c1794af70a43a148c7",
+    "bitset-memory-local-py313.json": "5fc52f1799ee272127bdc80de1f48744e2e636eaa3ebb2fe86927953fa93e640",
+    "bitset-ci-smoke.json": "cb57e28f65dda0ab07536b2cf161b992e21c9c960080f1e96ca191832accb3be",
+    "bitset-real-junit-replay.json": "d6cf89d2d9fef8aaaf4efe5f217c45f84d7a03fdc5139b51c30a8a81f5cbdf4c",
+    "alexpy-real-pytest-junit.xml": "01a41912768acf9f5257e23dd7c636bd57d827a9765eb96ecc38220f2c8b2057"
+  },
+  "default_promotion": false,
+  "conclusion": "bitmap lowers traced allocations but does not systematically outrun C tree; real JUnit replay correctness only",
+  "limitations": [
+    "synthetic timing on one Intel host",
+    "reused v2.7 workloads",
+    "RSS snapshots not an exact peak",
+    "JUnit report is from genuine local pytest execution with all tests passing",
+    "GitHub platform speed not yet measured"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "alexpy-bardo-junit-replay/1",
+  "testcases": 22,
+  "unique_tests": 22,
+  "suite_count": 4,
+  "source_sha256": "01a41912768acf9f5257e23dd7c636bd57d827a9765eb96ecc38220f2c8b2057",
+  "retried_tests": 0,
+  "batches": 4,
+  "final_counts": [
+    0,
+    22,
+    0,
+    0,
+    578
+  ],
+  "failure_witness_ids": [],
+  "digest": 10297796204080402847,
+  "all_routes_match": true,
+  "note": "Report reflects actual pytest execution; not a timed production benchmark"
+}

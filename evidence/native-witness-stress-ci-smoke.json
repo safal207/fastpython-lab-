@@ -1,0 +1,100 @@
+{
+  "schema": "alexpy-native-witness-stress/1",
+  "host": {
+    "system": "Linux",
+    "python": "3.13.5",
+    "machine": "x86_64",
+    "processor": "AMD EPYC 9V74 80-Core Processor"
+  },
+  "sessions": [
+    {
+      "schema": "alexpy-native-witness-stress/1",
+      "host": {
+        "system": "Linux",
+        "python": "3.13.5",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor"
+      },
+      "scope": "same QA C kernel; C witness tree vs Python failure set; synthetic only",
+      "rows": [
+        {
+          "case": {
+            "name": "smoke-dense",
+            "n": 128,
+            "suites": 4,
+            "events": 256,
+            "batch": 32,
+            "active": 128,
+            "fail_percent": 90,
+            "report_every": 2,
+            "reads_per_report": 2,
+            "pattern": "random"
+          },
+          "seed": 312080191,
+          "digest": 4313143949441853876,
+          "samples_ns": {
+            "c_tree": [
+              163582,
+              184473
+            ],
+            "set": [
+              267706,
+              222619
+            ]
+          },
+          "medians_ns": {
+            "c_tree": 174027.5,
+            "set": 245162.5
+          },
+          "c_tree_vs_set": 1.4087572366436338
+        }
+      ],
+      "default_promotion": false
+    },
+    {
+      "schema": "alexpy-native-witness-stress/1",
+      "host": {
+        "system": "Linux",
+        "python": "3.13.5",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor"
+      },
+      "scope": "same QA C kernel; C witness tree vs Python failure set; synthetic only",
+      "rows": [
+        {
+          "case": {
+            "name": "smoke-dense",
+            "n": 128,
+            "suites": 4,
+            "events": 256,
+            "batch": 32,
+            "active": 128,
+            "fail_percent": 90,
+            "report_every": 2,
+            "reads_per_report": 2,
+            "pattern": "random"
+          },
+          "seed": 312080191,
+          "digest": 4313143949441853876,
+          "samples_ns": {
+            "c_tree": [
+              163872,
+              162040
+            ],
+            "set": [
+              331100,
+              218193
+            ]
+          },
+          "medians_ns": {
+            "c_tree": 162956.0,
+            "set": 274646.5
+          },
+          "c_tree_vs_set": 1.6854028081199832
+        }
+      ],
+      "default_promotion": false
+    }
+  ],
+  "default_promotion": false
+}
