@@ -25,6 +25,12 @@ jobs:
         run: python -c "from alexpy import backend_name; assert backend_name() == 'native-c', backend_name()"
       - name: Run correctness tests
         run: python -m unittest discover -s tests -v
+      - name: Upload QA 2.9 recorded failure replay metrics (runner-local)
+        uses: actions/upload-artifact@v4
+        with:
+          name: alexpy-qa29-${{ matrix.os }}-py${{ matrix.python-version }}-${{ github.run_id }}
+          path: qa29-results.json
+          if-no-files-found: error
       - name: Audit long-lived stream amortization on THIS runner (advisory)
         if: matrix.python-version == '3.13'
         run: python -m alexpy.stream_bench --train-sizes 128,512,2048 --holdout-sizes 384 --changes 1 --queries 1,16 --spans both --ticks 2 --pairs 2 --sessions 3 --cycles 1,4,16 --reps 2 --device-tag github-${{ matrix.os }}-${{ matrix.python-version }}-${{ github.run_id }} --json stream-economics.json
