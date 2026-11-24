@@ -89,6 +89,7 @@ def validate(layout, groups):
     for group in groups:
         for e in group:
             statuses[e.test_id] = e.status
+            durations[e.test_id] = e.duration_ms
         oracle = scan_reference(layout, 3, statuses, durations)
         witnesses = tuple(i for i, s in enumerate(statuses) if s == FAIL)[:4]
         transitions = []
