@@ -112,6 +112,11 @@ def overhead(env):
 
 
 class QA30Tests(unittest.TestCase):
+    def test_oracle_tracks_nonzero_duration_and_overwritten_retry(self):
+        validate((0, 1), ((QAEvent(0, FAIL, 17), QAEvent(1, PASS, 23)),
+                          (QAEvent(0, PASS, 29), QAEvent(0, FAIL, 31),
+                           QAEvent(1, SKIP, 0))))
+
     def test_matrix_guards(self):
         env = "test-runner"
         m = RouteMatrix(env)
@@ -154,7 +159,8 @@ class QA30Tests(unittest.TestCase):
         runs = []
         for i in range(3):
             proc = subprocess.run([sys.executable, str(Path(__file__).resolve()), "--worker"],
-                                  capture_output=True, text=True, check=True, timeout=120)
+                                  capture_output=True, text=True, check=False, timeout=120)
+            self.assertEqual(proc.returncode, 0, proc.stderr[-12000:])
             runs.append(json.loads(proc.stdout))
         matrix = RouteMatrix(env)
         cost = overhead(env)
