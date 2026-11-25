@@ -117,6 +117,12 @@ def solve(n, edges, source, sink, *, initial=None, iterations=96, dt=.5, toleran
     Nonconvergence is explicit; no hidden Dijkstra fallback.
     """
     edges = graph(n,edges,source,sink)
+    return _solve_validated(n, edges, source, sink, initial=initial,
+                            iterations=iterations, dt=dt, tolerance=tolerance, flow=_flow)
+
+
+def _solve_validated(n, edges, source, sink, *, initial, iterations, dt, tolerance, flow):
+    """Shared conductance update and path extraction; caller validates graph."""
     if (type(iterations) is not int or not 1 <= iterations <= 512
             or type(dt) not in (int,float) or not 0 < dt <= 1
             or type(tolerance) not in (int,float) or not 0 < tolerance < 1):
@@ -127,14 +133,14 @@ def solve(n, edges, source, sink, *, initial=None, iterations=96, dt=.5, toleran
         raise ValueError("invalid conductance state")
     converged = False
     for step in range(1,iterations+1):
-        _,q,_ = _flow(n,edges,d,source,sink)
+        _,q,_ = flow(n,edges,d,source,sink)
         new = [max(FLOOR,min(1.,(1-dt)*old+dt*abs(f))) for old,f in zip(d,q)]
         delta = max(abs(a-b) for a,b in zip(d,new))
         d = new
         if delta <= tolerance:
             converged = True
             break
-    p,q,residual = _flow(n,edges,d,source,sink)
+    p,q,residual = flow(n,edges,d,source,sink)
     outgoing = [[] for _ in range(n)]
     for (u,v,l),f in zip(edges,q):
         if f > 0 and p[u] > p[v]:
