@@ -37,6 +37,12 @@ jobs:
           name: alexpy-qa30-${{ matrix.os }}-py${{ matrix.python-version }}-${{ github.run_id }}
           path: qa30-results.json
           if-no-files-found: error
+      - name: Upload PHYSARUM-001 independent dynamic routing evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: alexpy-physarum-${{ matrix.os }}-py${{ matrix.python-version }}-${{ github.run_id }}
+          path: physarum-results.json
+          if-no-files-found: error
       - name: Audit long-lived stream amortization on THIS runner (advisory)
         if: matrix.python-version == '3.13'
         run: python -m alexpy.stream_bench --train-sizes 128,512,2048 --holdout-sizes 384 --changes 1 --queries 1,16 --spans both --ticks 2 --pairs 2 --sessions 3 --cycles 1,4,16 --reps 2 --device-tag github-${{ matrix.os }}-${{ matrix.python-version }}-${{ github.run_id }} --json stream-economics.json
