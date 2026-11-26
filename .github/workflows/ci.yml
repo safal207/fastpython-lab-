@@ -49,6 +49,18 @@ jobs:
           name: alexpy-qa32-${{ matrix.os }}-py${{ matrix.python-version }}-${{ github.run_id }}
           path: qa32-results.json
           if-no-files-found: error
+      - name: QA 3.3 frozen adaptive break-even study (advisory)
+        if: matrix.python-version == '3.13'
+        env:
+          PYTHONPATH: .
+        run: python tests/qa33_break_even.py --output qa33-results.json
+      - name: Upload QA 3.3 raw break-even evidence
+        if: matrix.python-version == '3.13'
+        uses: actions/upload-artifact@v4
+        with:
+          name: alexpy-qa33-${{ matrix.os }}-py${{ matrix.python-version }}-${{ github.run_id }}
+          path: qa33-results.json
+          if-no-files-found: error
       - name: Upload PHYSARUM-001 independent dynamic routing evidence
         uses: actions/upload-artifact@v4
         with:
