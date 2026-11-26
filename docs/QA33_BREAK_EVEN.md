@@ -14,3 +14,5 @@ Question: can a fresh-session route selected using declared size, batch horizon 
 * CI Python 3.13 on Linux/macOS/Windows; Python 3.15 correctness smoke. Separate runner reports, never pool absolute timing. No default changes, no merge.
 
 Run after native build: `PYTHONPATH=. python tests/qa33_break_even.py --output qa33-results.json`.
+
+Implementation note: the full frozen 12-plan table is present in each measurement worker; table construction is charged to calibration, not to the per-session lookup. The pre-existing QA30 selector is unchanged. The first protocol commit was superseded before inspecting any QA33 measurements to correct the table-size control.

@@ -66,11 +66,14 @@ def select(rows, overhead):
             return BASE
     return ALT
 
-def measure(plan, seed, rounds, session, phase, decision=BASE):
+def measure(plan, seed, rounds, session, phase, decision=BASE, frozen=None):
     layout, groups = fixture(plan, seed)
     validate(layout, groups)  # independent full scan and transitions at each batch
     expected = replay_reports(ROUTES["python"], layout, groups, plan[3])
-    table = MappingProxyType({tuple(plan): decision})
+    table = MappingProxyType(dict(frozen) if frozen is not None else
+                             {p: decision if p == tuple(plan) else BASE for p in PLANS})
+    if choose(table, plan) != decision:
+        raise AssertionError("frozen plan mismatch")
     funcs = {k: (lambda cls=ROUTES[k]: replay_reports(cls, layout, groups, plan[3]))
              for k in (BASE, ALT)}
     if phase == "holdout":
@@ -128,11 +131,14 @@ def measure(plan, seed, rounds, session, phase, decision=BASE):
 
 def worker(phase, session, rounds, decisions):
     rows = []
+    frozen = dict(zip(PLANS, decisions)) if phase == "holdout" else {p: BASE for p in PLANS}
+    if set(frozen) != set(PLANS):
+        raise ValueError("incomplete frozen table")
     for i, plan in enumerate(PLANS):
         # Distinct fixed training and holdout seeds in each independent process.
         seed = (330100 if phase == "train" else 339100) + 101 * session + i
         rows.append(measure(plan, seed, rounds, session, phase,
-                            decisions[i] if phase == "holdout" else BASE))
+                            decisions[i] if phase == "holdout" else BASE, frozen))
     return dict(pid=os.getpid(), rows=rows)
 
 def child(phase, session, rounds, decisions):
