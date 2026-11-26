@@ -24,7 +24,7 @@ class QA33Tests(unittest.TestCase):
         self.assertTrue(all(len(x) == 32 for x in g))
         self.assertNotEqual(g, fixture(plan, 2)[1])
     def test_smoke_exact_reports(self):
-        row = measure((128, 32, 2, 8), 339999, 6, 0, "holdout", ALT)
+        row = measure((128, 32, 8, 8), 339999, 6, 0, "holdout", ALT)
         self.assertTrue(row["verified"])
         self.assertEqual(row["reports"], 1)
         self.assertEqual(sorted(row["order_codes"]), list(range(6)))
