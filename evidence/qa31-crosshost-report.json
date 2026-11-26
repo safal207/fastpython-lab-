@@ -1,0 +1,1333 @@
+{
+  "schema": "alexpy-qa31-crosshost/1",
+  "source_sha": "43d5ec6084af0dc5aa12dee0fa6ac36631a9dc75",
+  "run_ids": [
+    "45717781984",
+    "45717790340"
+  ],
+  "configs": 6,
+  "artifact_count": 12,
+  "train_cells": 36,
+  "holdout_count": 48,
+  "alternative_selections": 0,
+  "all_fallback_to_c_tree": true,
+  "median_adaptive_over_tree": {
+    "median_ns": 1.0050494095396547,
+    "p95_ns": 1.0039265539790554,
+    "p99_ns": 0.999700964371842,
+    "peak_bytes": 0.977345623252647
+  },
+  "p95_regressions_over_5pct": 6,
+  "p99_regressions_over_5pct": 12,
+  "max_p99_adaptive_over_tree": 1.6788961240310079,
+  "auto_promotion_justified": false,
+  "conclusion": "No alternative route passed the training gate; promotion not justified",
+  "no_claims": [
+    "real end-user latency",
+    "production readiness",
+    "cross-host portability of frozen route choices",
+    "statistically significant tail regression"
+  ],
+  "artifacts": [
+    {
+      "artifact_id": 15071121176,
+      "name": "alexpy-qa30-macos-latest-py3.13-45717781984",
+      "sha256": "45277eb169dc1d8775bc321a00ef945c598bb631227048f25d89dcb415e77adf",
+      "os": "macos-latest",
+      "python": "3.13",
+      "run_id": "45717781984",
+      "selected_routes": [
+        "c_tree"
+      ]
+    },
+    {
+      "artifact_id": 15069939499,
+      "name": "alexpy-qa30-macos-latest-py3.15-45717781984",
+      "sha256": "fb9550c1bc3dc1d49b9cdc34fc87fc4ee4ea0144adc8297ff965c49f51ed0862",
+      "os": "macos-latest",
+      "python": "3.15",
+      "run_id": "45717781984",
+      "selected_routes": [
+        "c_tree"
+      ]
+    },
+    {
+      "artifact_id": 15069779582,
+      "name": "alexpy-qa30-ubuntu-latest-py3.13-45717781984",
+      "sha256": "6505be853199237578ca46d1cad3f0a85c384e85f17da569586bbef391166dbd",
+      "os": "ubuntu-latest",
+      "python": "3.13",
+      "run_id": "45717781984",
+      "selected_routes": [
+        "c_tree"
+      ]
+    },
+    {
+      "artifact_id": 15071176179,
+      "name": "alexpy-qa30-ubuntu-latest-py3.15-45717781984",
+      "sha256": "27f4667b6127ccec18492617f2aff9c7a5cc840bbd59041d7873752635372717",
+      "os": "ubuntu-latest",
+      "python": "3.15",
+      "run_id": "45717781984",
+      "selected_routes": [
+        "c_tree"
+      ]
+    },
+    {
+      "artifact_id": 15071385478,
+      "name": "alexpy-qa30-windows-latest-py3.13-45717781984",
+      "sha256": "6573535f6625fe3507dc4a439823e3010f1f3e8fda7e4b4aba2639e0995fb700",
+      "os": "windows-latest",
+      "python": "3.13",
+      "run_id": "45717781984",
+      "selected_routes": [
+        "c_tree"
+      ]
+    },
+    {
+      "artifact_id": 15070068673,
+      "name": "alexpy-qa30-windows-latest-py3.15-45717781984",
+      "sha256": "c3434969d77f236467dacafcc611070e7bd8eddb93946ece959171be479d3e1a",
+      "os": "windows-latest",
+      "python": "3.15",
+      "run_id": "45717781984",
+      "selected_routes": [
+        "c_tree"
+      ]
+    },
+    {
+      "artifact_id": 15069659856,
+      "name": "alexpy-qa30-macos-latest-py3.13-45717790340",
+      "sha256": "f0ef35d3f822c2d687245e6e5b1928b6b04e322cfbdb4cc3da3afddbda7eda6f",
+      "os": "macos-latest",
+      "python": "3.13",
+      "run_id": "45717790340",
+      "selected_routes": [
+        "c_tree"
+      ]
+    },
+    {
+      "artifact_id": 15069939439,
+      "name": "alexpy-qa30-macos-latest-py3.15-45717790340",
+      "sha256": "bc6c0a8c97e0da725d624f654db278e2eeadac6ec11fa811946a0370bc37a5f0",
+      "os": "macos-latest",
+      "python": "3.15",
+      "run_id": "45717790340",
+      "selected_routes": [
+        "c_tree"
+      ]
+    },
+    {
+      "artifact_id": 15070228906,
+      "name": "alexpy-qa30-ubuntu-latest-py3.13-45717790340",
+      "sha256": "7fc1b7ba4f1c2579fc3359d40e567b2cbf1afb430d22cd5d4875077e98962ae3",
+      "os": "ubuntu-latest",
+      "python": "3.13",
+      "run_id": "45717790340",
+      "selected_routes": [
+        "c_tree"
+      ]
+    },
+    {
+      "artifact_id": 15070138354,
+      "name": "alexpy-qa30-ubuntu-latest-py3.15-45717790340",
+      "sha256": "988a59d981dde2bf9abf138fd7ccfd805fc2b8554fbd56779e6cf361004d9296",
+      "os": "ubuntu-latest",
+      "python": "3.15",
+      "run_id": "45717790340",
+      "selected_routes": [
+        "c_tree"
+      ]
+    },
+    {
+      "artifact_id": 15070283784,
+      "name": "alexpy-qa30-windows-latest-py3.13-45717790340",
+      "sha256": "9c9e1cc9ff1a396bdc62fa4fe12f5a7271e8bf0e5eb4f79ee1f43a64cea8b405",
+      "os": "windows-latest",
+      "python": "3.13",
+      "run_id": "45717790340",
+      "selected_routes": [
+        "c_tree"
+      ]
+    },
+    {
+      "artifact_id": 15070098761,
+      "name": "alexpy-qa30-windows-latest-py3.15-45717790340",
+      "sha256": "8c346287102b3cb06ad9b012db1831169217c2355146346315fc60c1538e97a5",
+      "os": "windows-latest",
+      "python": "3.15",
+      "run_id": "45717790340",
+      "selected_routes": [
+        "c_tree"
+      ]
+    }
+  ],
+  "matrix": [
+    {
+      "os": "macos-latest",
+      "python": "3.13",
+      "run": "45717781984",
+      "feature": [
+        "medium",
+        "wide"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "macos-latest",
+      "python": "3.13",
+      "run": "45717781984",
+      "feature": [
+        "small",
+        "single"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "macos-latest",
+      "python": "3.13",
+      "run": "45717781984",
+      "feature": [
+        "small",
+        "small"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "macos-latest",
+      "python": "3.15",
+      "run": "45717781984",
+      "feature": [
+        "medium",
+        "wide"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "macos-latest",
+      "python": "3.15",
+      "run": "45717781984",
+      "feature": [
+        "small",
+        "single"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "macos-latest",
+      "python": "3.15",
+      "run": "45717781984",
+      "feature": [
+        "small",
+        "small"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.13",
+      "run": "45717781984",
+      "feature": [
+        "medium",
+        "wide"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.13",
+      "run": "45717781984",
+      "feature": [
+        "small",
+        "single"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.13",
+      "run": "45717781984",
+      "feature": [
+        "small",
+        "small"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.15",
+      "run": "45717781984",
+      "feature": [
+        "medium",
+        "wide"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.15",
+      "run": "45717781984",
+      "feature": [
+        "small",
+        "single"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.15",
+      "run": "45717781984",
+      "feature": [
+        "small",
+        "small"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.13",
+      "run": "45717781984",
+      "feature": [
+        "medium",
+        "wide"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.13",
+      "run": "45717781984",
+      "feature": [
+        "small",
+        "single"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.13",
+      "run": "45717781984",
+      "feature": [
+        "small",
+        "small"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.15",
+      "run": "45717781984",
+      "feature": [
+        "medium",
+        "wide"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.15",
+      "run": "45717781984",
+      "feature": [
+        "small",
+        "single"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.15",
+      "run": "45717781984",
+      "feature": [
+        "small",
+        "small"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "macos-latest",
+      "python": "3.13",
+      "run": "45717790340",
+      "feature": [
+        "medium",
+        "wide"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "macos-latest",
+      "python": "3.13",
+      "run": "45717790340",
+      "feature": [
+        "small",
+        "single"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "macos-latest",
+      "python": "3.13",
+      "run": "45717790340",
+      "feature": [
+        "small",
+        "small"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "macos-latest",
+      "python": "3.15",
+      "run": "45717790340",
+      "feature": [
+        "medium",
+        "wide"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "macos-latest",
+      "python": "3.15",
+      "run": "45717790340",
+      "feature": [
+        "small",
+        "single"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "macos-latest",
+      "python": "3.15",
+      "run": "45717790340",
+      "feature": [
+        "small",
+        "small"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.13",
+      "run": "45717790340",
+      "feature": [
+        "medium",
+        "wide"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.13",
+      "run": "45717790340",
+      "feature": [
+        "small",
+        "single"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.13",
+      "run": "45717790340",
+      "feature": [
+        "small",
+        "small"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.15",
+      "run": "45717790340",
+      "feature": [
+        "medium",
+        "wide"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.15",
+      "run": "45717790340",
+      "feature": [
+        "small",
+        "single"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.15",
+      "run": "45717790340",
+      "feature": [
+        "small",
+        "small"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.13",
+      "run": "45717790340",
+      "feature": [
+        "medium",
+        "wide"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.13",
+      "run": "45717790340",
+      "feature": [
+        "small",
+        "single"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.13",
+      "run": "45717790340",
+      "feature": [
+        "small",
+        "small"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.15",
+      "run": "45717790340",
+      "feature": [
+        "medium",
+        "wide"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.15",
+      "run": "45717790340",
+      "feature": [
+        "small",
+        "single"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.15",
+      "run": "45717790340",
+      "feature": [
+        "small",
+        "small"
+      ],
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate"
+    }
+  ],
+  "holdouts": [
+    {
+      "os": "macos-latest",
+      "python": "3.13",
+      "run": "45717781984",
+      "n": 29,
+      "batch": 1,
+      "seed": 8101,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 1.0079145146927873,
+        "p95_ns": 1.03652787560321,
+        "p99_ns": 1.3476751756966938,
+        "peak_bytes": 0.6445652173913043
+      }
+    },
+    {
+      "os": "macos-latest",
+      "python": "3.13",
+      "run": "45717781984",
+      "n": 31,
+      "batch": 13,
+      "seed": 8102,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 1.0192787508520045,
+        "p95_ns": 1.0115251045765938,
+        "p99_ns": 0.8192962601626016,
+        "peak_bytes": 0.820099422275964
+      }
+    },
+    {
+      "os": "macos-latest",
+      "python": "3.13",
+      "run": "45717781984",
+      "n": 81,
+      "batch": 1,
+      "seed": 8104,
+      "route": "c_tree",
+      "reason": "unknown_workload",
+      "adaptive_over_tree": {
+        "median_ns": 1.0155257891064897,
+        "p95_ns": 1.0175324964245989,
+        "p99_ns": 1.258394878115569,
+        "peak_bytes": 0.9278554070473876
+      }
+    },
+    {
+      "os": "macos-latest",
+      "python": "3.13",
+      "run": "45717781984",
+      "n": 769,
+      "batch": 96,
+      "seed": 8103,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 0.94636853791556,
+        "p95_ns": 0.9526067083225667,
+        "p99_ns": 0.9641903660629352,
+        "peak_bytes": 0.9637764196587726
+      }
+    },
+    {
+      "os": "macos-latest",
+      "python": "3.15",
+      "run": "45717781984",
+      "n": 29,
+      "batch": 1,
+      "seed": 8101,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 1.010099136267846,
+        "p95_ns": 0.9765206387704394,
+        "p99_ns": 1.0110007572187885,
+        "peak_bytes": 0.9987639060568603
+      }
+    },
+    {
+      "os": "macos-latest",
+      "python": "3.15",
+      "run": "45717781984",
+      "n": 31,
+      "batch": 13,
+      "seed": 8102,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 1.0003126558626696,
+        "p95_ns": 0.9132711034651205,
+        "p99_ns": 0.9429123933018158,
+        "peak_bytes": 0.9993702770780857
+      }
+    },
+    {
+      "os": "macos-latest",
+      "python": "3.15",
+      "run": "45717781984",
+      "n": 81,
+      "batch": 1,
+      "seed": 8104,
+      "route": "c_tree",
+      "reason": "unknown_workload",
+      "adaptive_over_tree": {
+        "median_ns": 1.005224569857882,
+        "p95_ns": 1.1300938243943426,
+        "p99_ns": 1.0736753383220998,
+        "peak_bytes": 1.006004460456339
+      }
+    },
+    {
+      "os": "macos-latest",
+      "python": "3.15",
+      "run": "45717781984",
+      "n": 769,
+      "batch": 96,
+      "seed": 8103,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 0.9932521258686925,
+        "p95_ns": 1.0391396200005745,
+        "p99_ns": 1.2180162290586738,
+        "peak_bytes": 1.0035415249665782
+      }
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.13",
+      "run": "45717781984",
+      "n": 29,
+      "batch": 1,
+      "seed": 8101,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 1.0099663258055547,
+        "p95_ns": 1.0070404505888377,
+        "p99_ns": 1.0014088586927898,
+        "peak_bytes": 0.6287843502561714
+      }
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.13",
+      "run": "45717781984",
+      "n": 31,
+      "batch": 13,
+      "seed": 8102,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 1.012177546616856,
+        "p95_ns": 0.9949342390518862,
+        "p99_ns": 0.88768675940237,
+        "peak_bytes": 0.9374143444495203
+      }
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.13",
+      "run": "45717781984",
+      "n": 81,
+      "batch": 1,
+      "seed": 8104,
+      "route": "c_tree",
+      "reason": "unknown_workload",
+      "adaptive_over_tree": {
+        "median_ns": 1.0037723302403483,
+        "p95_ns": 1.0011507735755703,
+        "p99_ns": 1.0045414309687841,
+        "peak_bytes": 0.9502617801047121
+      }
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.13",
+      "run": "45717781984",
+      "n": 769,
+      "batch": 96,
+      "seed": 8103,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 0.9989547457832595,
+        "p95_ns": 0.988431278146627,
+        "p99_ns": 0.9772150603484887,
+        "peak_bytes": 0.9798317885341572
+      }
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.15",
+      "run": "45717781984",
+      "n": 29,
+      "batch": 1,
+      "seed": 8101,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 1.0016780947115942,
+        "p95_ns": 1.0029571471257972,
+        "p99_ns": 0.9730267114119998,
+        "peak_bytes": 0.9402023919043239
+      }
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.15",
+      "run": "45717781984",
+      "n": 31,
+      "batch": 13,
+      "seed": 8102,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 1.0163971408895538,
+        "p95_ns": 0.9789982489803194,
+        "p99_ns": 0.9785792833796622,
+        "peak_bytes": 0.9837385782871303
+      }
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.15",
+      "run": "45717781984",
+      "n": 81,
+      "batch": 1,
+      "seed": 8104,
+      "route": "c_tree",
+      "reason": "unknown_workload",
+      "adaptive_over_tree": {
+        "median_ns": 1.0005029234518361,
+        "p95_ns": 0.9959722313183574,
+        "p99_ns": 1.042366925762532,
+        "peak_bytes": 0.9797877716018191
+      }
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.15",
+      "run": "45717781984",
+      "n": 769,
+      "batch": 96,
+      "seed": 8103,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 1.0162227189226611,
+        "p95_ns": 1.007893895487463,
+        "p99_ns": 0.9914492653684729,
+        "peak_bytes": 1.0035415249665782
+      }
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.13",
+      "run": "45717781984",
+      "n": 29,
+      "batch": 1,
+      "seed": 8101,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 1.0159384961560098,
+        "p95_ns": 1.015807560137457,
+        "p99_ns": 0.9993489583333334,
+        "peak_bytes": 0.6943433675157129
+      }
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.13",
+      "run": "45717781984",
+      "n": 31,
+      "batch": 13,
+      "seed": 8102,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 1.0192525481313703,
+        "p95_ns": 1.0191532258064515,
+        "p99_ns": 0.987012987012987,
+        "peak_bytes": 0.8753611225753198
+      }
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.13",
+      "run": "45717781984",
+      "n": 81,
+      "batch": 1,
+      "seed": 8104,
+      "route": "c_tree",
+      "reason": "unknown_workload",
+      "adaptive_over_tree": {
+        "median_ns": 1.0064784506273867,
+        "p95_ns": 0.9945532356374012,
+        "p99_ns": 1.0027177123951319,
+        "peak_bytes": 0.8
+      }
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.13",
+      "run": "45717781984",
+      "n": 769,
+      "batch": 96,
+      "seed": 8103,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 0.9963987771387118,
+        "p95_ns": 0.986965537671571,
+        "p99_ns": 0.9094409988244355,
+        "peak_bytes": 0.9864899974019226
+      }
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.15",
+      "run": "45717781984",
+      "n": 29,
+      "batch": 1,
+      "seed": 8101,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 1.0068085106382978,
+        "p95_ns": 1.0581021897810219,
+        "p99_ns": 1.0115606936416186,
+        "peak_bytes": 0.9393164380376656
+      }
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.15",
+      "run": "45717781984",
+      "n": 31,
+      "batch": 13,
+      "seed": 8102,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 1.0161725067385445,
+        "p95_ns": 1.0256410256410255,
+        "p99_ns": 0.9797492767598843,
+        "peak_bytes": 0.9912554653341662
+      }
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.15",
+      "run": "45717781984",
+      "n": 81,
+      "batch": 1,
+      "seed": 8104,
+      "route": "c_tree",
+      "reason": "unknown_workload",
+      "adaptive_over_tree": {
+        "median_ns": 1.004660880745741,
+        "p95_ns": 1.0048959608323134,
+        "p99_ns": 1.2019490254872565,
+        "peak_bytes": 0.9973032192819822
+      }
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.15",
+      "run": "45717781984",
+      "n": 769,
+      "batch": 96,
+      "seed": 8103,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 0.9950299519452307,
+        "p95_ns": 0.9886712749615976,
+        "p99_ns": 0.7938110616032376,
+        "peak_bytes": 0.9989972716461069
+      }
+    },
+    {
+      "os": "macos-latest",
+      "python": "3.13",
+      "run": "45717790340",
+      "n": 29,
+      "batch": 1,
+      "seed": 8101,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 1.0178089584457637,
+        "p95_ns": 1.0313273495512163,
+        "p99_ns": 1.0668956364367586,
+        "peak_bytes": 0.7306356373740882
+      }
+    },
+    {
+      "os": "macos-latest",
+      "python": "3.13",
+      "run": "45717790340",
+      "n": 31,
+      "batch": 13,
+      "seed": 8102,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 1.0124023658201822,
+        "p95_ns": 1.0928246013667426,
+        "p99_ns": 1.6788961240310079,
+        "peak_bytes": 0.8449401523394995
+      }
+    },
+    {
+      "os": "macos-latest",
+      "python": "3.13",
+      "run": "45717790340",
+      "n": 81,
+      "batch": 1,
+      "seed": 8104,
+      "route": "c_tree",
+      "reason": "unknown_workload",
+      "adaptive_over_tree": {
+        "median_ns": 0.9949163883866512,
+        "p95_ns": 1.0157718868945023,
+        "p99_ns": 0.9547438316430608,
+        "peak_bytes": 0.9616797062110809
+      }
+    },
+    {
+      "os": "macos-latest",
+      "python": "3.13",
+      "run": "45717790340",
+      "n": 769,
+      "batch": 96,
+      "seed": 8103,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 0.9978156216121683,
+        "p95_ns": 0.9931811362954477,
+        "p99_ns": 0.9388123820085078,
+        "peak_bytes": 0.9707505166059521
+      }
+    },
+    {
+      "os": "macos-latest",
+      "python": "3.15",
+      "run": "45717790340",
+      "n": 29,
+      "batch": 1,
+      "seed": 8101,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 1.0122074921075757,
+        "p95_ns": 1.0175055099902446,
+        "p99_ns": 1.052119850187266,
+        "peak_bytes": 0.9525286259541985
+      }
+    },
+    {
+      "os": "macos-latest",
+      "python": "3.15",
+      "run": "45717790340",
+      "n": 31,
+      "batch": 13,
+      "seed": 8102,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 1.0135564414936704,
+        "p95_ns": 1.0865563901763358,
+        "p99_ns": 1.418368349249659,
+        "peak_bytes": 1.023949246629659
+      }
+    },
+    {
+      "os": "macos-latest",
+      "python": "3.15",
+      "run": "45717790340",
+      "n": 81,
+      "batch": 1,
+      "seed": 8104,
+      "route": "c_tree",
+      "reason": "unknown_workload",
+      "adaptive_over_tree": {
+        "median_ns": 0.9971451584124581,
+        "p95_ns": 0.9810742286142342,
+        "p99_ns": 0.9912509307520476,
+        "peak_bytes": 1.0150995195607413
+      }
+    },
+    {
+      "os": "macos-latest",
+      "python": "3.15",
+      "run": "45717790340",
+      "n": 769,
+      "batch": 96,
+      "seed": 8103,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 0.9992642605645965,
+        "p95_ns": 0.9894370145549417,
+        "p99_ns": 1.0000529704103505,
+        "peak_bytes": 1.0013323048874554
+      }
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.13",
+      "run": "45717790340",
+      "n": 29,
+      "batch": 1,
+      "seed": 8101,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 1.012280008857861,
+        "p95_ns": 1.023080284091396,
+        "p99_ns": 1.075477143844387,
+        "peak_bytes": 0.7732391677801107
+      }
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.13",
+      "run": "45717790340",
+      "n": 31,
+      "batch": 13,
+      "seed": 8102,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 1.0079529737206085,
+        "p95_ns": 1.0053219797764767,
+        "p99_ns": 1.004091997579011,
+        "peak_bytes": 0.9092505854800936
+      }
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.13",
+      "run": "45717790340",
+      "n": 81,
+      "batch": 1,
+      "seed": 8104,
+      "route": "c_tree",
+      "reason": "unknown_workload",
+      "adaptive_over_tree": {
+        "median_ns": 0.998569864094576,
+        "p95_ns": 1.0176892350805393,
+        "p99_ns": 0.9185806851400321,
+        "peak_bytes": 0.6704903283850653
+      }
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.13",
+      "run": "45717790340",
+      "n": 769,
+      "batch": 96,
+      "seed": 8103,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 0.9907932389727085,
+        "p95_ns": 0.9888037236786916,
+        "p99_ns": 0.9489971054820254,
+        "peak_bytes": 1.0
+      }
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.15",
+      "run": "45717790340",
+      "n": 29,
+      "batch": 1,
+      "seed": 8101,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 1.0048742492214273,
+        "p95_ns": 1.0023706969381097,
+        "p99_ns": 0.9963677644460662,
+        "peak_bytes": 0.974903474903475
+      }
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.15",
+      "run": "45717790340",
+      "n": 31,
+      "batch": 13,
+      "seed": 8102,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 1.0109525345374402,
+        "p95_ns": 1.0102385202012008,
+        "p99_ns": 1.0137680605989072,
+        "peak_bytes": 0.9838909541511772
+      }
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.15",
+      "run": "45717790340",
+      "n": 81,
+      "batch": 1,
+      "seed": 8104,
+      "route": "c_tree",
+      "reason": "unknown_workload",
+      "adaptive_over_tree": {
+        "median_ns": 0.9994688631669372,
+        "p95_ns": 1.0057876066474796,
+        "p99_ns": 1.051729567296153,
+        "peak_bytes": 0.9880715705765407
+      }
+    },
+    {
+      "os": "ubuntu-latest",
+      "python": "3.15",
+      "run": "45717790340",
+      "n": 769,
+      "batch": 96,
+      "seed": 8103,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 0.9956578698976944,
+        "p95_ns": 0.9951101333745261,
+        "p99_ns": 0.9590251465329336,
+        "peak_bytes": 1.0
+      }
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.13",
+      "run": "45717790340",
+      "n": 29,
+      "batch": 1,
+      "seed": 8101,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 1.0029465930018415,
+        "p95_ns": 0.9906697767410862,
+        "p99_ns": 1.0047297297297297,
+        "peak_bytes": 0.816733870967742
+      }
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.13",
+      "run": "45717790340",
+      "n": 31,
+      "batch": 13,
+      "seed": 8102,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 1.0060706401766004,
+        "p95_ns": 0.9723160027008778,
+        "p99_ns": 0.9724663151728178,
+        "peak_bytes": 0.9918341708542714
+      }
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.13",
+      "run": "45717790340",
+      "n": 81,
+      "batch": 1,
+      "seed": 8104,
+      "route": "c_tree",
+      "reason": "unknown_workload",
+      "adaptive_over_tree": {
+        "median_ns": 1.00605470109263,
+        "p95_ns": 1.3009270553793608,
+        "p99_ns": 1.0426638917793964,
+        "peak_bytes": 0.8530634876628778
+      }
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.13",
+      "run": "45717790340",
+      "n": 769,
+      "batch": 96,
+      "seed": 8103,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 0.9970140032948929,
+        "p95_ns": 0.9765034965034965,
+        "p99_ns": 1.0138874276696475,
+        "peak_bytes": 0.9909431333275277
+      }
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.15",
+      "run": "45717790340",
+      "n": 29,
+      "batch": 1,
+      "seed": 8101,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 1.00299593408945,
+        "p95_ns": 1.0007695267410543,
+        "p99_ns": 1.2676606318778842,
+        "peak_bytes": 0.9626237623762376
+      }
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.15",
+      "run": "45717790340",
+      "n": 31,
+      "batch": 13,
+      "seed": 8102,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 1.0107671601615074,
+        "p95_ns": 1.1270860077021823,
+        "p99_ns": 0.9663784822286263,
+        "peak_bytes": 1.0
+      }
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.15",
+      "run": "45717790340",
+      "n": 81,
+      "batch": 1,
+      "seed": 8104,
+      "route": "c_tree",
+      "reason": "unknown_workload",
+      "adaptive_over_tree": {
+        "median_ns": 1.002635046113307,
+        "p95_ns": 0.9968876439464674,
+        "p99_ns": 0.9888,
+        "peak_bytes": 1.0152711050102952
+      }
+    },
+    {
+      "os": "windows-latest",
+      "python": "3.15",
+      "run": "45717790340",
+      "n": 769,
+      "batch": 96,
+      "seed": 8103,
+      "route": "c_tree",
+      "reason": "risk_or_gain_gate",
+      "adaptive_over_tree": {
+        "median_ns": 0.9942475839852738,
+        "p95_ns": 0.9642230159210606,
+        "p99_ns": 0.9600618816919757,
+        "peak_bytes": 1.0023219269648427
+      }
+    }
+  ]
+}
