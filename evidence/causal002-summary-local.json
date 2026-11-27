@@ -1,0 +1,274 @@
+{
+  "schema": "causal002/1",
+  "environment": {
+    "system": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "python": "3.13.5",
+    "processor": "AMD EPYC 9V74 80-Core Processor"
+  },
+  "protocol": {
+    "timing": "apply + select + read + both traces, build separate",
+    "memory": "tracemalloc peak, shared graph and operations excluded, not RSS",
+    "synthetic": true,
+    "default_promotion": false
+  },
+  "raw_sha256": "442d92bf761cbf546cd21bf825ea291d9c92d70a20c39c45096e2044ec50cccb",
+  "targeted_tests": 14,
+  "verified_route_steps": 18000,
+  "seeds": [
+    62901,
+    62902,
+    62903
+  ],
+  "cases": {
+    "return_stable": {
+      "eager": {
+        "median_ns": 3566.0,
+        "p95_ns": 4226,
+        "p99_ns": 5999,
+        "peak_traced_bytes": 72152,
+        "build_median_ns": 114475.0,
+        "evaluated": 900,
+        "reused": 0,
+        "invalidated": 0,
+        "equal": 900,
+        "switch_median_ns": 3685
+      },
+      "active_only": {
+        "median_ns": 3585.0,
+        "p95_ns": 11186,
+        "p99_ns": 15092,
+        "peak_traced_bytes": 62864,
+        "build_median_ns": 40991.0,
+        "evaluated": 3870,
+        "reused": 0,
+        "invalidated": 0,
+        "equal": 603,
+        "switch_median_ns": 10296
+      },
+      "lazy_dirty": {
+        "median_ns": 10355.5,
+        "p95_ns": 16425,
+        "p99_ns": 30075,
+        "peak_traced_bytes": 164984,
+        "build_median_ns": 44611.5,
+        "evaluated": 990,
+        "reused": 8910,
+        "invalidated": 9801,
+        "equal": 891,
+        "switch_median_ns": 13681
+      },
+      "causal": {
+        "median_ns": 3986.0,
+        "p95_ns": 10115,
+        "p99_ns": 24076,
+        "peak_traced_bytes": 126544,
+        "build_median_ns": 42689.0,
+        "evaluated": 990,
+        "reused": 2880,
+        "invalidated": 0,
+        "equal": 891,
+        "switch_median_ns": 9684
+      }
+    },
+    "return_stale": {
+      "eager": {
+        "median_ns": 15148.0,
+        "p95_ns": 29925,
+        "p99_ns": 57596,
+        "peak_traced_bytes": 75264,
+        "build_median_ns": 115742.0,
+        "evaluated": 17071,
+        "reused": 0,
+        "invalidated": 0,
+        "equal": 2167,
+        "switch_median_ns": 15483
+      },
+      "active_only": {
+        "median_ns": 4101.0,
+        "p95_ns": 14652,
+        "p99_ns": 20961,
+        "peak_traced_bytes": 62980,
+        "build_median_ns": 40936.0,
+        "evaluated": 3994,
+        "reused": 0,
+        "invalidated": 0,
+        "equal": 83,
+        "switch_median_ns": 11938
+      },
+      "lazy_dirty": {
+        "median_ns": 7160.0,
+        "p95_ns": 28202,
+        "p99_ns": 44026,
+        "peak_traced_bytes": 170360,
+        "build_median_ns": 45302.5,
+        "evaluated": 2827,
+        "reused": 1914,
+        "invalidated": 4708,
+        "equal": 212,
+        "switch_median_ns": 17225
+      },
+      "causal": {
+        "median_ns": 4106.0,
+        "p95_ns": 17856,
+        "p99_ns": 26029,
+        "peak_traced_bytes": 139096,
+        "build_median_ns": 43099.0,
+        "evaluated": 2827,
+        "reused": 1167,
+        "invalidated": 0,
+        "equal": 212,
+        "switch_median_ns": 13891
+      }
+    },
+    "rare_switch": {
+      "eager": {
+        "median_ns": 14386.5,
+        "p95_ns": 28392,
+        "p99_ns": 76695,
+        "peak_traced_bytes": 75264,
+        "build_median_ns": 116362.5,
+        "evaluated": 17071,
+        "reused": 0,
+        "invalidated": 0,
+        "equal": 2167,
+        "switch_median_ns": 18668
+      },
+      "active_only": {
+        "median_ns": 3635.0,
+        "p95_ns": 10836,
+        "p99_ns": 19870,
+        "peak_traced_bytes": 58856,
+        "build_median_ns": 40706.0,
+        "evaluated": 1030,
+        "reused": 0,
+        "invalidated": 0,
+        "equal": 86,
+        "switch_median_ns": 13049
+      },
+      "lazy_dirty": {
+        "median_ns": 4051.0,
+        "p95_ns": 16775,
+        "p99_ns": 26289,
+        "peak_traced_bytes": 100388,
+        "build_median_ns": 44792.0,
+        "evaluated": 1030,
+        "reused": 774,
+        "invalidated": 1804,
+        "equal": 86,
+        "switch_median_ns": 19269
+      },
+      "causal": {
+        "median_ns": 3575.0,
+        "p95_ns": 14521,
+        "p99_ns": 25207,
+        "peak_traced_bytes": 78492,
+        "build_median_ns": 43174.5,
+        "evaluated": 1030,
+        "reused": 0,
+        "invalidated": 0,
+        "equal": 86,
+        "switch_median_ns": 15403
+      }
+    },
+    "shared_overlap": {
+      "eager": {
+        "median_ns": 15448.0,
+        "p95_ns": 73359,
+        "p99_ns": 130995,
+        "peak_traced_bytes": 93820,
+        "build_median_ns": 119943.5,
+        "evaluated": 20014,
+        "reused": 0,
+        "invalidated": 0,
+        "equal": 3295,
+        "switch_median_ns": 15568.5
+      },
+      "active_only": {
+        "median_ns": 10816.0,
+        "p95_ns": 29714,
+        "p99_ns": 90315,
+        "peak_traced_bytes": 84664,
+        "build_median_ns": 42498.5,
+        "evaluated": 7387,
+        "reused": 0,
+        "invalidated": 0,
+        "equal": 658,
+        "switch_median_ns": 19729.5
+      },
+      "lazy_dirty": {
+        "median_ns": 19128.5,
+        "p95_ns": 63404,
+        "p99_ns": 89383,
+        "peak_traced_bytes": 238124,
+        "build_median_ns": 46799.5,
+        "evaluated": 6317,
+        "reused": 6993,
+        "invalidated": 13167,
+        "equal": 776,
+        "switch_median_ns": 31657.0
+      },
+      "causal": {
+        "median_ns": 14356.5,
+        "p95_ns": 39449,
+        "p99_ns": 66128,
+        "peak_traced_bytes": 208100,
+        "build_median_ns": 45392.0,
+        "evaluated": 6317,
+        "reused": 1070,
+        "invalidated": 0,
+        "equal": 776,
+        "switch_median_ns": 22218.0
+      }
+    },
+    "dense_switch": {
+      "eager": {
+        "median_ns": 118546.0,
+        "p95_ns": 163263,
+        "p99_ns": 226477,
+        "peak_traced_bytes": 127360,
+        "build_median_ns": 122196.5,
+        "evaluated": 139369,
+        "reused": 0,
+        "invalidated": 0,
+        "equal": 10774,
+        "switch_median_ns": 120299.0
+      },
+      "active_only": {
+        "median_ns": 101677.0,
+        "p95_ns": 151215,
+        "p99_ns": 334918,
+        "peak_traced_bytes": 142936,
+        "build_median_ns": 41882.0,
+        "evaluated": 107783,
+        "reused": 0,
+        "invalidated": 0,
+        "equal": 8077,
+        "switch_median_ns": 124630.0
+      },
+      "lazy_dirty": {
+        "median_ns": 199797.5,
+        "p95_ns": 289120,
+        "p99_ns": 449979,
+        "peak_traced_bytes": 373048,
+        "build_median_ns": 46539.5,
+        "evaluated": 106555,
+        "reused": 74406,
+        "invalidated": 180400,
+        "equal": 8211,
+        "switch_median_ns": 225851.0
+      },
+      "causal": {
+        "median_ns": 140949.5,
+        "p95_ns": 201940,
+        "p99_ns": 281849,
+        "peak_traced_bytes": 342752,
+        "build_median_ns": 43695.0,
+        "evaluated": 106555,
+        "reused": 1228,
+        "invalidated": 0,
+        "equal": 8211,
+        "switch_median_ns": 160799.0
+      }
+    }
+  }
+}
