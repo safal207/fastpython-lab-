@@ -1,0 +1,152 @@
+{
+  "schema": "alexpy-bardo-bridge/1",
+  "host": {
+    "system": "Linux",
+    "python": "3.13.5",
+    "machine": "x86_64",
+    "processor": "AMD EPYC 9V74 80-Core Processor"
+  },
+  "comparison": "SAME native QA kernel + exact witness tree vs Python failure set",
+  "rows": [
+    {
+      "case": "small-hot",
+      "tests": 256,
+      "events": 1800,
+      "batch": 8,
+      "reports": 225,
+      "pairs": 2,
+      "samples_ns": {
+        "native_set": [
+          2580162,
+          2640393
+        ],
+        "native_tree": [
+          10881657,
+          13270529
+        ]
+      },
+      "medians_ns": {
+        "native_set": 2610277.5,
+        "native_tree": 12076093.0
+      },
+      "tree_vs_set": 0.21615248408570553,
+      "digest": 11963395168255294413
+    },
+    {
+      "case": "medium-sparse",
+      "tests": 4096,
+      "events": 3200,
+      "batch": 64,
+      "reports": 12,
+      "pairs": 2,
+      "samples_ns": {
+        "native_set": [
+          2992195,
+          3010704
+        ],
+        "native_tree": [
+          36871542,
+          37744953
+        ]
+      },
+      "medians_ns": {
+        "native_set": 3001449.5,
+        "native_tree": 37308247.5
+      },
+      "tree_vs_set": 0.08045002649883247,
+      "digest": 3906588467567405761
+    }
+  ],
+  "synthetic_calibration_simulation": [
+    {
+      "policy": "fixed8",
+      "pattern": "stable",
+      "ticks": 1024,
+      "probes": 128,
+      "net_cost": -2816.0
+    },
+    {
+      "policy": "fixed64",
+      "pattern": "stable",
+      "ticks": 1024,
+      "probes": 16,
+      "net_cost": -3040.0
+    },
+    {
+      "policy": "every",
+      "pattern": "stable",
+      "ticks": 1024,
+      "probes": 1024,
+      "net_cost": -1024.0
+    },
+    {
+      "policy": "adaptive",
+      "pattern": "stable",
+      "ticks": 1024,
+      "probes": 15,
+      "net_cost": -3042.0
+    },
+    {
+      "policy": "fixed8",
+      "pattern": "single",
+      "ticks": 1024,
+      "probes": 128,
+      "net_cost": -1280.0
+    },
+    {
+      "policy": "fixed64",
+      "pattern": "single",
+      "ticks": 1024,
+      "probes": 16,
+      "net_cost": -1504.0
+    },
+    {
+      "policy": "every",
+      "pattern": "single",
+      "ticks": 1024,
+      "probes": 1024,
+      "net_cost": 512.0
+    },
+    {
+      "policy": "adaptive",
+      "pattern": "single",
+      "ticks": 1024,
+      "probes": 64,
+      "net_cost": -946.0
+    },
+    {
+      "policy": "fixed8",
+      "pattern": "reversal",
+      "ticks": 1024,
+      "probes": 128,
+      "net_cost": -2048.0
+    },
+    {
+      "policy": "fixed64",
+      "pattern": "reversal",
+      "ticks": 1024,
+      "probes": 16,
+      "net_cost": -2272.0
+    },
+    {
+      "policy": "every",
+      "pattern": "reversal",
+      "ticks": 1024,
+      "probes": 1024,
+      "net_cost": -256.0
+    },
+    {
+      "policy": "adaptive",
+      "pattern": "reversal",
+      "ticks": 1024,
+      "probes": 64,
+      "net_cost": -1708.0
+    }
+  ],
+  "claims": {
+    "default_promotion": false,
+    "tree_faster_not_assumed": true,
+    "synthetic_time_not_cpu_benchmark": true,
+    "Bardo_reference_sha": "f50490e8194f0e5c7aeeba251f2575eb8155ed54"
+  }
+}

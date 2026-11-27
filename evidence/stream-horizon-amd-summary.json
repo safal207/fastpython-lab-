@@ -1,0 +1,137 @@
+{
+  "schema": "ALEXPY-STREAM-LONG-HORIZON-SUMMARY/1",
+  "host": {
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "AMD EPYC 9V74 80-Core Processor",
+    "python": "3.13.5",
+    "implementation": "cpython",
+    "logical_cpus": 5,
+    "ci": true,
+    "github_runner_os": null,
+    "github_runner_arch": null
+  },
+  "frozen_sha256": "74bb0d2347296f0706c50feb756e9ff2eda3f0040784d792fa325987dbfac9b1",
+  "calibration_wall_ns": 2550255370,
+  "calibration_source": "evidence/stream-horizon-amd-calibration.json",
+  "full_raw_source": "evidence/stream-horizon-amd-128-8192.json",
+  "prior_host_cpu": "INTEL(R) XEON(R) PLATINUM 8573C",
+  "current_host_cpu": "AMD EPYC 9V74 80-Core Processor",
+  "profile_gate": "Rejected Intel source; retrained fresh on AMD",
+  "first_observed_paid_cycles": 8192,
+  "horizons": [
+    {
+      "cycles": 128,
+      "online_savings_ns_by_process": [
+        76758762.5,
+        65578879.5,
+        65015583.0
+      ],
+      "by_size_ns_by_process": [
+        [
+          11340964.0,
+          65417798.5
+        ],
+        [
+          6955136.0,
+          58623743.5
+        ],
+        [
+          -2544504.0,
+          67560087.0
+        ]
+      ],
+      "median_online_savings_ns": 65578879.5,
+      "median_paid_net_ns": -2484676490.5,
+      "all_processes_paid": false,
+      "observed_paid_break_even": false
+    },
+    {
+      "cycles": 8192,
+      "online_savings_ns_by_process": [
+        4933548352.0,
+        4945760823.5,
+        5163943039.5
+      ],
+      "by_size_ns_by_process": [
+        [
+          570506581.5,
+          4363041770.5
+        ],
+        [
+          782758716.5,
+          4163002107.0
+        ],
+        [
+          646072377.0,
+          4517870662.5
+        ]
+      ],
+      "median_online_savings_ns": 4945760823.5,
+      "median_paid_net_ns": 2395505453.5,
+      "all_processes_paid": true,
+      "observed_paid_break_even": true
+    }
+  ],
+  "per_size": [
+    {
+      "size": 384,
+      "cycles": 128,
+      "simple_median_ms": 85.103297,
+      "stable_median_ms": 77.3496635,
+      "online_speedup": 1.1002413345986954,
+      "worker_gain_ms": [
+        11.340964,
+        6.955136,
+        -2.544504
+      ],
+      "all_checksums_identical": true
+    },
+    {
+      "size": 1536,
+      "cycles": 128,
+      "simple_median_ms": 230.285772,
+      "stable_median_ms": 164.4549015,
+      "online_speedup": 1.4002974061554498,
+      "worker_gain_ms": [
+        65.4177985,
+        58.6237435,
+        67.560087
+      ],
+      "all_checksums_identical": true
+    },
+    {
+      "size": 384,
+      "cycles": 8192,
+      "simple_median_ms": 5620.296852,
+      "stable_median_ms": 4869.7801435,
+      "online_speedup": 1.1541171647146662,
+      "worker_gain_ms": [
+        570.5065815,
+        782.7587165,
+        646.072377
+      ],
+      "all_checksums_identical": true
+    },
+    {
+      "size": 1536,
+      "cycles": 8192,
+      "simple_median_ms": 15230.85326,
+      "stable_median_ms": 10867.8114895,
+      "online_speedup": 1.4014646163779505,
+      "worker_gain_ms": [
+        4363.0417705,
+        4163.002107,
+        4517.8706625
+      ],
+      "all_checksums_identical": true
+    }
+  ],
+  "limits": [
+    "Follow-up horizons were chosen after seeing the 128-cycle projection.",
+    "The original calibration was measured on this host earlier, not rerun now.",
+    "Held-out SIZES were seen in v1.8; long HORIZONS are new, not a fresh holdout.",
+    "No claim of transfer to other CPUs, tasks or real-world applications.",
+    "Correctness rechecked for each horizon with an independent direct witness."
+  ]
+}

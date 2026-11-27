@@ -1,0 +1,937 @@
+{
+  "schema": "alexpy-drift-sentinel/1",
+  "smoke": true,
+  "ticks": 1536,
+  "train_seeds": [
+    41001,
+    41114,
+    41227,
+    41340,
+    41453,
+    41566,
+    41679,
+    41792,
+    41905,
+    42018,
+    42131,
+    42244
+  ],
+  "holdout_seeds": [
+    91001,
+    91174,
+    91347,
+    91520
+  ],
+  "frozen_selected_fixed": "fixed16",
+  "train_mean_costs": {
+    "fixed8": 529.5833333333334,
+    "fixed16": 475.71666666666664,
+    "fixed32": 585.3166666666667,
+    "fixed64": 829.7166666666667,
+    "fixed128": 1117.6166666666666
+  },
+  "policies": [
+    "fixed16",
+    "sentinel",
+    "bardo_trust",
+    "fixed8",
+    "fixed128"
+  ],
+  "summary": {
+    "fixed16": {
+      "mean_cost": 437.5,
+      "median_cost": 272.5,
+      "median_ratio_vs_train_fixed": 1.0,
+      "win_fraction_vs_train_fixed": 0.0,
+      "p90_ratio": 1.0
+    },
+    "sentinel": {
+      "mean_cost": 890.75,
+      "median_cost": 823.0,
+      "median_ratio_vs_train_fixed": 1.8947206165703276,
+      "win_fraction_vs_train_fixed": 0.25,
+      "p90_ratio": 3.3574660633484164
+    },
+    "bardo_trust": {
+      "mean_cost": 1171.85,
+      "median_cost": 569.5,
+      "median_ratio_vs_train_fixed": 1.8461055806938158,
+      "win_fraction_vs_train_fixed": 0.2,
+      "p90_ratio": 4.383219954648526
+    },
+    "fixed8": {
+      "mean_cost": 511.3,
+      "median_cost": 425.5,
+      "median_ratio_vs_train_fixed": 1.4991649156834224,
+      "win_fraction_vs_train_fixed": 0.3,
+      "p90_ratio": 2.0
+    },
+    "fixed128": {
+      "mean_cost": 1059.0,
+      "median_cost": 768.5,
+      "median_ratio_vs_train_fixed": 2.3649881716796215,
+      "win_fraction_vs_train_fixed": 0.3,
+      "p90_ratio": 3.425339366515837
+    }
+  },
+  "per_kind_mean_cost": {
+    "stable": {
+      "fixed16": 192.0,
+      "sentinel": 26.0,
+      "bardo_trust": 44.0,
+      "fixed8": 384.0,
+      "fixed128": 24.0
+    },
+    "abrupt": {
+      "fixed16": 253.25,
+      "sentinel": 646.75,
+      "bardo_trust": 443.75,
+      "fixed8": 403.25,
+      "fixed128": 505.25
+    },
+    "reversal": {
+      "fixed16": 249.25,
+      "sentinel": 627.25,
+      "bardo_trust": 532.25,
+      "fixed8": 427.25,
+      "fixed128": 637.25
+    },
+    "bursts": {
+      "fixed16": 690.75,
+      "sentinel": 1246.75,
+      "bardo_trust": 3250.5,
+      "fixed8": 637.25,
+      "fixed128": 1785.25
+    },
+    "mixed": {
+      "fixed16": 802.25,
+      "sentinel": 1907.0,
+      "bardo_trust": 1588.75,
+      "fixed8": 704.75,
+      "fixed128": 2343.25
+    }
+  },
+  "rows": [
+    {
+      "seed": 91001,
+      "kind": "stable",
+      "results": {
+        "fixed16": {
+          "cost": 192.0,
+          "probes": 96,
+          "stale_ticks": 0,
+          "missed_ticks": 0,
+          "mean_detect_lag": null
+        },
+        "sentinel": {
+          "cost": 26.0,
+          "probes": 13,
+          "stale_ticks": 0,
+          "missed_ticks": 0,
+          "mean_detect_lag": null
+        },
+        "bardo_trust": {
+          "cost": 44.0,
+          "probes": 22,
+          "stale_ticks": 0,
+          "missed_ticks": 0,
+          "mean_detect_lag": null
+        },
+        "fixed8": {
+          "cost": 384.0,
+          "probes": 192,
+          "stale_ticks": 0,
+          "missed_ticks": 0,
+          "mean_detect_lag": null
+        },
+        "fixed128": {
+          "cost": 24.0,
+          "probes": 12,
+          "stale_ticks": 0,
+          "missed_ticks": 0,
+          "mean_detect_lag": null
+        }
+      }
+    },
+    {
+      "seed": 91001,
+      "kind": "abrupt",
+      "results": {
+        "fixed16": {
+          "cost": 276.0,
+          "probes": 96,
+          "stale_ticks": 12,
+          "missed_ticks": 0,
+          "mean_detect_lag": 12
+        },
+        "sentinel": {
+          "cost": 680.0,
+          "probes": 18,
+          "stale_ticks": 92,
+          "missed_ticks": 0,
+          "mean_detect_lag": 92
+        },
+        "bardo_trust": {
+          "cost": 365.0,
+          "probes": 88,
+          "stale_ticks": 27,
+          "missed_ticks": 0,
+          "mean_detect_lag": 27
+        },
+        "fixed8": {
+          "cost": 412.0,
+          "probes": 192,
+          "stale_ticks": 4,
+          "missed_ticks": 0,
+          "mean_detect_lag": 4
+        },
+        "fixed128": {
+          "cost": 780.0,
+          "probes": 12,
+          "stale_ticks": 108,
+          "missed_ticks": 0,
+          "mean_detect_lag": 108
+        }
+      }
+    },
+    {
+      "seed": 91001,
+      "kind": "reversal",
+      "results": {
+        "fixed16": {
+          "cost": 240.0,
+          "probes": 96,
+          "stale_ticks": 6,
+          "missed_ticks": 2,
+          "mean_detect_lag": 4
+        },
+        "sentinel": {
+          "cost": 231.0,
+          "probes": 23,
+          "stale_ticks": 14,
+          "missed_ticks": 29,
+          "mean_detect_lag": 21.5
+        },
+        "bardo_trust": {
+          "cost": 386.0,
+          "probes": 136,
+          "stale_ticks": 15,
+          "missed_ticks": 3,
+          "mean_detect_lag": 9
+        },
+        "fixed8": {
+          "cost": 432.0,
+          "probes": 192,
+          "stale_ticks": 6,
+          "missed_ticks": 2,
+          "mean_detect_lag": 4
+        },
+        "fixed128": {
+          "cost": 232.0,
+          "probes": 12,
+          "stale_ticks": 22,
+          "missed_ticks": 18,
+          "mean_detect_lag": 20
+        }
+      }
+    },
+    {
+      "seed": 91001,
+      "kind": "bursts",
+      "results": {
+        "fixed16": {
+          "cost": 882.0,
+          "probes": 96,
+          "stale_ticks": 72,
+          "missed_ticks": 62,
+          "mean_detect_lag": 7.444444444444445
+        },
+        "sentinel": {
+          "cost": 1493.0,
+          "probes": 62,
+          "stale_ticks": 178,
+          "missed_ticks": 41,
+          "mean_detect_lag": 19.384615384615383
+        },
+        "bardo_trust": {
+          "cost": 3866.0,
+          "probes": 176,
+          "stale_ticks": 28,
+          "missed_ticks": 1106,
+          "mean_detect_lag": 3.6875
+        },
+        "fixed8": {
+          "cost": 674.0,
+          "probes": 192,
+          "stale_ticks": 32,
+          "missed_ticks": 22,
+          "mean_detect_lag": 3
+        },
+        "fixed128": {
+          "cost": 1620.0,
+          "probes": 12,
+          "stale_ticks": 201,
+          "missed_ticks": 63,
+          "mean_detect_lag": 39.625
+        }
+      }
+    },
+    {
+      "seed": 91001,
+      "kind": "mixed",
+      "results": {
+        "fixed16": {
+          "cost": 750.0,
+          "probes": 96,
+          "stale_ticks": 60,
+          "missed_ticks": 46,
+          "mean_detect_lag": 7.266666666666667
+        },
+        "sentinel": {
+          "cost": 1410.0,
+          "probes": 45,
+          "stale_ticks": 174,
+          "missed_ticks": 34,
+          "mean_detect_lag": 10.8
+        },
+        "bardo_trust": {
+          "cost": 1354.0,
+          "probes": 128,
+          "stale_ticks": 57,
+          "missed_ticks": 233,
+          "mean_detect_lag": 6.6875
+        },
+        "fixed8": {
+          "cost": 702.0,
+          "probes": 192,
+          "stale_ticks": 36,
+          "missed_ticks": 22,
+          "mean_detect_lag": 3.6875
+        },
+        "fixed128": {
+          "cost": 2084.0,
+          "probes": 12,
+          "stale_ticks": 263,
+          "missed_ticks": 73,
+          "mean_detect_lag": 3.6
+        }
+      }
+    },
+    {
+      "seed": 91174,
+      "kind": "stable",
+      "results": {
+        "fixed16": {
+          "cost": 192.0,
+          "probes": 96,
+          "stale_ticks": 0,
+          "missed_ticks": 0,
+          "mean_detect_lag": null
+        },
+        "sentinel": {
+          "cost": 26.0,
+          "probes": 13,
+          "stale_ticks": 0,
+          "missed_ticks": 0,
+          "mean_detect_lag": null
+        },
+        "bardo_trust": {
+          "cost": 44.0,
+          "probes": 22,
+          "stale_ticks": 0,
+          "missed_ticks": 0,
+          "mean_detect_lag": null
+        },
+        "fixed8": {
+          "cost": 384.0,
+          "probes": 192,
+          "stale_ticks": 0,
+          "missed_ticks": 0,
+          "mean_detect_lag": null
+        },
+        "fixed128": {
+          "cost": 24.0,
+          "probes": 12,
+          "stale_ticks": 0,
+          "missed_ticks": 0,
+          "mean_detect_lag": null
+        }
+      }
+    },
+    {
+      "seed": 91174,
+      "kind": "abrupt",
+      "results": {
+        "fixed16": {
+          "cost": 248.0,
+          "probes": 96,
+          "stale_ticks": 8,
+          "missed_ticks": 0,
+          "mean_detect_lag": 8
+        },
+        "sentinel": {
+          "cost": 904.0,
+          "probes": 18,
+          "stale_ticks": 124,
+          "missed_ticks": 0,
+          "mean_detect_lag": 124
+        },
+        "bardo_trust": {
+          "cost": 373.0,
+          "probes": 120,
+          "stale_ticks": 19,
+          "missed_ticks": 0,
+          "mean_detect_lag": 19
+        },
+        "fixed8": {
+          "cost": 384.0,
+          "probes": 192,
+          "stale_ticks": 0,
+          "missed_ticks": 0,
+          "mean_detect_lag": 0
+        },
+        "fixed128": {
+          "cost": 80.0,
+          "probes": 12,
+          "stale_ticks": 8,
+          "missed_ticks": 0,
+          "mean_detect_lag": 8
+        }
+      }
+    },
+    {
+      "seed": 91174,
+      "kind": "reversal",
+      "results": {
+        "fixed16": {
+          "cost": 283.0,
+          "probes": 96,
+          "stale_ticks": 13,
+          "missed_ticks": 0,
+          "mean_detect_lag": 6.5
+        },
+        "sentinel": {
+          "cost": 610.0,
+          "probes": 23,
+          "stale_ticks": 69,
+          "missed_ticks": 27,
+          "mean_detect_lag": 48
+        },
+        "bardo_trust": {
+          "cost": 765.0,
+          "probes": 136,
+          "stale_ticks": 70,
+          "missed_ticks": 1,
+          "mean_detect_lag": 35.5
+        },
+        "fixed8": {
+          "cost": 419.0,
+          "probes": 192,
+          "stale_ticks": 5,
+          "missed_ticks": 0,
+          "mean_detect_lag": 2.5
+        },
+        "fixed128": {
+          "cost": 611.0,
+          "probes": 12,
+          "stale_ticks": 77,
+          "missed_ticks": 16,
+          "mean_detect_lag": 46.5
+        }
+      }
+    },
+    {
+      "seed": 91174,
+      "kind": "bursts",
+      "results": {
+        "fixed16": {
+          "cost": 519.0,
+          "probes": 96,
+          "stale_ticks": 30,
+          "missed_ticks": 39,
+          "mean_detect_lag": 5.75
+        },
+        "sentinel": {
+          "cost": 991.0,
+          "probes": 71,
+          "stale_ticks": 105,
+          "missed_ticks": 38,
+          "mean_detect_lag": 11.916666666666666
+        },
+        "bardo_trust": {
+          "cost": 2276.0,
+          "probes": 136,
+          "stale_ticks": 102,
+          "missed_ticks": 430,
+          "mean_detect_lag": 6.454545454545454
+        },
+        "fixed8": {
+          "cost": 551.0,
+          "probes": 192,
+          "stale_ticks": 14,
+          "missed_ticks": 23,
+          "mean_detect_lag": 3.0833333333333335
+        },
+        "fixed128": {
+          "cost": 2121.0,
+          "probes": 12,
+          "stale_ticks": 207,
+          "missed_ticks": 216,
+          "mean_detect_lag": 37.666666666666664
+        }
+      }
+    },
+    {
+      "seed": 91174,
+      "kind": "mixed",
+      "results": {
+        "fixed16": {
+          "cost": 857.0,
+          "probes": 96,
+          "stale_ticks": 65,
+          "missed_ticks": 70,
+          "mean_detect_lag": 6.125
+        },
+        "sentinel": {
+          "cost": 1527.0,
+          "probes": 47,
+          "stale_ticks": 137,
+          "missed_ticks": 158,
+          "mean_detect_lag": 26.1
+        },
+        "bardo_trust": {
+          "cost": 1367.0,
+          "probes": 160,
+          "stale_ticks": 24,
+          "missed_ticks": 293,
+          "mean_detect_lag": 3.6666666666666665
+        },
+        "fixed8": {
+          "cost": 711.0,
+          "probes": 192,
+          "stale_ticks": 36,
+          "missed_ticks": 25,
+          "mean_detect_lag": 2.9047619047619047
+        },
+        "fixed128": {
+          "cost": 2243.0,
+          "probes": 12,
+          "stale_ticks": 206,
+          "missed_ticks": 259,
+          "mean_detect_lag": 39.57142857142857
+        }
+      }
+    },
+    {
+      "seed": 91347,
+      "kind": "stable",
+      "results": {
+        "fixed16": {
+          "cost": 192.0,
+          "probes": 96,
+          "stale_ticks": 0,
+          "missed_ticks": 0,
+          "mean_detect_lag": null
+        },
+        "sentinel": {
+          "cost": 26.0,
+          "probes": 13,
+          "stale_ticks": 0,
+          "missed_ticks": 0,
+          "mean_detect_lag": null
+        },
+        "bardo_trust": {
+          "cost": 44.0,
+          "probes": 22,
+          "stale_ticks": 0,
+          "missed_ticks": 0,
+          "mean_detect_lag": null
+        },
+        "fixed8": {
+          "cost": 384.0,
+          "probes": 192,
+          "stale_ticks": 0,
+          "missed_ticks": 0,
+          "mean_detect_lag": null
+        },
+        "fixed128": {
+          "cost": 24.0,
+          "probes": 12,
+          "stale_ticks": 0,
+          "missed_ticks": 0,
+          "mean_detect_lag": null
+        }
+      }
+    },
+    {
+      "seed": 91347,
+      "kind": "abrupt",
+      "results": {
+        "fixed16": {
+          "cost": 220.0,
+          "probes": 96,
+          "stale_ticks": 4,
+          "missed_ticks": 0,
+          "mean_detect_lag": 4
+        },
+        "sentinel": {
+          "cost": 400.0,
+          "probes": 18,
+          "stale_ticks": 52,
+          "missed_ticks": 0,
+          "mean_detect_lag": 52
+        },
+        "bardo_trust": {
+          "cost": 578.0,
+          "probes": 79,
+          "stale_ticks": 60,
+          "missed_ticks": 0,
+          "mean_detect_lag": 60
+        },
+        "fixed8": {
+          "cost": 412.0,
+          "probes": 192,
+          "stale_ticks": 4,
+          "missed_ticks": 0,
+          "mean_detect_lag": 4
+        },
+        "fixed128": {
+          "cost": 500.0,
+          "probes": 12,
+          "stale_ticks": 68,
+          "missed_ticks": 0,
+          "mean_detect_lag": 68
+        }
+      }
+    },
+    {
+      "seed": 91347,
+      "kind": "reversal",
+      "results": {
+        "fixed16": {
+          "cost": 253.0,
+          "probes": 96,
+          "stale_ticks": 7,
+          "missed_ticks": 4,
+          "mean_detect_lag": 5.5
+        },
+        "sentinel": {
+          "cost": 926.0,
+          "probes": 22,
+          "stale_ticks": 93,
+          "missed_ticks": 77,
+          "mean_detect_lag": 85
+        },
+        "bardo_trust": {
+          "cost": 561.0,
+          "probes": 128,
+          "stale_ticks": 41,
+          "missed_ticks": 6,
+          "mean_detect_lag": 23.5
+        },
+        "fixed8": {
+          "cost": 445.0,
+          "probes": 192,
+          "stale_ticks": 7,
+          "missed_ticks": 4,
+          "mean_detect_lag": 5.5
+        },
+        "fixed128": {
+          "cost": 949.0,
+          "probes": 12,
+          "stale_ticks": 103,
+          "missed_ticks": 68,
+          "mean_detect_lag": 85.5
+        }
+      }
+    },
+    {
+      "seed": 91347,
+      "kind": "bursts",
+      "results": {
+        "fixed16": {
+          "cost": 576.0,
+          "probes": 96,
+          "stale_ticks": 30,
+          "missed_ticks": 58,
+          "mean_detect_lag": 6.2
+        },
+        "sentinel": {
+          "cost": 1309.0,
+          "probes": 43,
+          "stale_ticks": 164,
+          "missed_ticks": 25,
+          "mean_detect_lag": 21.2
+        },
+        "bardo_trust": {
+          "cost": 3910.0,
+          "probes": 168,
+          "stale_ticks": 37,
+          "missed_ticks": 1105,
+          "mean_detect_lag": 9.071428571428571
+        },
+        "fixed8": {
+          "cost": 640.0,
+          "probes": 192,
+          "stale_ticks": 22,
+          "missed_ticks": 34,
+          "mean_detect_lag": 3.533333333333333
+        },
+        "fixed128": {
+          "cost": 1672.0,
+          "probes": 12,
+          "stale_ticks": 118,
+          "missed_ticks": 274,
+          "mean_detect_lag": 36.25
+        }
+      }
+    },
+    {
+      "seed": 91347,
+      "kind": "mixed",
+      "results": {
+        "fixed16": {
+          "cost": 667.0,
+          "probes": 96,
+          "stale_ticks": 52,
+          "missed_ticks": 37,
+          "mean_detect_lag": 4.875
+        },
+        "sentinel": {
+          "cost": 2052.0,
+          "probes": 36,
+          "stale_ticks": 273,
+          "missed_ticks": 23,
+          "mean_detect_lag": 21.22222222222222
+        },
+        "bardo_trust": {
+          "cost": 1699.0,
+          "probes": 128,
+          "stale_ticks": 27,
+          "missed_ticks": 418,
+          "mean_detect_lag": 4.777777777777778
+        },
+        "fixed8": {
+          "cost": 641.0,
+          "probes": 192,
+          "stale_ticks": 23,
+          "missed_ticks": 32,
+          "mean_detect_lag": 2.8947368421052633
+        },
+        "fixed128": {
+          "cost": 1989.0,
+          "probes": 12,
+          "stale_ticks": 225,
+          "missed_ticks": 130,
+          "mean_detect_lag": 33.42857142857143
+        }
+      }
+    },
+    {
+      "seed": 91520,
+      "kind": "stable",
+      "results": {
+        "fixed16": {
+          "cost": 192.0,
+          "probes": 96,
+          "stale_ticks": 0,
+          "missed_ticks": 0,
+          "mean_detect_lag": null
+        },
+        "sentinel": {
+          "cost": 26.0,
+          "probes": 13,
+          "stale_ticks": 0,
+          "missed_ticks": 0,
+          "mean_detect_lag": null
+        },
+        "bardo_trust": {
+          "cost": 44.0,
+          "probes": 22,
+          "stale_ticks": 0,
+          "missed_ticks": 0,
+          "mean_detect_lag": null
+        },
+        "fixed8": {
+          "cost": 384.0,
+          "probes": 192,
+          "stale_ticks": 0,
+          "missed_ticks": 0,
+          "mean_detect_lag": null
+        },
+        "fixed128": {
+          "cost": 24.0,
+          "probes": 12,
+          "stale_ticks": 0,
+          "missed_ticks": 0,
+          "mean_detect_lag": null
+        }
+      }
+    },
+    {
+      "seed": 91520,
+      "kind": "abrupt",
+      "results": {
+        "fixed16": {
+          "cost": 269.0,
+          "probes": 96,
+          "stale_ticks": 11,
+          "missed_ticks": 0,
+          "mean_detect_lag": 11
+        },
+        "sentinel": {
+          "cost": 603.0,
+          "probes": 18,
+          "stale_ticks": 81,
+          "missed_ticks": 0,
+          "mean_detect_lag": 81
+        },
+        "bardo_trust": {
+          "cost": 459.0,
+          "probes": 128,
+          "stale_ticks": 29,
+          "missed_ticks": 0,
+          "mean_detect_lag": 29
+        },
+        "fixed8": {
+          "cost": 405.0,
+          "probes": 192,
+          "stale_ticks": 3,
+          "missed_ticks": 0,
+          "mean_detect_lag": 3
+        },
+        "fixed128": {
+          "cost": 661.0,
+          "probes": 12,
+          "stale_ticks": 91,
+          "missed_ticks": 0,
+          "mean_detect_lag": 91
+        }
+      }
+    },
+    {
+      "seed": 91520,
+      "kind": "reversal",
+      "results": {
+        "fixed16": {
+          "cost": 221.0,
+          "probes": 96,
+          "stale_ticks": 2,
+          "missed_ticks": 5,
+          "mean_detect_lag": 3.5
+        },
+        "sentinel": {
+          "cost": 742.0,
+          "probes": 23,
+          "stale_ticks": 72,
+          "missed_ticks": 64,
+          "mean_detect_lag": 68
+        },
+        "bardo_trust": {
+          "cost": 417.0,
+          "probes": 128,
+          "stale_ticks": 20,
+          "missed_ticks": 7,
+          "mean_detect_lag": 13.5
+        },
+        "fixed8": {
+          "cost": 413.0,
+          "probes": 192,
+          "stale_ticks": 2,
+          "missed_ticks": 5,
+          "mean_detect_lag": 3.5
+        },
+        "fixed128": {
+          "cost": 757.0,
+          "probes": 12,
+          "stale_ticks": 82,
+          "missed_ticks": 53,
+          "mean_detect_lag": 67.5
+        }
+      }
+    },
+    {
+      "seed": 91520,
+      "kind": "bursts",
+      "results": {
+        "fixed16": {
+          "cost": 786.0,
+          "probes": 96,
+          "stale_ticks": 57,
+          "missed_ticks": 65,
+          "mean_detect_lag": 7.785714285714286
+        },
+        "sentinel": {
+          "cost": 1194.0,
+          "probes": 36,
+          "stale_ticks": 156,
+          "missed_ticks": 10,
+          "mean_detect_lag": 25.666666666666668
+        },
+        "bardo_trust": {
+          "cost": 2950.0,
+          "probes": 144,
+          "stale_ticks": 19,
+          "missed_ticks": 843,
+          "mean_detect_lag": 7.933333333333334
+        },
+        "fixed8": {
+          "cost": 684.0,
+          "probes": 192,
+          "stale_ticks": 30,
+          "missed_ticks": 30,
+          "mean_detect_lag": 3.75
+        },
+        "fixed128": {
+          "cost": 1728.0,
+          "probes": 12,
+          "stale_ticks": 168,
+          "missed_ticks": 176,
+          "mean_detect_lag": 54.875
+        }
+      }
+    },
+    {
+      "seed": 91520,
+      "kind": "mixed",
+      "results": {
+        "fixed16": {
+          "cost": 935.0,
+          "probes": 96,
+          "stale_ticks": 83,
+          "missed_ticks": 54,
+          "mean_detect_lag": 8.4375
+        },
+        "sentinel": {
+          "cost": 2639.0,
+          "probes": 48,
+          "stale_ticks": 359,
+          "missed_ticks": 10,
+          "mean_detect_lag": 26.7
+        },
+        "bardo_trust": {
+          "cost": 1935.0,
+          "probes": 128,
+          "stale_ticks": 50,
+          "missed_ticks": 443,
+          "mean_detect_lag": 4.777777777777778
+        },
+        "fixed8": {
+          "cost": 765.0,
+          "probes": 192,
+          "stale_ticks": 42,
+          "missed_ticks": 29,
+          "mean_detect_lag": 4
+        },
+        "fixed128": {
+          "cost": 3057.0,
+          "probes": 12,
+          "stale_ticks": 312,
+          "missed_ticks": 283,
+          "mean_detect_lag": 21.857142857142858
+        }
+      }
+    }
+  ],
+  "limit": "Synthetic economic decision units; no CPU acceleration claims. Heldout seeds not used for tuning."
+}

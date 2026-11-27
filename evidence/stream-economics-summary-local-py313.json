@@ -1,0 +1,351 @@
+{
+  "schema": "ALEXPY-STREAM-ECONOMICS-SUMMARY/1",
+  "created_utc": "2026-11-22T00:55:32.844853+00:00",
+  "environment": "cpython/3.13/Linux/x86_64/device=local-benchmark-device",
+  "host": {
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": "INTEL(R) XEON(R) PLATINUM 8573C",
+    "python": "3.13.5",
+    "implementation": "cpython",
+    "logical_cpus": 5,
+    "ci": true,
+    "github_runner_os": null,
+    "github_runner_arch": null
+  },
+  "config": {
+    "train_sizes": [
+      128,
+      512,
+      2048
+    ],
+    "holdout_sizes": [
+      384,
+      1536
+    ],
+    "changes": [
+      1,
+      8
+    ],
+    "queries": [
+      1,
+      8,
+      32
+    ],
+    "spans": [
+      "short",
+      "wide"
+    ],
+    "ticks": 2,
+    "pairs": 3,
+    "sessions": 3,
+    "cycles": [
+      1,
+      8,
+      32,
+      128
+    ],
+    "reps": 3
+  },
+  "route_choices": {
+    "384:1:1:2:short": "direct",
+    "384:1:1:2:wide": "direct",
+    "384:1:8:2:short": "direct",
+    "384:1:8:2:wide": "prefix",
+    "384:1:32:2:short": "direct",
+    "384:1:32:2:wide": "prefix",
+    "384:8:1:2:short": "direct",
+    "384:8:1:2:wide": "direct",
+    "384:8:8:2:short": "direct",
+    "384:8:8:2:wide": "prefix",
+    "384:8:32:2:short": "direct",
+    "384:8:32:2:wide": "prefix",
+    "1536:1:1:2:short": "direct",
+    "1536:1:1:2:wide": "direct",
+    "1536:1:8:2:short": "direct",
+    "1536:1:8:2:wide": "blocks",
+    "1536:1:32:2:short": "direct",
+    "1536:1:32:2:wide": "prefix",
+    "1536:8:1:2:short": "direct",
+    "1536:8:1:2:wide": "direct",
+    "1536:8:8:2:short": "direct",
+    "1536:8:8:2:wide": "blocks",
+    "1536:8:32:2:short": "direct",
+    "1536:8:32:2:wide": "prefix"
+  },
+  "frozen_sha256": "08cab89ce1a9bddb9c66ab655af26736813676411eccb0e11d303807e94b1f53",
+  "calibration_wall_ns": 3179288007,
+  "compilation_ns": 615622,
+  "cases": [
+    {
+      "size": 384,
+      "cycles": 1,
+      "median_simple_ns": 731948,
+      "median_stable_ns": 638762,
+      "median_online_speedup": 1.1458853219195881,
+      "gains_ns_by_process": [
+        93186,
+        104333,
+        -122016
+      ],
+      "all_processes_online_gain": false,
+      "stable_switches": [
+        3,
+        3,
+        3
+      ],
+      "simple_switches": [
+        1,
+        1,
+        1
+      ],
+      "median_stable_switch_ns": 54163,
+      "reason_by_workload": [
+        "fallback_risk_or_gain",
+        "measured_gain"
+      ]
+    },
+    {
+      "size": 384,
+      "cycles": 8,
+      "median_simple_ns": 6278477,
+      "median_stable_ns": 5374112,
+      "median_online_speedup": 1.1682817551997429,
+      "gains_ns_by_process": [
+        724835,
+        561753,
+        1345859
+      ],
+      "all_processes_online_gain": true,
+      "stable_switches": [
+        31,
+        31,
+        31
+      ],
+      "simple_switches": [
+        15,
+        15,
+        15
+      ],
+      "median_stable_switch_ns": 594096,
+      "reason_by_workload": [
+        "fallback_risk_or_gain",
+        "measured_gain"
+      ]
+    },
+    {
+      "size": 384,
+      "cycles": 32,
+      "median_simple_ns": 25293901,
+      "median_stable_ns": 20651358,
+      "median_online_speedup": 1.2248057004289985,
+      "gains_ns_by_process": [
+        4506060,
+        4385154,
+        5085014
+      ],
+      "all_processes_online_gain": true,
+      "stable_switches": [
+        127,
+        127,
+        127
+      ],
+      "simple_switches": [
+        63,
+        63,
+        63
+      ],
+      "median_stable_switch_ns": 2399640,
+      "reason_by_workload": [
+        "fallback_risk_or_gain",
+        "measured_gain"
+      ]
+    },
+    {
+      "size": 384,
+      "cycles": 128,
+      "median_simple_ns": 98256933,
+      "median_stable_ns": 82702717,
+      "median_online_speedup": 1.1880738210813557,
+      "gains_ns_by_process": [
+        13598215,
+        13623227,
+        19104763
+      ],
+      "all_processes_online_gain": true,
+      "stable_switches": [
+        511,
+        511,
+        511
+      ],
+      "simple_switches": [
+        255,
+        255,
+        255
+      ],
+      "median_stable_switch_ns": 10264985,
+      "reason_by_workload": [
+        "fallback_risk_or_gain",
+        "measured_gain"
+      ]
+    },
+    {
+      "size": 1536,
+      "cycles": 1,
+      "median_simple_ns": 1991299,
+      "median_stable_ns": 1566464,
+      "median_online_speedup": 1.2712063603121424,
+      "gains_ns_by_process": [
+        224958,
+        424835,
+        706608
+      ],
+      "all_processes_online_gain": true,
+      "stable_switches": [
+        3,
+        3,
+        3
+      ],
+      "simple_switches": [
+        1,
+        1,
+        1
+      ],
+      "median_stable_switch_ns": 331669,
+      "reason_by_workload": [
+        "fallback_risk_or_gain",
+        "measured_gain"
+      ]
+    },
+    {
+      "size": 1536,
+      "cycles": 8,
+      "median_simple_ns": 15957447,
+      "median_stable_ns": 12304526,
+      "median_online_speedup": 1.29687620636504,
+      "gains_ns_by_process": [
+        5900906,
+        3652921,
+        2465160
+      ],
+      "all_processes_online_gain": true,
+      "stable_switches": [
+        31,
+        31,
+        31
+      ],
+      "simple_switches": [
+        15,
+        15,
+        15
+      ],
+      "median_stable_switch_ns": 2853306,
+      "reason_by_workload": [
+        "fallback_risk_or_gain",
+        "measured_gain"
+      ]
+    },
+    {
+      "size": 1536,
+      "cycles": 32,
+      "median_simple_ns": 65626491,
+      "median_stable_ns": 47506096,
+      "median_online_speedup": 1.381433048087134,
+      "gains_ns_by_process": [
+        16879110,
+        18439168,
+        20280732
+      ],
+      "all_processes_online_gain": true,
+      "stable_switches": [
+        127,
+        127,
+        127
+      ],
+      "simple_switches": [
+        63,
+        63,
+        63
+      ],
+      "median_stable_switch_ns": 11675162,
+      "reason_by_workload": [
+        "fallback_risk_or_gain",
+        "measured_gain"
+      ]
+    },
+    {
+      "size": 1536,
+      "cycles": 128,
+      "median_simple_ns": 262828241,
+      "median_stable_ns": 194305284,
+      "median_online_speedup": 1.3526561686299792,
+      "gains_ns_by_process": [
+        63111904,
+        72563540,
+        28338905
+      ],
+      "all_processes_online_gain": true,
+      "stable_switches": [
+        511,
+        511,
+        511
+      ],
+      "simple_switches": [
+        255,
+        255,
+        255
+      ],
+      "median_stable_switch_ns": 46912044,
+      "reason_by_workload": [
+        "fallback_risk_or_gain",
+        "measured_gain"
+      ]
+    }
+  ],
+  "pooled": [
+    {
+      "cycles": 1,
+      "online_savings_ns": 518021,
+      "calibration_ns": 3179288007,
+      "net_savings_ns": -3178769986,
+      "observed_paid_break_even": false,
+      "all_processes_online_gain": true
+    },
+    {
+      "cycles": 8,
+      "online_savings_ns": 4557286,
+      "calibration_ns": 3179288007,
+      "net_savings_ns": -3174730721,
+      "observed_paid_break_even": false,
+      "all_processes_online_gain": true
+    },
+    {
+      "cycles": 32,
+      "online_savings_ns": 22762938,
+      "calibration_ns": 3179288007,
+      "net_savings_ns": -3156525069,
+      "observed_paid_break_even": false,
+      "all_processes_online_gain": true
+    },
+    {
+      "cycles": 128,
+      "online_savings_ns": 84077173,
+      "calibration_ns": 3179288007,
+      "net_savings_ns": -3095210834,
+      "observed_paid_break_even": false,
+      "all_processes_online_gain": true
+    }
+  ],
+  "observed_break_even_cycles": null,
+  "notes": [
+    "Offline calibration is paid once in each net comparison; evaluation process setup excluded from both policies.",
+    "Break-even requires observed net savings and positive online savings in every independent process.",
+    "No claim is made for another physical device without that host's own calibration and held-out timings.",
+    "Training and holdout sizes and coarse state cells do not overlap.",
+    "Every timed stream compares its checksum to an independent Direct witness."
+  ],
+  "raw_evidence": "stream-economics-local-py313.json in research ZIP",
+  "training_processes": 3,
+  "holdout_processes": 3,
+  "exploratory_linear_projection_cycles": 4840
+}

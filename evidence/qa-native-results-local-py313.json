@@ -1,0 +1,4215 @@
+{
+  "schema": "ALEXPY-QA-NATIVE/1",
+  "type": "opt-in C extension",
+  "source": "synthetic CI events; not production logs",
+  "timing": "initialization + in-loop slicing, full validation, batches, reports and digest",
+  "semantics": "last write per ID per batch; atomic invalid event rejection",
+  "not_included": "fixture generation and correctness mirror (preflight)",
+  "summary": [
+    {
+      "case": "small-frequent",
+      "batch_size": 1,
+      "per_process_vs_python": [
+        1.3075469889573479,
+        1.4089079295070988,
+        1.3287078018987253
+      ],
+      "median_vs_python": 1.3287078018987253,
+      "all_processes_over_1_1": true,
+      "all_processes_below_0_9": false,
+      "per_process_vs_old_alexpy": [
+        2.15444163863767,
+        2.2519284564807576,
+        2.1825816417189974
+      ],
+      "median_vs_old_alexpy": 2.1825816417189974
+    },
+    {
+      "case": "small-frequent",
+      "batch_size": 8,
+      "per_process_vs_python": [
+        1.7301230616493668,
+        1.808291366132315,
+        1.805027828609403
+      ],
+      "median_vs_python": 1.805027828609403,
+      "all_processes_over_1_1": true,
+      "all_processes_below_0_9": false,
+      "per_process_vs_old_alexpy": [
+        2.8368038619052096,
+        2.86570341948139,
+        2.7796360812914207
+      ],
+      "median_vs_old_alexpy": 2.8368038619052096
+    },
+    {
+      "case": "small-frequent",
+      "batch_size": 64,
+      "per_process_vs_python": [
+        2.0389600061427755,
+        2.112679070674671,
+        1.9819920266522373
+      ],
+      "median_vs_python": 2.0389600061427755,
+      "all_processes_over_1_1": true,
+      "all_processes_below_0_9": false,
+      "per_process_vs_old_alexpy": [
+        3.357384768110219,
+        3.172760283527046,
+        3.1063448312476636
+      ],
+      "median_vs_old_alexpy": 3.172760283527046
+    },
+    {
+      "case": "small-frequent",
+      "batch_size": 256,
+      "per_process_vs_python": [
+        2.0537275315168766,
+        1.975452283163746,
+        1.862087722911436
+      ],
+      "median_vs_python": 1.975452283163746,
+      "all_processes_over_1_1": true,
+      "all_processes_below_0_9": false,
+      "per_process_vs_old_alexpy": [
+        3.001442793719758,
+        2.9114634102388095,
+        2.7686877722769943
+      ],
+      "median_vs_old_alexpy": 2.9114634102388095
+    },
+    {
+      "case": "medium-mixed",
+      "batch_size": 1,
+      "per_process_vs_python": [
+        1.38630508163683,
+        1.4557587030861647,
+        1.3836658471073657
+      ],
+      "median_vs_python": 1.38630508163683,
+      "all_processes_over_1_1": true,
+      "all_processes_below_0_9": false,
+      "per_process_vs_old_alexpy": [
+        2.1876787290310875,
+        2.470240706267694,
+        2.29328549577831
+      ],
+      "median_vs_old_alexpy": 2.29328549577831
+    },
+    {
+      "case": "medium-mixed",
+      "batch_size": 8,
+      "per_process_vs_python": [
+        1.7289119357312177,
+        1.8638267655598135,
+        1.7158971548491877
+      ],
+      "median_vs_python": 1.7289119357312177,
+      "all_processes_over_1_1": true,
+      "all_processes_below_0_9": false,
+      "per_process_vs_old_alexpy": [
+        2.8248531214183283,
+        3.3286146002878976,
+        2.8286901863492036
+      ],
+      "median_vs_old_alexpy": 2.8286901863492036
+    },
+    {
+      "case": "medium-mixed",
+      "batch_size": 64,
+      "per_process_vs_python": [
+        2.157898809560658,
+        2.0836240412586453,
+        2.0484381633058075
+      ],
+      "median_vs_python": 2.0836240412586453,
+      "all_processes_over_1_1": true,
+      "all_processes_below_0_9": false,
+      "per_process_vs_old_alexpy": [
+        3.4177305629668493,
+        3.530064830430073,
+        3.3872227800122383
+      ],
+      "median_vs_old_alexpy": 3.4177305629668493
+    },
+    {
+      "case": "medium-mixed",
+      "batch_size": 256,
+      "per_process_vs_python": [
+        2.0217399851930846,
+        2.0613926251923718,
+        1.8300086300431175
+      ],
+      "median_vs_python": 2.0217399851930846,
+      "all_processes_over_1_1": true,
+      "all_processes_below_0_9": false,
+      "per_process_vs_old_alexpy": [
+        3.309313492322269,
+        3.2831351457025755,
+        3.0847198266946445
+      ],
+      "median_vs_old_alexpy": 3.2831351457025755
+    },
+    {
+      "case": "large-sparse",
+      "batch_size": 1,
+      "per_process_vs_python": [
+        1.30994464302988,
+        1.354036325858884,
+        1.3137182071274685
+      ],
+      "median_vs_python": 1.3137182071274685,
+      "all_processes_over_1_1": true,
+      "all_processes_below_0_9": false,
+      "per_process_vs_old_alexpy": [
+        1.99349752694464,
+        2.035261911487396,
+        1.994484499085744
+      ],
+      "median_vs_old_alexpy": 1.994484499085744
+    },
+    {
+      "case": "large-sparse",
+      "batch_size": 8,
+      "per_process_vs_python": [
+        1.7630030620266754,
+        1.7274069138533739,
+        1.6251678041106354
+      ],
+      "median_vs_python": 1.7274069138533739,
+      "all_processes_over_1_1": true,
+      "all_processes_below_0_9": false,
+      "per_process_vs_old_alexpy": [
+        2.764929184367864,
+        2.5301032269268067,
+        2.585013595384296
+      ],
+      "median_vs_old_alexpy": 2.585013595384296
+    },
+    {
+      "case": "large-sparse",
+      "batch_size": 64,
+      "per_process_vs_python": [
+        1.9791607664671178,
+        2.05416504145162,
+        1.9049115675473416
+      ],
+      "median_vs_python": 1.9791607664671178,
+      "all_processes_over_1_1": true,
+      "all_processes_below_0_9": false,
+      "per_process_vs_old_alexpy": [
+        3.1036466759767745,
+        3.0170946451964507,
+        3.1302529963579424
+      ],
+      "median_vs_old_alexpy": 3.1036466759767745
+    },
+    {
+      "case": "large-sparse",
+      "batch_size": 256,
+      "per_process_vs_python": [
+        1.958987838049448,
+        2.0173712230950036,
+        1.9472801405602
+      ],
+      "median_vs_python": 1.958987838049448,
+      "all_processes_over_1_1": true,
+      "all_processes_below_0_9": false,
+      "per_process_vs_old_alexpy": [
+        3.1234059282963935,
+        3.187687854836914,
+        3.1932165070080094
+      ],
+      "median_vs_old_alexpy": 3.187687854836914
+    },
+    {
+      "case": "medium-hot-retries",
+      "batch_size": 1,
+      "per_process_vs_python": [
+        1.3285003390039025,
+        1.3849321490603919,
+        1.3637525638884982
+      ],
+      "median_vs_python": 1.3637525638884982,
+      "all_processes_over_1_1": true,
+      "all_processes_below_0_9": false,
+      "per_process_vs_old_alexpy": [
+        2.251209338536819,
+        2.186945409801685,
+        2.2188528547276034
+      ],
+      "median_vs_old_alexpy": 2.2188528547276034
+    },
+    {
+      "case": "medium-hot-retries",
+      "batch_size": 8,
+      "per_process_vs_python": [
+        1.8245281262193713,
+        1.7736787511382568,
+        1.6978926818528457
+      ],
+      "median_vs_python": 1.7736787511382568,
+      "all_processes_over_1_1": true,
+      "all_processes_below_0_9": false,
+      "per_process_vs_old_alexpy": [
+        2.876415987480163,
+        2.795929900335673,
+        2.7318024720576717
+      ],
+      "median_vs_old_alexpy": 2.795929900335673
+    },
+    {
+      "case": "medium-hot-retries",
+      "batch_size": 64,
+      "per_process_vs_python": [
+        1.9543858054343959,
+        1.8579266695529084,
+        1.84576523009055
+      ],
+      "median_vs_python": 1.8579266695529084,
+      "all_processes_over_1_1": true,
+      "all_processes_below_0_9": false,
+      "per_process_vs_old_alexpy": [
+        3.0301806071007023,
+        2.7736627437039454,
+        2.8614623435850444
+      ],
+      "median_vs_old_alexpy": 2.8614623435850444
+    },
+    {
+      "case": "medium-hot-retries",
+      "batch_size": 256,
+      "per_process_vs_python": [
+        1.7985683839748499,
+        1.8753243508375266,
+        1.6775964376612498
+      ],
+      "median_vs_python": 1.7985683839748499,
+      "all_processes_over_1_1": true,
+      "all_processes_below_0_9": false,
+      "per_process_vs_old_alexpy": [
+        2.5738751231616974,
+        2.475818426289033,
+        2.4269327308643143
+      ],
+      "median_vs_old_alexpy": 2.475818426289033
+    }
+  ],
+  "sessions": [
+    {
+      "python": "3.13.5",
+      "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+      "machine": "x86_64",
+      "native": true,
+      "cells": [
+        {
+          "case": "small-frequent",
+          "tests": 256,
+          "events": 2400,
+          "batch_size": 1,
+          "digest": 10574078812534991317,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 7859581,
+                "alexpy_batch": 13063487,
+                "native_batch": 6673508
+              },
+              "vs_python": 1.1777285649466518,
+              "vs_old_alexpy": 1.9575142488778017
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 7762223,
+                "native_batch": 5944426,
+                "alexpy_batch": 12993611
+              },
+              "vs_python": 1.305798575001186,
+              "vs_old_alexpy": 2.1858478850607277
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 6019659,
+                "strong_batch": 7870987,
+                "alexpy_batch": 12969004
+              },
+              "vs_python": 1.3075469889573479,
+              "vs_old_alexpy": 2.15444163863767
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 7452966,
+                "alexpy_batch": 15029148,
+                "strong_batch": 11024805
+              },
+              "vs_python": 1.479250676844628,
+              "vs_old_alexpy": 2.016532478479038
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 15031933,
+                "native_batch": 6699277,
+                "strong_batch": 9344565
+              },
+              "vs_python": 1.394861714181993,
+              "vs_old_alexpy": 2.243814220549471
+            }
+          ],
+          "median_vs_python": 1.3075469889573479,
+          "median_vs_old_alexpy": 2.15444163863767
+        },
+        {
+          "case": "small-frequent",
+          "tests": 256,
+          "events": 2400,
+          "batch_size": 8,
+          "digest": 374834479802681829,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 3365337,
+                "alexpy_batch": 3869629,
+                "native_batch": 1392685
+              },
+              "vs_python": 2.416438031572107,
+              "vs_old_alexpy": 2.778538578357633
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 2335199,
+                "native_batch": 1349730,
+                "alexpy_batch": 4460973
+              },
+              "vs_python": 1.7301230616493668,
+              "vs_old_alexpy": 3.305085461536752
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 1417252,
+                "strong_batch": 2314208,
+                "alexpy_batch": 4468214
+              },
+              "vs_python": 1.632883919020753,
+              "vs_old_alexpy": 3.1527307775893068
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 1391493,
+                "alexpy_batch": 3922479,
+                "strong_batch": 2312655
+              },
+              "vs_python": 1.6619954250578335,
+              "vs_old_alexpy": 2.8188995560883168
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 3832644,
+                "native_batch": 1351043,
+                "strong_batch": 2380378
+              },
+              "vs_python": 1.7618817461768426,
+              "vs_old_alexpy": 2.8368038619052096
+            }
+          ],
+          "median_vs_python": 1.7301230616493668,
+          "median_vs_old_alexpy": 2.8368038619052096
+        },
+        {
+          "case": "small-frequent",
+          "tests": 256,
+          "events": 2400,
+          "batch_size": 64,
+          "digest": 17219388088302592100,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 1512776,
+                "alexpy_batch": 3055338,
+                "native_batch": 782172
+              },
+              "vs_python": 1.934070767043566,
+              "vs_old_alexpy": 3.906222672251116
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 1581751,
+                "native_batch": 716403,
+                "alexpy_batch": 2475442
+              },
+              "vs_python": 2.2079067228920035,
+              "vs_old_alexpy": 3.455376373354104
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 760870,
+                "strong_batch": 1567779,
+                "alexpy_batch": 2486248
+              },
+              "vs_python": 2.0605083654237912,
+              "vs_old_alexpy": 3.267638361349508
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 729312,
+                "alexpy_batch": 2448581,
+                "strong_batch": 1487038
+              },
+              "vs_python": 2.0389600061427755,
+              "vs_old_alexpy": 3.357384768110219
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 2436203,
+                "native_batch": 772979,
+                "strong_batch": 1516693
+              },
+              "vs_python": 1.962139980516935,
+              "vs_old_alexpy": 3.1517065793507975
+            }
+          ],
+          "median_vs_python": 2.0389600061427755,
+          "median_vs_old_alexpy": 3.357384768110219
+        },
+        {
+          "case": "small-frequent",
+          "tests": 256,
+          "events": 2400,
+          "batch_size": 256,
+          "digest": 391885288520553775,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 1283640,
+                "alexpy_batch": 1834824,
+                "native_batch": 611314
+              },
+              "vs_python": 2.0998046830270534,
+              "vs_old_alexpy": 3.001442793719758
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 1291052,
+                "native_batch": 600908,
+                "alexpy_batch": 1815765
+              },
+              "vs_python": 2.148501933740273,
+              "vs_old_alexpy": 3.0217021574017986
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 614750,
+                "strong_batch": 1262529,
+                "alexpy_batch": 1812459
+              },
+              "vs_python": 2.0537275315168766,
+              "vs_old_alexpy": 2.948286295241968
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 608210,
+                "alexpy_batch": 1827612,
+                "strong_batch": 1149558
+              },
+              "vs_python": 1.8900675753440423,
+              "vs_old_alexpy": 3.004902911823219
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 1774983,
+                "native_batch": 690434,
+                "strong_batch": 1179673
+              },
+              "vs_python": 1.7085963321620894,
+              "vs_old_alexpy": 2.57082212057923
+            }
+          ],
+          "median_vs_python": 2.0537275315168766,
+          "median_vs_old_alexpy": 3.001442793719758
+        },
+        {
+          "case": "medium-mixed",
+          "tests": 4096,
+          "events": 6000,
+          "batch_size": 1,
+          "digest": 10792736380350403648,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 20821293,
+                "alexpy_batch": 34947977,
+                "native_batch": 17741788
+              },
+              "vs_python": 1.1735735428695235,
+              "vs_old_alexpy": 1.9698114417780215
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 30761209,
+                "native_batch": 26961726,
+                "alexpy_batch": 57548580
+              },
+              "vs_python": 1.1409213564443166,
+              "vs_old_alexpy": 2.13445459686075
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 15428733,
+                "strong_batch": 21628293,
+                "alexpy_batch": 33753111
+              },
+              "vs_python": 1.401819125394159,
+              "vs_old_alexpy": 2.1876787290310875
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 14828785,
+                "alexpy_batch": 34101908,
+                "strong_batch": 20557220
+              },
+              "vs_python": 1.38630508163683,
+              "vs_old_alexpy": 2.2997101920352883
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 32667209,
+                "native_batch": 14359676,
+                "strong_batch": 20731608
+              },
+              "vs_python": 1.4437378670660814,
+              "vs_old_alexpy": 2.2749266069791547
+            }
+          ],
+          "median_vs_python": 1.38630508163683,
+          "median_vs_old_alexpy": 2.1876787290310875
+        },
+        {
+          "case": "medium-mixed",
+          "tests": 4096,
+          "events": 6000,
+          "batch_size": 8,
+          "digest": 6035752056822298596,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 6926791,
+                "alexpy_batch": 10879927,
+                "native_batch": 4016001
+              },
+              "vs_python": 1.7247981262952872,
+              "vs_old_alexpy": 2.7091444947349363
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 7185652,
+                "native_batch": 3788206,
+                "alexpy_batch": 12449348
+              },
+              "vs_python": 1.8968482706589873,
+              "vs_old_alexpy": 3.2863439844612463
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 3859765,
+                "strong_batch": 6479915,
+                "alexpy_batch": 10870792
+              },
+              "vs_python": 1.6788366649264916,
+              "vs_old_alexpy": 2.8164388246434693
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 3848587,
+                "alexpy_batch": 10871693,
+                "strong_batch": 6653868
+              },
+              "vs_python": 1.7289119357312177,
+              "vs_old_alexpy": 2.8248531214183283
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 11213520,
+                "native_batch": 3738251,
+                "strong_batch": 7096127
+              },
+              "vs_python": 1.8982478704613468,
+              "vs_old_alexpy": 2.99967016661
+            }
+          ],
+          "median_vs_python": 1.7289119357312177,
+          "median_vs_old_alexpy": 2.8248531214183283
+        },
+        {
+          "case": "medium-mixed",
+          "tests": 4096,
+          "events": 6000,
+          "batch_size": 64,
+          "digest": 7805822977315031360,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 4880127,
+                "alexpy_batch": 7650344,
+                "native_batch": 2261518
+              },
+              "vs_python": 2.157898809560658,
+              "vs_old_alexpy": 3.3828357766774353
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 4506292,
+                "native_batch": 2272586,
+                "alexpy_batch": 7558375
+              },
+              "vs_python": 1.982891736550344,
+              "vs_old_alexpy": 3.3258917374303985
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 2216550,
+                "strong_batch": 4872866,
+                "alexpy_batch": 7653379
+              },
+              "vs_python": 2.19840111885588,
+              "vs_old_alexpy": 3.452833908551578
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 2207217,
+                "alexpy_batch": 7543673,
+                "strong_batch": 4926387
+              },
+              "vs_python": 2.2319450239826897,
+              "vs_old_alexpy": 3.4177305629668493
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 8971652,
+                "native_batch": 2588753,
+                "strong_batch": 4913177
+              },
+              "vs_python": 1.8978933100222386,
+              "vs_old_alexpy": 3.46562688676749
+            }
+          ],
+          "median_vs_python": 2.157898809560658,
+          "median_vs_old_alexpy": 3.4177305629668493
+        },
+        {
+          "case": "medium-mixed",
+          "tests": 4096,
+          "events": 6000,
+          "batch_size": 256,
+          "digest": 423256824583842036,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 4206449,
+                "alexpy_batch": 7060613,
+                "native_batch": 2173084
+              },
+              "vs_python": 1.9357047403597836,
+              "vs_old_alexpy": 3.249121064809276
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 4375453,
+                "native_batch": 2429312,
+                "alexpy_batch": 7099061
+              },
+              "vs_python": 1.8011078856894462,
+              "vs_old_alexpy": 2.922251649849834
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 2085512,
+                "strong_batch": 4216363,
+                "alexpy_batch": 6901613
+              },
+              "vs_python": 2.0217399851930846,
+              "vs_old_alexpy": 3.309313492322269
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 2077110,
+                "alexpy_batch": 7606298,
+                "strong_batch": 4307492
+              },
+              "vs_python": 2.07379098844067,
+              "vs_old_alexpy": 3.6619620530448556
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 7316039,
+                "native_batch": 2151041,
+                "strong_batch": 4474904
+              },
+              "vs_python": 2.080343424416364,
+              "vs_old_alexpy": 3.4011620420066375
+            }
+          ],
+          "median_vs_python": 2.0217399851930846,
+          "median_vs_old_alexpy": 3.309313492322269
+        },
+        {
+          "case": "large-sparse",
+          "tests": 16384,
+          "events": 10000,
+          "batch_size": 1,
+          "digest": 17317023811588057164,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 41653704,
+                "alexpy_batch": 62198689,
+                "native_batch": 32368418
+              },
+              "vs_python": 1.2868625213626443,
+              "vs_old_alexpy": 1.9215856950438541
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 43779056,
+                "native_batch": 31759567,
+                "alexpy_batch": 66907658
+              },
+              "vs_python": 1.3784525462831405,
+              "vs_old_alexpy": 2.1066930163122186
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 32564645,
+                "strong_batch": 42578841,
+                "alexpy_batch": 62321073
+              },
+              "vs_python": 1.3075174318651408,
+              "vs_old_alexpy": 1.9137648514209198
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 32567609,
+                "alexpy_batch": 64923448,
+                "strong_batch": 42781929
+              },
+              "vs_python": 1.3136343229863758,
+              "vs_old_alexpy": 1.99349752694464
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 69473605,
+                "native_batch": 33204852,
+                "strong_batch": 43496518
+              },
+              "vs_python": 1.30994464302988,
+              "vs_old_alexpy": 2.0922726895454917
+            }
+          ],
+          "median_vs_python": 1.30994464302988,
+          "median_vs_old_alexpy": 1.99349752694464
+        },
+        {
+          "case": "large-sparse",
+          "tests": 16384,
+          "events": 10000,
+          "batch_size": 8,
+          "digest": 16526467304232465668,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 13513026,
+                "alexpy_batch": 21095568,
+                "native_batch": 7599658
+              },
+              "vs_python": 1.7781097517809354,
+              "vs_old_alexpy": 2.77585754516848
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 13003276,
+                "native_batch": 7517364,
+                "alexpy_batch": 20232794
+              },
+              "vs_python": 1.7297653805243434,
+              "vs_old_alexpy": 2.691474564754347
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 7378032,
+                "strong_batch": 13137449,
+                "alexpy_batch": 20399736
+              },
+              "vs_python": 1.7806169721139729,
+              "vs_old_alexpy": 2.764929184367864
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 7511594,
+                "alexpy_batch": 19972351,
+                "strong_batch": 13204059
+              },
+              "vs_python": 1.7578238387218479,
+              "vs_old_alexpy": 2.658869875022532
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 20926382,
+                "native_batch": 7487198,
+                "strong_batch": 13199953
+              },
+              "vs_python": 1.7630030620266754,
+              "vs_old_alexpy": 2.7949550686384947
+            }
+          ],
+          "median_vs_python": 1.7630030620266754,
+          "median_vs_old_alexpy": 2.764929184367864
+        },
+        {
+          "case": "large-sparse",
+          "tests": 16384,
+          "events": 10000,
+          "batch_size": 64,
+          "digest": 764915917941998760,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 8800072,
+                "alexpy_batch": 14393547,
+                "native_batch": 5241302
+              },
+              "vs_python": 1.6789858703047449,
+              "vs_old_alexpy": 2.746177762700947
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 9635786,
+                "native_batch": 4542086,
+                "alexpy_batch": 14925822
+              },
+              "vs_python": 2.121445080520272,
+              "vs_old_alexpy": 3.2861161149304525
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 4646944,
+                "strong_batch": 9587082,
+                "alexpy_batch": 15027425
+              },
+              "vs_python": 2.0630939387261824,
+              "vs_old_alexpy": 3.2338295877893084
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 4607895,
+                "alexpy_batch": 14301278,
+                "strong_batch": 9119765
+              },
+              "vs_python": 1.9791607664671178,
+              "vs_old_alexpy": 3.1036466759767745
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 14818520,
+                "native_batch": 5318700,
+                "strong_batch": 8631908
+              },
+              "vs_python": 1.6229356797713728,
+              "vs_old_alexpy": 2.786116908267058
+            }
+          ],
+          "median_vs_python": 1.9791607664671178,
+          "median_vs_old_alexpy": 3.1036466759767745
+        },
+        {
+          "case": "large-sparse",
+          "tests": 16384,
+          "events": 10000,
+          "batch_size": 256,
+          "digest": 6027403120778407336,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 8780953,
+                "alexpy_batch": 13813551,
+                "native_batch": 4686223
+              },
+              "vs_python": 1.8737804410929655,
+              "vs_old_alexpy": 2.9476939104263713
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 8733552,
+                "native_batch": 4296074,
+                "alexpy_batch": 13418383
+              },
+              "vs_python": 2.0329147030521355,
+              "vs_old_alexpy": 3.1234059282963935
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 4525601,
+                "strong_batch": 8163640,
+                "alexpy_batch": 14017699
+              },
+              "vs_python": 1.803879749893992,
+              "vs_old_alexpy": 3.0974226406614283
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 4435785,
+                "alexpy_batch": 15190973,
+                "strong_batch": 9118574
+              },
+              "vs_python": 2.055684394081318,
+              "vs_old_alexpy": 3.424641410708589
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 13547900,
+                "native_batch": 4310575,
+                "strong_batch": 8444364
+              },
+              "vs_python": 1.958987838049448,
+              "vs_old_alexpy": 3.142944966738776
+            }
+          ],
+          "median_vs_python": 1.958987838049448,
+          "median_vs_old_alexpy": 3.1234059282963935
+        },
+        {
+          "case": "medium-hot-retries",
+          "tests": 4096,
+          "events": 8000,
+          "batch_size": 1,
+          "digest": 4663641546204474220,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 25906159,
+                "alexpy_batch": 44087803,
+                "native_batch": 19584053
+              },
+              "vs_python": 1.3228190814230334,
+              "vs_old_alexpy": 2.251209338536819
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 25986671,
+                "native_batch": 19866810,
+                "alexpy_batch": 43136655
+              },
+              "vs_python": 1.3080444721623652,
+              "vs_old_alexpy": 2.1712924722187408
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 19217770,
+                "strong_batch": 26175306,
+                "alexpy_batch": 46555703
+              },
+              "vs_python": 1.3620365942562536,
+              "vs_old_alexpy": 2.422534092144926
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 19703313,
+                "alexpy_batch": 43925547,
+                "strong_batch": 26175858
+              },
+              "vs_python": 1.3285003390039025,
+              "vs_old_alexpy": 2.2293482826974325
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 43123946,
+                "native_batch": 19039680,
+                "strong_batch": 26330381
+              },
+              "vs_python": 1.382921404141246,
+              "vs_old_alexpy": 2.2649511966587674
+            }
+          ],
+          "median_vs_python": 1.3285003390039025,
+          "median_vs_old_alexpy": 2.251209338536819
+        },
+        {
+          "case": "medium-hot-retries",
+          "tests": 4096,
+          "events": 8000,
+          "batch_size": 8,
+          "digest": 14855210657370723428,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 8395230,
+                "alexpy_batch": 13463401,
+                "native_batch": 4888429
+              },
+              "vs_python": 1.7173676860193734,
+              "vs_old_alexpy": 2.754136553890831
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 8475742,
+                "native_batch": 4918645,
+                "alexpy_batch": 14473678
+              },
+              "vs_python": 1.7231863653506199,
+              "vs_old_alexpy": 2.942614886823505
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 4861539,
+                "strong_batch": 9105373,
+                "alexpy_batch": 14048806
+              },
+              "vs_python": 1.8729404412882422,
+              "vs_old_alexpy": 2.8897857242325937
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 4869911,
+                "alexpy_batch": 13167835,
+                "strong_batch": 9055839
+              },
+              "vs_python": 1.859549178619486,
+              "vs_old_alexpy": 2.703916970967231
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 13748161,
+                "native_batch": 4779615,
+                "strong_batch": 8720542
+              },
+              "vs_python": 1.8245281262193713,
+              "vs_old_alexpy": 2.876415987480163
+            }
+          ],
+          "median_vs_python": 1.8245281262193713,
+          "median_vs_old_alexpy": 2.876415987480163
+        },
+        {
+          "case": "medium-hot-retries",
+          "tests": 4096,
+          "events": 8000,
+          "batch_size": 64,
+          "digest": 483501094593140712,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 5476198,
+                "alexpy_batch": 7706128,
+                "native_batch": 2613430
+              },
+              "vs_python": 2.09540641991559,
+              "vs_old_alexpy": 2.9486643988934085
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 4908720,
+                "native_batch": 2631458,
+                "alexpy_batch": 7973793
+              },
+              "vs_python": 1.8653993337533794,
+              "vs_old_alexpy": 3.0301806071007023
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 2573650,
+                "strong_batch": 4977094,
+                "alexpy_batch": 8026703
+              },
+              "vs_python": 1.933865910283061,
+              "vs_old_alexpy": 3.1188013133098904
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 2552188,
+                "alexpy_batch": 7707170,
+                "strong_batch": 4987960
+              },
+              "vs_python": 1.9543858054343959,
+              "vs_old_alexpy": 3.0198284765855807
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 7842555,
+                "native_batch": 2581492,
+                "strong_batch": 5196546
+              },
+              "vs_python": 2.0130010087189887,
+              "vs_old_alexpy": 3.037993145049452
+            }
+          ],
+          "median_vs_python": 1.9543858054343959,
+          "median_vs_old_alexpy": 3.0301806071007023
+        },
+        {
+          "case": "medium-hot-retries",
+          "tests": 4096,
+          "events": 8000,
+          "batch_size": 256,
+          "digest": 794228999254853128,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 3453810,
+                "alexpy_batch": 4983353,
+                "native_batch": 2040173
+              },
+              "vs_python": 1.6929005530413352,
+              "vs_old_alexpy": 2.4426129548817674
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 3762177,
+                "native_batch": 2091762,
+                "alexpy_batch": 4960028
+              },
+              "vs_python": 1.7985683839748499,
+              "vs_old_alexpy": 2.3712200527593486
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 1935095,
+                "strong_batch": 3521834,
+                "alexpy_batch": 5085527
+              },
+              "vs_python": 1.819979897627765,
+              "vs_old_alexpy": 2.6280503024399318
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 1918210,
+                "alexpy_batch": 4937233,
+                "strong_batch": 3496255
+              },
+              "vs_python": 1.8226654015983652,
+              "vs_old_alexpy": 2.5738751231616974
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 7021394,
+                "native_batch": 1951780,
+                "strong_batch": 3332257
+              },
+              "vs_python": 1.707291293076064,
+              "vs_old_alexpy": 3.597431062927174
+            }
+          ],
+          "median_vs_python": 1.7985683839748499,
+          "median_vs_old_alexpy": 2.5738751231616974
+        }
+      ]
+    },
+    {
+      "python": "3.13.5",
+      "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+      "machine": "x86_64",
+      "native": true,
+      "cells": [
+        {
+          "case": "small-frequent",
+          "tests": 256,
+          "events": 2400,
+          "batch_size": 1,
+          "digest": 10574078812534991317,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 7688933,
+                "alexpy_batch": 12982995,
+                "native_batch": 5930344
+              },
+              "vs_python": 1.2965408077507814,
+              "vs_old_alexpy": 2.1892482122453605
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 7785699,
+                "native_batch": 5578172,
+                "alexpy_batch": 13450933
+              },
+              "vs_python": 1.3957438028085187,
+              "vs_old_alexpy": 2.4113514248036814
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 5506824,
+                "strong_batch": 7758608,
+                "alexpy_batch": 12922974
+              },
+              "vs_python": 1.4089079295070988,
+              "vs_old_alexpy": 2.3467199968620753
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 5437250,
+                "alexpy_batch": 12244298,
+                "strong_batch": 7805649
+              },
+              "vs_python": 1.435587659202722,
+              "vs_old_alexpy": 2.2519284564807576
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 12319953,
+                "native_batch": 5536278,
+                "strong_batch": 8567241
+              },
+              "vs_python": 1.5474730495831315,
+              "vs_old_alexpy": 2.2253132880971656
+            }
+          ],
+          "median_vs_python": 1.4089079295070988,
+          "median_vs_old_alexpy": 2.2519284564807576
+        },
+        {
+          "case": "small-frequent",
+          "tests": 256,
+          "events": 2400,
+          "batch_size": 8,
+          "digest": 374834479802681829,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 2409472,
+                "alexpy_batch": 3675776,
+                "native_batch": 1305793
+              },
+              "vs_python": 1.8452174272645052,
+              "vs_old_alexpy": 2.8149760337205056
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 2352616,
+                "native_batch": 1301016,
+                "alexpy_batch": 3728326
+              },
+              "vs_python": 1.808291366132315,
+              "vs_old_alexpy": 2.86570341948139
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 1281828,
+                "strong_batch": 2536505,
+                "alexpy_batch": 3983131
+              },
+              "vs_python": 1.9788185310353652,
+              "vs_old_alexpy": 3.1073833618863063
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 1282960,
+                "alexpy_batch": 3686082,
+                "strong_batch": 2309041
+              },
+              "vs_python": 1.7997762985595809,
+              "vs_old_alexpy": 2.8731075014030054
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 3795668,
+                "native_batch": 1364283,
+                "strong_batch": 2316702
+              },
+              "vs_python": 1.6981095564483322,
+              "vs_old_alexpy": 2.782170561386457
+            }
+          ],
+          "median_vs_python": 1.808291366132315,
+          "median_vs_old_alexpy": 2.86570341948139
+        },
+        {
+          "case": "small-frequent",
+          "tests": 256,
+          "events": 2400,
+          "batch_size": 64,
+          "digest": 17219388088302592100,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 1559698,
+                "alexpy_batch": 2709085,
+                "native_batch": 738256
+              },
+              "vs_python": 2.112679070674671,
+              "vs_old_alexpy": 3.6695739689213496
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 1651276,
+                "native_batch": 751966,
+                "alexpy_batch": 2372947
+              },
+              "vs_python": 2.195945029429522,
+              "vs_old_alexpy": 3.1556573036546864
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 775402,
+                "strong_batch": 1530043,
+                "alexpy_batch": 2376593
+              },
+              "vs_python": 1.973225501094916,
+              "vs_old_alexpy": 3.0649817771942813
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 728271,
+                "alexpy_batch": 2348100,
+                "strong_batch": 1535271
+              },
+              "vs_python": 2.108103988762425,
+              "vs_old_alexpy": 3.224211866187175
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 2349521,
+                "native_batch": 740529,
+                "strong_batch": 1610995
+              },
+              "vs_python": 2.1754651067007504,
+              "vs_old_alexpy": 3.172760283527046
+            }
+          ],
+          "median_vs_python": 2.112679070674671,
+          "median_vs_old_alexpy": 3.172760283527046
+        },
+        {
+          "case": "small-frequent",
+          "tests": 256,
+          "events": 2400,
+          "batch_size": 256,
+          "digest": 391885288520553775,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 1251632,
+                "alexpy_batch": 1812499,
+                "native_batch": 608300
+              },
+              "vs_python": 2.057590004931777,
+              "vs_old_alexpy": 2.9796136774617787
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 1190159,
+                "native_batch": 607488,
+                "alexpy_batch": 1823747
+              },
+              "vs_python": 1.9591481642435735,
+              "vs_old_alexpy": 3.0021119758744206
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 610403,
+                "strong_batch": 1205822,
+                "alexpy_batch": 1777166
+              },
+              "vs_python": 1.975452283163746,
+              "vs_old_alexpy": 2.9114634102388095
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 648300,
+                "alexpy_batch": 1777457,
+                "strong_batch": 1196178
+              },
+              "vs_python": 1.8450994909763998,
+              "vs_old_alexpy": 2.7417198827703224
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 1773461,
+                "native_batch": 618205,
+                "strong_batch": 1511224
+              },
+              "vs_python": 2.4445353887464516,
+              "vs_old_alexpy": 2.8687263933484846
+            }
+          ],
+          "median_vs_python": 1.975452283163746,
+          "median_vs_old_alexpy": 2.9114634102388095
+        },
+        {
+          "case": "medium-mixed",
+          "tests": 4096,
+          "events": 6000,
+          "batch_size": 1,
+          "digest": 10792736380350403648,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 21896919,
+                "alexpy_batch": 36638042,
+                "native_batch": 14831770
+              },
+              "vs_python": 1.4763523841052013,
+              "vs_old_alexpy": 2.470240706267694
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 21147196,
+                "native_batch": 14115757,
+                "alexpy_batch": 35293649
+              },
+              "vs_python": 1.498126951321137,
+              "vs_old_alexpy": 2.500301542453586
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 14616434,
+                "strong_batch": 20652538,
+                "alexpy_batch": 34236451
+              },
+              "vs_python": 1.4129669384475037,
+              "vs_old_alexpy": 2.3423258367943918
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 18125859,
+                "alexpy_batch": 34002188,
+                "strong_batch": 21506438
+              },
+              "vs_python": 1.1865058643565527,
+              "vs_old_alexpy": 1.8758938817740995
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 35988389,
+                "native_batch": 14506808,
+                "strong_batch": 21118412
+              },
+              "vs_python": 1.4557587030861647,
+              "vs_old_alexpy": 2.4807930869423513
+            }
+          ],
+          "median_vs_python": 1.4557587030861647,
+          "median_vs_old_alexpy": 2.470240706267694
+        },
+        {
+          "case": "medium-mixed",
+          "tests": 4096,
+          "events": 6000,
+          "batch_size": 8,
+          "digest": 6035752056822298596,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 7918851,
+                "alexpy_batch": 12914542,
+                "native_batch": 3879855
+              },
+              "vs_python": 2.0410172545108,
+              "vs_old_alexpy": 3.3286146002878976
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 6834882,
+                "native_batch": 3667123,
+                "alexpy_batch": 11433112
+              },
+              "vs_python": 1.8638267655598135,
+              "vs_old_alexpy": 3.117733438447524
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 3882459,
+                "strong_batch": 6745476,
+                "alexpy_batch": 13367956
+              },
+              "vs_python": 1.7374236276545354,
+              "vs_old_alexpy": 3.443167332868164
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 3812363,
+                "alexpy_batch": 12692616,
+                "strong_batch": 7364423
+              },
+              "vs_python": 1.931721349724567,
+              "vs_old_alexpy": 3.329330391675714
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 11784874,
+                "native_batch": 4709259,
+                "strong_batch": 7246343
+              },
+              "vs_python": 1.5387437811341445,
+              "vs_old_alexpy": 2.5024900945138078
+            }
+          ],
+          "median_vs_python": 1.8638267655598135,
+          "median_vs_old_alexpy": 3.3286146002878976
+        },
+        {
+          "case": "medium-mixed",
+          "tests": 4096,
+          "events": 6000,
+          "batch_size": 64,
+          "digest": 7805822977315031360,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 4899846,
+                "alexpy_batch": 7626949,
+                "native_batch": 2195749
+              },
+              "vs_python": 2.2315146221175555,
+              "vs_old_alexpy": 3.473506762384954
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 4674456,
+                "native_batch": 2264523,
+                "alexpy_batch": 7993913
+              },
+              "vs_python": 2.0642121983305093,
+              "vs_old_alexpy": 3.530064830430073
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 2353737,
+                "strong_batch": 4904303,
+                "alexpy_batch": 7906992
+              },
+              "vs_python": 2.0836240412586453,
+              "vs_old_alexpy": 3.359335388788127
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 2185884,
+                "alexpy_batch": 8353067,
+                "strong_batch": 5429718
+              },
+              "vs_python": 2.4839918312225167,
+              "vs_old_alexpy": 3.8213679225430077
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 8231532,
+                "native_batch": 2306236,
+                "strong_batch": 4801467
+              },
+              "vs_python": 2.0819495489620317,
+              "vs_old_alexpy": 3.5692496344693256
+            }
+          ],
+          "median_vs_python": 2.0836240412586453,
+          "median_vs_old_alexpy": 3.530064830430073
+        },
+        {
+          "case": "medium-mixed",
+          "tests": 4096,
+          "events": 6000,
+          "batch_size": 256,
+          "digest": 423256824583842036,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 4373351,
+                "alexpy_batch": 7385364,
+                "native_batch": 2052091
+              },
+              "vs_python": 2.1311681596966214,
+              "vs_old_alexpy": 3.598945660791846
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 4662949,
+                "native_batch": 2182228,
+                "alexpy_batch": 7723836
+              },
+              "vs_python": 2.1367835991472934,
+              "vs_old_alexpy": 3.5394266776890406
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 2447400,
+                "strong_batch": 4770801,
+                "alexpy_batch": 7438574
+              },
+              "vs_python": 1.949334395685217,
+              "vs_old_alexpy": 3.039378115551197
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 2513990,
+                "alexpy_batch": 7736414,
+                "strong_batch": 4986908
+              },
+              "vs_python": 1.9836626239563404,
+              "vs_old_alexpy": 3.077344778618849
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 7221305,
+                "native_batch": 2199515,
+                "strong_batch": 4534064
+              },
+              "vs_python": 2.0613926251923718,
+              "vs_old_alexpy": 3.2831351457025755
+            }
+          ],
+          "median_vs_python": 2.0613926251923718,
+          "median_vs_old_alexpy": 3.2831351457025755
+        },
+        {
+          "case": "large-sparse",
+          "tests": 16384,
+          "events": 10000,
+          "batch_size": 1,
+          "digest": 17317023811588057164,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 44069234,
+                "alexpy_batch": 65209210,
+                "native_batch": 32546567
+              },
+              "vs_python": 1.354036325858884,
+              "vs_old_alexpy": 2.003566459098436
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 42581415,
+                "native_batch": 33303231,
+                "alexpy_batch": 73280039
+              },
+              "vs_python": 1.278597112694561,
+              "vs_old_alexpy": 2.2003882746391783
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 35716008,
+                "strong_batch": 48666063,
+                "alexpy_batch": 66604399
+              },
+              "vs_python": 1.362584054746544,
+              "vs_old_alexpy": 1.8648332422817242
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 32930858,
+                "alexpy_batch": 67022921,
+                "strong_batch": 44474387
+              },
+              "vs_python": 1.350538361314485,
+              "vs_old_alexpy": 2.035261911487396
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 66017742,
+                "native_batch": 32166362,
+                "strong_batch": 46277272
+              },
+              "vs_python": 1.4386852949052802,
+              "vs_old_alexpy": 2.052384475434306
+            }
+          ],
+          "median_vs_python": 1.354036325858884,
+          "median_vs_old_alexpy": 2.035261911487396
+        },
+        {
+          "case": "large-sparse",
+          "tests": 16384,
+          "events": 10000,
+          "batch_size": 8,
+          "digest": 16526467304232465668,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 14209669,
+                "alexpy_batch": 21010549,
+                "native_batch": 8705539
+              },
+              "vs_python": 1.632256084315974,
+              "vs_old_alexpy": 2.413469056884358
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 14488871,
+                "native_batch": 8177130,
+                "alexpy_batch": 20688983
+              },
+              "vs_python": 1.7718772968021788,
+              "vs_old_alexpy": 2.5301032269268067
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 8002426,
+                "strong_batch": 13823446,
+                "alexpy_batch": 21410284
+              },
+              "vs_python": 1.7274069138533739,
+              "vs_old_alexpy": 2.675474162460234
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 7893472,
+                "alexpy_batch": 20805319,
+                "strong_batch": 14039051
+              },
+              "vs_python": 1.7785647431193776,
+              "vs_old_alexpy": 2.6357626909932663
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 20725088,
+                "native_batch": 8267387,
+                "strong_batch": 13928184
+              },
+              "vs_python": 1.68471416664056,
+              "vs_old_alexpy": 2.506848657260148
+            }
+          ],
+          "median_vs_python": 1.7274069138533739,
+          "median_vs_old_alexpy": 2.5301032269268067
+        },
+        {
+          "case": "large-sparse",
+          "tests": 16384,
+          "events": 10000,
+          "batch_size": 64,
+          "digest": 764915917941998760,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 10001047,
+                "alexpy_batch": 14860763,
+                "native_batch": 4575406
+              },
+              "vs_python": 2.185827224950092,
+              "vs_old_alexpy": 3.2479659728557424
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 8875946,
+                "native_batch": 4889010,
+                "alexpy_batch": 14715384
+              },
+              "vs_python": 1.8154894344662826,
+              "vs_old_alexpy": 3.0098903458982496
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 4707726,
+                "strong_batch": 9748736,
+                "alexpy_batch": 15276071
+              },
+              "vs_python": 2.070795114244117,
+              "vs_old_alexpy": 3.2448938192239734
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 5932768,
+                "alexpy_batch": 14974686,
+                "strong_batch": 9612640
+              },
+              "vs_python": 1.6202622452116786,
+              "vs_old_alexpy": 2.5240639782307346
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 14410522,
+                "native_batch": 4776291,
+                "strong_batch": 9811290
+              },
+              "vs_python": 2.05416504145162,
+              "vs_old_alexpy": 3.0170946451964507
+            }
+          ],
+          "median_vs_python": 2.05416504145162,
+          "median_vs_old_alexpy": 3.0170946451964507
+        },
+        {
+          "case": "large-sparse",
+          "tests": 16384,
+          "events": 10000,
+          "batch_size": 256,
+          "digest": 6027403120778407336,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 8776747,
+                "alexpy_batch": 15165314,
+                "native_batch": 4350586
+              },
+              "vs_python": 2.0173712230950036,
+              "vs_old_alexpy": 3.4858094978469567
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 9251063,
+                "native_batch": 4780266,
+                "alexpy_batch": 15217022
+              },
+              "vs_python": 1.93526113400384,
+              "vs_old_alexpy": 3.183300259860016
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 4698393,
+                "strong_batch": 9534101,
+                "alexpy_batch": 15237272
+              },
+              "vs_python": 2.0292259502344736,
+              "vs_old_alexpy": 3.243081623865862
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 4851363,
+                "alexpy_batch": 14660671,
+                "strong_batch": 9331604
+              },
+              "vs_python": 1.92350149844487,
+              "vs_old_alexpy": 3.021969495995249
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 14346135,
+                "native_batch": 4500483,
+                "strong_batch": 9509485
+              },
+              "vs_python": 2.1129920944040896,
+              "vs_old_alexpy": 3.187687854836914
+            }
+          ],
+          "median_vs_python": 2.0173712230950036,
+          "median_vs_old_alexpy": 3.187687854836914
+        },
+        {
+          "case": "medium-hot-retries",
+          "tests": 4096,
+          "events": 8000,
+          "batch_size": 1,
+          "digest": 4663641546204474220,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 27226544,
+                "alexpy_batch": 44157617,
+                "native_batch": 20873962
+              },
+              "vs_python": 1.3043304380835798,
+              "vs_old_alexpy": 2.11544013541847
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 28329992,
+                "native_batch": 20455870,
+                "alexpy_batch": 44735871
+              },
+              "vs_python": 1.3849321490603919,
+              "vs_old_alexpy": 2.186945409801685
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 20144029,
+                "strong_batch": 28209540,
+                "alexpy_batch": 43355415
+              },
+              "vs_python": 1.40039214598033,
+              "vs_old_alexpy": 2.152271276019311
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 20162697,
+                "alexpy_batch": 45117328,
+                "strong_batch": 26581330
+              },
+              "vs_python": 1.3183419856976475,
+              "vs_old_alexpy": 2.237663344343269
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 44550280,
+                "native_batch": 18786798,
+                "strong_batch": 26929315
+              },
+              "vs_python": 1.4334169665314973,
+              "vs_old_alexpy": 2.3713609950987924
+            }
+          ],
+          "median_vs_python": 1.3849321490603919,
+          "median_vs_old_alexpy": 2.186945409801685
+        },
+        {
+          "case": "medium-hot-retries",
+          "tests": 4096,
+          "events": 8000,
+          "batch_size": 8,
+          "digest": 14855210657370723428,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 8880173,
+                "alexpy_batch": 13744235,
+                "native_batch": 4915801
+              },
+              "vs_python": 1.8064549398968754,
+              "vs_old_alexpy": 2.795929900335673
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 8400868,
+                "native_batch": 4736409,
+                "alexpy_batch": 15128328
+              },
+              "vs_python": 1.7736787511382568,
+              "vs_old_alexpy": 3.194050175987758
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 5239440,
+                "strong_batch": 8739730,
+                "alexpy_batch": 14613269
+              },
+              "vs_python": 1.6680656711404271,
+              "vs_old_alexpy": 2.7890898645656788
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 5024335,
+                "alexpy_batch": 13403180,
+                "strong_batch": 8974776
+              },
+              "vs_python": 1.7862614654476663,
+              "vs_old_alexpy": 2.667652535111612
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 16034457,
+                "native_batch": 5147330,
+                "strong_batch": 8770558
+              },
+              "vs_python": 1.703904354296305,
+              "vs_old_alexpy": 3.1151018100646355
+            }
+          ],
+          "median_vs_python": 1.7736787511382568,
+          "median_vs_old_alexpy": 2.795929900335673
+        },
+        {
+          "case": "medium-hot-retries",
+          "tests": 4096,
+          "events": 8000,
+          "batch_size": 64,
+          "digest": 483501094593140712,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 5390037,
+                "alexpy_batch": 8032051,
+                "native_batch": 2931632
+              },
+              "vs_python": 1.8385789894502447,
+              "vs_old_alexpy": 2.739788281748869
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 5585894,
+                "native_batch": 2846743,
+                "alexpy_batch": 7895905
+              },
+              "vs_python": 1.9622052289230183,
+              "vs_old_alexpy": 2.7736627437039454
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 2947316,
+                "strong_batch": 5475897,
+                "alexpy_batch": 7965030
+              },
+              "vs_python": 1.8579266695529084,
+              "vs_old_alexpy": 2.7024689581978993
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 2610526,
+                "alexpy_batch": 7692417,
+                "strong_batch": 5620866
+              },
+              "vs_python": 2.153154574978376,
+              "vs_old_alexpy": 2.946692352422462
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 8586960,
+                "native_batch": 3063430,
+                "strong_batch": 5173741
+              },
+              "vs_python": 1.6888719507219032,
+              "vs_old_alexpy": 2.803054092961158
+            }
+          ],
+          "median_vs_python": 1.8579266695529084,
+          "median_vs_old_alexpy": 2.7736627437039454
+        },
+        {
+          "case": "medium-hot-retries",
+          "tests": 4096,
+          "events": 8000,
+          "batch_size": 256,
+          "digest": 794228999254853128,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 3948067,
+                "alexpy_batch": 5337338,
+                "native_batch": 1987604
+              },
+              "vs_python": 1.9863448654762217,
+              "vs_old_alexpy": 2.685312567292076
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 3885202,
+                "native_batch": 1996148,
+                "alexpy_batch": 4942100
+              },
+              "vs_python": 1.9463496694633864,
+              "vs_old_alexpy": 2.475818426289033
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 1977209,
+                "strong_batch": 3453990,
+                "alexpy_batch": 5055592
+              },
+              "vs_python": 1.7469018196862345,
+              "vs_old_alexpy": 2.55693353611075
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 3312607,
+                "alexpy_batch": 5920118,
+                "strong_batch": 3622816
+              },
+              "vs_python": 1.0936449750906159,
+              "vs_old_alexpy": 1.7871477057193925
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 4831333,
+                "native_batch": 1953132,
+                "strong_batch": 3662756
+              },
+              "vs_python": 1.8753243508375266,
+              "vs_old_alexpy": 2.4736336304970683
+            }
+          ],
+          "median_vs_python": 1.8753243508375266,
+          "median_vs_old_alexpy": 2.475818426289033
+        }
+      ]
+    },
+    {
+      "python": "3.13.5",
+      "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+      "machine": "x86_64",
+      "native": true,
+      "cells": [
+        {
+          "case": "small-frequent",
+          "tests": 256,
+          "events": 2400,
+          "batch_size": 1,
+          "digest": 10574078812534991317,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 7895304,
+                "alexpy_batch": 12664423,
+                "native_batch": 5942092
+              },
+              "vs_python": 1.3287078018987253,
+              "vs_old_alexpy": 2.131307122138129
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 7861202,
+                "native_batch": 5989003,
+                "alexpy_batch": 13071488
+              },
+              "vs_python": 1.3126061215865146,
+              "vs_old_alexpy": 2.1825816417189974
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 5984676,
+                "strong_batch": 8368029,
+                "alexpy_batch": 12807389
+              },
+              "vs_python": 1.3982426116301032,
+              "vs_old_alexpy": 2.1400304711566673
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 6532745,
+                "alexpy_batch": 15453689,
+                "strong_batch": 8488390
+              },
+              "vs_python": 1.2993603760746821,
+              "vs_old_alexpy": 2.365573583539538
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 12824576,
+                "native_batch": 5745856,
+                "strong_batch": 7648450
+              },
+              "vs_python": 1.3311245530692033,
+              "vs_old_alexpy": 2.2319696142750534
+            }
+          ],
+          "median_vs_python": 1.3287078018987253,
+          "median_vs_old_alexpy": 2.1825816417189974
+        },
+        {
+          "case": "small-frequent",
+          "tests": 256,
+          "events": 2400,
+          "batch_size": 8,
+          "digest": 374834479802681829,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 2298404,
+                "alexpy_batch": 4063482,
+                "native_batch": 1697926
+              },
+              "vs_python": 1.3536538105900964,
+              "vs_old_alexpy": 2.3932032373613454
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 2425526,
+                "native_batch": 1343761,
+                "alexpy_batch": 3998234
+              },
+              "vs_python": 1.805027828609403,
+              "vs_old_alexpy": 2.975405596679767
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 1383221,
+                "strong_batch": 2554532,
+                "alexpy_batch": 3844851
+              },
+              "vs_python": 1.8467996075825917,
+              "vs_old_alexpy": 2.7796360812914207
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 1346565,
+                "alexpy_batch": 4128130,
+                "strong_batch": 2525247
+              },
+              "vs_python": 1.8753249935948135,
+              "vs_old_alexpy": 3.065674512556022
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 3748747,
+                "native_batch": 1375830,
+                "strong_batch": 2427550
+              },
+              "vs_python": 1.764425837494458,
+              "vs_old_alexpy": 2.7247167164547945
+            }
+          ],
+          "median_vs_python": 1.805027828609403,
+          "median_vs_old_alexpy": 2.7796360812914207
+        },
+        {
+          "case": "small-frequent",
+          "tests": 256,
+          "events": 2400,
+          "batch_size": 64,
+          "digest": 17219388088302592100,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 1630786,
+                "alexpy_batch": 2808465,
+                "native_batch": 904106
+              },
+              "vs_python": 1.8037553118771472,
+              "vs_old_alexpy": 3.1063448312476636
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 1633649,
+                "native_batch": 824246,
+                "alexpy_batch": 2415160
+              },
+              "vs_python": 1.9819920266522373,
+              "vs_old_alexpy": 2.9301446412842767
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 754721,
+                "strong_batch": 1629964,
+                "alexpy_batch": 2444726
+              },
+              "vs_python": 2.159690799646492,
+              "vs_old_alexpy": 3.239244701021967
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 859980,
+                "alexpy_batch": 2606349,
+                "strong_batch": 1478134
+              },
+              "vs_python": 1.7188004372194703,
+              "vs_old_alexpy": 3.030708853694272
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 2413418,
+                "native_batch": 759708,
+                "strong_batch": 1511194
+              },
+              "vs_python": 1.9891774207985173,
+              "vs_old_alexpy": 3.1767705486844946
+            }
+          ],
+          "median_vs_python": 1.9819920266522373,
+          "median_vs_old_alexpy": 3.1063448312476636
+        },
+        {
+          "case": "small-frequent",
+          "tests": 256,
+          "events": 2400,
+          "batch_size": 256,
+          "digest": 391885288520553775,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 1217821,
+                "alexpy_batch": 1858309,
+                "native_batch": 685917
+              },
+              "vs_python": 1.775464086762684,
+              "vs_old_alexpy": 2.7092330413154944
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 1188907,
+                "native_batch": 647029,
+                "alexpy_batch": 1888174
+              },
+              "vs_python": 1.837486418692207,
+              "vs_old_alexpy": 2.9182215943953054
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 636071,
+                "strong_batch": 1184420,
+                "alexpy_batch": 1761082
+              },
+              "vs_python": 1.862087722911436,
+              "vs_old_alexpy": 2.7686877722769943
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 672015,
+                "alexpy_batch": 1791138,
+                "strong_batch": 1258322
+              },
+              "vs_python": 1.87246118018199,
+              "vs_old_alexpy": 2.6653244347224394
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 1844558,
+                "native_batch": 632687,
+                "strong_batch": 1475020
+              },
+              "vs_python": 2.331358159721948,
+              "vs_old_alexpy": 2.915435278423612
+            }
+          ],
+          "median_vs_python": 1.862087722911436,
+          "median_vs_old_alexpy": 2.7686877722769943
+        },
+        {
+          "case": "medium-mixed",
+          "tests": 4096,
+          "events": 6000,
+          "batch_size": 1,
+          "digest": 10792736380350403648,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 20319344,
+                "alexpy_batch": 35055568,
+                "native_batch": 15286177
+              },
+              "vs_python": 1.3292626403580177,
+              "vs_old_alexpy": 2.29328549577831
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 21330042,
+                "native_batch": 15415602,
+                "alexpy_batch": 32319202
+              },
+              "vs_python": 1.3836658471073657,
+              "vs_old_alexpy": 2.096525455184948
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 14603043,
+                "strong_batch": 20708232,
+                "alexpy_batch": 34613731
+              },
+              "vs_python": 1.418076492687175,
+              "vs_old_alexpy": 2.370309462212773
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 21021705,
+                "alexpy_batch": 33857908,
+                "strong_batch": 20216058
+              },
+              "vs_python": 0.9616754682838523,
+              "vs_old_alexpy": 1.610616645985661
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 34343031,
+                "native_batch": 14749324,
+                "strong_batch": 20877297
+              },
+              "vs_python": 1.415474838033255,
+              "vs_old_alexpy": 2.3284477986923333
+            }
+          ],
+          "median_vs_python": 1.3836658471073657,
+          "median_vs_old_alexpy": 2.29328549577831
+        },
+        {
+          "case": "medium-mixed",
+          "tests": 4096,
+          "events": 6000,
+          "batch_size": 8,
+          "digest": 6035752056822298596,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 6418442,
+                "alexpy_batch": 10518650,
+                "native_batch": 3740575
+              },
+              "vs_python": 1.7158971548491877,
+              "vs_old_alexpy": 2.8120409295362343
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 6387565,
+                "native_batch": 3764610,
+                "alexpy_batch": 10674245
+              },
+              "vs_python": 1.6967401669761277,
+              "vs_old_alexpy": 2.8354185426910092
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 3975058,
+                "strong_batch": 6699236,
+                "alexpy_batch": 10804972
+              },
+              "vs_python": 1.6853177991365158,
+              "vs_old_alexpy": 2.718192288011898
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 3780805,
+                "alexpy_batch": 10694726,
+                "strong_batch": 7117268
+              },
+              "vs_python": 1.8824742349843486,
+              "vs_old_alexpy": 2.8286901863492036
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 10658852,
+                "native_batch": 3711870,
+                "strong_batch": 6548318
+              },
+              "vs_python": 1.7641560722762382,
+              "vs_old_alexpy": 2.8715585405738886
+            }
+          ],
+          "median_vs_python": 1.7158971548491877,
+          "median_vs_old_alexpy": 2.8286901863492036
+        },
+        {
+          "case": "medium-mixed",
+          "tests": 4096,
+          "events": 6000,
+          "batch_size": 64,
+          "digest": 7805822977315031360,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 4510759,
+                "alexpy_batch": 7378123,
+                "native_batch": 2602033
+              },
+              "vs_python": 1.7335518035320843,
+              "vs_old_alexpy": 2.835522454941963
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 4675767,
+                "native_batch": 2282601,
+                "alexpy_batch": 7763995
+              },
+              "vs_python": 2.0484381633058075,
+              "vs_old_alexpy": 3.4013807056073313
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 2356522,
+                "strong_batch": 4963052,
+                "alexpy_batch": 7982065
+              },
+              "vs_python": 2.1060919439750614,
+              "vs_old_alexpy": 3.3872227800122383
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 2304263,
+                "alexpy_batch": 9953100,
+                "strong_batch": 4848889
+              },
+              "vs_python": 2.104312311572073,
+              "vs_old_alexpy": 4.319428815200348
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 7950358,
+                "native_batch": 2497044,
+                "strong_batch": 4610669
+              },
+              "vs_python": 1.8464508434773277,
+              "vs_old_alexpy": 3.1839078526449676
+            }
+          ],
+          "median_vs_python": 2.0484381633058075,
+          "median_vs_old_alexpy": 3.3872227800122383
+        },
+        {
+          "case": "medium-mixed",
+          "tests": 4096,
+          "events": 6000,
+          "batch_size": 256,
+          "digest": 423256824583842036,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 4410376,
+                "alexpy_batch": 7396000,
+                "native_batch": 2467079
+              },
+              "vs_python": 1.7876914359045657,
+              "vs_old_alexpy": 2.9978772467359174
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 4627054,
+                "native_batch": 2272695,
+                "alexpy_batch": 7093072
+              },
+              "vs_python": 2.0359326702439176,
+              "vs_old_alexpy": 3.1209959981431736
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 2294017,
+                "strong_batch": 5013829,
+                "alexpy_batch": 7376970
+              },
+              "vs_python": 2.1856110918096947,
+              "vs_old_alexpy": 3.215743388126592
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 3591959,
+                "alexpy_batch": 7746429,
+                "strong_batch": 5278959
+              },
+              "vs_python": 1.4696601492388972,
+              "vs_old_alexpy": 2.1566028454110975
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 7531254,
+                "native_batch": 2441471,
+                "strong_batch": 4467913
+              },
+              "vs_python": 1.8300086300431175,
+              "vs_old_alexpy": 3.0847198266946445
+            }
+          ],
+          "median_vs_python": 1.8300086300431175,
+          "median_vs_old_alexpy": 3.0847198266946445
+        },
+        {
+          "case": "large-sparse",
+          "tests": 16384,
+          "events": 10000,
+          "batch_size": 1,
+          "digest": 17317023811588057164,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 42360950,
+                "alexpy_batch": 63654187,
+                "native_batch": 32245081
+              },
+              "vs_python": 1.3137182071274685,
+              "vs_old_alexpy": 1.9740743402071157
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 41430355,
+                "native_batch": 32030767,
+                "alexpy_batch": 62425629
+              },
+              "vs_python": 1.2934549772098807,
+              "vs_old_alexpy": 1.9489270737725388
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 32337770,
+                "strong_batch": 42144954,
+                "alexpy_batch": 64497181
+              },
+              "vs_python": 1.3032733549654165,
+              "vs_old_alexpy": 1.994484499085744
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 31291028,
+                "alexpy_batch": 63819126,
+                "strong_batch": 41549233
+              },
+              "vs_python": 1.327832150480962,
+              "vs_old_alexpy": 2.039534335529021
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 63992078,
+                "native_batch": 31101051,
+                "strong_batch": 41720102
+              },
+              "vs_python": 1.3414370466129906,
+              "vs_old_alexpy": 2.057553553415285
+            }
+          ],
+          "median_vs_python": 1.3137182071274685,
+          "median_vs_old_alexpy": 1.994484499085744
+        },
+        {
+          "case": "large-sparse",
+          "tests": 16384,
+          "events": 10000,
+          "batch_size": 8,
+          "digest": 16526467304232465668,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 12739065,
+                "alexpy_batch": 20712999,
+                "native_batch": 7710514
+              },
+              "vs_python": 1.6521680655790263,
+              "vs_old_alexpy": 2.6863318061545574
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 12859728,
+                "native_batch": 7683074,
+                "alexpy_batch": 20094033
+              },
+              "vs_python": 1.6737738045995652,
+              "vs_old_alexpy": 2.615363720302577
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 7804487,
+                "strong_batch": 12683601,
+                "alexpy_batch": 20174705
+              },
+              "vs_python": 1.6251678041106354,
+              "vs_old_alexpy": 2.585013595384296
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 7984729,
+                "alexpy_batch": 19613167,
+                "strong_batch": 12734638
+              },
+              "vs_python": 1.594874165422521,
+              "vs_old_alexpy": 2.45633471092131
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 19766449,
+                "native_batch": 7785768,
+                "strong_batch": 12596049
+              },
+              "vs_python": 1.617829994420589,
+              "vs_old_alexpy": 2.538792447964029
+            }
+          ],
+          "median_vs_python": 1.6251678041106354,
+          "median_vs_old_alexpy": 2.585013595384296
+        },
+        {
+          "case": "large-sparse",
+          "tests": 16384,
+          "events": 10000,
+          "batch_size": 64,
+          "digest": 764915917941998760,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 8959923,
+                "alexpy_batch": 14769214,
+                "native_batch": 4703590
+              },
+              "vs_python": 1.9049115675473416,
+              "vs_old_alexpy": 3.1399875414311196
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 8989167,
+                "native_batch": 4670600,
+                "alexpy_batch": 14045059
+              },
+              "vs_python": 1.9246278850682996,
+              "vs_old_alexpy": 3.00712092664754
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 4601926,
+                "strong_batch": 8690947,
+                "alexpy_batch": 14098661
+              },
+              "vs_python": 1.8885455785251652,
+              "vs_old_alexpy": 3.0636435701052123
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 4682518,
+                "alexpy_batch": 14657466,
+                "strong_batch": 8741393
+              },
+              "vs_python": 1.8668146070127227,
+              "vs_old_alexpy": 3.1302529963579424
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 15021045,
+                "native_batch": 4786676,
+                "strong_batch": 9362401
+              },
+              "vs_python": 1.9559295427557661,
+              "vs_old_alexpy": 3.1380952042711896
+            }
+          ],
+          "median_vs_python": 1.9049115675473416,
+          "median_vs_old_alexpy": 3.1302529963579424
+        },
+        {
+          "case": "large-sparse",
+          "tests": 16384,
+          "events": 10000,
+          "batch_size": 256,
+          "digest": 6027403120778407336,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 8618518,
+                "alexpy_batch": 13982886,
+                "native_batch": 4315924
+              },
+              "vs_python": 1.9969114377361603,
+              "vs_old_alexpy": 3.239836011940896
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 8358774,
+                "native_batch": 4292538,
+                "alexpy_batch": 14075646
+              },
+              "vs_python": 1.9472801405602,
+              "vs_old_alexpy": 3.2790964226758157
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 4536867,
+                "strong_batch": 8376021,
+                "alexpy_batch": 13628140
+              },
+              "vs_python": 1.846212595608379,
+              "vs_old_alexpy": 3.0038658836593624
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 4311827,
+                "alexpy_batch": 13726168,
+                "strong_batch": 8582012
+              },
+              "vs_python": 1.9903423769089066,
+              "vs_old_alexpy": 3.1833763274825264
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 14236860,
+                "native_batch": 4458470,
+                "strong_batch": 8381449
+              },
+              "vs_python": 1.8798935509266632,
+              "vs_old_alexpy": 3.1932165070080094
+            }
+          ],
+          "median_vs_python": 1.9472801405602,
+          "median_vs_old_alexpy": 3.1932165070080094
+        },
+        {
+          "case": "medium-hot-retries",
+          "tests": 4096,
+          "events": 8000,
+          "batch_size": 1,
+          "digest": 4663641546204474220,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 26113302,
+                "alexpy_batch": 45573056,
+                "native_batch": 24595197
+              },
+              "vs_python": 1.0617236365295224,
+              "vs_old_alexpy": 1.8529250243452005
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 25497932,
+                "native_batch": 18642269,
+                "alexpy_batch": 43551691
+              },
+              "vs_python": 1.3677483143280467,
+              "vs_old_alexpy": 2.3361797321989077
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 19176926,
+                "strong_batch": 26152582,
+                "alexpy_batch": 42550777
+              },
+              "vs_python": 1.3637525638884982,
+              "vs_old_alexpy": 2.2188528547276034
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 19402068,
+                "alexpy_batch": 42783169,
+                "strong_batch": 26366715
+              },
+              "vs_python": 1.3589641578413187,
+              "vs_old_alexpy": 2.205082932396691
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 42672022,
+                "native_batch": 18875341,
+                "strong_batch": 25859378
+              },
+              "vs_python": 1.3700085206407662,
+              "vs_old_alexpy": 2.2607285346526984
+            }
+          ],
+          "median_vs_python": 1.3637525638884982,
+          "median_vs_old_alexpy": 2.2188528547276034
+        },
+        {
+          "case": "medium-hot-retries",
+          "tests": 4096,
+          "events": 8000,
+          "batch_size": 8,
+          "digest": 14855210657370723428,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 7998861,
+                "alexpy_batch": 13204730,
+                "native_batch": 4833706
+              },
+              "vs_python": 1.6548091671276657,
+              "vs_old_alexpy": 2.7318024720576717
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 8297953,
+                "native_batch": 4887207,
+                "alexpy_batch": 13529571
+              },
+              "vs_python": 1.6978926818528457,
+              "vs_old_alexpy": 2.7683646303502183
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 5035121,
+                "strong_batch": 8746470,
+                "alexpy_batch": 13872159
+              },
+              "vs_python": 1.7370923161528788,
+              "vs_old_alexpy": 2.7550795700838173
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 4934679,
+                "alexpy_batch": 13175115,
+                "strong_batch": 8327047
+              },
+              "vs_python": 1.6874546449728545,
+              "vs_old_alexpy": 2.6699031487154485
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 13158058,
+                "native_batch": 4830391,
+                "strong_batch": 8284052
+              },
+              "vs_python": 1.714985805496905,
+              "vs_old_alexpy": 2.724015095258334
+            }
+          ],
+          "median_vs_python": 1.6978926818528457,
+          "median_vs_old_alexpy": 2.7318024720576717
+        },
+        {
+          "case": "medium-hot-retries",
+          "tests": 4096,
+          "events": 8000,
+          "batch_size": 64,
+          "digest": 483501094593140712,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 4972135,
+                "alexpy_batch": 7719058,
+                "native_batch": 2898230
+              },
+              "vs_python": 1.7155764035290504,
+              "vs_old_alexpy": 2.6633697118586173
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 4954219,
+                "native_batch": 2656094,
+                "alexpy_batch": 7826279
+              },
+              "vs_python": 1.865227284877719,
+              "vs_old_alexpy": 2.9465369072028325
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 2724258,
+                "strong_batch": 4986617,
+                "alexpy_batch": 7779149
+              },
+              "vs_python": 1.8304496123348082,
+              "vs_old_alexpy": 2.8555111153202084
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 2683487,
+                "alexpy_batch": 7678697,
+                "strong_batch": 4953087
+              },
+              "vs_python": 1.84576523009055,
+              "vs_old_alexpy": 2.8614623435850444
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 7670314,
+                "native_batch": 2674914,
+                "strong_batch": 4964594
+              },
+              "vs_python": 1.855982659629431,
+              "vs_old_alexpy": 2.867499291566009
+            }
+          ],
+          "median_vs_python": 1.84576523009055,
+          "median_vs_old_alexpy": 2.8614623435850444
+        },
+        {
+          "case": "medium-hot-retries",
+          "tests": 4096,
+          "events": 8000,
+          "batch_size": 256,
+          "digest": 794228999254853128,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 3559851,
+                "alexpy_batch": 5087891,
+                "native_batch": 2137041
+              },
+              "vs_python": 1.6657850738474367,
+              "vs_old_alexpy": 2.3808111309048354
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 3466389,
+                "native_batch": 2066283,
+                "alexpy_batch": 5075772
+              },
+              "vs_python": 1.6775964376612498,
+              "vs_old_alexpy": 2.4564747423271642
+            },
+            {
+              "order": [
+                "native_batch",
+                "strong_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "native_batch": 2234397,
+                "strong_batch": 3608665,
+                "alexpy_batch": 4931785
+              },
+              "vs_python": 1.6150509511067193,
+              "vs_old_alexpy": 2.207210715016177
+            },
+            {
+              "order": [
+                "native_batch",
+                "alexpy_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "native_batch": 2113525,
+                "alexpy_batch": 5129383,
+                "strong_batch": 3611509
+              },
+              "vs_python": 1.7087609562224246,
+              "vs_old_alexpy": 2.4269327308643143
+            },
+            {
+              "order": [
+                "alexpy_batch",
+                "native_batch",
+                "strong_batch"
+              ],
+              "ns": {
+                "alexpy_batch": 5308694,
+                "native_batch": 2054296,
+                "strong_batch": 3552761
+              },
+              "vs_python": 1.7294299360948957,
+              "vs_old_alexpy": 2.584191372616215
+            }
+          ],
+          "median_vs_python": 1.6775964376612498,
+          "median_vs_old_alexpy": 2.4269327308643143
+        }
+      ]
+    }
+  ],
+  "pairs": 5,
+  "session_count": 3,
+  "smoke": false
+}

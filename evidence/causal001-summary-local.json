@@ -1,0 +1,251 @@
+{
+  "schema": "causal001-summary/1",
+  "base_commit": "a9cfd0a66f327e51ac4de1c8403dddc91e261272",
+  "raw_sha256": "b3df1530c41b9c55881ea4f7e9c8c10ad6a316eac9fe37e455e1fed79de35d20",
+  "environment": {
+    "system": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "python": "3.13.5",
+    "processor": "AMD EPYC 9V74 80-Core Processor",
+    "machine": "x86_64"
+  },
+  "protocol": {
+    "timing": "apply + read + transition allocation; construction separate",
+    "memory": "tracemalloc peak for one engine construction and replay; shared graph and patches excluded; not RSS",
+    "samples_per_route_per_process": 400,
+    "synthetic": true,
+    "default_promotion": false
+  },
+  "seeds": [
+    51901,
+    51902,
+    51903
+  ],
+  "cases": {
+    "narrow": {
+      "full": {
+        "median_ns": 156372.0,
+        "p95_ns": 194078,
+        "p99_ns": 276861,
+        "peak_traced_bytes": 65560,
+        "build_median_ns": 141390,
+        "live_nodes": 417,
+        "evaluations": 500400
+      },
+      "dirty": {
+        "median_ns": 19954.5,
+        "p95_ns": 24917,
+        "p99_ns": 49183,
+        "peak_traced_bytes": 113904,
+        "build_median_ns": 185465,
+        "live_nodes": 417,
+        "evaluations": 30580
+      },
+      "value": {
+        "median_ns": 11727.5,
+        "p95_ns": 19669,
+        "p99_ns": 29834,
+        "peak_traced_bytes": 113672,
+        "build_median_ns": 193137,
+        "live_nodes": 417,
+        "evaluations": 13680
+      },
+      "slice_full": {
+        "median_ns": 6910.0,
+        "p95_ns": 7911,
+        "p99_ns": 20751,
+        "peak_traced_bytes": 24820,
+        "build_median_ns": 18838,
+        "live_nodes": 13,
+        "evaluations": 15600
+      },
+      "slice_dirty": {
+        "median_ns": 2293.0,
+        "p95_ns": 10286,
+        "p99_ns": 11317,
+        "peak_traced_bytes": 27004,
+        "build_median_ns": 12639,
+        "live_nodes": 13,
+        "evaluations": 962
+      },
+      "causal": {
+        "median_ns": 2173.0,
+        "p95_ns": 3615,
+        "p99_ns": 9954,
+        "peak_traced_bytes": 26016,
+        "build_median_ns": 12598,
+        "live_nodes": 13,
+        "evaluations": 456
+      }
+    },
+    "stable_boundary": {
+      "full": {
+        "median_ns": 154209.0,
+        "p95_ns": 197202,
+        "p99_ns": 260917,
+        "peak_traced_bytes": 63972,
+        "build_median_ns": 137584,
+        "live_nodes": 417,
+        "evaluations": 500400
+      },
+      "dirty": {
+        "median_ns": 10846.0,
+        "p95_ns": 12538,
+        "p99_ns": 24015,
+        "peak_traced_bytes": 110212,
+        "build_median_ns": 191183,
+        "live_nodes": 417,
+        "evaluations": 16800
+      },
+      "value": {
+        "median_ns": 2894.0,
+        "p95_ns": 3555,
+        "p99_ns": 5138,
+        "peak_traced_bytes": 109012,
+        "build_median_ns": 194308,
+        "live_nodes": 417,
+        "evaluations": 1200
+      },
+      "slice_full": {
+        "median_ns": 6740.0,
+        "p95_ns": 7441,
+        "p99_ns": 23084,
+        "peak_traced_bytes": 24308,
+        "build_median_ns": 19239,
+        "live_nodes": 13,
+        "evaluations": 15600
+      },
+      "slice_dirty": {
+        "median_ns": 9639.0,
+        "p95_ns": 10556,
+        "p99_ns": 24106,
+        "peak_traced_bytes": 26980,
+        "build_median_ns": 13039,
+        "live_nodes": 13,
+        "evaluations": 15600
+      },
+      "causal": {
+        "median_ns": 2844.0,
+        "p95_ns": 3265,
+        "p99_ns": 10796,
+        "peak_traced_bytes": 25940,
+        "build_median_ns": 12919,
+        "live_nodes": 13,
+        "evaluations": 1200
+      }
+    },
+    "shared": {
+      "full": {
+        "median_ns": 163062.0,
+        "p95_ns": 217773,
+        "p99_ns": 292555,
+        "peak_traced_bytes": 76076,
+        "build_median_ns": 143894,
+        "live_nodes": 417,
+        "evaluations": 500400
+      },
+      "dirty": {
+        "median_ns": 38407.0,
+        "p95_ns": 279095,
+        "p99_ns": 307386,
+        "peak_traced_bytes": 168236,
+        "build_median_ns": 188810,
+        "live_nodes": 417,
+        "evaluations": 87979
+      },
+      "value": {
+        "median_ns": 16765.0,
+        "p95_ns": 80419,
+        "p99_ns": 178825,
+        "peak_traced_bytes": 137608,
+        "build_median_ns": 198404,
+        "live_nodes": 417,
+        "evaluations": 33648
+      },
+      "slice_full": {
+        "median_ns": 22829.0,
+        "p95_ns": 26359,
+        "p99_ns": 59889,
+        "peak_traced_bytes": 32812,
+        "build_median_ns": 40290,
+        "live_nodes": 53,
+        "evaluations": 63600
+      },
+      "slice_dirty": {
+        "median_ns": 3279.5,
+        "p95_ns": 37185,
+        "p99_ns": 39209,
+        "peak_traced_bytes": 42828,
+        "build_median_ns": 38297,
+        "live_nodes": 53,
+        "evaluations": 11149
+      },
+      "causal": {
+        "median_ns": 3259.5,
+        "p95_ns": 16485,
+        "p99_ns": 29664,
+        "peak_traced_bytes": 42436,
+        "build_median_ns": 38568,
+        "live_nodes": 53,
+        "evaluations": 4321
+      }
+    },
+    "dense_all_outputs": {
+      "full": {
+        "median_ns": 179902.5,
+        "p95_ns": 247248,
+        "p99_ns": 321319,
+        "peak_traced_bytes": 64560,
+        "build_median_ns": 149352,
+        "live_nodes": 417,
+        "evaluations": 500400
+      },
+      "dirty": {
+        "median_ns": 299065.0,
+        "p95_ns": 385784,
+        "p99_ns": 464712,
+        "peak_traced_bytes": 156216,
+        "build_median_ns": 206618,
+        "live_nodes": 417,
+        "evaluations": 500153
+      },
+      "value": {
+        "median_ns": 183888.5,
+        "p95_ns": 249130,
+        "p99_ns": 334408,
+        "peak_traced_bytes": 154480,
+        "build_median_ns": 200779,
+        "live_nodes": 417,
+        "evaluations": 287137
+      },
+      "slice_full": {
+        "median_ns": 175075.0,
+        "p95_ns": 219086,
+        "p99_ns": 278484,
+        "peak_traced_bytes": 57448,
+        "build_median_ns": 233807,
+        "live_nodes": 416,
+        "evaluations": 499200
+      },
+      "slice_dirty": {
+        "median_ns": 293807.0,
+        "p95_ns": 372515,
+        "p99_ns": 474247,
+        "peak_traced_bytes": 148640,
+        "build_median_ns": 259005,
+        "live_nodes": 416,
+        "evaluations": 498953
+      },
+      "causal": {
+        "median_ns": 181409.5,
+        "p95_ns": 235711,
+        "p99_ns": 309612,
+        "peak_traced_bytes": 146904,
+        "build_median_ns": 263843,
+        "live_nodes": 416,
+        "evaluations": 286005
+      }
+    }
+  },
+  "local_unit_tests_passed": 7,
+  "independently_checked_benchmark_transitions": 28800
+}

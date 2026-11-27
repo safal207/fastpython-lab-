@@ -1,0 +1,660 @@
+{
+  "schema": "alexpy-bardo-bridge/1",
+  "sessions": [
+    {
+      "schema": "alexpy-bardo-bridge/1",
+      "host": {
+        "system": "Linux",
+        "python": "3.13.5",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor"
+      },
+      "comparison": "SAME native QA kernel + exact witness tree vs Python failure set",
+      "rows": [
+        {
+          "case": "small-hot",
+          "tests": 256,
+          "events": 1800,
+          "batch": 8,
+          "reports": 225,
+          "pairs": 4,
+          "samples_ns": {
+            "native_set": [
+              3589689,
+              2343845,
+              2281050,
+              2386639
+            ],
+            "native_tree": [
+              10463153,
+              10107455,
+              10046272,
+              10107857
+            ]
+          },
+          "medians_ns": {
+            "native_set": 2365242.0,
+            "native_tree": 10107656.0
+          },
+          "tree_vs_set": 0.23400499581703216,
+          "digest": 11963395168255294413
+        },
+        {
+          "case": "medium-sparse",
+          "tests": 4096,
+          "events": 3200,
+          "batch": 64,
+          "reports": 12,
+          "pairs": 4,
+          "samples_ns": {
+            "native_set": [
+              2890231,
+              3204626,
+              3194170,
+              2955820
+            ],
+            "native_tree": [
+              41502133,
+              38829923,
+              39710724,
+              37273508
+            ]
+          },
+          "medians_ns": {
+            "native_set": 3074995.0,
+            "native_tree": 39270323.5
+          },
+          "tree_vs_set": 0.07830327651871775,
+          "digest": 3906588467567405761
+        },
+        {
+          "case": "large-sparse",
+          "tests": 16384,
+          "events": 4500,
+          "batch": 64,
+          "reports": 8,
+          "pairs": 4,
+          "samples_ns": {
+            "native_set": [
+              5026582,
+              4740009,
+              4526876,
+              5687041
+            ],
+            "native_tree": [
+              154329839,
+              95296234,
+              89916709,
+              95546353
+            ]
+          },
+          "medians_ns": {
+            "native_set": 4883295.5,
+            "native_tree": 95421293.5
+          },
+          "tree_vs_set": 0.051176161220241684,
+          "digest": 7721457804990185875
+        },
+        {
+          "case": "query-heavy",
+          "tests": 4096,
+          "events": 3200,
+          "batch": 64,
+          "reports": 50,
+          "pairs": 4,
+          "samples_ns": {
+            "native_set": [
+              9499310,
+              6246986,
+              6179095,
+              6001696
+            ],
+            "native_tree": [
+              43154241,
+              39135964,
+              88149887,
+              50571518
+            ]
+          },
+          "medians_ns": {
+            "native_set": 6213040.5,
+            "native_tree": 46862879.5
+          },
+          "tree_vs_set": 0.1325791450779289,
+          "digest": 10981101472282410320
+        }
+      ],
+      "synthetic_calibration_simulation": [
+        {
+          "policy": "fixed8",
+          "pattern": "stable",
+          "ticks": 1024,
+          "probes": 128,
+          "net_cost": -2816.0
+        },
+        {
+          "policy": "fixed64",
+          "pattern": "stable",
+          "ticks": 1024,
+          "probes": 16,
+          "net_cost": -3040.0
+        },
+        {
+          "policy": "every",
+          "pattern": "stable",
+          "ticks": 1024,
+          "probes": 1024,
+          "net_cost": -1024.0
+        },
+        {
+          "policy": "adaptive",
+          "pattern": "stable",
+          "ticks": 1024,
+          "probes": 15,
+          "net_cost": -3042.0
+        },
+        {
+          "policy": "fixed8",
+          "pattern": "single",
+          "ticks": 1024,
+          "probes": 128,
+          "net_cost": -1280.0
+        },
+        {
+          "policy": "fixed64",
+          "pattern": "single",
+          "ticks": 1024,
+          "probes": 16,
+          "net_cost": -1504.0
+        },
+        {
+          "policy": "every",
+          "pattern": "single",
+          "ticks": 1024,
+          "probes": 1024,
+          "net_cost": 512.0
+        },
+        {
+          "policy": "adaptive",
+          "pattern": "single",
+          "ticks": 1024,
+          "probes": 64,
+          "net_cost": -946.0
+        },
+        {
+          "policy": "fixed8",
+          "pattern": "reversal",
+          "ticks": 1024,
+          "probes": 128,
+          "net_cost": -2048.0
+        },
+        {
+          "policy": "fixed64",
+          "pattern": "reversal",
+          "ticks": 1024,
+          "probes": 16,
+          "net_cost": -2272.0
+        },
+        {
+          "policy": "every",
+          "pattern": "reversal",
+          "ticks": 1024,
+          "probes": 1024,
+          "net_cost": -256.0
+        },
+        {
+          "policy": "adaptive",
+          "pattern": "reversal",
+          "ticks": 1024,
+          "probes": 64,
+          "net_cost": -1708.0
+        }
+      ],
+      "claims": {
+        "default_promotion": false,
+        "tree_faster_not_assumed": true,
+        "synthetic_time_not_cpu_benchmark": true,
+        "Bardo_reference_sha": "f50490e8194f0e5c7aeeba251f2575eb8155ed54"
+      }
+    },
+    {
+      "schema": "alexpy-bardo-bridge/1",
+      "host": {
+        "system": "Linux",
+        "python": "3.13.5",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor"
+      },
+      "comparison": "SAME native QA kernel + exact witness tree vs Python failure set",
+      "rows": [
+        {
+          "case": "small-hot",
+          "tests": 256,
+          "events": 1800,
+          "batch": 8,
+          "reports": 225,
+          "pairs": 4,
+          "samples_ns": {
+            "native_set": [
+              2363334,
+              2353859,
+              2252075,
+              2330163
+            ],
+            "native_tree": [
+              10258244,
+              10050659,
+              10056158,
+              9957748
+            ]
+          },
+          "medians_ns": {
+            "native_set": 2342011.0,
+            "native_tree": 10053408.5
+          },
+          "tree_vs_set": 0.23295691207613817,
+          "digest": 11963395168255294413
+        },
+        {
+          "case": "medium-sparse",
+          "tests": 4096,
+          "events": 3200,
+          "batch": 64,
+          "reports": 12,
+          "pairs": 4,
+          "samples_ns": {
+            "native_set": [
+              3096092,
+              3252239,
+              3556048,
+              3179308
+            ],
+            "native_tree": [
+              38213629,
+              37904663,
+              36805020,
+              37995449
+            ]
+          },
+          "medians_ns": {
+            "native_set": 3215773.5,
+            "native_tree": 37950056.0
+          },
+          "tree_vs_set": 0.0847369895844159,
+          "digest": 3906588467567405761
+        },
+        {
+          "case": "large-sparse",
+          "tests": 16384,
+          "events": 4500,
+          "batch": 64,
+          "reports": 8,
+          "pairs": 4,
+          "samples_ns": {
+            "native_set": [
+              4880952,
+              4798086,
+              4536331,
+              4882874
+            ],
+            "native_tree": [
+              139831795,
+              102320286,
+              89006803,
+              93746140
+            ]
+          },
+          "medians_ns": {
+            "native_set": 4839519.0,
+            "native_tree": 98033213.0
+          },
+          "tree_vs_set": 0.04936611635895276,
+          "digest": 7721457804990185875
+        },
+        {
+          "case": "query-heavy",
+          "tests": 4096,
+          "events": 3200,
+          "batch": 64,
+          "reports": 50,
+          "pairs": 4,
+          "samples_ns": {
+            "native_set": [
+              6312528,
+              5938293,
+              6329483,
+              6271826
+            ],
+            "native_tree": [
+              38749560,
+              38915081,
+              97318798,
+              38597841
+            ]
+          },
+          "medians_ns": {
+            "native_set": 6292177.0,
+            "native_tree": 38832320.5
+          },
+          "tree_vs_set": 0.16203453512390537,
+          "digest": 10981101472282410320
+        }
+      ],
+      "synthetic_calibration_simulation": [
+        {
+          "policy": "fixed8",
+          "pattern": "stable",
+          "ticks": 1024,
+          "probes": 128,
+          "net_cost": -2816.0
+        },
+        {
+          "policy": "fixed64",
+          "pattern": "stable",
+          "ticks": 1024,
+          "probes": 16,
+          "net_cost": -3040.0
+        },
+        {
+          "policy": "every",
+          "pattern": "stable",
+          "ticks": 1024,
+          "probes": 1024,
+          "net_cost": -1024.0
+        },
+        {
+          "policy": "adaptive",
+          "pattern": "stable",
+          "ticks": 1024,
+          "probes": 15,
+          "net_cost": -3042.0
+        },
+        {
+          "policy": "fixed8",
+          "pattern": "single",
+          "ticks": 1024,
+          "probes": 128,
+          "net_cost": -1280.0
+        },
+        {
+          "policy": "fixed64",
+          "pattern": "single",
+          "ticks": 1024,
+          "probes": 16,
+          "net_cost": -1504.0
+        },
+        {
+          "policy": "every",
+          "pattern": "single",
+          "ticks": 1024,
+          "probes": 1024,
+          "net_cost": 512.0
+        },
+        {
+          "policy": "adaptive",
+          "pattern": "single",
+          "ticks": 1024,
+          "probes": 64,
+          "net_cost": -946.0
+        },
+        {
+          "policy": "fixed8",
+          "pattern": "reversal",
+          "ticks": 1024,
+          "probes": 128,
+          "net_cost": -2048.0
+        },
+        {
+          "policy": "fixed64",
+          "pattern": "reversal",
+          "ticks": 1024,
+          "probes": 16,
+          "net_cost": -2272.0
+        },
+        {
+          "policy": "every",
+          "pattern": "reversal",
+          "ticks": 1024,
+          "probes": 1024,
+          "net_cost": -256.0
+        },
+        {
+          "policy": "adaptive",
+          "pattern": "reversal",
+          "ticks": 1024,
+          "probes": 64,
+          "net_cost": -1708.0
+        }
+      ],
+      "claims": {
+        "default_promotion": false,
+        "tree_faster_not_assumed": true,
+        "synthetic_time_not_cpu_benchmark": true,
+        "Bardo_reference_sha": "f50490e8194f0e5c7aeeba251f2575eb8155ed54"
+      }
+    },
+    {
+      "schema": "alexpy-bardo-bridge/1",
+      "host": {
+        "system": "Linux",
+        "python": "3.13.5",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor"
+      },
+      "comparison": "SAME native QA kernel + exact witness tree vs Python failure set",
+      "rows": [
+        {
+          "case": "small-hot",
+          "tests": 256,
+          "events": 1800,
+          "batch": 8,
+          "reports": 225,
+          "pairs": 4,
+          "samples_ns": {
+            "native_set": [
+              2383225,
+              2311436,
+              2303574,
+              2523467
+            ],
+            "native_tree": [
+              10075109,
+              9950331,
+              10352378,
+              10065935
+            ]
+          },
+          "medians_ns": {
+            "native_set": 2347330.5,
+            "native_tree": 10070522.0
+          },
+          "tree_vs_set": 0.23308925793518945,
+          "digest": 11963395168255294413
+        },
+        {
+          "case": "medium-sparse",
+          "tests": 4096,
+          "events": 3200,
+          "batch": 64,
+          "reports": 12,
+          "pairs": 4,
+          "samples_ns": {
+            "native_set": [
+              2780085,
+              2935019,
+              2996402,
+              2987238
+            ],
+            "native_tree": [
+              38324487,
+              36521680,
+              37386408,
+              37289513
+            ]
+          },
+          "medians_ns": {
+            "native_set": 2961128.5,
+            "native_tree": 37337960.5
+          },
+          "tree_vs_set": 0.0793061126089091,
+          "digest": 3906588467567405761
+        },
+        {
+          "case": "large-sparse",
+          "tests": 16384,
+          "events": 4500,
+          "batch": 64,
+          "reports": 8,
+          "pairs": 4,
+          "samples_ns": {
+            "native_set": [
+              4731937,
+              5051790,
+              4968726,
+              4673709
+            ],
+            "native_tree": [
+              133614577,
+              88323412,
+              84832073,
+              86090534
+            ]
+          },
+          "medians_ns": {
+            "native_set": 4850331.5,
+            "native_tree": 87206973.0
+          },
+          "tree_vs_set": 0.05561862008442834,
+          "digest": 7721457804990185875
+        },
+        {
+          "case": "query-heavy",
+          "tests": 4096,
+          "events": 3200,
+          "batch": 64,
+          "reports": 50,
+          "pairs": 4,
+          "samples_ns": {
+            "native_set": [
+              5973766,
+              6559822,
+              6429214,
+              6549557
+            ],
+            "native_tree": [
+              36947515,
+              37551368,
+              82800398,
+              37121469
+            ]
+          },
+          "medians_ns": {
+            "native_set": 6489385.5,
+            "native_tree": 37336418.5
+          },
+          "tree_vs_set": 0.17380846264083954,
+          "digest": 10981101472282410320
+        }
+      ],
+      "synthetic_calibration_simulation": [
+        {
+          "policy": "fixed8",
+          "pattern": "stable",
+          "ticks": 1024,
+          "probes": 128,
+          "net_cost": -2816.0
+        },
+        {
+          "policy": "fixed64",
+          "pattern": "stable",
+          "ticks": 1024,
+          "probes": 16,
+          "net_cost": -3040.0
+        },
+        {
+          "policy": "every",
+          "pattern": "stable",
+          "ticks": 1024,
+          "probes": 1024,
+          "net_cost": -1024.0
+        },
+        {
+          "policy": "adaptive",
+          "pattern": "stable",
+          "ticks": 1024,
+          "probes": 15,
+          "net_cost": -3042.0
+        },
+        {
+          "policy": "fixed8",
+          "pattern": "single",
+          "ticks": 1024,
+          "probes": 128,
+          "net_cost": -1280.0
+        },
+        {
+          "policy": "fixed64",
+          "pattern": "single",
+          "ticks": 1024,
+          "probes": 16,
+          "net_cost": -1504.0
+        },
+        {
+          "policy": "every",
+          "pattern": "single",
+          "ticks": 1024,
+          "probes": 1024,
+          "net_cost": 512.0
+        },
+        {
+          "policy": "adaptive",
+          "pattern": "single",
+          "ticks": 1024,
+          "probes": 64,
+          "net_cost": -946.0
+        },
+        {
+          "policy": "fixed8",
+          "pattern": "reversal",
+          "ticks": 1024,
+          "probes": 128,
+          "net_cost": -2048.0
+        },
+        {
+          "policy": "fixed64",
+          "pattern": "reversal",
+          "ticks": 1024,
+          "probes": 16,
+          "net_cost": -2272.0
+        },
+        {
+          "policy": "every",
+          "pattern": "reversal",
+          "ticks": 1024,
+          "probes": 1024,
+          "net_cost": -256.0
+        },
+        {
+          "policy": "adaptive",
+          "pattern": "reversal",
+          "ticks": 1024,
+          "probes": 64,
+          "net_cost": -1708.0
+        }
+      ],
+      "claims": {
+        "default_promotion": false,
+        "tree_faster_not_assumed": true,
+        "synthetic_time_not_cpu_benchmark": true,
+        "Bardo_reference_sha": "f50490e8194f0e5c7aeeba251f2575eb8155ed54"
+      }
+    }
+  ],
+  "host": {
+    "system": "Linux",
+    "python": "3.13.5",
+    "machine": "x86_64",
+    "processor": "AMD EPYC 9V74 80-Core Processor"
+  },
+  "session_count": 3
+}

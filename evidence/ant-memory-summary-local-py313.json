@@ -1,0 +1,394 @@
+{
+  "protocol": "ALEXPY-M14-ANT-MEMORY-SUMMARY/0.1",
+  "measurements": {
+    "uncached": {
+      "raw_local_filename": "ant-memory-local-py313.json",
+      "sha256": "e1c2dc288e5c8d0a12cd88759bd61301cc15b46d899f93f96e89644602da6093",
+      "sessions": 3,
+      "pairs": 3,
+      "holdout_states": 8,
+      "counts": {
+        "gain_10pct_all_sessions": 0,
+        "regression_10pct_all_sessions": 4
+      },
+      "manual_over_ant_median_across_holdouts": 0.81614,
+      "training_seconds_range": [
+        0.3905,
+        0.4012
+      ],
+      "observed_routes": [
+        "manual"
+      ],
+      "sparse_memory": {
+        "cells": 8,
+        "nonzero_edges": 32,
+        "state_transitions": 7
+      },
+      "cases": [
+        {
+          "state": {
+            "size": 8192,
+            "width": 256,
+            "changes": 1,
+            "ticks": 4,
+            "reads": 1
+          },
+          "routes": [
+            "manual",
+            "manual",
+            "manual"
+          ],
+          "manual_over_ant_median": 0.7825986379972805,
+          "manual_over_ant_range": [
+            0.7321468846543197,
+            0.8109584496724076
+          ],
+          "confirmed_gain": false,
+          "confirmed_regression": true
+        },
+        {
+          "state": {
+            "size": 8192,
+            "width": 256,
+            "changes": 1,
+            "ticks": 4,
+            "reads": 8
+          },
+          "routes": [
+            "manual",
+            "manual",
+            "manual"
+          ],
+          "manual_over_ant_median": 1.0298856577529487,
+          "manual_over_ant_range": [
+            0.7579827673593512,
+            1.2099331486123939
+          ],
+          "confirmed_gain": false,
+          "confirmed_regression": false
+        },
+        {
+          "state": {
+            "size": 8192,
+            "width": 256,
+            "changes": 8,
+            "ticks": 4,
+            "reads": 1
+          },
+          "routes": [
+            "manual",
+            "manual",
+            "manual"
+          ],
+          "manual_over_ant_median": 0.7386239626424383,
+          "manual_over_ant_range": [
+            0.6920076099698291,
+            0.7850416741036417
+          ],
+          "confirmed_gain": false,
+          "confirmed_regression": true
+        },
+        {
+          "state": {
+            "size": 8192,
+            "width": 256,
+            "changes": 8,
+            "ticks": 4,
+            "reads": 8
+          },
+          "routes": [
+            "manual",
+            "manual",
+            "manual"
+          ],
+          "manual_over_ant_median": 0.7794564234691005,
+          "manual_over_ant_range": [
+            0.742868426953882,
+            1.0044187227279082
+          ],
+          "confirmed_gain": false,
+          "confirmed_regression": false
+        },
+        {
+          "state": {
+            "size": 16384,
+            "width": 256,
+            "changes": 1,
+            "ticks": 4,
+            "reads": 1
+          },
+          "routes": [
+            "manual",
+            "manual",
+            "manual"
+          ],
+          "manual_over_ant_median": 0.8170518535543848,
+          "manual_over_ant_range": [
+            0.7556590669940372,
+            0.833640179910045
+          ],
+          "confirmed_gain": false,
+          "confirmed_regression": true
+        },
+        {
+          "state": {
+            "size": 16384,
+            "width": 256,
+            "changes": 1,
+            "ticks": 4,
+            "reads": 8
+          },
+          "routes": [
+            "manual",
+            "manual",
+            "manual"
+          ],
+          "manual_over_ant_median": 0.8610754618813952,
+          "manual_over_ant_range": [
+            0.7646054973175896,
+            1.2866014227059859
+          ],
+          "confirmed_gain": false,
+          "confirmed_regression": false
+        },
+        {
+          "state": {
+            "size": 16384,
+            "width": 256,
+            "changes": 8,
+            "ticks": 4,
+            "reads": 1
+          },
+          "routes": [
+            "manual",
+            "manual",
+            "manual"
+          ],
+          "manual_over_ant_median": 0.8204533905482468,
+          "manual_over_ant_range": [
+            0.7900997556369155,
+            0.8954500734910625
+          ],
+          "confirmed_gain": false,
+          "confirmed_regression": true
+        },
+        {
+          "state": {
+            "size": 16384,
+            "width": 256,
+            "changes": 8,
+            "ticks": 4,
+            "reads": 8
+          },
+          "routes": [
+            "manual",
+            "manual",
+            "manual"
+          ],
+          "manual_over_ant_median": 0.8152282847001855,
+          "manual_over_ant_range": [
+            0.7468193067103459,
+            1.0152568435387102
+          ],
+          "confirmed_gain": false,
+          "confirmed_regression": false
+        }
+      ]
+    },
+    "compiled": {
+      "raw_local_filename": "ant-memory-compiled-local-py313.json",
+      "sha256": "0b1158e91417e77e571576e409c88228850be47669dc321c97185c7568db754e",
+      "sessions": 3,
+      "pairs": 4,
+      "holdout_states": 8,
+      "counts": {
+        "gain_10pct_all_sessions": 0,
+        "regression_10pct_all_sessions": 0
+      },
+      "manual_over_ant_median_across_holdouts": 0.96089,
+      "training_seconds_range": [
+        0.4787,
+        0.4881
+      ],
+      "observed_routes": [
+        "manual"
+      ],
+      "sparse_memory": {
+        "cells": 8,
+        "nonzero_edges": 32,
+        "state_transitions": 7
+      },
+      "cases": [
+        {
+          "state": {
+            "size": 8192,
+            "width": 256,
+            "changes": 1,
+            "ticks": 4,
+            "reads": 1
+          },
+          "routes": [
+            "manual",
+            "manual",
+            "manual"
+          ],
+          "manual_over_ant_median": 0.9217466034511062,
+          "manual_over_ant_range": [
+            0.8642027336865867,
+            1.0023098508897608
+          ],
+          "confirmed_gain": false,
+          "confirmed_regression": false
+        },
+        {
+          "state": {
+            "size": 8192,
+            "width": 256,
+            "changes": 1,
+            "ticks": 4,
+            "reads": 8
+          },
+          "routes": [
+            "manual",
+            "manual",
+            "manual"
+          ],
+          "manual_over_ant_median": 0.9753975662108509,
+          "manual_over_ant_range": [
+            0.855560651045476,
+            1.0113697352884845
+          ],
+          "confirmed_gain": false,
+          "confirmed_regression": false
+        },
+        {
+          "state": {
+            "size": 8192,
+            "width": 256,
+            "changes": 8,
+            "ticks": 4,
+            "reads": 1
+          },
+          "routes": [
+            "manual",
+            "manual",
+            "manual"
+          ],
+          "manual_over_ant_median": 0.9303621343715683,
+          "manual_over_ant_range": [
+            0.6188899562773519,
+            1.0032111215712571
+          ],
+          "confirmed_gain": false,
+          "confirmed_regression": false
+        },
+        {
+          "state": {
+            "size": 8192,
+            "width": 256,
+            "changes": 8,
+            "ticks": 4,
+            "reads": 8
+          },
+          "routes": [
+            "manual",
+            "manual",
+            "manual"
+          ],
+          "manual_over_ant_median": 0.9757998594795275,
+          "manual_over_ant_range": [
+            0.9534409265112239,
+            0.9830917106462347
+          ],
+          "confirmed_gain": false,
+          "confirmed_regression": false
+        },
+        {
+          "state": {
+            "size": 16384,
+            "width": 256,
+            "changes": 1,
+            "ticks": 4,
+            "reads": 1
+          },
+          "routes": [
+            "manual",
+            "manual",
+            "manual"
+          ],
+          "manual_over_ant_median": 0.8833892765656745,
+          "manual_over_ant_range": [
+            0.7602815426676749,
+            0.9983849844146584
+          ],
+          "confirmed_gain": false,
+          "confirmed_regression": false
+        },
+        {
+          "state": {
+            "size": 16384,
+            "width": 256,
+            "changes": 1,
+            "ticks": 4,
+            "reads": 8
+          },
+          "routes": [
+            "manual",
+            "manual",
+            "manual"
+          ],
+          "manual_over_ant_median": 1.100804091960232,
+          "manual_over_ant_range": [
+            0.9112254301866549,
+            1.1604155253548858
+          ],
+          "confirmed_gain": false,
+          "confirmed_regression": false
+        },
+        {
+          "state": {
+            "size": 16384,
+            "width": 256,
+            "changes": 8,
+            "ticks": 4,
+            "reads": 1
+          },
+          "routes": [
+            "manual",
+            "manual",
+            "manual"
+          ],
+          "manual_over_ant_median": 0.9984440336739497,
+          "manual_over_ant_range": [
+            0.7596798375189302,
+            1.1042607414217342
+          ],
+          "confirmed_gain": false,
+          "confirmed_regression": false
+        },
+        {
+          "state": {
+            "size": 16384,
+            "width": 256,
+            "changes": 8,
+            "ticks": 4,
+            "reads": 8
+          },
+          "routes": [
+            "manual",
+            "manual",
+            "manual"
+          ],
+          "manual_over_ant_median": 0.9463891573624266,
+          "manual_over_ant_range": [
+            0.932130461062956,
+            1.1643551119989946
+          ],
+          "confirmed_gain": false,
+          "confirmed_regression": false
+        }
+      ]
+    }
+  },
+  "no_auto_promotion": true
+}

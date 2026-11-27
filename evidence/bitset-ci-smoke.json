@@ -1,0 +1,49 @@
+{
+  "schema": "alexpy-bardo-bitset-bench/1",
+  "host": {
+    "system": "Linux",
+    "python": "3.13.5",
+    "machine": "x86_64",
+    "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+  },
+  "experimental": true,
+  "family": "2.7 reused, not fresh held-out data",
+  "rows": [
+    {
+      "case": {
+        "name": "smoke-dense",
+        "n": 128,
+        "suites": 4,
+        "events": 256,
+        "batch": 32,
+        "active": 128,
+        "fail_percent": 90,
+        "report_every": 2,
+        "reads_per_report": 2,
+        "pattern": "random"
+      },
+      "digest": 4313143949441853876,
+      "samples_ns": {
+        "bitset": [
+          213012,
+          833406
+        ],
+        "c_tree": [
+          208602,
+          217413
+        ],
+        "set": [
+          467418,
+          272735
+        ]
+      },
+      "medians_ns": {
+        "bitset": 523209.0,
+        "c_tree": 213007.5,
+        "set": 370076.5
+      },
+      "bitset_vs_tree": 0.407117423438817,
+      "bitset_vs_set": 0.707320592726807
+    }
+  ]
+}

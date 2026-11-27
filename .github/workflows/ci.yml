@@ -1,0 +1,269 @@
+name: AlexPy correctness and benchmarks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ['3.13', '3.15']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Build the native backend
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e .
+      - name: Confirm native module was compiled
+        run: python -c "from alexpy import backend_name; assert backend_name() == 'native-c', backend_name()"
+      - name: Run correctness tests
+        run: python -m unittest discover -s tests -v
+      - name: Upload QA 2.9 recorded failure replay metrics (runner-local)
+        uses: actions/upload-artifact@v4
+        with:
+          name: alexpy-qa29-${{ matrix.os }}-py${{ matrix.python-version }}-${{ github.run_id }}
+          path: qa29-results.json
+          if-no-files-found: error
+      - name: Upload QA 3.0 independent rechecks and frozen dispatcher evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: alexpy-qa30-${{ matrix.os }}-py${{ matrix.python-version }}-${{ github.run_id }}
+          path: qa30-results.json
+          if-no-files-found: error
+      - name: QA 3.2 frozen paired tail-latency study (advisory)
+        if: matrix.python-version == '3.13'
+        env:
+          PYTHONPATH: .
+        run: python tests/qa32_tail_latency.py --output qa32-results.json
+      - name: Upload QA 3.2 raw timing, order and memory evidence
+        if: matrix.python-version == '3.13'
+        uses: actions/upload-artifact@v4
+        with:
+          name: alexpy-qa32-${{ matrix.os }}-py${{ matrix.python-version }}-${{ github.run_id }}
+          path: qa32-results.json
+          if-no-files-found: error
+      - name: QA 3.3 frozen adaptive break-even study (advisory)
+        if: matrix.python-version == '3.13'
+        env:
+          PYTHONPATH: .
+        run: python tests/qa33_break_even.py --output qa33-results.json
+      - name: Upload QA 3.3 raw break-even evidence
+        if: matrix.python-version == '3.13'
+        uses: actions/upload-artifact@v4
+        with:
+          name: alexpy-qa33-${{ matrix.os }}-py${{ matrix.python-version }}-${{ github.run_id }}
+          path: qa33-results.json
+          if-no-files-found: error
+      - name: Upload PHYSARUM-001 independent dynamic routing evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: alexpy-physarum-${{ matrix.os }}-py${{ matrix.python-version }}-${{ github.run_id }}
+          path: physarum-results.json
+          if-no-files-found: error
+      - name: Upload PHYSARUM-002 incremental flow evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: alexpy-physarum002-${{ matrix.os }}-py${{ matrix.python-version }}-${{ github.run_id }}
+          path: physarum002-results.json
+          if-no-files-found: error
+      - name: Upload PHYSARUM-003 forgetting and route proof evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: alexpy-physarum003-${{ matrix.os }}-py${{ matrix.python-version }}-${{ github.run_id }}
+          path: physarum003-results.json
+          if-no-files-found: error
+      - name: Audit long-lived stream amortization on THIS runner (advisory)
+        if: matrix.python-version == '3.13'
+        run: python -m alexpy.stream_bench --train-sizes 128,512,2048 --holdout-sizes 384 --changes 1 --queries 1,16 --spans both --ticks 2 --pairs 2 --sessions 3 --cycles 1,4,16 --reps 2 --device-tag github-${{ matrix.os }}-${{ matrix.python-version }}-${{ github.run_id }} --json stream-economics.json
+      - name: Upload environment-specific stream evidence (do not pool hosts)
+        uses: actions/upload-artifact@v4
+        if: matrix.python-version == '3.13'
+        with:
+          name: alexpy-stream-${{ matrix.os }}-py313-${{ github.run_id }}
+          path: stream-economics.json
+      - name: Verify frozen per-runner stream routing without retraining (advisory)
+        if: matrix.python-version == '3.13'
+        run: python -m alexpy.stream_horizon --baseline stream-economics.json --sizes 384 --changes 1 --queries 1,16 --spans both --ticks 2 --cycles 1,4 --repeats 2 --sessions 3 --output stream-horizon.json
+      - name: Upload independent long-horizon smoke evidence
+        uses: actions/upload-artifact@v4
+        if: matrix.python-version == '3.13'
+        with:
+          name: alexpy-stream-horizon-${{ matrix.os }}-py313-${{ github.run_id }}
+          path: stream-horizon.json
+      - name: Run scope-controlled benchmark
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.benchmark --require-native --sizes 1000 100000 --json benchmarks.json
+      - name: Run bounded transition-graph QA
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.graph_search --require-native --cases 8 --repeat 9 --json graph-results.json --dot graph-states.dot
+      - name: Diagnose candidate regressions across fresh interpreters
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.regression_triage --sessions 3 --repeat 9 --target-seconds .004 --json regression-triage.json
+      - name: Compare opt-in A/B interventions (never auto-promote)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.intervention --sessions 3 --repeat 9 --target-seconds .004 --json intervention-results.json
+      - name: Explore space-time, derivative, and multiscale axes (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.spacetime --hops 15 --repeats 7 --loops 200 --json spacetime.json
+      - name: Probe lattice grid and blind length holdouts (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.lattice_lab --epochs 2 --repeats 5 --loops 25 --json lattice.json
+      - name: Run native memory-hierarchy smoke protocol (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.memory_lab --sizes-kib 4 64 512 4096 --epochs 2 --repeats 2 --target-accesses 100000 --hardware-counters --json memory-lab.json
+      - name: Inspect typed-buffer layout alternatives (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.layout_bench --sizes 0,8,128,4096 --epochs 2 --pairs 5 --target-seconds .001 --json layout.json
+      - name: Measure list-to-buffer amortization (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.amortization_bench --sizes 8,4096 --repetitions 1,2,8 --epochs 2 --pairs 5 --target-seconds .001 --json amortization.json
+      - name: Explore persistent sparse-update workflows (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.persistent_bench --sizes 64,4096 --changes 1,32 --reads 1,16 --ticks 4 --epochs 2 --pairs 5 --sessions 2 --target-ms .2 --json persistent.json --dot persistent-grid.dot
+      - name: Verify dependency-DAG sparse updates against strong controls (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.dependency_bench --sizes 1024 --changes 1,8 --ticks 4 --reads 1,4 --sessions 2 --epochs 2 --pairs 3 --target-ms .2 --json dependency-results.json
+      - name: Benchmark frozen compiled-DAG vs legacy, manual and dense controls (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.compiled_bench --sizes 1024 --changes 1,8 --ticks 4 --reads 1,4 --sessions 2 --epochs 2 --pairs 3 --json compiled-results.json
+      - name: Verify partition-compiled DAG against four routes (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.partition_bench --sizes 1024 --changes 1,8 --ticks 4 --reads 1,4 --sessions 2 --epochs 2 --pairs 3 --json partition-results.json
+      - name: Probe sparse ant-memory planner on blind holdout (advisory; no promotion)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.ant_bench --train-sizes 128,512 --holdout-sizes 256 --changes 1,4 --reads 1,4 --width 64 --ticks 2 --pairs 2 --sessions 2 --json ant-memory.json
+      - name: Compare light/sound wavefront memory against ant and fixed manual (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.wave_bench --train-sizes 128,1024 --holdout-sizes 256 --changes 1 --reads 1,4 --width 64 --ticks 2 --pairs 2 --sessions 2 --json wave-memory.json
+      - name: Check heterogeneous directed wavefront on blind holdout (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.hetero_bench --train-sizes 128,1024 --holdout-sizes 256 --changes 1 --reads 1,4 --width 64 --ticks 2 --pairs 2 --sessions 2 --json hetero-wave.json
+      - name: Verify competing range plans and real switch costs (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.range_bench --train-sizes 128,512 --holdout-sizes 384 --changes 1 --queries 1,8 --spans short,wide --ticks 2 --pairs 2 --sessions 2 --json range-competition.json
+      - name: Check stable cross-process routing and profile isolation (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.stable_bench --train-sizes 128,512 --holdout-sizes 384 --changes 1 --queries 1,8 --spans short --ticks 2 --pairs 2 --sessions 3 --no-probe --device-tag ci-ubuntu-py315 --json stable-memory.json
+      - uses: actions/upload-artifact@v4
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        with:
+          name: alexpy-benchmark-ubuntu-py315
+          path: |
+            benchmarks.json
+            graph-results.json
+            graph-states.dot
+            regression-triage.json
+            intervention-results.json
+            spacetime.json
+            lattice.json
+            memory-lab.json
+            layout.json
+            amortization.json
+            persistent.json
+            persistent-grid.dot
+            dependency-results.json
+            compiled-results.json
+            partition-results.json
+            ant-memory.json
+            wave-memory.json
+            hetero-wave.json
+            range-competition.json
+            stable-memory.json
+      - name: Validate GitHub Actions sample adapter (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.qa_actions --input evidence/qa-actions-jobs-sample.json --output qa-actions-sample.json
+      - name: Benchmark QA dashboard against strong Python (advisory; no promotion)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.qa_bench --smoke --sessions 2 --pairs 2 --json qa-lab.json
+      - name: Benchmark atomic QA batch against strong Python batch (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.qa_batch_bench --smoke --sessions 2 --pairs 2 --batch-sizes 1,8,64 --json qa-batch.json
+      - name: Verify native QA extension is built
+        run: python -c "from alexpy.qa_native import NativeBatchQA; assert NativeBatchQA([0],1).native"
+      - name: Audit memory and anonymized public QA-job replays (advisory)
+        if: matrix.python-version == '3.13'
+        run: python -m alexpy.qa_field_audit --cases smoke-retries,recorded-actions --batch-sizes 64 --sessions 2 --json qa-field-audit.json
+      - name: Upload runner-specific QA field memory evidence
+        uses: actions/upload-artifact@v4
+        if: matrix.python-version == '3.13'
+        with:
+          name: alexpy-qa-field-${{ matrix.os }}-py313-${{ github.run_id }}
+          path: qa-field-audit.json
+      - name: Check compact native scratch on sparse and dense QA batches (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.13'
+        run: python -m alexpy.qa_field_audit --cases medium-mixed --batch-sizes 64,4096 --sessions 2 --json qa-compact-memory.json
+      - name: Upload compact native memory evidence
+        uses: actions/upload-artifact@v4
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.13'
+        with:
+          name: alexpy-qa-compact-memory-ubuntu-py313-${{ github.run_id }}
+          path: qa-compact-memory.json
+      - name: Benchmark native atomic QA batches against strong Python (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.qa_native_bench --smoke --sessions 2 --pairs 2 --batch-sizes 1,8,64 --json qa-native.json
+      - name: Verify opt-in Bardo transition tree against equal-native witness-set (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        run: python -m alexpy.bardo_bridge_bench --smoke --pairs 2 --json bardo-bridge.json
+      - name: Verify experimental native failure bitmap is compiled
+        run: python -c "from alexpy.native_bitset import BitsetNativeQA; assert BitsetNativeQA([0], 1).native"
+      - name: Compare bitset, C-tree, and Python-set on each runner (advisory)
+        if: matrix.python-version == '3.13'
+        run: python -m alexpy.witness_bitset_bench --smoke --sessions 1 --pairs 2 --json bitset-smoke.json
+      - name: Replay frozen real pytest JUnit XML through all three indices
+        if: matrix.python-version == '3.13'
+        run: python -m alexpy.junit_replay evidence/alexpy-real-pytest-junit.xml --batch 7 --json bitset-junit.json
+      - name: Upload independent bitmap-witness smoke and JUnit results
+        uses: actions/upload-artifact@v4
+        if: matrix.python-version == '3.13'
+        with:
+          name: alexpy-bardo-bitset-${{ matrix.os }}-py313-${{ github.run_id }}
+          path: |
+            bitset-smoke.json
+            bitset-junit.json
+      - name: Verify compact native witness backend is compiled
+        run: python -c "from alexpy.native_transition_tree import CTreeNativeQA; assert CTreeNativeQA([0], 1).native"
+      - name: Check same-native C witness tree on this runner (advisory; no promotion)
+        if: matrix.python-version == '3.13'
+        run: python -m alexpy.native_tree_bench --smoke --pairs 1 --json native-tree-smoke.json
+      - name: Upload runner-local C witness evidence
+        uses: actions/upload-artifact@v4
+        if: matrix.python-version == '3.13'
+        with:
+          name: alexpy-bardo-native-witness-${{ matrix.os }}-py313-${{ github.run_id }}
+          path: native-tree-smoke.json
+      - name: Stress opt-in native witness on dense failure patterns (advisory)
+        if: matrix.python-version == '3.13'
+        run: python -m alexpy.native_witness_stress --smoke --sessions 2 --pairs 2 --json native-witness-stress-smoke.json
+      - name: Upload runner-specific witness stress evidence
+        uses: actions/upload-artifact@v4
+        if: matrix.python-version == '3.13'
+        with:
+          name: alexpy-native-witness-stress-${{ matrix.os }}-py313-${{ github.run_id }}
+          path: native-witness-stress-smoke.json
+      - name: Verify calibration drift study without deploying policy (advisory)
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.13'
+        run: python -m alexpy.drift_sentinel_bench --smoke --json drift-sentinel-smoke.json
+      - name: Upload drift research diagnostic (not CPU benchmark)
+        uses: actions/upload-artifact@v4
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.13'
+        with:
+          name: alexpy-bardo-drift-smoke-ubuntu-py313-${{ github.run_id }}
+          path: drift-sentinel-smoke.json
+      - name: Upload QA application evidence
+        uses: actions/upload-artifact@v4
+        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.15'
+        with:
+          name: alexpy-qa-performance-ubuntu-py315
+          path: |
+            qa-lab.json
+            qa-batch.json
+            qa-native.json
+            qa-actions-sample.json
+            bardo-bridge.json

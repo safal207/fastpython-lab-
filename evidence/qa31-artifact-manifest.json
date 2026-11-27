@@ -1,0 +1,116 @@
+{
+  "schema": "alexpy-qa31-artifact-manifest/1",
+  "repository": "safal207/fastpython-lab-",
+  "source_sha": "43d5ec6084af0dc5aa12dee0fa6ac36631a9dc75",
+  "required_runs": 2,
+  "artifacts": [
+    {
+      "run_id": 45717790340,
+      "artifact_id": 15070228906,
+      "name": "alexpy-qa30-ubuntu-latest-py3.13-45717790340",
+      "zip_file": "qa30-15070228906.zip",
+      "sha256": "7fc1b7ba4f1c2579fc3359d40e567b2cbf1afb430d22cd5d4875077e98962ae3",
+      "json_sha256": "e2fef7e64121801bc5da919bb23a18a95aa6f9963f349eddcb35855b668f00a7",
+      "source_sha": "43d5ec6084af0dc5aa12dee0fa6ac36631a9dc75"
+    },
+    {
+      "run_id": 45717790340,
+      "artifact_id": 15070138354,
+      "name": "alexpy-qa30-ubuntu-latest-py3.15-45717790340",
+      "zip_file": "qa30-15070138354.zip",
+      "sha256": "988a59d981dde2bf9abf138fd7ccfd805fc2b8554fbd56779e6cf361004d9296",
+      "json_sha256": "2e56858684d60fb26c72a67a296fcca61ca88698b0f6e1136cafcea9fada5fd0",
+      "source_sha": "43d5ec6084af0dc5aa12dee0fa6ac36631a9dc75"
+    },
+    {
+      "run_id": 45717790340,
+      "artifact_id": 15069659856,
+      "name": "alexpy-qa30-macos-latest-py3.13-45717790340",
+      "zip_file": "qa30-15069659856.zip",
+      "sha256": "f0ef35d3f822c2d687245e6e5b1928b6b04e322cfbdb4cc3da3afddbda7eda6f",
+      "json_sha256": "a16b48313020f2de4c5ee693c8a2c7e89c13ffbee56012effb0fdbcdb22d7abe",
+      "source_sha": "43d5ec6084af0dc5aa12dee0fa6ac36631a9dc75"
+    },
+    {
+      "run_id": 45717790340,
+      "artifact_id": 15069939439,
+      "name": "alexpy-qa30-macos-latest-py3.15-45717790340",
+      "zip_file": "qa30-15069939439.zip",
+      "sha256": "bc6c0a8c97e0da725d624f654db278e2eeadac6ec11fa811946a0370bc37a5f0",
+      "json_sha256": "cf1ed6f87ed15e16b1a7087a175863a503cda02004e1f4d499d9b68098eaa249",
+      "source_sha": "43d5ec6084af0dc5aa12dee0fa6ac36631a9dc75"
+    },
+    {
+      "run_id": 45717790340,
+      "artifact_id": 15070283784,
+      "name": "alexpy-qa30-windows-latest-py3.13-45717790340",
+      "zip_file": "qa30-15070283784.zip",
+      "sha256": "9c9e1cc9ff1a396bdc62fa4fe12f5a7271e8bf0e5eb4f79ee1f43a64cea8b405",
+      "json_sha256": "92b6e82de122532fae615dc47f3918189a4d9008ead02da87f4a428a3b5ca4e9",
+      "source_sha": "43d5ec6084af0dc5aa12dee0fa6ac36631a9dc75"
+    },
+    {
+      "run_id": 45717790340,
+      "artifact_id": 15070098761,
+      "name": "alexpy-qa30-windows-latest-py3.15-45717790340",
+      "zip_file": "qa30-15070098761.zip",
+      "sha256": "8c346287102b3cb06ad9b012db1831169217c2355146346315fc60c1538e97a5",
+      "json_sha256": "ffeddccfa55f7bed68b3b5da8c85bd6881505d7eca7723e02d0f734be3144f58",
+      "source_sha": "43d5ec6084af0dc5aa12dee0fa6ac36631a9dc75"
+    },
+    {
+      "run_id": 45717781984,
+      "artifact_id": 15069779582,
+      "name": "alexpy-qa30-ubuntu-latest-py3.13-45717781984",
+      "zip_file": "qa30-15069779582.zip",
+      "sha256": "6505be853199237578ca46d1cad3f0a85c384e85f17da569586bbef391166dbd",
+      "json_sha256": "e01677d3b90977c2318c84127006cb64ac6548880d118143000ad9b87774ecc2",
+      "source_sha": "43d5ec6084af0dc5aa12dee0fa6ac36631a9dc75"
+    },
+    {
+      "run_id": 45717781984,
+      "artifact_id": 15071176179,
+      "name": "alexpy-qa30-ubuntu-latest-py3.15-45717781984",
+      "zip_file": "qa30-15071176179.zip",
+      "sha256": "27f4667b6127ccec18492617f2aff9c7a5cc840bbd59041d7873752635372717",
+      "json_sha256": "53b298c7a3f46f4c7a9553e66d55731fb7e745ce63e9e20a485b6638eb507931",
+      "source_sha": "43d5ec6084af0dc5aa12dee0fa6ac36631a9dc75"
+    },
+    {
+      "run_id": 45717781984,
+      "artifact_id": 15071121176,
+      "name": "alexpy-qa30-macos-latest-py3.13-45717781984",
+      "zip_file": "qa30-15071121176.zip",
+      "sha256": "45277eb169dc1d8775bc321a00ef945c598bb631227048f25d89dcb415e77adf",
+      "json_sha256": "e961a45efeeb5d8958be0807d6a68126b667280d672eaacc7257b0afe530e591",
+      "source_sha": "43d5ec6084af0dc5aa12dee0fa6ac36631a9dc75"
+    },
+    {
+      "run_id": 45717781984,
+      "artifact_id": 15069939499,
+      "name": "alexpy-qa30-macos-latest-py3.15-45717781984",
+      "zip_file": "qa30-15069939499.zip",
+      "sha256": "fb9550c1bc3dc1d49b9cdc34fc87fc4ee4ea0144adc8297ff965c49f51ed0862",
+      "json_sha256": "5db36c5c51f1abe97101ef165f7d1f9c23889d484f9c8a82dfe8c962dae7234c",
+      "source_sha": "43d5ec6084af0dc5aa12dee0fa6ac36631a9dc75"
+    },
+    {
+      "run_id": 45717781984,
+      "artifact_id": 15071385478,
+      "name": "alexpy-qa30-windows-latest-py3.13-45717781984",
+      "zip_file": "qa30-15071385478.zip",
+      "sha256": "6573535f6625fe3507dc4a439823e3010f1f3e8fda7e4b4aba2639e0995fb700",
+      "json_sha256": "530986842c7f72bfe25ea6c7b2d959620425a732a7dd316caca36d63518cb21e",
+      "source_sha": "43d5ec6084af0dc5aa12dee0fa6ac36631a9dc75"
+    },
+    {
+      "run_id": 45717781984,
+      "artifact_id": 15070068673,
+      "name": "alexpy-qa30-windows-latest-py3.15-45717781984",
+      "zip_file": "qa30-15070068673.zip",
+      "sha256": "c3434969d77f236467dacafcc611070e7bd8eddb93946ece959171be479d3e1a",
+      "json_sha256": "1e52ecdd2c7952bec8b0a36b814d9bb3d58ae86e02abf9488de7a59f0cb3d5d3",
+      "source_sha": "43d5ec6084af0dc5aa12dee0fa6ac36631a9dc75"
+    }
+  ]
+}

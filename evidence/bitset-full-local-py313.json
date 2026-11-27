@@ -1,0 +1,871 @@
+{
+  "schema": "alexpy-bardo-bitset-bench/1",
+  "host": {
+    "system": "Linux",
+    "python": "3.13.5",
+    "machine": "x86_64",
+    "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+  },
+  "sessions": [
+    {
+      "schema": "alexpy-bardo-bitset-bench/1",
+      "host": {
+        "system": "Linux",
+        "python": "3.13.5",
+        "machine": "x86_64",
+        "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+      },
+      "experimental": true,
+      "family": "2.7 reused, not fresh held-out data",
+      "rows": [
+        {
+          "case": {
+            "name": "dense-mostly-fail",
+            "n": 4096,
+            "suites": 32,
+            "events": 8192,
+            "batch": 512,
+            "active": 4096,
+            "fail_percent": 90,
+            "report_every": 4,
+            "reads_per_report": 1,
+            "pattern": "random"
+          },
+          "digest": 14041376289251765620,
+          "samples_ns": {
+            "bitset": [
+              6184118,
+              5903225,
+              6887471
+            ],
+            "c_tree": [
+              6687011,
+              6168790,
+              6769309
+            ],
+            "set": [
+              8050790,
+              7776948,
+              8818818
+            ]
+          },
+          "medians_ns": {
+            "bitset": 6184118,
+            "c_tree": 6687011,
+            "set": 8050790
+          },
+          "bitset_vs_tree": 1.0813200847719917,
+          "bitset_vs_set": 1.3018493502226187
+        },
+        {
+          "case": {
+            "name": "dense-wide",
+            "n": 16384,
+            "suites": 128,
+            "events": 12288,
+            "batch": 2048,
+            "active": 16384,
+            "fail_percent": 85,
+            "report_every": 4,
+            "reads_per_report": 1,
+            "pattern": "random"
+          },
+          "digest": 14163596356520100975,
+          "samples_ns": {
+            "bitset": [
+              9831983,
+              10968750,
+              10063780
+            ],
+            "c_tree": [
+              11096070,
+              11709286,
+              9955519
+            ],
+            "set": [
+              14010718,
+              13020706,
+              12930597
+            ]
+          },
+          "medians_ns": {
+            "bitset": 10063780,
+            "c_tree": 11096070,
+            "set": 13020706
+          },
+          "bitset_vs_tree": 1.1025747780654982,
+          "bitset_vs_set": 1.2938186248109558
+        },
+        {
+          "case": {
+            "name": "reversible-flips",
+            "n": 4096,
+            "suites": 32,
+            "events": 8192,
+            "batch": 512,
+            "active": 4096,
+            "fail_percent": 50,
+            "report_every": 2,
+            "reads_per_report": 1,
+            "pattern": "flip"
+          },
+          "digest": 8946622874087341146,
+          "samples_ns": {
+            "bitset": [
+              9521897,
+              10981709,
+              6644406
+            ],
+            "c_tree": [
+              9252004,
+              7696782,
+              6935354
+            ],
+            "set": [
+              8091324,
+              9398689,
+              12518144
+            ]
+          },
+          "medians_ns": {
+            "bitset": 9521897,
+            "c_tree": 7696782,
+            "set": 9398689
+          },
+          "bitset_vs_tree": 0.8083244336711477,
+          "bitset_vs_set": 0.987060561566671
+        },
+        {
+          "case": {
+            "name": "hot-retries",
+            "n": 4096,
+            "suites": 32,
+            "events": 8192,
+            "batch": 64,
+            "active": 64,
+            "fail_percent": 55,
+            "report_every": 4,
+            "reads_per_report": 1,
+            "pattern": "random"
+          },
+          "digest": 6871464682246218565,
+          "samples_ns": {
+            "bitset": [
+              7998001,
+              10032717,
+              11524151
+            ],
+            "c_tree": [
+              6243623,
+              6645531,
+              6878931
+            ],
+            "set": [
+              7003480,
+              9613426,
+              13693998
+            ]
+          },
+          "medians_ns": {
+            "bitset": 10032717,
+            "c_tree": 6645531,
+            "set": 9613426
+          },
+          "bitset_vs_tree": 0.6623859718160096,
+          "bitset_vs_set": 0.9582076320900909
+        },
+        {
+          "case": {
+            "name": "frequent-diagnostics",
+            "n": 4096,
+            "suites": 32,
+            "events": 6000,
+            "batch": 64,
+            "active": 4096,
+            "fail_percent": 55,
+            "report_every": 1,
+            "reads_per_report": 8,
+            "pattern": "random"
+          },
+          "digest": 8456346997461860160,
+          "samples_ns": {
+            "bitset": [
+              7149799,
+              6816972,
+              6866599
+            ],
+            "c_tree": [
+              7083271,
+              10042795,
+              7164473
+            ],
+            "set": [
+              41026985,
+              37094410,
+              35629973
+            ]
+          },
+          "medians_ns": {
+            "bitset": 6866599,
+            "c_tree": 7164473,
+            "set": 37094410
+          },
+          "bitset_vs_tree": 1.0433801362217308,
+          "bitset_vs_set": 5.4021517784859725
+        },
+        {
+          "case": {
+            "name": "zero-failures",
+            "n": 4096,
+            "suites": 32,
+            "events": 6000,
+            "batch": 64,
+            "active": 4096,
+            "fail_percent": 0,
+            "report_every": 4,
+            "reads_per_report": 1,
+            "pattern": "random"
+          },
+          "digest": 12191885008800301928,
+          "samples_ns": {
+            "bitset": [
+              5318843,
+              8348221,
+              9235629
+            ],
+            "c_tree": [
+              5513155,
+              7903662,
+              8397808
+            ],
+            "set": [
+              16184084,
+              9412456,
+              9631135
+            ]
+          },
+          "medians_ns": {
+            "bitset": 8348221,
+            "c_tree": 7903662,
+            "set": 9631135
+          },
+          "bitset_vs_tree": 0.9467480556635959,
+          "bitset_vs_set": 1.1536751362955053
+        },
+        {
+          "case": {
+            "name": "all-failures",
+            "n": 4096,
+            "suites": 32,
+            "events": 8192,
+            "batch": 512,
+            "active": 4096,
+            "fail_percent": 100,
+            "report_every": 4,
+            "reads_per_report": 1,
+            "pattern": "random"
+          },
+          "digest": 7373849157171863215,
+          "samples_ns": {
+            "bitset": [
+              15095427,
+              6300066,
+              6807288
+            ],
+            "c_tree": [
+              9081472,
+              6800514,
+              6697511
+            ],
+            "set": [
+              9486337,
+              9791722,
+              7993890
+            ]
+          },
+          "medians_ns": {
+            "bitset": 6807288,
+            "c_tree": 6800514,
+            "set": 9486337
+          },
+          "bitset_vs_tree": 0.9990048900531313,
+          "bitset_vs_set": 1.393555994692747
+        }
+      ]
+    },
+    {
+      "schema": "alexpy-bardo-bitset-bench/1",
+      "host": {
+        "system": "Linux",
+        "python": "3.13.5",
+        "machine": "x86_64",
+        "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+      },
+      "experimental": true,
+      "family": "2.7 reused, not fresh held-out data",
+      "rows": [
+        {
+          "case": {
+            "name": "dense-mostly-fail",
+            "n": 4096,
+            "suites": 32,
+            "events": 8192,
+            "batch": 512,
+            "active": 4096,
+            "fail_percent": 90,
+            "report_every": 4,
+            "reads_per_report": 1,
+            "pattern": "random"
+          },
+          "digest": 14041376289251765620,
+          "samples_ns": {
+            "bitset": [
+              7146065,
+              6937141,
+              6650294
+            ],
+            "c_tree": [
+              10075449,
+              6219855,
+              6680595
+            ],
+            "set": [
+              7832422,
+              14570497,
+              24492788
+            ]
+          },
+          "medians_ns": {
+            "bitset": 6937141,
+            "c_tree": 6680595,
+            "set": 14570497
+          },
+          "bitset_vs_tree": 0.9630184826861671,
+          "bitset_vs_set": 2.100360508745606
+        },
+        {
+          "case": {
+            "name": "dense-wide",
+            "n": 16384,
+            "suites": 128,
+            "events": 12288,
+            "batch": 2048,
+            "active": 16384,
+            "fail_percent": 85,
+            "report_every": 4,
+            "reads_per_report": 1,
+            "pattern": "random"
+          },
+          "digest": 14163596356520100975,
+          "samples_ns": {
+            "bitset": [
+              14109406,
+              10824619,
+              12746238
+            ],
+            "c_tree": [
+              10668545,
+              11810293,
+              13465824
+            ],
+            "set": [
+              13407633,
+              15514060,
+              14060666
+            ]
+          },
+          "medians_ns": {
+            "bitset": 12746238,
+            "c_tree": 11810293,
+            "set": 14060666
+          },
+          "bitset_vs_tree": 0.9265708831107657,
+          "bitset_vs_set": 1.10312281945465
+        },
+        {
+          "case": {
+            "name": "reversible-flips",
+            "n": 4096,
+            "suites": 32,
+            "events": 8192,
+            "batch": 512,
+            "active": 4096,
+            "fail_percent": 50,
+            "report_every": 2,
+            "reads_per_report": 1,
+            "pattern": "flip"
+          },
+          "digest": 8946622874087341146,
+          "samples_ns": {
+            "bitset": [
+              8309873,
+              8876487,
+              6416620
+            ],
+            "c_tree": [
+              5771631,
+              5418933,
+              6936267
+            ],
+            "set": [
+              7355572,
+              9592460,
+              16638397
+            ]
+          },
+          "medians_ns": {
+            "bitset": 8309873,
+            "c_tree": 5771631,
+            "set": 9592460
+          },
+          "bitset_vs_tree": 0.6945510478920677,
+          "bitset_vs_set": 1.154344958099841
+        },
+        {
+          "case": {
+            "name": "hot-retries",
+            "n": 4096,
+            "suites": 32,
+            "events": 8192,
+            "batch": 64,
+            "active": 64,
+            "fail_percent": 55,
+            "report_every": 4,
+            "reads_per_report": 1,
+            "pattern": "random"
+          },
+          "digest": 6871464682246218565,
+          "samples_ns": {
+            "bitset": [
+              8166117,
+              5677438,
+              6014745
+            ],
+            "c_tree": [
+              7911678,
+              8018719,
+              6017097
+            ],
+            "set": [
+              8156867,
+              7586363,
+              7394649
+            ]
+          },
+          "medians_ns": {
+            "bitset": 6014745,
+            "c_tree": 7911678,
+            "set": 7586363
+          },
+          "bitset_vs_tree": 1.315380452537888,
+          "bitset_vs_set": 1.2612942028298788
+        },
+        {
+          "case": {
+            "name": "frequent-diagnostics",
+            "n": 4096,
+            "suites": 32,
+            "events": 6000,
+            "batch": 64,
+            "active": 4096,
+            "fail_percent": 55,
+            "report_every": 1,
+            "reads_per_report": 8,
+            "pattern": "random"
+          },
+          "digest": 8456346997461860160,
+          "samples_ns": {
+            "bitset": [
+              6962058,
+              8505666,
+              8335889
+            ],
+            "c_tree": [
+              7199941,
+              7832880,
+              10929307
+            ],
+            "set": [
+              36185225,
+              44185904,
+              37641641
+            ]
+          },
+          "medians_ns": {
+            "bitset": 8335889,
+            "c_tree": 7832880,
+            "set": 37641641
+          },
+          "bitset_vs_tree": 0.939657425860637,
+          "bitset_vs_set": 4.5156120720897315
+        },
+        {
+          "case": {
+            "name": "zero-failures",
+            "n": 4096,
+            "suites": 32,
+            "events": 6000,
+            "batch": 64,
+            "active": 4096,
+            "fail_percent": 0,
+            "report_every": 4,
+            "reads_per_report": 1,
+            "pattern": "random"
+          },
+          "digest": 12191885008800301928,
+          "samples_ns": {
+            "bitset": [
+              5264859,
+              5060613,
+              4910995
+            ],
+            "c_tree": [
+              4847772,
+              4633935,
+              5066565
+            ],
+            "set": [
+              5961578,
+              7085164,
+              5745563
+            ]
+          },
+          "medians_ns": {
+            "bitset": 5060613,
+            "c_tree": 4847772,
+            "set": 5961578
+          },
+          "bitset_vs_tree": 0.9579416564752136,
+          "bitset_vs_set": 1.1780347558685085
+        },
+        {
+          "case": {
+            "name": "all-failures",
+            "n": 4096,
+            "suites": 32,
+            "events": 8192,
+            "batch": 512,
+            "active": 4096,
+            "fail_percent": 100,
+            "report_every": 4,
+            "reads_per_report": 1,
+            "pattern": "random"
+          },
+          "digest": 7373849157171863215,
+          "samples_ns": {
+            "bitset": [
+              7088482,
+              6768514,
+              6958721
+            ],
+            "c_tree": [
+              7142276,
+              6386383,
+              6565874
+            ],
+            "set": [
+              7428259,
+              8211878,
+              7848644
+            ]
+          },
+          "medians_ns": {
+            "bitset": 6958721,
+            "c_tree": 6565874,
+            "set": 7848644
+          },
+          "bitset_vs_tree": 0.9435460913003985,
+          "bitset_vs_set": 1.1278860008901062
+        }
+      ]
+    },
+    {
+      "schema": "alexpy-bardo-bitset-bench/1",
+      "host": {
+        "system": "Linux",
+        "python": "3.13.5",
+        "machine": "x86_64",
+        "processor": "INTEL(R) XEON(R) PLATINUM 8573C"
+      },
+      "experimental": true,
+      "family": "2.7 reused, not fresh held-out data",
+      "rows": [
+        {
+          "case": {
+            "name": "dense-mostly-fail",
+            "n": 4096,
+            "suites": 32,
+            "events": 8192,
+            "batch": 512,
+            "active": 4096,
+            "fail_percent": 90,
+            "report_every": 4,
+            "reads_per_report": 1,
+            "pattern": "random"
+          },
+          "digest": 14041376289251765620,
+          "samples_ns": {
+            "bitset": [
+              6603582,
+              6480823,
+              8137634
+            ],
+            "c_tree": [
+              6449227,
+              7134811,
+              7318960
+            ],
+            "set": [
+              7979329,
+              9354225,
+              8737341
+            ]
+          },
+          "medians_ns": {
+            "bitset": 6603582,
+            "c_tree": 7134811,
+            "set": 8737341
+          },
+          "bitset_vs_tree": 1.0804455824126966,
+          "bitset_vs_set": 1.3231214513577632
+        },
+        {
+          "case": {
+            "name": "dense-wide",
+            "n": 16384,
+            "suites": 128,
+            "events": 12288,
+            "batch": 2048,
+            "active": 16384,
+            "fail_percent": 85,
+            "report_every": 4,
+            "reads_per_report": 1,
+            "pattern": "random"
+          },
+          "digest": 14163596356520100975,
+          "samples_ns": {
+            "bitset": [
+              10810082,
+              11354544,
+              9709097
+            ],
+            "c_tree": [
+              12023704,
+              10304213,
+              9981004
+            ],
+            "set": [
+              14182005,
+              12940915,
+              13280941
+            ]
+          },
+          "medians_ns": {
+            "bitset": 10810082,
+            "c_tree": 10304213,
+            "set": 13280941
+          },
+          "bitset_vs_tree": 0.9532039627451485,
+          "bitset_vs_set": 1.2285698665375526
+        },
+        {
+          "case": {
+            "name": "reversible-flips",
+            "n": 4096,
+            "suites": 32,
+            "events": 8192,
+            "batch": 512,
+            "active": 4096,
+            "fail_percent": 50,
+            "report_every": 2,
+            "reads_per_report": 1,
+            "pattern": "flip"
+          },
+          "digest": 8946622874087341146,
+          "samples_ns": {
+            "bitset": [
+              6884622,
+              5898735,
+              5477786
+            ],
+            "c_tree": [
+              5857255,
+              5007896,
+              5577879
+            ],
+            "set": [
+              6447589,
+              6402492,
+              6819413
+            ]
+          },
+          "medians_ns": {
+            "bitset": 5898735,
+            "c_tree": 5577879,
+            "set": 6447589
+          },
+          "bitset_vs_tree": 0.945605964668696,
+          "bitset_vs_set": 1.093046051399156
+        },
+        {
+          "case": {
+            "name": "hot-retries",
+            "n": 4096,
+            "suites": 32,
+            "events": 8192,
+            "batch": 64,
+            "active": 64,
+            "fail_percent": 55,
+            "report_every": 4,
+            "reads_per_report": 1,
+            "pattern": "random"
+          },
+          "digest": 6871464682246218565,
+          "samples_ns": {
+            "bitset": [
+              5679834,
+              6255113,
+              5689936
+            ],
+            "c_tree": [
+              6274195,
+              6323194,
+              6199732
+            ],
+            "set": [
+              7113504,
+              8594501,
+              8232972
+            ]
+          },
+          "medians_ns": {
+            "bitset": 5689936,
+            "c_tree": 6274195,
+            "set": 8232972
+          },
+          "bitset_vs_tree": 1.1026828772766513,
+          "bitset_vs_set": 1.4469357827574862
+        },
+        {
+          "case": {
+            "name": "frequent-diagnostics",
+            "n": 4096,
+            "suites": 32,
+            "events": 6000,
+            "batch": 64,
+            "active": 4096,
+            "fail_percent": 55,
+            "report_every": 1,
+            "reads_per_report": 8,
+            "pattern": "random"
+          },
+          "digest": 8456346997461860160,
+          "samples_ns": {
+            "bitset": [
+              6743445,
+              7765979,
+              7844150
+            ],
+            "c_tree": [
+              6867869,
+              7326626,
+              6799002
+            ],
+            "set": [
+              34246958,
+              48342866,
+              34788433
+            ]
+          },
+          "medians_ns": {
+            "bitset": 7765979,
+            "c_tree": 6867869,
+            "set": 34788433
+          },
+          "bitset_vs_tree": 0.884353279863363,
+          "bitset_vs_set": 4.479594008688409
+        },
+        {
+          "case": {
+            "name": "zero-failures",
+            "n": 4096,
+            "suites": 32,
+            "events": 6000,
+            "batch": 64,
+            "active": 4096,
+            "fail_percent": 0,
+            "report_every": 4,
+            "reads_per_report": 1,
+            "pattern": "random"
+          },
+          "digest": 12191885008800301928,
+          "samples_ns": {
+            "bitset": [
+              4840890,
+              4769306,
+              5204766
+            ],
+            "c_tree": [
+              4696138,
+              5463105,
+              6148820
+            ],
+            "set": [
+              5725546,
+              5524640,
+              5665797
+            ]
+          },
+          "medians_ns": {
+            "bitset": 4840890,
+            "c_tree": 5463105,
+            "set": 5665797
+          },
+          "bitset_vs_tree": 1.1285331829477638,
+          "bitset_vs_set": 1.1704039959594208
+        },
+        {
+          "case": {
+            "name": "all-failures",
+            "n": 4096,
+            "suites": 32,
+            "events": 8192,
+            "batch": 512,
+            "active": 4096,
+            "fail_percent": 100,
+            "report_every": 4,
+            "reads_per_report": 1,
+            "pattern": "random"
+          },
+          "digest": 7373849157171863215,
+          "samples_ns": {
+            "bitset": [
+              5922682,
+              7090738,
+              7286345
+            ],
+            "c_tree": [
+              6629721,
+              6610027,
+              7082998
+            ],
+            "set": [
+              8029314,
+              9697751,
+              8148141
+            ]
+          },
+          "medians_ns": {
+            "bitset": 7090738,
+            "c_tree": 6629721,
+            "set": 8148141
+          },
+          "bitset_vs_tree": 0.9349832133129161,
+          "bitset_vs_set": 1.149124534004782
+        }
+      ]
+    }
+  ],
+  "experimental": true,
+  "default_promotion": false
+}

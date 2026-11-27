@@ -1,0 +1,141 @@
+{
+  "schema": "alexpy-native-witness-stress-summary/1",
+  "host": {
+    "system": "Linux",
+    "python": "3.13.5",
+    "machine": "x86_64",
+    "processor": "AMD EPYC 9V74 80-Core Processor"
+  },
+  "baseline": "same NativeBatchQA engine + Python failure set",
+  "sessions": 3,
+  "paired_samples_per_session": 3,
+  "all_case_results": [
+    {
+      "case": "dense-mostly-fail",
+      "tests": 4096,
+      "events": 8192,
+      "batch": 512,
+      "fail_percent": 90,
+      "speedup_by_process": [
+        1.266399469761409,
+        1.26820608315269,
+        1.2632643719222476
+      ],
+      "median_speedup": 1.266399469761409,
+      "all_processes_speedup_above_one": true
+    },
+    {
+      "case": "dense-wide",
+      "tests": 16384,
+      "events": 12288,
+      "batch": 2048,
+      "fail_percent": 85,
+      "speedup_by_process": [
+        1.2460122883723836,
+        1.2216263907005387,
+        1.2396213693605644
+      ],
+      "median_speedup": 1.2396213693605644,
+      "all_processes_speedup_above_one": true
+    },
+    {
+      "case": "reversible-flips",
+      "tests": 4096,
+      "events": 8192,
+      "batch": 512,
+      "fail_percent": 50,
+      "speedup_by_process": [
+        1.263082573948412,
+        1.2752097189769218,
+        1.2793248909172865
+      ],
+      "median_speedup": 1.2752097189769218,
+      "all_processes_speedup_above_one": true
+    },
+    {
+      "case": "hot-retries",
+      "tests": 4096,
+      "events": 8192,
+      "batch": 64,
+      "fail_percent": 55,
+      "speedup_by_process": [
+        1.2214713674523197,
+        1.2159926531649898,
+        1.2183822302447116
+      ],
+      "median_speedup": 1.2183822302447116,
+      "all_processes_speedup_above_one": true
+    },
+    {
+      "case": "frequent-diagnostics",
+      "tests": 4096,
+      "events": 6000,
+      "batch": 64,
+      "fail_percent": 55,
+      "speedup_by_process": [
+        4.35506057626772,
+        4.430653039215467,
+        4.362680725396287
+      ],
+      "median_speedup": 4.362680725396287,
+      "all_processes_speedup_above_one": true
+    },
+    {
+      "case": "zero-failures",
+      "tests": 4096,
+      "events": 6000,
+      "batch": 64,
+      "fail_percent": 0,
+      "speedup_by_process": [
+        1.2102885002050372,
+        1.2015699736174654,
+        1.2109199607591759
+      ],
+      "median_speedup": 1.2102885002050372,
+      "all_processes_speedup_above_one": true
+    },
+    {
+      "case": "all-failures",
+      "tests": 4096,
+      "events": 8192,
+      "batch": 512,
+      "fail_percent": 100,
+      "speedup_by_process": [
+        1.25286074620061,
+        1.271503978532445,
+        1.2555390408023046
+      ],
+      "median_speedup": 1.2555390408023046,
+      "all_processes_speedup_above_one": true
+    }
+  ],
+  "memory": [
+    {
+      "case": "dense-wide",
+      "c_peak_bytes": 915004,
+      "set_peak_bytes": 1407603,
+      "c_vs_set_peak_ratio": 0.6500440820316524
+    },
+    {
+      "case": "frequent-diagnostics",
+      "c_peak_bytes": 155341,
+      "set_peak_bytes": 308489,
+      "c_vs_set_peak_ratio": 0.5035544217135781
+    },
+    {
+      "case": "zero-failures",
+      "c_peak_bytes": 155388,
+      "set_peak_bytes": 150879,
+      "c_vs_set_peak_ratio": 1.029884874634641
+    }
+  ],
+  "raw_timing_sha256": "b10b1cd61a348610d4d751b3ec0b31f1ecd0af4ccf1a026d38e9ce2fe9d9709a",
+  "raw_memory_sha256": "0dea628e5c9d36fe747397b3fa77734867c30910ba5fab8d555e0e18eca6e12f",
+  "limits": [
+    "Synthetic QA inputs only",
+    "One local AMD/Linux host; CI must separately verify other runners",
+    "Tracemalloc does not measure full native heap/RSS",
+    "Same workload and suite totals for both routes; all correctness gates outside timing",
+    "No automatic promotion of the experimental witness backend"
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "protocol": "ALEXPY-M11-COMPILED-DAG/0.1",
+  "platform": "Linux x86_64",
+  "python": "3.13.5",
+  "local_sessions": 3,
+  "epochs_per_session": 2,
+  "pairs_per_epoch": 5,
+  "timing": "full construction + compilation + patches + reads, ns per workflow",
+  "classification": "exploratory, not independently reproduced on another machine",
+  "raw_samples": "Available with full ZIP experiment archive; CI reproduces smaller experiment.",
+  "ratios": "baseline duration divided by compiled duration; >1 favors compiled",
+  "results": [
+    {
+      "size": 4096,
+      "changes": 1,
+      "ticks": 2,
+      "reads": 1,
+      "legacy_over_compiled_rounded": 3.33,
+      "manual_over_compiled_rounded": 0.12,
+      "dense_over_compiled_rounded": 0.16
+    },
+    {
+      "size": 4096,
+      "changes": 1,
+      "ticks": 2,
+      "reads": 8,
+      "legacy_over_compiled_rounded": 3.2,
+      "manual_over_compiled_rounded": 0.15,
+      "dense_over_compiled_rounded": 1.12
+    },
+    {
+      "size": 4096,
+      "changes": 1,
+      "ticks": 32,
+      "reads": 1,
+      "legacy_over_compiled_rounded": 2.59,
+      "manual_over_compiled_rounded": 0.14,
+      "dense_over_compiled_rounded": 1.53
+    },
+    {
+      "size": 4096,
+      "changes": 1,
+      "ticks": 32,
+      "reads": 8,
+      "legacy_over_compiled_rounded": 2.19,
+      "manual_over_compiled_rounded": 0.4,
+      "dense_over_compiled_rounded": 9.43
+    },
+    {
+      "size": 4096,
+      "changes": 16,
+      "ticks": 2,
+      "reads": 1,
+      "legacy_over_compiled_rounded": 3,
+      "manual_over_compiled_rounded": 0.11,
+      "dense_over_compiled_rounded": 0.15
+    },
+    {
+      "size": 4096,
+      "changes": 16,
+      "ticks": 2,
+      "reads": 8,
+      "legacy_over_compiled_rounded": 3.13,
+      "manual_over_compiled_rounded": 0.15,
+      "dense_over_compiled_rounded": 1.03
+    },
+    {
+      "size": 4096,
+      "changes": 16,
+      "ticks": 32,
+      "reads": 1,
+      "legacy_over_compiled_rounded": 1.89,
+      "manual_over_compiled_rounded": 0.11,
+      "dense_over_compiled_rounded": 0.69
+    },
+    {
+      "size": 4096,
+      "changes": 16,
+      "ticks": 32,
+      "reads": 8,
+      "legacy_over_compiled_rounded": 1.83,
+      "manual_over_compiled_rounded": 0.25,
+      "dense_over_compiled_rounded": 4.63
+    },
+    {
+      "size": 32768,
+      "changes": 1,
+      "ticks": 2,
+      "reads": 1,
+      "legacy_over_compiled_rounded": 3.39,
+      "manual_over_compiled_rounded": 0.12,
+      "dense_over_compiled_rounded": 0.18
+    },
+    {
+      "size": 32768,
+      "changes": 1,
+      "ticks": 2,
+      "reads": 8,
+      "legacy_over_compiled_rounded": 3.48,
+      "manual_over_compiled_rounded": 0.15,
+      "dense_over_compiled_rounded": 1.29
+    },
+    {
+      "size": 32768,
+      "changes": 1,
+      "ticks": 32,
+      "reads": 1,
+      "legacy_over_compiled_rounded": 3.16,
+      "manual_over_compiled_rounded": 0.17,
+      "dense_over_compiled_rounded": 2.27
+    },
+    {
+      "size": 32768,
+      "changes": 1,
+      "ticks": 32,
+      "reads": 8,
+      "legacy_over_compiled_rounded": 2.66,
+      "manual_over_compiled_rounded": 0.44,
+      "dense_over_compiled_rounded": 13.68
+    },
+    {
+      "size": 32768,
+      "changes": 16,
+      "ticks": 2,
+      "reads": 1,
+      "legacy_over_compiled_rounded": 3.41,
+      "manual_over_compiled_rounded": 0.12,
+      "dense_over_compiled_rounded": 0.17
+    },
+    {
+      "size": 32768,
+      "changes": 16,
+      "ticks": 2,
+      "reads": 8,
+      "legacy_over_compiled_rounded": 3.39,
+      "manual_over_compiled_rounded": 0.14,
+      "dense_over_compiled_rounded": 1.24
+    },
+    {
+      "size": 32768,
+      "changes": 16,
+      "ticks": 32,
+      "reads": 1,
+      "legacy_over_compiled_rounded": 2.77,
+      "manual_over_compiled_rounded": 0.14,
+      "dense_over_compiled_rounded": 1.7
+    },
+    {
+      "size": 32768,
+      "changes": 16,
+      "ticks": 32,
+      "reads": 8,
+      "legacy_over_compiled_rounded": 2.37,
+      "manual_over_compiled_rounded": 0.39,
+      "dense_over_compiled_rounded": 10.74
+    }
+  ],
+  "promotion": "BLOCKED_MANUAL_CONTROL_FASTER"
+}

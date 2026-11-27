@@ -1,0 +1,503 @@
+{
+  "schema": "ALEXPY-CROSS-RUNNER-STREAM/1",
+  "source": "GitHub Actions run artifacts for commits 8f356a5 (two runs)",
+  "notes": [
+    "Measurements are distinct GitHub hosted runners with different workload specification than AMD 8192-cycle experiment.",
+    "Absolute latency cannot be pooled between platforms, tests max 16 cycles.",
+    "CPU identification is reported by runner, not hardware attestation."
+  ],
+  "records": [
+    {
+      "archive": "alexpy-stream-macos-run44969437669.zip",
+      "sha256": "08dc7b6d0ed82cb8b2b9beb52de7168d29c1706faf124a7b3d08ab4661575b2f",
+      "run_id": 44969437669,
+      "host": {
+        "platform": "macOS-26.7.2-arm64-arm-64bit-Mach-O",
+        "machine": "arm64",
+        "processor": "arm",
+        "python": "3.13.17",
+        "implementation": "cpython",
+        "logical_cpus": 3,
+        "ci": true,
+        "github_runner_os": "macOS",
+        "github_runner_arch": "ARM64"
+      },
+      "calibration_wall_ns": 437396708,
+      "route_counts": {
+        "direct": 3,
+        "blocks": 0,
+        "fenwick": 0,
+        "prefix": 1
+      },
+      "cases": [
+        {
+          "size": 384,
+          "cycles": 1,
+          "median_online_speedup": 0.9848834981332992,
+          "gains_ns_by_process": [
+            3250.5,
+            -20687.0,
+            -2603.5
+          ]
+        },
+        {
+          "size": 384,
+          "cycles": 4,
+          "median_online_speedup": 0.9991308008419365,
+          "gains_ns_by_process": [
+            10084.0,
+            -189729.5,
+            -542.0
+          ]
+        },
+        {
+          "size": 384,
+          "cycles": 16,
+          "median_online_speedup": 1.004954327839188,
+          "gains_ns_by_process": [
+            252667.0,
+            239292.0,
+            13396.5
+          ]
+        }
+      ],
+      "pooled": [
+        {
+          "cycles": 1,
+          "online_savings_ns": -2603.5,
+          "calibration_ns": 437396708,
+          "net_savings_ns": -437399311.5,
+          "observed_paid_break_even": false,
+          "all_processes_online_gain": false
+        },
+        {
+          "cycles": 4,
+          "online_savings_ns": -542.0,
+          "calibration_ns": 437396708,
+          "net_savings_ns": -437397250.0,
+          "observed_paid_break_even": false,
+          "all_processes_online_gain": false
+        },
+        {
+          "cycles": 16,
+          "online_savings_ns": 13396.5,
+          "calibration_ns": 437396708,
+          "net_savings_ns": -437383311.5,
+          "observed_paid_break_even": false,
+          "all_processes_online_gain": true
+        }
+      ],
+      "observed_break_even_cycles": null
+    },
+    {
+      "archive": "alexpy-stream-macos-run44969442135.zip",
+      "sha256": "2dca82d3a2b957a1e6ec6aaafcc1a7b0f982f7a81d744701d209a5f10aa92739",
+      "run_id": 44969442135,
+      "host": {
+        "platform": "macOS-26.7.2-arm64-arm-64bit-Mach-O",
+        "machine": "arm64",
+        "processor": "arm",
+        "python": "3.13.17",
+        "implementation": "cpython",
+        "logical_cpus": 3,
+        "ci": true,
+        "github_runner_os": "macOS",
+        "github_runner_arch": "ARM64"
+      },
+      "calibration_wall_ns": 274009166,
+      "route_counts": {
+        "direct": 3,
+        "blocks": 0,
+        "fenwick": 0,
+        "prefix": 1
+      },
+      "cases": [
+        {
+          "size": 384,
+          "cycles": 1,
+          "median_online_speedup": 1.0602159444043024,
+          "gains_ns_by_process": [
+            24770.5,
+            -3646.0,
+            -15791.5
+          ]
+        },
+        {
+          "size": 384,
+          "cycles": 4,
+          "median_online_speedup": 1.0392250478492873,
+          "gains_ns_by_process": [
+            28125.0,
+            7833.5,
+            139917.0
+          ]
+        },
+        {
+          "size": 384,
+          "cycles": 16,
+          "median_online_speedup": 0.8940962535453574,
+          "gains_ns_by_process": [
+            -75187.5,
+            -291542.0,
+            -1816959.0
+          ]
+        }
+      ],
+      "pooled": [
+        {
+          "cycles": 1,
+          "online_savings_ns": 10250.5,
+          "calibration_ns": 274009166,
+          "net_savings_ns": -273998915.5,
+          "observed_paid_break_even": false,
+          "all_processes_online_gain": false
+        },
+        {
+          "cycles": 4,
+          "online_savings_ns": 23291.5,
+          "calibration_ns": 274009166,
+          "net_savings_ns": -273985874.5,
+          "observed_paid_break_even": false,
+          "all_processes_online_gain": true
+        },
+        {
+          "cycles": 16,
+          "online_savings_ns": -291542.0,
+          "calibration_ns": 274009166,
+          "net_savings_ns": -274300708.0,
+          "observed_paid_break_even": false,
+          "all_processes_online_gain": false
+        }
+      ],
+      "observed_break_even_cycles": null
+    },
+    {
+      "archive": "alexpy-stream-ubuntu-run44969437669.zip",
+      "sha256": "bfbd21d8c02233dfae7ce75df1c397a19d0b44bf9b7bab413220b49cc000f01f",
+      "run_id": 44969437669,
+      "host": {
+        "platform": "Linux-7.0.0-1020-azure-x86_64-with-glibc2.43",
+        "machine": "x86_64",
+        "processor": "INTEL(R) XEON(R) PLATINUM 8573C",
+        "python": "3.13.18",
+        "implementation": "cpython",
+        "logical_cpus": 4,
+        "ci": true,
+        "github_runner_os": "Linux",
+        "github_runner_arch": "X64"
+      },
+      "calibration_wall_ns": 324068906,
+      "route_counts": {
+        "direct": 3,
+        "blocks": 0,
+        "fenwick": 0,
+        "prefix": 1
+      },
+      "cases": [
+        {
+          "size": 384,
+          "cycles": 1,
+          "median_online_speedup": 0.9977069073566156,
+          "gains_ns_by_process": [
+            -563.5,
+            30174.5,
+            6268.5
+          ]
+        },
+        {
+          "size": 384,
+          "cycles": 4,
+          "median_online_speedup": 0.9663458204502927,
+          "gains_ns_by_process": [
+            -23043.5,
+            -25285.5,
+            -32780.5
+          ]
+        },
+        {
+          "size": 384,
+          "cycles": 16,
+          "median_online_speedup": 0.9742519661334261,
+          "gains_ns_by_process": [
+            -38500.0,
+            -76919.0,
+            -191862.0
+          ]
+        }
+      ],
+      "pooled": [
+        {
+          "cycles": 1,
+          "online_savings_ns": -563.5,
+          "calibration_ns": 324068906,
+          "net_savings_ns": -324069469.5,
+          "observed_paid_break_even": false,
+          "all_processes_online_gain": false
+        },
+        {
+          "cycles": 4,
+          "online_savings_ns": -29361.0,
+          "calibration_ns": 324068906,
+          "net_savings_ns": -324098267.0,
+          "observed_paid_break_even": false,
+          "all_processes_online_gain": false
+        },
+        {
+          "cycles": 16,
+          "online_savings_ns": -91940.5,
+          "calibration_ns": 324068906,
+          "net_savings_ns": -324160846.5,
+          "observed_paid_break_even": false,
+          "all_processes_online_gain": false
+        }
+      ],
+      "observed_break_even_cycles": null
+    },
+    {
+      "archive": "alexpy-stream-ubuntu-run44969442135.zip",
+      "sha256": "1e763feed82209df6f454a02866a17bd9fe881654b207f04c3382135526e14a1",
+      "run_id": 44969442135,
+      "host": {
+        "platform": "Linux-7.0.0-1020-azure-x86_64-with-glibc2.43",
+        "machine": "x86_64",
+        "processor": "AMD EPYC 9V74 80-Core Processor",
+        "python": "3.13.18",
+        "implementation": "cpython",
+        "logical_cpus": 4,
+        "ci": true,
+        "github_runner_os": "Linux",
+        "github_runner_arch": "X64"
+      },
+      "calibration_wall_ns": 301571252,
+      "route_counts": {
+        "direct": 3,
+        "blocks": 0,
+        "fenwick": 0,
+        "prefix": 1
+      },
+      "cases": [
+        {
+          "size": 384,
+          "cycles": 1,
+          "median_online_speedup": 1.0103213804605813,
+          "gains_ns_by_process": [
+            2413.5,
+            12979.5,
+            -5378.0
+          ]
+        },
+        {
+          "size": 384,
+          "cycles": 4,
+          "median_online_speedup": 1.0027709890741805,
+          "gains_ns_by_process": [
+            8362.5,
+            -6419.5,
+            -370.5
+          ]
+        },
+        {
+          "size": 384,
+          "cycles": 16,
+          "median_online_speedup": 0.9980058486277562,
+          "gains_ns_by_process": [
+            -19408.5,
+            -33223.5,
+            951.5
+          ]
+        }
+      ],
+      "pooled": [
+        {
+          "cycles": 1,
+          "online_savings_ns": 2413.5,
+          "calibration_ns": 301571252,
+          "net_savings_ns": -301568838.5,
+          "observed_paid_break_even": false,
+          "all_processes_online_gain": false
+        },
+        {
+          "cycles": 4,
+          "online_savings_ns": 2313.0,
+          "calibration_ns": 301571252,
+          "net_savings_ns": -301568939.0,
+          "observed_paid_break_even": false,
+          "all_processes_online_gain": false
+        },
+        {
+          "cycles": 16,
+          "online_savings_ns": -6474.5,
+          "calibration_ns": 301571252,
+          "net_savings_ns": -301577726.5,
+          "observed_paid_break_even": false,
+          "all_processes_online_gain": false
+        }
+      ],
+      "observed_break_even_cycles": null
+    },
+    {
+      "archive": "alexpy-stream-windows-run44969437669.zip",
+      "sha256": "469336e6828234e3ca2091d5aa2a9a54bb4ca79d24c52890adf47fa2be63f4a7",
+      "run_id": 44969437669,
+      "host": {
+        "platform": "Windows-2025Server-10.0.26100-SP0",
+        "machine": "AMD64",
+        "processor": "AMD64 Family 25 Model 1 Stepping 1, AuthenticAMD",
+        "python": "3.13.17",
+        "implementation": "cpython",
+        "logical_cpus": 4,
+        "ci": true,
+        "github_runner_os": "Windows",
+        "github_runner_arch": "X64"
+      },
+      "calibration_wall_ns": 617489000,
+      "route_counts": {
+        "direct": 3,
+        "blocks": 0,
+        "fenwick": 0,
+        "prefix": 1
+      },
+      "cases": [
+        {
+          "size": 384,
+          "cycles": 1,
+          "median_online_speedup": 1.0901181877872619,
+          "gains_ns_by_process": [
+            33500.0,
+            44850.0,
+            -15950.0
+          ]
+        },
+        {
+          "size": 384,
+          "cycles": 4,
+          "median_online_speedup": 1.0021250472232717,
+          "gains_ns_by_process": [
+            -5950.0,
+            -22400.0,
+            2250.0
+          ]
+        },
+        {
+          "size": 384,
+          "cycles": 16,
+          "median_online_speedup": 1.0016658259329212,
+          "gains_ns_by_process": [
+            -19350.0,
+            18500.0,
+            -24550.0
+          ]
+        }
+      ],
+      "pooled": [
+        {
+          "cycles": 1,
+          "online_savings_ns": 27450.0,
+          "calibration_ns": 617489000,
+          "net_savings_ns": -617461550.0,
+          "observed_paid_break_even": false,
+          "all_processes_online_gain": false
+        },
+        {
+          "cycles": 4,
+          "online_savings_ns": 2250.0,
+          "calibration_ns": 617489000,
+          "net_savings_ns": -617486750.0,
+          "observed_paid_break_even": false,
+          "all_processes_online_gain": false
+        },
+        {
+          "cycles": 16,
+          "online_savings_ns": 7100.0,
+          "calibration_ns": 617489000,
+          "net_savings_ns": -617481900.0,
+          "observed_paid_break_even": false,
+          "all_processes_online_gain": false
+        }
+      ],
+      "observed_break_even_cycles": null
+    },
+    {
+      "archive": "alexpy-stream-windows-run44969442135.zip",
+      "sha256": "310e684d02103b10e00dcf2bfa1a20fd272f4537beb65d81f6ff0887bb29e0b6",
+      "run_id": 44969442135,
+      "host": {
+        "platform": "Windows-2025Server-10.0.26100-SP0",
+        "machine": "AMD64",
+        "processor": "AMD64 Family 25 Model 1 Stepping 1, AuthenticAMD",
+        "python": "3.13.17",
+        "implementation": "cpython",
+        "logical_cpus": 4,
+        "ci": true,
+        "github_runner_os": "Windows",
+        "github_runner_arch": "X64"
+      },
+      "calibration_wall_ns": 752233500,
+      "route_counts": {
+        "direct": 3,
+        "blocks": 0,
+        "fenwick": 0,
+        "prefix": 1
+      },
+      "cases": [
+        {
+          "size": 384,
+          "cycles": 1,
+          "median_online_speedup": 1.0492713393476751,
+          "gains_ns_by_process": [
+            14200.0,
+            7850.0,
+            12400.0
+          ]
+        },
+        {
+          "size": 384,
+          "cycles": 4,
+          "median_online_speedup": 0.9976608723570151,
+          "gains_ns_by_process": [
+            -2550.0,
+            17550.0,
+            -12650.0
+          ]
+        },
+        {
+          "size": 384,
+          "cycles": 16,
+          "median_online_speedup": 0.9984763311901931,
+          "gains_ns_by_process": [
+            -6600.0,
+            9800.0,
+            -148050.0
+          ]
+        }
+      ],
+      "pooled": [
+        {
+          "cycles": 1,
+          "online_savings_ns": 14200.0,
+          "calibration_ns": 752233500,
+          "net_savings_ns": -752219300.0,
+          "observed_paid_break_even": false,
+          "all_processes_online_gain": true
+        },
+        {
+          "cycles": 4,
+          "online_savings_ns": -2550.0,
+          "calibration_ns": 752233500,
+          "net_savings_ns": -752236050.0,
+          "observed_paid_break_even": false,
+          "all_processes_online_gain": false
+        },
+        {
+          "cycles": 16,
+          "online_savings_ns": -6600.0,
+          "calibration_ns": 752233500,
+          "net_savings_ns": -752240100.0,
+          "observed_paid_break_even": false,
+          "all_processes_online_gain": false
+        }
+      ],
+      "observed_break_even_cycles": null
+    }
+  ]
+}

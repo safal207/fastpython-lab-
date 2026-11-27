@@ -1,0 +1,84 @@
+{
+  "schema": "alexpy-bardo-native-memory/1",
+  "host": {
+    "system": "Linux",
+    "python": "3.13.5",
+    "machine": "x86_64",
+    "processor": "AMD EPYC 9V74 80-Core Processor"
+  },
+  "rows": [
+    {
+      "case": "medium-sparse",
+      "route": "c_tree",
+      "sessions": 3,
+      "peak_traced_bytes": [
+        155287,
+        157383,
+        155481
+      ],
+      "median_peak_traced_bytes": 155481,
+      "digest": 3906588467567405761
+    },
+    {
+      "case": "medium-sparse",
+      "route": "set",
+      "sessions": 3,
+      "peak_traced_bytes": [
+        190384,
+        189195,
+        188932
+      ],
+      "median_peak_traced_bytes": 189195,
+      "digest": 3906588467567405761
+    },
+    {
+      "case": "medium-sparse",
+      "route": "python_tree",
+      "sessions": 3,
+      "peak_traced_bytes": [
+        1362994,
+        1361115,
+        1361166
+      ],
+      "median_peak_traced_bytes": 1361166,
+      "digest": 3906588467567405761
+    },
+    {
+      "case": "large-sparse",
+      "route": "c_tree",
+      "sessions": 3,
+      "peak_traced_bytes": [
+        588364,
+        583400,
+        581979
+      ],
+      "median_peak_traced_bytes": 583400,
+      "digest": 7721457804990185875
+    },
+    {
+      "case": "large-sparse",
+      "route": "set",
+      "sessions": 3,
+      "peak_traced_bytes": [
+        615158,
+        604813,
+        606090
+      ],
+      "median_peak_traced_bytes": 606090,
+      "digest": 7721457804990185875
+    },
+    {
+      "case": "large-sparse",
+      "route": "python_tree",
+      "sessions": 3,
+      "peak_traced_bytes": [
+        4591348,
+        4591554,
+        4590084
+      ],
+      "median_peak_traced_bytes": 4591348,
+      "digest": 7721457804990185875
+    }
+  ],
+  "note": "Peak traced Python allocations in isolated interpreters; not RSS or full C heap memory."
+}

@@ -1,0 +1,65 @@
+{
+  "schema": "alexpy-bardo-native-witness/1",
+  "host": {
+    "system": "Linux",
+    "python": "3.13.5",
+    "machine": "x86_64",
+    "processor": "AMD EPYC 9V74 80-Core Processor"
+  },
+  "rows": [
+    {
+      "case": "small-hot",
+      "batch": 8,
+      "tests": 256,
+      "events": 1800,
+      "pairs": 1,
+      "samples_ns": {
+        "c_tree": [
+          1569884
+        ],
+        "set": [
+          2312086
+        ],
+        "python_tree": [
+          11065975
+        ]
+      },
+      "median_ns": {
+        "c_tree": 1569884,
+        "set": 2312086,
+        "python_tree": 11065975
+      },
+      "digest": 11963395168255294413,
+      "c_tree_vs_set": 1.472775058539357,
+      "python_tree_vs_c_tree": 7.048912531116949
+    },
+    {
+      "case": "medium-sparse",
+      "batch": 64,
+      "tests": 4096,
+      "events": 3200,
+      "pairs": 1,
+      "samples_ns": {
+        "c_tree": [
+          2243022
+        ],
+        "set": [
+          3240761
+        ],
+        "python_tree": [
+          38800167
+        ]
+      },
+      "median_ns": {
+        "c_tree": 2243022,
+        "set": 3240761,
+        "python_tree": 38800167
+      },
+      "digest": 3906588467567405761,
+      "c_tree_vs_set": 1.4448190878199143,
+      "python_tree_vs_c_tree": 17.29816604562951
+    }
+  ],
+  "comparison": "SAME native QA accumulator; Python set vs Python tree vs C tree",
+  "notes": "No tree promotion; synthetic QA stream; all processing and reports timed"
+}

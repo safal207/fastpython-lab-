@@ -1,0 +1,595 @@
+{
+  "schema": "ALEXPY-QA-NATIVE/1",
+  "type": "opt-in C extension",
+  "source": "synthetic CI events; not production logs",
+  "timing": "initialization + in-loop slicing, full validation, batches, reports and digest",
+  "semantics": "last write per ID per batch; atomic invalid event rejection",
+  "not_included": "fixture generation and correctness mirror (preflight)",
+  "summary": [
+    {
+      "case": "smoke-small",
+      "batch_size": 1,
+      "per_process_vs_python": [
+        1.8358982034554767,
+        3.022527029179903
+      ],
+      "median_vs_python": 2.42921261631769,
+      "all_processes_over_1_1": true,
+      "all_processes_below_0_9": false,
+      "per_process_vs_old_alexpy": [
+        2.788586687807217,
+        2.279325420129344
+      ],
+      "median_vs_old_alexpy": 2.5339560539682804
+    },
+    {
+      "case": "smoke-small",
+      "batch_size": 8,
+      "per_process_vs_python": [
+        1.8896454732935037,
+        1.3465101300213451
+      ],
+      "median_vs_python": 1.6180778016574244,
+      "all_processes_over_1_1": true,
+      "all_processes_below_0_9": false,
+      "per_process_vs_old_alexpy": [
+        3.2929863640645536,
+        1.760808434113187
+      ],
+      "median_vs_old_alexpy": 2.5268973990888703
+    },
+    {
+      "case": "smoke-small",
+      "batch_size": 64,
+      "per_process_vs_python": [
+        1.6860972877315321,
+        1.8967965921679864
+      ],
+      "median_vs_python": 1.7914469399497592,
+      "all_processes_over_1_1": true,
+      "all_processes_below_0_9": false,
+      "per_process_vs_old_alexpy": [
+        2.699266296343988,
+        4.183581158120893
+      ],
+      "median_vs_old_alexpy": 3.4414237272324404
+    },
+    {
+      "case": "smoke-retries",
+      "batch_size": 1,
+      "per_process_vs_python": [
+        1.5198355815396243,
+        1.2375492942238018
+      ],
+      "median_vs_python": 1.3786924378817131,
+      "all_processes_over_1_1": true,
+      "all_processes_below_0_9": false,
+      "per_process_vs_old_alexpy": [
+        2.8540193693742584,
+        2.290378214044778
+      ],
+      "median_vs_old_alexpy": 2.572198791709518
+    },
+    {
+      "case": "smoke-retries",
+      "batch_size": 8,
+      "per_process_vs_python": [
+        1.781099654939188,
+        1.8541040459883291
+      ],
+      "median_vs_python": 1.8176018504637586,
+      "all_processes_over_1_1": true,
+      "all_processes_below_0_9": false,
+      "per_process_vs_old_alexpy": [
+        3.097203324099942,
+        3.533491786369167
+      ],
+      "median_vs_old_alexpy": 3.3153475552345544
+    },
+    {
+      "case": "smoke-retries",
+      "batch_size": 64,
+      "per_process_vs_python": [
+        1.791703045189891,
+        1.6666752365930417
+      ],
+      "median_vs_python": 1.7291891408914664,
+      "all_processes_over_1_1": true,
+      "all_processes_below_0_9": false,
+      "per_process_vs_old_alexpy": [
+        2.4601604266560604,
+        2.4440358367528976
+      ],
+      "median_vs_old_alexpy": 2.4520981317044788
+    }
+  ],
+  "sessions": [
+    {
+      "python": "3.13.5",
+      "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+      "machine": "x86_64",
+      "native": true,
+      "cells": [
+        {
+          "case": "smoke-small",
+          "tests": 128,
+          "events": 160,
+          "batch_size": 1,
+          "digest": 16412147818691178191,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 537853,
+                "alexpy_batch": 790705,
+                "native_batch": 281085
+              },
+              "vs_python": 1.913488802319583,
+              "vs_old_alexpy": 2.8130458758026933
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 490341,
+                "native_batch": 278871,
+                "alexpy_batch": 770835
+              },
+              "vs_python": 1.7583076045913701,
+              "vs_old_alexpy": 2.764127499811741
+            }
+          ],
+          "median_vs_python": 1.8358982034554767,
+          "median_vs_old_alexpy": 2.788586687807217
+        },
+        {
+          "case": "smoke-small",
+          "tests": 128,
+          "events": 160,
+          "batch_size": 8,
+          "digest": 1409134188589900670,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 156025,
+                "alexpy_batch": 279142,
+                "native_batch": 84288
+              },
+              "vs_python": 1.8510938686408505,
+              "vs_old_alexpy": 3.311764426727411
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 155995,
+                "native_batch": 80902,
+                "alexpy_batch": 264890
+              },
+              "vs_python": 1.928197077946157,
+              "vs_old_alexpy": 3.274208301401696
+            }
+          ],
+          "median_vs_python": 1.8896454732935037,
+          "median_vs_old_alexpy": 3.2929863640645536
+        },
+        {
+          "case": "smoke-small",
+          "tests": 128,
+          "events": 160,
+          "batch_size": 64,
+          "digest": 1128300665930019633,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 105059,
+                "alexpy_batch": 167093,
+                "native_batch": 55063
+              },
+              "vs_python": 1.907978134137261,
+              "vs_old_alexpy": 3.0345785736338375
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 102665,
+                "native_batch": 70116,
+                "alexpy_batch": 165751
+              },
+              "vs_python": 1.464216441325803,
+              "vs_old_alexpy": 2.363954019054139
+            }
+          ],
+          "median_vs_python": 1.6860972877315321,
+          "median_vs_old_alexpy": 2.699266296343988
+        },
+        {
+          "case": "smoke-retries",
+          "tests": 256,
+          "events": 240,
+          "batch_size": 1,
+          "digest": 13237030925461232025,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 577202,
+                "alexpy_batch": 1095335,
+                "native_batch": 376789
+              },
+              "vs_python": 1.5318971626029423,
+              "vs_old_alexpy": 2.907024886607624
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 576131,
+                "native_batch": 382107,
+                "alexpy_batch": 1070287
+              },
+              "vs_python": 1.5077740004763063,
+              "vs_old_alexpy": 2.8010138521408923
+            }
+          ],
+          "median_vs_python": 1.5198355815396243,
+          "median_vs_old_alexpy": 2.8540193693742584
+        },
+        {
+          "case": "smoke-retries",
+          "tests": 256,
+          "events": 240,
+          "batch_size": 8,
+          "digest": 8754065240938282498,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 209787,
+                "alexpy_batch": 370109,
+                "native_batch": 119220
+              },
+              "vs_python": 1.7596628082536487,
+              "vs_old_alexpy": 3.1044203992618686
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 205801,
+                "native_batch": 114173,
+                "alexpy_batch": 352793
+              },
+              "vs_python": 1.8025365016247274,
+              "vs_old_alexpy": 3.089986248938015
+            }
+          ],
+          "median_vs_python": 1.781099654939188,
+          "median_vs_old_alexpy": 3.097203324099942
+        },
+        {
+          "case": "smoke-retries",
+          "tests": 256,
+          "events": 240,
+          "batch_size": 64,
+          "digest": 3786534937972358560,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 124848,
+                "alexpy_batch": 160132,
+                "native_batch": 65209
+              },
+              "vs_python": 1.9145823429281235,
+              "vs_old_alexpy": 2.4556732966308332
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 108053,
+                "native_batch": 64748,
+                "alexpy_batch": 159581
+              },
+              "vs_python": 1.6688237474516587,
+              "vs_old_alexpy": 2.4646475566812875
+            }
+          ],
+          "median_vs_python": 1.791703045189891,
+          "median_vs_old_alexpy": 2.4601604266560604
+        }
+      ]
+    },
+    {
+      "python": "3.13.5",
+      "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+      "machine": "x86_64",
+      "native": true,
+      "cells": [
+        {
+          "case": "smoke-small",
+          "tests": 128,
+          "events": 160,
+          "batch_size": 1,
+          "digest": 16412147818691178191,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 432915,
+                "alexpy_batch": 773048,
+                "native_batch": 273153
+              },
+              "vs_python": 1.5848810007578171,
+              "vs_old_alexpy": 2.830091560407537
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 2428310,
+                "native_batch": 544443,
+                "alexpy_batch": 941102
+              },
+              "vs_python": 4.460173057601989,
+              "vs_old_alexpy": 1.7285592798511507
+            }
+          ],
+          "median_vs_python": 3.022527029179903,
+          "median_vs_old_alexpy": 2.279325420129344
+        },
+        {
+          "case": "smoke-small",
+          "tests": 128,
+          "events": 160,
+          "batch_size": 8,
+          "digest": 1409134188589900670,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 221966,
+                "alexpy_batch": 522810,
+                "native_batch": 439595
+              },
+              "vs_python": 0.504932949646834,
+              "vs_old_alexpy": 1.189299241347149
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 325292,
+                "native_batch": 148665,
+                "alexpy_batch": 346734
+              },
+              "vs_python": 2.1880873103958565,
+              "vs_old_alexpy": 2.332317626879225
+            }
+          ],
+          "median_vs_python": 1.3465101300213451,
+          "median_vs_old_alexpy": 1.760808434113187
+        },
+        {
+          "case": "smoke-small",
+          "tests": 128,
+          "events": 160,
+          "batch_size": 64,
+          "digest": 1128300665930019633,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 107592,
+                "alexpy_batch": 171459,
+                "native_batch": 57778
+              },
+              "vs_python": 1.8621620686074285,
+              "vs_old_alexpy": 2.9675482017376855
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 104108,
+                "native_batch": 53902,
+                "alexpy_batch": 291050
+              },
+              "vs_python": 1.9314311157285444,
+              "vs_old_alexpy": 5.3996141145041
+            }
+          ],
+          "median_vs_python": 1.8967965921679864,
+          "median_vs_old_alexpy": 4.183581158120893
+        },
+        {
+          "case": "smoke-retries",
+          "tests": 256,
+          "events": 240,
+          "batch_size": 1,
+          "digest": 13237030925461232025,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 595971,
+                "alexpy_batch": 1074063,
+                "native_batch": 576852
+              },
+              "vs_python": 1.0331436833017829,
+              "vs_old_alexpy": 1.8619385908343908
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 580557,
+                "native_batch": 402618,
+                "alexpy_batch": 1094645
+              },
+              "vs_python": 1.4419549051458207,
+              "vs_old_alexpy": 2.718817837255165
+            }
+          ],
+          "median_vs_python": 1.2375492942238018,
+          "median_vs_old_alexpy": 2.290378214044778
+        },
+        {
+          "case": "smoke-retries",
+          "tests": 256,
+          "events": 240,
+          "batch_size": 8,
+          "digest": 8754065240938282498,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 226382,
+                "alexpy_batch": 398252,
+                "native_batch": 120291
+              },
+              "vs_python": 1.8819529308094538,
+              "vs_old_alexpy": 3.3107381267093965
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 210538,
+                "native_batch": 115284,
+                "alexpy_batch": 433035
+              },
+              "vs_python": 1.8262551611672044,
+              "vs_old_alexpy": 3.756245446028937
+            }
+          ],
+          "median_vs_python": 1.8541040459883291,
+          "median_vs_old_alexpy": 3.533491786369167
+        },
+        {
+          "case": "smoke-retries",
+          "tests": 256,
+          "events": 240,
+          "batch_size": 64,
+          "digest": 3786534937972358560,
+          "pairs": [
+            {
+              "order": [
+                "strong_batch",
+                "alexpy_batch",
+                "native_batch"
+              ],
+              "ns": {
+                "strong_batch": 111418,
+                "alexpy_batch": 162786,
+                "native_batch": 65990
+              },
+              "vs_python": 1.6884073344446129,
+              "vs_old_alexpy": 2.466828307319291
+            },
+            {
+              "order": [
+                "strong_batch",
+                "native_batch",
+                "alexpy_batch"
+              ],
+              "ns": {
+                "strong_batch": 108484,
+                "native_batch": 65950,
+                "alexpy_batch": 159681
+              },
+              "vs_python": 1.6449431387414708,
+              "vs_old_alexpy": 2.4212433661865047
+            }
+          ],
+          "median_vs_python": 1.6666752365930417,
+          "median_vs_old_alexpy": 2.4440358367528976
+        }
+      ]
+    }
+  ],
+  "pairs": 2,
+  "session_count": 2,
+  "smoke": true
+}

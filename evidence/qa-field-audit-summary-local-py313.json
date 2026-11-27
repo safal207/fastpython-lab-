@@ -1,0 +1,94 @@
+{
+  "schema": "ALEXPY-QA-FIELD-AUDIT-SUMMARY/1",
+  "host": {
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "python": "3.13.5",
+    "cpu_model": "AMD EPYC 9V74 80-Core Processor"
+  },
+  "sessions_per_route": 3,
+  "scenario_count": 3,
+  "recorded_job_records": 24,
+  "recorded_unique_jobs": 6,
+  "measurement_contract": "isolated subprocess per route; preflight full scan and independent digest before workers; tracemalloc and RSS measured only during engine replay; fixture creation excluded",
+  "warning": "tracemalloc does not cover every native allocator; RSS includes runtime/imports; instrumented time is NOT a comparable speed benchmark",
+  "results": [
+    {
+      "case": "smoke-retries",
+      "batch_size": 64,
+      "sessions": 3,
+      "routes": {
+        "native_batch": {
+          "peak_traced_bytes": 22642,
+          "rss_peak_bytes": 98844672,
+          "rss_current_delta_bytes": 12288,
+          "rss_growth_bytes": 0
+        },
+        "strong_batch": {
+          "peak_traced_bytes": 11456,
+          "rss_peak_bytes": 98844672,
+          "rss_current_delta_bytes": 12288,
+          "rss_growth_bytes": 0
+        },
+        "alexpy_batch": {
+          "peak_traced_bytes": 15824,
+          "rss_peak_bytes": 98844672,
+          "rss_current_delta_bytes": 28672,
+          "rss_growth_bytes": 0
+        }
+      },
+      "source_file": "qa-field-audit-smoke-local.json"
+    },
+    {
+      "case": "medium-mixed",
+      "batch_size": 64,
+      "sessions": 3,
+      "routes": {
+        "native_batch": {
+          "peak_traced_bytes": 222094,
+          "rss_peak_bytes": 100286464,
+          "rss_current_delta_bytes": 217088,
+          "rss_growth_bytes": 0
+        },
+        "strong_batch": {
+          "peak_traced_bytes": 117580,
+          "rss_peak_bytes": 100286464,
+          "rss_current_delta_bytes": 118784,
+          "rss_growth_bytes": 0
+        },
+        "alexpy_batch": {
+          "peak_traced_bytes": 164464,
+          "rss_peak_bytes": 100286464,
+          "rss_current_delta_bytes": 208896,
+          "rss_growth_bytes": 0
+        }
+      },
+      "source_file": "qa-field-audit-medium-local.json"
+    },
+    {
+      "case": "recorded-actions",
+      "batch_size": 4,
+      "sessions": 3,
+      "routes": {
+        "native_batch": {
+          "peak_traced_bytes": 3603,
+          "rss_peak_bytes": 98725888,
+          "rss_current_delta_bytes": 12288,
+          "rss_growth_bytes": 0
+        },
+        "strong_batch": {
+          "peak_traced_bytes": 2656,
+          "rss_peak_bytes": 98729984,
+          "rss_current_delta_bytes": 12288,
+          "rss_growth_bytes": 0
+        },
+        "alexpy_batch": {
+          "peak_traced_bytes": 4524,
+          "rss_peak_bytes": 98725888,
+          "rss_current_delta_bytes": 28672,
+          "rss_growth_bytes": 0
+        }
+      },
+      "source_file": "qa-field-audit-recorded-local.json"
+    }
+  ]
+}
